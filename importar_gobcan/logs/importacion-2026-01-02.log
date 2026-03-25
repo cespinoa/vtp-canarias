@@ -1,0 +1,39 @@
+2026-01-02 19:04:10 | INICIO PROCESO | Nueva ejecución limpia: descargando y preparando datos
+2026-01-02 19:04:11 | DESCARGA vv | ÉXITO
+2026-01-02 19:04:12 | DESCARGA ap | ÉXITO
+2026-01-02 19:04:13 | DESCARGA ht | ÉXITO
+2026-01-02 19:04:13 | FUSIÓN AT | ÉXITO: 3616 registros
+2026-01-02 19:04:15 | PROCESO VV | ÉXITO: 74503 registros
+2026-01-02 19:04:15 | FIN PROCESO | Ficheros temporales listos para Script 03
+2026-01-02 19:09:33 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-02 19:09:36 | INGESTA VV | Cargados 74504 registros correctamente.
+2026-01-02 19:09:36 | INGESTA AT | Cargados 3616 registros correctamente.
+2026-01-02 19:09:36 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-02 19:11:28 | ADUANA_GOBCAN | Anulados 24979 registros gamberros con coordenadas fuera de límites.
+2026-01-02 19:18:46 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-02 19:18:49 | INGESTA VV | Cargados 74504 registros correctamente.
+2026-01-02 19:18:49 | INGESTA AT | Cargados 3616 registros correctamente.
+2026-01-02 19:18:49 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-02 19:23:16 | ADUANA_GOBCAN | Anulados 24979 registros gamberros con coordenadas fuera de límites.
+2026-01-02 19:45:02 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-02 19:45:05 | INGESTA VV | Cargados 74504 registros correctamente.
+2026-01-02 19:45:05 | INGESTA AT | Cargados 3616 registros correctamente.
+2026-01-02 19:45:05 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-02 19:45:14 | ADUANA_GOBCAN | Anulados 24978 registros fuera del Bounding Box de Canarias.
+2026-01-02 19:48:25 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-02 19:48:28 | INGESTA VV | Cargados 74504 registros correctamente.
+2026-01-02 19:48:28 | INGESTA AT | Cargados 3616 registros correctamente.
+2026-01-02 19:48:28 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-02 19:48:35 | ADUANA_GOBCAN | Anulados 24978 registros fuera del Bounding Box de Canarias.
+2026-01-02 19:53:55 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-02 19:53:58 | INGESTA VV | Cargados 74504 registros correctamente.
+2026-01-02 19:53:58 | INGESTA AT | Cargados 3616 registros correctamente.
+2026-01-02 19:53:58 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-02 19:54:06 | ADUANA_GOBCAN | Anulados 85 gamberros reales.
+2026-01-02 19:58:06 | GEOCOD_TURBO_CP | Total registros rescatados por CP: 6637
+2026-01-02 20:18:55 | GEOCOD_TURBO_MUNI | Rescatados por municipio: 8627
+2026-01-02 20:21:21 | INICIO_CASCADA_FINAL | Iniciando proceso de rescate por centroides
+2026-01-02 20:21:22 | RESCATE_LOCALIDAD | Rescatados: 1781
+2026-01-02 20:21:22 | RESCATE_CP_MUNI | Rescatados: 7760
+2026-01-02 20:21:22 | FIN_CASCADA | No localizados finales: 173
+2026-01-02 20:25:13 | AUDITORIA_FINAL | Validados: 76329

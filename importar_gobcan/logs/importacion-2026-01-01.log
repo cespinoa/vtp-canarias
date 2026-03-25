@@ -1,0 +1,48 @@
+2026-01-01 16:27:40 | INICIO PROCESO | Nueva ejecución limpia: descargando datos del GobCan
+2026-01-01 16:27:44 | DESCARGA vv | EXITO: Guardado como vv-2026-01-01.csv
+2026-01-01 16:27:45 | DESCARGA ap | EXITO: Guardado como ap-2026-01-01.csv
+2026-01-01 16:27:46 | DESCARGA ht | EXITO: Guardado como ht-2026-01-01.csv
+2026-01-01 16:27:46 | FIN PROCESO | Script 01 finalizado correctamente
+2026-01-01 16:27:49 | INICIO SCRIPT 02 | Iniciando corrección y fusión de archivos
+2026-01-01 21:51:08 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 22:16:16 | INICIO SCRIPT 04 | Geocodificando altas mediante callejero_portales
+2026-01-01 22:16:17 | GEO VV | Encontrados en callejero: 96
+2026-01-01 22:16:17 | FIN GEO VV | Total geocodificados: 70 / 474
+2026-01-01 22:16:17 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 22:19:01 | INICIO SCRIPT 04 | Geocodificando altas mediante callejero_portales
+2026-01-01 22:19:02 | GEO VV | Encontrados en callejero: 88
+2026-01-01 22:19:02 | FIN GEO VV | Total geocodificados: 63 / 474
+2026-01-01 22:19:02 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 22:22:28 | INICIO SCRIPT 04 | Geocodificando altas mediante callejero_portales
+2026-01-01 22:22:29 | GEO VV | Encontrados en callejero: 88
+2026-01-01 22:22:29 | FIN GEO VV | Total geocodificados: 63 / 474
+2026-01-01 22:22:29 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 22:24:43 | INICIO SCRIPT 04 | Geocodificando altas mediante callejero_portales
+2026-01-01 22:24:44 | GEO VV | Encontrados en callejero: 88
+2026-01-01 22:24:44 | FIN GEO VV | Total geocodificados: 63 / 474
+2026-01-01 22:24:44 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 22:25:54 | INICIO SCRIPT 04 | Geocodificando altas mediante callejero_portales
+2026-01-01 22:25:54 | GEO VV | Encontrados en callejero: 96
+2026-01-01 22:25:54 | FIN GEO VV | Total geocodificados: 70 / 474
+2026-01-01 22:25:55 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 22:27:20 | FUZZY VV | Rescatados: 140
+2026-01-01 22:32:40 | FUZZY VV | Rescatados: 162
+2026-01-01 22:43:06 | FUZZY VV | Rescatados: 142
+2026-01-01 22:54:30 | FUZZY VV | Rescatados: 106
+2026-01-01 22:56:04 | FUZZY VV | Rescatados: 106
+2026-01-01 22:58:07 | FUZZY VV | Rescatados: 200
+
+
+
+
+
+2026-01-01 23:08:26 | INICIO SCRIPT 04 | Geocodificando altas mediante callejero_portales
+2026-01-01 23:08:26 | GEO VV | Encontrados en callejero: 109
+2026-01-01 23:08:27 | FIN GEO VV | Total geocodificados: 79 / 474
+2026-01-01 23:08:27 | FIN GEO AT | Total geocodificados: 1 / 1
+2026-01-01 23:08:43 | FUZZY VV | Rescatados: 170
+2026-01-01 23:38:16 | FUZZY VV | Rescatados: 171
+2026-01-01 23:45:38 | FUZZY VV | Rescatados: 153
+2026-01-01 23:46:34 | FUZZY VV | Rescatados: 164
+2026-01-01 23:47:11 | FUZZY VV | Rescatados: 171
+2026-01-01 23:54:26 | FUZZY VV | Rescatados: 179

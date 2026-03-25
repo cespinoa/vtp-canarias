@@ -1,0 +1,92 @@
+2026-01-04 12:18:40 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 12:19:39 | INGESTA VV | Cargados 74504
+2026-01-04 12:19:43 | INGESTA AT | Cargados 3616
+2026-01-04 12:19:43 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 12:21:42 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 12:22:40 | INGESTA VV | Cargados 74504
+2026-01-04 12:22:44 | INGESTA AT | Cargados 3616
+2026-01-04 12:22:44 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 12:27:55 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 12:28:54 | INGESTA VV | Cargados 74504
+2026-01-04 12:28:57 | INGESTA AT | Cargados 3616
+2026-01-04 12:28:57 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 20:23:08 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 20:24:12 | INGESTA VV | Cargados 74504
+2026-01-04 20:24:16 | INGESTA AT | Cargados 3616
+2026-01-04 20:24:16 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 20:57:01 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 20:58:05 | INGESTA VV | Cargados 74504
+2026-01-04 20:58:09 | INGESTA AT | Cargados 3616
+2026-01-04 20:58:09 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 21:34:13 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 21:35:17 | INGESTA VV | Cargados 74504
+2026-01-04 21:35:20 | INGESTA AT | Cargados 3616
+2026-01-04 21:41:58 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 21:43:02 | INGESTA VV | Cargados 74504
+2026-01-04 21:43:05 | INGESTA AT | Cargados 3616
+2026-01-04 22:06:48 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 22:07:52 | INGESTA VV | Cargados 74504
+2026-01-04 22:07:56 | INGESTA AT | Cargados 3616
+2026-01-04 22:12:53 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 22:13:57 | INGESTA VV | Cargados 74504
+2026-01-04 22:14:00 | INGESTA AT | Cargados 3616
+2026-01-04 22:14:04 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-04 22:14:04.996369]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-04 22:14:04 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-04 22:14:04 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-04 22:14:05 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 22:27:24 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:31:29 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:31:29 | INFO | Registros con localidad encontrados para procesar: 0
+2026-01-04 22:31:29 | INFO | RESUMEN 02-A: 0 de 0 localizados (0%).
+2026-01-04 22:40:48 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:41:50 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:41:50 | INFO | Registros con localidad encontrados para procesar: 2750
+2026-01-04 22:43:22 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:43:22 | INFO | Registros con localidad encontrados para procesar: 2750
+2026-01-04 22:45:18 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:46:33 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:47:20 | INFO | Iniciando Fase 02-A: Geocodificación con Localidad Exacta.
+2026-01-04 22:47:50 | INFO | RESUMEN 02-A: 1 geocodificados de 2750 intentados.
+2026-01-04 23:06:05 | ADUANA_GOBCAN | Anulados 85 gamberros reales.
+2026-01-04 23:11:10 | GEOCOD_TURBO_CP | Total registros rescatados por CP: 6637
+2026-01-04 23:16:33 | INFO | Iniciando Fase 02-A: Rescate Turbo con Localidad y Municipio.
+2026-01-04 23:16:58 | INFO | Iniciando Fase 02-A: Rescate Turbo con Localidad y Municipio.
+2026-01-04 23:29:47 | INFO | Finalizado 02-A. Total: 0
+2026-01-04 23:40:56 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-04 23:42:00 | INGESTA VV | Cargados 74504
+2026-01-04 23:42:04 | INGESTA AT | Cargados 3616
+2026-01-04 23:42:08 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-04 23:42:08.464499]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-04 23:42:10 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24893
+2026-01-04 23:42:10 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-04 23:42:10 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-04 23:42:10 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-04 23:48:43 | GEOCOD_TURBO_LOCALIDAD | Total rescatados por Localidad: 421
+2026-01-04 23:56:18 | GEOCOD_TURBO_LOCALIDAD | Total rescatados por Localidad: 737

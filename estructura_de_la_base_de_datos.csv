@@ -1,0 +1,888 @@
+"tipo_fuente","esquema","nombre","descripcion_objeto","columna","tipo","permite_nulos","es_clave_primaria","tabla_destino","columna_destino","descripcion_columna"
+"TABLA","public","alojamientos",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"establecimiento_id","character varying","NO","NO",NULL,NULL,"Clave única de registro oficial. Impide la duplicidad de licencias en la base de datos."
+"TABLA","public","alojamientos",NULL,"nombre_comercial","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"isla_id","integer","YES","NO","islas","id",NULL
+"TABLA","public","alojamientos",NULL,"municipio_id","integer","YES","NO","municipios","id",NULL
+"TABLA","public","alojamientos",NULL,"localidad_id","integer","YES","NO","localidades","id",NULL
+"TABLA","public","alojamientos",NULL,"modalidad_id","integer","YES","NO","modalidades","id",NULL
+"TABLA","public","alojamientos",NULL,"tipologia_id","integer","YES","NO","tipologias","id",NULL
+"TABLA","public","alojamientos",NULL,"clasificacion_id","integer","YES","NO","clasificaciones","id",NULL
+"TABLA","public","alojamientos",NULL,"tipo_oferta","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"unidades_explotacion","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"plazas_estimadas","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"muni_original_gobcan","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"muni_detectado_geo","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"direccion_original","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"direccion_match","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"distancia_fuzzy","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"fuente_geocodigo","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"metodo_localidad","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"geo_erronea_gobcan","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"modalidad_original","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"tipologia_original","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"clasificacion_original","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"audit_resultado","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"audit_nota","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"fecha_alta","date","YES","NO",NULL,NULL,"Fecha de ingreso en este censo auditado. Por defecto toma la fecha del día de proceso."
+"TABLA","public","alojamientos",NULL,"fecha_baja","date","YES","NO",NULL,NULL,"Fecha en la que el establecimiento deja de estar operativo o desaparece del registro oficial."
+"TABLA","public","alojamientos",NULL,"fecha_sistema","timestamp without time zone","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"en_area_turistica","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","alojamientos",NULL,"geocode_area_turistica","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"establecimiento_id","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"direccion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"isla_id","integer","YES","NO","islas","id",NULL
+"TABLA","public","at_canarias",NULL,"municipio_id","integer","YES","NO","municipios","id",NULL
+"TABLA","public","at_canarias",NULL,"localidad_id","integer","YES","NO","localidades","id",NULL
+"TABLA","public","at_canarias",NULL,"codigo_postal","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"fuente_geocodificacion","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"fuente_localidad","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"modalidad_id","integer","YES","NO","modalidades","id",NULL
+"TABLA","public","at_canarias",NULL,"tipologia_id","integer","YES","NO","tipologias","id",NULL
+"TABLA","public","at_canarias",NULL,"clasificacion_id","integer","YES","NO","clasificaciones","id",NULL
+"TABLA","public","at_canarias",NULL,"fecha_alta","date","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"fecha_baja","date","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"activa","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias",NULL,"en_area_turistica","boolean","YES","NO",NULL,NULL,"El establecimiento se encuentra en un microdestino turístico"
+"TABLA","public","at_canarias",NULL,"geocode_area_turistica","text","YES","NO",NULL,NULL,"Código del microdestino turístico (geocode)"
+"TABLA","public","at_canarias",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias_no_microdestino","Resumen de plazas de oferta reglada situadas fuera de microdestinos turísticos (suelo residencial/rural)","isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias_no_microdestino","Resumen de plazas de oferta reglada situadas fuera de microdestinos turísticos (suelo residencial/rural)","municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias_no_microdestino","Resumen de plazas de oferta reglada situadas fuera de microdestinos turísticos (suelo residencial/rural)","geocode_area_turistica","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias_no_microdestino","Resumen de plazas de oferta reglada situadas fuera de microdestinos turísticos (suelo residencial/rural)","total_plazas_no_turisticas","bigint","YES","NO",NULL,NULL,NULL
+"TABLA","public","at_canarias_no_microdestino","Resumen de plazas de oferta reglada situadas fuera de microdestinos turísticos (suelo residencial/rural)","total_establecimientos","bigint","YES","NO",NULL,NULL,NULL
+"TABLA","public","base_snapshots",NULL,"id","integer","NO","SÍ",NULL,NULL,"Generado por el sistema"
+"TABLA","public","base_snapshots",NULL,"ambito","character varying","NO","NO",NULL,NULL,"Capa en la jerarquía"
+"TABLA","public","base_snapshots",NULL,"isla_id","integer","YES","NO","islas","id","Asociado a islas.id"
+"TABLA","public","base_snapshots",NULL,"municipio_id","integer","YES","NO","municipios","id","Asociado a municipios.id"
+"TABLA","public","base_snapshots",NULL,"localidad_id","integer","YES","NO","localidades","id","Asociado a localidades.id"
+"TABLA","public","base_snapshots",NULL,"fecha_calculo","timestamp without time zone","YES","NO",NULL,NULL,"Fecha de proceso"
+"TABLA","public","base_snapshots",NULL,"superficie_km2","numeric","YES","NO",NULL,NULL,"Obtenido de superficies.superficie /100"
+"TABLA","public","base_snapshots",NULL,"poblacion","integer","YES","NO",NULL,NULL,"Obtenido de poblacion.valor"
+"TABLA","public","base_snapshots",NULL,"poblacion_year","integer","YES","NO",NULL,NULL,"Obtenido de poblacion.year"
+"TABLA","public","base_snapshots",NULL,"viviendas_total","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.total"
+"TABLA","public","base_snapshots",NULL,"viviendas_vacias","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.vacias"
+"TABLA","public","base_snapshots",NULL,"viviendas_esporadicas","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.esporadicas"
+"TABLA","public","base_snapshots",NULL,"viviendas_habituales","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.habituales"
+"TABLA","public","base_snapshots",NULL,"pte_r","numeric","YES","NO",NULL,NULL,"Obtenido de pte_reglada.pte_reglada"
+"TABLA","public","base_snapshots",NULL,"pte_r_year","integer","YES","NO",NULL,NULL,"Obtenido de pte_reglada.year"
+"TABLA","public","base_snapshots",NULL,"pte_v","numeric","YES","NO",NULL,NULL,"Obtenido de pte_vacacional.ptev"
+"TABLA","public","base_snapshots",NULL,"pte_v_periodo","character varying","YES","NO",NULL,NULL,"Obtenido de pte_vacacional.year + pte_vacacional.mes"
+"TABLA","public","base_snapshots",NULL,"etiqueta","character varying","YES","NO",NULL,NULL,"Obtenido de Campo nombre en islas, municipios, localidades + Canarias"
+"TABLA","public","base_snapshots",NULL,"personas_por_hogar","numeric","YES","NO",NULL,NULL,"Obtenido de hogares.miembros"
+"TABLA","public","base_snapshots",NULL,"personas_por_hogar_year","timestamp without time zone","YES","NO",NULL,NULL,"Obtenido de hogares.year"
+"TABLA","public","base_snapshots",NULL,"uds_vv_turisticas","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Cuenta de las viviendas vacacionales en microdestinos"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Cuenta de las viviendas vacacionales fuera de microdestinos"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_turisticas","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de viviendas vacacionales en microdestinos"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de viviendas vacacionales fuera de microdestinos"
+"TABLA","public","base_snapshots",NULL,"plazas_at_turisticas","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de alojamiento reglado en destinos turísticos"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de alojamiento reglado fuera destinos turísticos"
+"TABLA","public","base_snapshots",NULL,"pte_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r + pte_v"
+"TABLA","public","base_snapshots",NULL,"uds_vv_total","integer","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_turisticas + uds_vv_residenciales"
+"TABLA","public","base_snapshots",NULL,"plazas_vacacionales","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales +  plazas_vv_turisticas"
+"TABLA","public","base_snapshots",NULL,"plazas_regladas","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_residenciales + plazas_at_turisticas"
+"TABLA","public","base_snapshots",NULL,"plazas_total","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vacacionales + plazas_regladas"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_residencial","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales +  plazas_at_residenciales"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_turistico","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_turisticas + plazas_at_turisticas"
+"TABLA","public","base_snapshots",NULL,"consumidores_vivienda","integer","YES","NO",NULL,NULL,"Dato calculado =  poblacion + pte_v"
+"TABLA","public","base_snapshots",NULL,"poblacion_total","integer","YES","NO",NULL,NULL,"Dato calculado =  poblacion + pte_total"
+"TABLA","public","base_snapshots",NULL,"vhabituales_habitantes","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_habituales / poblacion * 100"
+"TABLA","public","base_snapshots",NULL,"vhabituales_consumidores","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_habituales / consumidores_vivienda * 100"
+"TABLA","public","base_snapshots",NULL,"cobertura_demanda_viviendas","numeric","YES","NO",NULL,NULL,"Dato calculado =  (consumidores_vivienda / personas_por_hogar) – viviendas_habituales"
+"TABLA","public","base_snapshots",NULL,"rit_r","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / poblacion * 100"
+"TABLA","public","base_snapshots",NULL,"rit_v","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / poblacion * 100"
+"TABLA","public","base_snapshots",NULL,"rit","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_total / poblacion * 100"
+"TABLA","public","base_snapshots",NULL,"rit_r_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / superficie_km2"
+"TABLA","public","base_snapshots",NULL,"rit_v_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / superficie_km2"
+"TABLA","public","base_snapshots",NULL,"rit_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_total / superficie_km2"
+"TABLA","public","base_snapshots",NULL,"residentes_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  poblacion / superficie_km2"
+"TABLA","public","base_snapshots",NULL,"presion_humana_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  poblacion_total / superficie_km2"
+"TABLA","public","base_snapshots",NULL,"vacacional_por_viviendas_habituales","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_total / viviendas_habituales * 100"
+"TABLA","public","base_snapshots",NULL,"vacacional_por_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_total / viviendas_total * 100"
+"TABLA","public","base_snapshots",NULL,"uds_vv_habitantes","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_total / poblacion * 100"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales_habitantes","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_residenciales / poblacion * 100"
+"TABLA","public","base_snapshots",NULL,"deficit_oferta_viviendas","numeric","YES","NO",NULL,NULL,"(viviendas_necesarias - viviendas_disponibles) / viviendas_disponibles * 100"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_residenciales / uds_vv_total * 100"
+"TABLA","public","base_snapshots",NULL,"uds_vv_turisticas_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_turisticas / uds_vv_total * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales / plazas_vacacionales * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_turisticas_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_turisticas / plazas_vacacionales * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_residenciales / plazas_regladas * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_at_turisticas_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_turisticas / plazas_regladas * 100"
+"TABLA","public","base_snapshots",NULL,"pte_v_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / pte_total * 100"
+"TABLA","public","base_snapshots",NULL,"pte_r_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / pte_total * 100"
+"TABLA","public","base_snapshots",NULL,"pte_v_total_poblacion_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / (pte_total + poblacion) * 100"
+"TABLA","public","base_snapshots",NULL,"pte_r_total_poblacion_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / (pte_total + poblacion) * 100"
+"TABLA","public","base_snapshots",NULL,"poblacion_total_poblacion_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  poblacion / (poblacion_total) * 100"
+"TABLA","public","base_snapshots",NULL,"viviendas_vacias_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_vacias / viviendas_total * 100"
+"TABLA","public","base_snapshots",NULL,"viviendas_esporadicas_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_esporadicas / viviendas_total*100"
+"TABLA","public","base_snapshots",NULL,"viviendas_habituales_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_habituales / viviendas_total * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_vacacionales_plazas_total_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vacacionales / plazas_total *100"
+"TABLA","public","base_snapshots",NULL,"plazas_regladas_plazas_total_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_regladas / plazas_total *100"
+"TABLA","public","base_snapshots",NULL,"rit_km2_presion_humana_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  rit_km2 / presion_humana_km2 * 100"
+"TABLA","public","base_snapshots",NULL,"residentes_km2_presion_humana_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  residentes_km2 / presion_humana_km2 * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales_oferta_en_residencial","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_residenciales / plazas_suelo_residencial"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales_oferta_en_residencial","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales / plazas_suelo_residencial"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_residencial_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_suelo_residencial / plazas_total * 100"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_turistico_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_suelo_turistico / plazas_total * 100"
+"TABLA","public","base_snapshots",NULL,"rit_r_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_r)"
+"TABLA","public","base_snapshots",NULL,"rit_v_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_v)"
+"TABLA","public","base_snapshots",NULL,"rit_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit)"
+"TABLA","public","base_snapshots",NULL,"rit_r_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_r_km2)"
+"TABLA","public","base_snapshots",NULL,"rit_v_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_v_km2)"
+"TABLA","public","base_snapshots",NULL,"rit_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_km2)"
+"TABLA","public","base_snapshots",NULL,"residentes_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(residentes_km2)"
+"TABLA","public","base_snapshots",NULL,"presion_humana_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(presion_humana_km2)"
+"TABLA","public","base_snapshots",NULL,"vacacional_por_viviendas_habituales_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(vacacional_por_viviendas_habituales)"
+"TABLA","public","base_snapshots",NULL,"vacacional_por_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(vacacional_por_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_habitantes_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_habitantes)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales_habitantes_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_residenciales_habitantes)"
+"TABLA","public","base_snapshots",NULL,"deficit_oferta_viviendas_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(r_deficit_oferta_viviendas)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_residenciales_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"uds_vv_turisticas_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_turisticas_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vv_residenciales_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_turisticas_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vv_turisticas_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_at_residenciales_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_at_turisticas_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_at_turisticas_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"pte_v_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_v_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"pte_r_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_r_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"pte_v_total_poblacion_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_v_total_poblacion_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"pte_r_total_poblacion_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_r_total_poblacion_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"poblacion_total_poblacion_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(poblacion_total_poblacion_porc)"
+"TABLA","public","base_snapshots",NULL,"viviendas_vacias_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(viviendas_vacias_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"viviendas_esporadicas_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(viviendas_esporadicas_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"viviendas_habituales_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(viviendas_habituales_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"plazas_vacacionales_plazas_total_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vacacionales_plazas_total_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_regladas_plazas_total_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_regladas_plazas_total_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"rit_km2_presion_humana_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_km2_presion_humana_km2)"
+"TABLA","public","base_snapshots",NULL,"residentes_km2_presion_humana_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(residentes_km2_presion_humana_km2)"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales_oferta_en_residencial_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_at_residenciales_oferta_en_residencial) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales_oferta_en_residencial_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vv_residenciales_oferta_en_residencial) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_residencial_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_suelo_residencial_porc) | Excluyendo valores 14"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_turistico_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_suelo_turistico_porc) | Excluyendo valores 100"
+"TABLA","public","base_snapshots",NULL,"rit_r_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_r)"
+"TABLA","public","base_snapshots",NULL,"rit_v_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_v)"
+"TABLA","public","base_snapshots",NULL,"rit_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit)"
+"TABLA","public","base_snapshots",NULL,"rit_r_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_r_km2)"
+"TABLA","public","base_snapshots",NULL,"rit_v_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_v_km2)"
+"TABLA","public","base_snapshots",NULL,"rit_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_km2)"
+"TABLA","public","base_snapshots",NULL,"residentes_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(residentes_km2)"
+"TABLA","public","base_snapshots",NULL,"presion_humana_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(presion_humana_km2)"
+"TABLA","public","base_snapshots",NULL,"vacacional_por_viviendas_habituales_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(vacacional_por_viviendas_habituales)"
+"TABLA","public","base_snapshots",NULL,"vacacional_por_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(vacacional_por_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_habitantes_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_habitantes)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales_habitantes_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_residenciales_habitantes)"
+"TABLA","public","base_snapshots",NULL,"deficit_oferta_viviendas_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(r_deficit_oferta_viviendas)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_residenciales_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_residenciales_porc)"
+"TABLA","public","base_snapshots",NULL,"uds_vv_turisticas_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_turisticas_porc)"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vv_residenciales_porc)"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_turisticas_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vv_turisticas_porc)"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_at_residenciales_porc)"
+"TABLA","public","base_snapshots",NULL,"plazas_at_turisticas_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_at_turisticas_porc)"
+"TABLA","public","base_snapshots",NULL,"pte_v_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_v_porc)"
+"TABLA","public","base_snapshots",NULL,"pte_r_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_r_porc)"
+"TABLA","public","base_snapshots",NULL,"pte_v_total_poblacion_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_v_total_poblacion_porc)"
+"TABLA","public","base_snapshots",NULL,"pte_r_total_poblacion_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_r_total_poblacion_porc)"
+"TABLA","public","base_snapshots",NULL,"poblacion_total_poblacion_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(poblacion_total_poblacion_porc)"
+"TABLA","public","base_snapshots",NULL,"viviendas_vacias_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(viviendas_vacias_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"viviendas_esporadicas_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(viviendas_esporadicas_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"viviendas_habituales_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(viviendas_habituales_viviendas_total)"
+"TABLA","public","base_snapshots",NULL,"plazas_vacacionales_plazas_total_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vacacionales_plazas_total_porc)"
+"TABLA","public","base_snapshots",NULL,"plazas_regladas_plazas_total_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_regladas_plazas_total_porc)"
+"TABLA","public","base_snapshots",NULL,"rit_km2_presion_humana_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado =  avg(rit_km2_presion_humana_km2)"
+"TABLA","public","base_snapshots",NULL,"residentes_km2_presion_humana_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(residentes_km2_presion_humana_km2)"
+"TABLA","public","base_snapshots",NULL,"plazas_at_residenciales_oferta_en_residencial_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_at_residenciales_oferta_en_residencial)"
+"TABLA","public","base_snapshots",NULL,"plazas_vv_residenciales_oferta_en_residencial_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vv_residenciales_oferta_en_residencial)"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_residencial_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_suelo_residencial_porc)"
+"TABLA","public","base_snapshots",NULL,"plazas_suelo_turistico_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_suelo_turistico_porc)"
+"TABLA","public","base_snapshots",NULL,"tipo_municipio","character varying","YES","NO",NULL,NULL,"Define el tipo de municipio para segmentar los max y avg"
+"TABLA","public","base_snapshots",NULL,"etiqueta_ambito_superior","character varying","YES","NO",NULL,NULL,"Recoge el nombre del item de ámbito superior"
+"TABLA","public","base_snapshots",NULL,"viviendas_disponibles","integer","YES","NO",NULL,NULL,"viviendas_habituales – uds_vv_residenciales"
+"TABLA","public","base_snapshots",NULL,"viviendas_necesarias","integer","YES","NO",NULL,NULL,"poblacion / personas_por_hogar"
+"TABLA","public","base_snapshots",NULL,"deficit_viviendas","integer","YES","NO",NULL,NULL,"viviendas_disponibles – viviendas_necesarias"
+"TABLA","public","base_snapshots",NULL,"tipo_isla","character varying","YES","NO",NULL,NULL,"Clasificación geográfica: central, occidental, oriental"
+"TABLA","public","callejero_portales",NULL,"id_porpk","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"tipo","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"tipo_vial","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"nombre_via","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"numero","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"extension","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"id_pob","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"poblacion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"cod_postal","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"ine_mun","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"municipio","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"provincia","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"comunidad_autonoma","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"fuente_datos","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"fecha_modificacion","timestamp with time zone","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"dir_normalizada","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"loca_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"nombre_via_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","callejero_portales",NULL,"num_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","canarias",NULL,"id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","canarias",NULL,"nombre","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","canarias",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_cp",NULL,"cod_postal","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_cp",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_cp",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_cp",NULL,"num_portales_usados","bigint","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"nombre_loca","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"loca_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_localidad",NULL,"warning_audit","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_municipio",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","centroides_municipio",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_municipio",NULL,"nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_municipio",NULL,"muni_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","centroides_municipio",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","clasificaciones",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","clasificaciones",NULL,"tipologia_id","integer","YES","NO","tipologias","id",NULL
+"TABLA","public","clasificaciones",NULL,"nombre","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","codigos_postales",NULL,"codigo_postal","character varying","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","codigos_postales",NULL,"isla","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","codigos_postales",NULL,"municipio","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","codigos_postales",NULL,"num_registros","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"establecimiento_id","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"establecimiento_nombre_comercial","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"establecimiento_modalidad","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"establecimiento_tipologia","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"establecimiento_clasificacion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion_isla_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion_provincia_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion_municipio_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion_localidad_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion_codigo_postal","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"numero_dormitorios_individuales_explotacion","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"numero_dormitorios_dobles_explotacion","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"fuente_geocodificacion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"dir_busqueda_fuzzy","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"direccion_match","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"distancia_fuzzy","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","debug_geocodificacion",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"geocode","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"etiqueta","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"granularidad","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"gcd_isla","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"superficie","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"perimetro","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"utm_x","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"utm_y","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"geometria","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"turistica","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","destinos_turisticos",NULL,"isla_id","integer","YES","NO","islas","id","ID de la isla vinculada a través del municipio."
+"TABLA","public","destinos_turisticos",NULL,"municipio_id","integer","YES","NO","municipios","id","ID del municipio asignado mediante cruce geográfico (ST_Contains)."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","id_campo","character varying","NO","SÍ",NULL,NULL,"Clave única que coincide exactamente con el nombre de la columna en las tablas de datos (ej: full_snapshots)."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","etiqueta","character varying","YES","NO",NULL,NULL,"Nombre legible que se mostrará en los títulos de los gráficos, tablas y leyendas del mapa."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","descripcion","text","YES","NO",NULL,NULL,"Explicación técnica detallada del significado del dato para mostrar en tooltips o ayuda al usuario."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","tipo","character varying","YES","NO",NULL,NULL,"Categorización estadística: base (dato bruto), ratio (proporción entre distintos), porcentaje (parte de un todo), media o máximo."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","orden_de_calculo","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","formula","text","YES","NO",NULL,NULL,"Expresión plana de la lógica de cálculo. El orquestador podrá convertir esto a LaTeX para su visualización elegante."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","origen","text","YES","NO",NULL,NULL,"Trazabilidad del dato: Indica la tabla y columna original de donde proviene la información base."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","formato","character varying","YES","NO",NULL,NULL,"Instrucción para el motor de renderizado: define decimales, separadores de miles o estilo porcentual."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","unidades","character varying","YES","NO",NULL,NULL,"Sufijo de medida que acompaña al valor (ej: habitantes, €, m2, viviendas/km2)."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","visualizable","boolean","YES","NO",NULL,NULL,"Flag de control para el UI: permite mostrar campos de control interno en los selectores del visor."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","comparable","boolean","YES","NO",NULL,NULL,"Flag de control para la selección de columnas a exportar en el json de comparaciones."
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","en_mv","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","diccionario_de_datos","Metadiccionario para el control de visualización, formateo y documentación de indicadores del dashboard.","en_localidades","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","periodo","character varying","NO","NO",NULL,NULL,"Etiqueta del periodo (ej: ""2008-2010 (Crisis)"")"
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","ejercicio_inicio","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","ejercicio_fin","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","poblacion_inicio","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","poblacion_fin","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","incremento_poblacion","integer","NO","NO",NULL,NULL,"Incremento de población en el periodo"
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","nuevos_hogares","numeric","NO","NO",NULL,NULL,"Nuevos hogares estimados (incremento_poblacion / 2.6)"
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","viviendas_terminadas","integer","NO","NO",NULL,NULL,"Total de viviendas terminadas en el periodo"
+"TABLA","public","evolucion_hogares_viviendas","Comparativa de nuevos hogares estimados vs viviendas terminadas por periodo","diferencia","integer","NO","NO",NULL,NULL,"Superávit/déficit: viviendas_terminadas - nuevos_hogares (positivo = exceso)"
+"TABLA","public","full_snapshots",NULL,"id","integer","NO","SÍ",NULL,NULL,"Generado por el sistema"
+"TABLA","public","full_snapshots",NULL,"ambito","character varying","NO","NO",NULL,NULL,"Capa en la jerarquía"
+"TABLA","public","full_snapshots",NULL,"isla_id","integer","YES","NO","islas","id","Asociado a islas.id"
+"TABLA","public","full_snapshots",NULL,"municipio_id","integer","YES","NO","municipios","id","Asociado a municipios.id"
+"TABLA","public","full_snapshots",NULL,"localidad_id","integer","YES","NO","localidades","id","Asociado a localidades.id"
+"TABLA","public","full_snapshots",NULL,"fecha_calculo","timestamp without time zone","YES","NO",NULL,NULL,"Fecha de proceso"
+"TABLA","public","full_snapshots",NULL,"superficie_km2","numeric","YES","NO",NULL,NULL,"Obtenido de superficies.superficie /100"
+"TABLA","public","full_snapshots",NULL,"poblacion","integer","YES","NO",NULL,NULL,"Obtenido de poblacion.valor"
+"TABLA","public","full_snapshots",NULL,"poblacion_year","integer","YES","NO",NULL,NULL,"Obtenido de poblacion.year"
+"TABLA","public","full_snapshots",NULL,"viviendas_total","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.total"
+"TABLA","public","full_snapshots",NULL,"viviendas_vacias","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.vacias"
+"TABLA","public","full_snapshots",NULL,"viviendas_esporadicas","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.esporadicas"
+"TABLA","public","full_snapshots",NULL,"viviendas_habituales","integer","YES","NO",NULL,NULL,"Obtenido de viviendas.habituales"
+"TABLA","public","full_snapshots",NULL,"pte_r","numeric","YES","NO",NULL,NULL,"Obtenido de pte_reglada.pte_reglada"
+"TABLA","public","full_snapshots",NULL,"pte_r_year","integer","YES","NO",NULL,NULL,"Obtenido de pte_reglada.year"
+"TABLA","public","full_snapshots",NULL,"pte_v","numeric","YES","NO",NULL,NULL,"Obtenido de pte_vacacional.ptev"
+"TABLA","public","full_snapshots",NULL,"pte_v_periodo","character varying","YES","NO",NULL,NULL,"Obtenido de pte_vacacional.year + pte_vacacional.mes"
+"TABLA","public","full_snapshots",NULL,"etiqueta","character varying","YES","NO",NULL,NULL,"Obtenido de Campo nombre en islas, municipios, localidades + Canarias"
+"TABLA","public","full_snapshots",NULL,"personas_por_hogar","numeric","YES","NO",NULL,NULL,"Obtenido de hogares.miembros"
+"TABLA","public","full_snapshots",NULL,"personas_por_hogar_year","timestamp without time zone","YES","NO",NULL,NULL,"Obtenido de hogares.year"
+"TABLA","public","full_snapshots",NULL,"uds_vv_turisticas","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Cuenta de las viviendas vacacionales en microdestinos"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Cuenta de las viviendas vacacionales fuera de microdestinos"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_turisticas","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de viviendas vacacionales en microdestinos"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de viviendas vacacionales fuera de microdestinos"
+"TABLA","public","full_snapshots",NULL,"plazas_at_turisticas","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de alojamiento reglado en destinos turísticos"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales","integer","YES","NO",NULL,NULL,"Obtenido de la tabla alojamientos Suma de las plazas de alojamiento reglado fuera destinos turísticos"
+"TABLA","public","full_snapshots",NULL,"pte_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r + pte_v"
+"TABLA","public","full_snapshots",NULL,"uds_vv_total","integer","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_turisticas + uds_vv_residenciales"
+"TABLA","public","full_snapshots",NULL,"plazas_vacacionales","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales +  plazas_vv_turisticas"
+"TABLA","public","full_snapshots",NULL,"plazas_regladas","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_residenciales + plazas_at_turisticas"
+"TABLA","public","full_snapshots",NULL,"plazas_total","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vacacionales + plazas_regladas"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_residencial","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales +  plazas_at_residenciales"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_turistico","integer","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_turisticas + plazas_at_turisticas"
+"TABLA","public","full_snapshots",NULL,"consumidores_vivienda","integer","YES","NO",NULL,NULL,"Dato calculado =  poblacion + pte_v"
+"TABLA","public","full_snapshots",NULL,"poblacion_total","integer","YES","NO",NULL,NULL,"Dato calculado =  poblacion + pte_total"
+"TABLA","public","full_snapshots",NULL,"vhabituales_habitantes","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_habituales / poblacion * 100"
+"TABLA","public","full_snapshots",NULL,"vhabituales_consumidores","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_habituales / consumidores_vivienda * 100"
+"TABLA","public","full_snapshots",NULL,"cobertura_demanda_viviendas","numeric","YES","NO",NULL,NULL,"Dato calculado =  (consumidores_vivienda / personas_por_hogar) – viviendas_habituales"
+"TABLA","public","full_snapshots",NULL,"rit_r","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / poblacion * 100"
+"TABLA","public","full_snapshots",NULL,"rit_v","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / poblacion * 100"
+"TABLA","public","full_snapshots",NULL,"rit","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_total / poblacion * 100"
+"TABLA","public","full_snapshots",NULL,"rit_r_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / superficie_km2"
+"TABLA","public","full_snapshots",NULL,"rit_v_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / superficie_km2"
+"TABLA","public","full_snapshots",NULL,"rit_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_total / superficie_km2"
+"TABLA","public","full_snapshots",NULL,"residentes_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  poblacion / superficie_km2"
+"TABLA","public","full_snapshots",NULL,"presion_humana_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  poblacion_total / superficie_km2"
+"TABLA","public","full_snapshots",NULL,"vacacional_por_viviendas_habituales","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_total / viviendas_habituales * 100"
+"TABLA","public","full_snapshots",NULL,"vacacional_por_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_total / viviendas_total * 100"
+"TABLA","public","full_snapshots",NULL,"uds_vv_habitantes","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_total / poblacion * 100"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales_habitantes","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_residenciales / poblacion * 100"
+"TABLA","public","full_snapshots",NULL,"deficit_oferta_viviendas","numeric","YES","NO",NULL,NULL,"(viviendas_necesarias - viviendas_disponibles) / viviendas_disponibles * 100"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_residenciales / uds_vv_total * 100"
+"TABLA","public","full_snapshots",NULL,"uds_vv_turisticas_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  uds_vv_turisticas / uds_vv_total * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales / plazas_vacacionales * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_turisticas_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_turisticas / plazas_vacacionales * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_residenciales / plazas_regladas * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_at_turisticas_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_turisticas / plazas_regladas * 100"
+"TABLA","public","full_snapshots",NULL,"pte_v_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / pte_total * 100"
+"TABLA","public","full_snapshots",NULL,"pte_r_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / pte_total * 100"
+"TABLA","public","full_snapshots",NULL,"pte_v_total_poblacion_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_v / (pte_total + poblacion) * 100"
+"TABLA","public","full_snapshots",NULL,"pte_r_total_poblacion_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  pte_r / (pte_total + poblacion) * 100"
+"TABLA","public","full_snapshots",NULL,"poblacion_total_poblacion_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  poblacion / (poblacion_total) * 100"
+"TABLA","public","full_snapshots",NULL,"viviendas_vacias_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_vacias / viviendas_total * 100"
+"TABLA","public","full_snapshots",NULL,"viviendas_esporadicas_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_esporadicas / viviendas_total*100"
+"TABLA","public","full_snapshots",NULL,"viviendas_habituales_viviendas_total","numeric","YES","NO",NULL,NULL,"Dato calculado =  viviendas_habituales / viviendas_total * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_vacacionales_plazas_total_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vacacionales / plazas_total *100"
+"TABLA","public","full_snapshots",NULL,"plazas_regladas_plazas_total_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_regladas / plazas_total *100"
+"TABLA","public","full_snapshots",NULL,"rit_km2_presion_humana_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  rit_km2 / presion_humana_km2 * 100"
+"TABLA","public","full_snapshots",NULL,"residentes_km2_presion_humana_km2","numeric","YES","NO",NULL,NULL,"Dato calculado =  residentes_km2 / presion_humana_km2 * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales_oferta_en_residencial","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_at_residenciales / plazas_suelo_residencial"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales_oferta_en_residencial","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_vv_residenciales / plazas_suelo_residencial"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_residencial_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_suelo_residencial / plazas_total * 100"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_turistico_porc","numeric","YES","NO",NULL,NULL,"Dato calculado =  plazas_suelo_turistico / plazas_total * 100"
+"TABLA","public","full_snapshots",NULL,"rit_r_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_r)"
+"TABLA","public","full_snapshots",NULL,"rit_v_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_v)"
+"TABLA","public","full_snapshots",NULL,"rit_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit)"
+"TABLA","public","full_snapshots",NULL,"rit_r_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_r_km2)"
+"TABLA","public","full_snapshots",NULL,"rit_v_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_v_km2)"
+"TABLA","public","full_snapshots",NULL,"rit_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_km2)"
+"TABLA","public","full_snapshots",NULL,"residentes_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(residentes_km2)"
+"TABLA","public","full_snapshots",NULL,"presion_humana_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(presion_humana_km2)"
+"TABLA","public","full_snapshots",NULL,"vacacional_por_viviendas_habituales_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(vacacional_por_viviendas_habituales)"
+"TABLA","public","full_snapshots",NULL,"vacacional_por_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(vacacional_por_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_habitantes_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_habitantes)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales_habitantes_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_residenciales_habitantes)"
+"TABLA","public","full_snapshots",NULL,"deficit_oferta_viviendas_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(r_deficit_oferta_viviendas)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_residenciales_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"uds_vv_turisticas_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(uds_vv_turisticas_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vv_residenciales_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_turisticas_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vv_turisticas_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_at_residenciales_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_at_turisticas_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_at_turisticas_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"pte_v_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_v_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"pte_r_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_r_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"pte_v_total_poblacion_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_v_total_poblacion_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"pte_r_total_poblacion_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(pte_r_total_poblacion_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"poblacion_total_poblacion_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(poblacion_total_poblacion_porc)"
+"TABLA","public","full_snapshots",NULL,"viviendas_vacias_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(viviendas_vacias_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"viviendas_esporadicas_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(viviendas_esporadicas_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"viviendas_habituales_viviendas_total_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(viviendas_habituales_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"plazas_vacacionales_plazas_total_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vacacionales_plazas_total_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_regladas_plazas_total_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_regladas_plazas_total_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"rit_km2_presion_humana_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(rit_km2_presion_humana_km2)"
+"TABLA","public","full_snapshots",NULL,"residentes_km2_presion_humana_km2_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(residentes_km2_presion_humana_km2)"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales_oferta_en_residencial_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_at_residenciales_oferta_en_residencial) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales_oferta_en_residencial_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_vv_residenciales_oferta_en_residencial) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_residencial_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_suelo_residencial_porc) | Excluyendo valores 14"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_turistico_porc_max","numeric","YES","NO",NULL,NULL,"Dato calculado =  max(plazas_suelo_turistico_porc) | Excluyendo valores 100"
+"TABLA","public","full_snapshots",NULL,"rit_r_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_r)"
+"TABLA","public","full_snapshots",NULL,"rit_v_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_v)"
+"TABLA","public","full_snapshots",NULL,"rit_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit)"
+"TABLA","public","full_snapshots",NULL,"rit_r_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_r_km2)"
+"TABLA","public","full_snapshots",NULL,"rit_v_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_v_km2)"
+"TABLA","public","full_snapshots",NULL,"rit_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(rit_km2)"
+"TABLA","public","full_snapshots",NULL,"residentes_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(residentes_km2)"
+"TABLA","public","full_snapshots",NULL,"presion_humana_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(presion_humana_km2)"
+"TABLA","public","full_snapshots",NULL,"vacacional_por_viviendas_habituales_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(vacacional_por_viviendas_habituales)"
+"TABLA","public","full_snapshots",NULL,"vacacional_por_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(vacacional_por_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_habitantes_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_habitantes)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales_habitantes_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_residenciales_habitantes)"
+"TABLA","public","full_snapshots",NULL,"deficit_oferta_viviendas_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(r_deficit_oferta_viviendas)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_residenciales_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_residenciales_porc)"
+"TABLA","public","full_snapshots",NULL,"uds_vv_turisticas_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(uds_vv_turisticas_porc)"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vv_residenciales_porc)"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_turisticas_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vv_turisticas_porc)"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_at_residenciales_porc)"
+"TABLA","public","full_snapshots",NULL,"plazas_at_turisticas_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_at_turisticas_porc)"
+"TABLA","public","full_snapshots",NULL,"pte_v_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_v_porc)"
+"TABLA","public","full_snapshots",NULL,"pte_r_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_r_porc)"
+"TABLA","public","full_snapshots",NULL,"pte_v_total_poblacion_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_v_total_poblacion_porc)"
+"TABLA","public","full_snapshots",NULL,"pte_r_total_poblacion_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(pte_r_total_poblacion_porc)"
+"TABLA","public","full_snapshots",NULL,"poblacion_total_poblacion_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(poblacion_total_poblacion_porc)"
+"TABLA","public","full_snapshots",NULL,"viviendas_vacias_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(viviendas_vacias_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"viviendas_esporadicas_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(viviendas_esporadicas_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"viviendas_habituales_viviendas_total_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(viviendas_habituales_viviendas_total)"
+"TABLA","public","full_snapshots",NULL,"plazas_vacacionales_plazas_total_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vacacionales_plazas_total_porc)"
+"TABLA","public","full_snapshots",NULL,"plazas_regladas_plazas_total_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_regladas_plazas_total_porc)"
+"TABLA","public","full_snapshots",NULL,"rit_km2_presion_humana_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado =  avg(rit_km2_presion_humana_km2)"
+"TABLA","public","full_snapshots",NULL,"residentes_km2_presion_humana_km2_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(residentes_km2_presion_humana_km2)"
+"TABLA","public","full_snapshots",NULL,"plazas_at_residenciales_oferta_en_residencial_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_at_residenciales_oferta_en_residencial)"
+"TABLA","public","full_snapshots",NULL,"plazas_vv_residenciales_oferta_en_residencial_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_vv_residenciales_oferta_en_residencial)"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_residencial_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_suelo_residencial_porc)"
+"TABLA","public","full_snapshots",NULL,"plazas_suelo_turistico_porc_avg","numeric","YES","NO",NULL,NULL,"Dato calculado = avg(plazas_suelo_turistico_porc)"
+"TABLA","public","full_snapshots",NULL,"tipo_municipio","character varying","YES","NO",NULL,NULL,"Define el tipo de municipio para segmentar los max y avg"
+"TABLA","public","full_snapshots",NULL,"etiqueta_ambito_superior","character varying","YES","NO",NULL,NULL,"Recoge el nombre del item de ámbito superior"
+"TABLA","public","full_snapshots",NULL,"viviendas_disponibles","integer","YES","NO",NULL,NULL,"viviendas_habituales – uds_vv_residenciales"
+"TABLA","public","full_snapshots",NULL,"viviendas_necesarias","integer","YES","NO",NULL,NULL,"poblacion / personas_por_hogar"
+"TABLA","public","full_snapshots",NULL,"deficit_viviendas","integer","YES","NO",NULL,NULL,"viviendas_disponibles – viviendas_necesarias"
+"TABLA","public","full_snapshots",NULL,"tipo_isla","character varying","YES","NO",NULL,NULL,"Clasificación geográfica: central, occidental, oriental"
+"TABLA","public","full_snapshots",NULL,"rit_r_porc","numeric","YES","NO",NULL,NULL,"rit_r / rit * 100"
+"TABLA","public","full_snapshots",NULL,"rit_v_porc","numeric","YES","NO",NULL,NULL,"rit_v / rit * 100"
+"TABLA","public","full_snapshots",NULL,"viviendas_disponibles_viviendas_habituales","numeric","YES","NO",NULL,NULL,"viviendas_disponibles / viviendas_habituales * 100"
+"TABLA","public","hogares",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","hogares",NULL,"ambito","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","hogares",NULL,"isla_id","integer","YES","NO","islas","id",NULL
+"TABLA","public","hogares",NULL,"hogares","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","hogares",NULL,"miembros","numeric","NO","NO",NULL,NULL,NULL
+"TABLA","public","hogares",NULL,"year","date","NO","NO",NULL,NULL,"Se almacena la fecha completa pero el proceso solo tiene en cuenta el año para los cálculos."
+"TABLA","public","islas",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","islas",NULL,"nombre","text","NO","NO",NULL,NULL,NULL
+"TABLA","public","islas",NULL,"diciembre_2019","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","islas",NULL,"junio_2023","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","islas",NULL,"abril_2024","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","islas",NULL,"bloque","integer","YES","NO",NULL,NULL,"Distingue entre islas centrales, islas orientales e islas occidentales"
+"TABLA","public","islas",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","islas",NULL,"geo_code","character varying","YES","NO",NULL,NULL,"Código NUTS 3 de la Unión Europea para identificación unívoca de la isla."
+"TABLA","public","islas",NULL,"tipo_isla","character varying","YES","NO",NULL,NULL,"Clasificación geográfica: central, occidental, oriental"
+"TABLA","public","localidades",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"poblacion_padron","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"poblacion_estacional","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"viviendas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"altitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"ejercicio","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"fuente","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","localidades",NULL,"isla_id","integer","YES","NO","islas","id",NULL
+"TABLA","public","localidades",NULL,"loca_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","mapa_municipios",NULL,"muni_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","mapa_municipios",NULL,"muni_real","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","modalidades",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","modalidades",NULL,"nombre","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","modalidades",NULL,"descripcion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"isla_id","integer","NO","NO","islas","id",NULL
+"TABLA","public","municipios",NULL,"codigo_ine","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"nombre","text","NO","NO",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"poblacion","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"muni_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","municipios",NULL,"tipo_municipio","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"total","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"vacias","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"esporadicas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"habituales","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"ambito","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","parque_viviendas",NULL,"id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","ambito","text","NO","NO",NULL,NULL,"Nivel geográfico del dato: canarias, isla o municipio."
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","isla_id","integer","YES","NO","islas","id","Referencia a la isla (NULL si el ámbito es canarias)."
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","municipio_id","integer","YES","NO","municipios","id","Referencia al municipio (NULL si el ámbito es isla o canarias)."
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","year","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","valor","integer","NO","NO",NULL,NULL,"Número de habitantes residentes."
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","fuente","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","poblacion","Series históricas de población residente (Padrón Municipal de Habitantes).","created_at","timestamp with time zone","YES","NO",NULL,NULL,NULL
+"TABLA","public","poblacion_evolucion","Evolución de población por ejercicio (Canarias, Islas y Municipios)","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","poblacion_evolucion","Evolución de población por ejercicio (Canarias, Islas y Municipios)","ambito","character varying","NO","NO",NULL,NULL,"Nivel territorial: canarias, isla, municipio"
+"TABLA","public","poblacion_evolucion","Evolución de población por ejercicio (Canarias, Islas y Municipios)","isla_id","integer","YES","NO","islas","id","ID de isla (NULL para ámbito canarias)"
+"TABLA","public","poblacion_evolucion","Evolución de población por ejercicio (Canarias, Islas y Municipios)","municipio_id","integer","YES","NO","municipios","id","ID de municipio (NULL para ámbitos canarias e isla)"
+"TABLA","public","poblacion_evolucion","Evolución de población por ejercicio (Canarias, Islas y Municipios)","ejercicio","integer","NO","NO",NULL,NULL,"Año del ejercicio"
+"TABLA","public","poblacion_evolucion","Evolución de población por ejercicio (Canarias, Islas y Municipios)","poblacion","integer","NO","NO",NULL,NULL,"Población del territorio"
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","localidad_id","integer","YES","NO","localidades","id",NULL
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","municipio_id","integer","YES","NO","municipios","id",NULL
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","isla_id","integer","NO","NO","islas","id",NULL
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","pet","numeric","YES","NO",NULL,NULL,"Población Turística Equivalente"
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","ejercicio","integer","NO","NO",NULL,NULL,"Año del ejercicio"
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","nombre","character varying","YES","NO",NULL,NULL,"Nombre de la localidad, municipio o isla según el nivel del registro"
+"TABLA","public","poblacion_te","Población Turística Equivalente por territorio y ejercicio","ambito","character varying","YES","NO",NULL,NULL,"Ámbito del registro: localidad, municipio o isla"
+"TABLA","public","poblacion_te_evolucion","Evolución de Población Turística Equivalente por ejercicio (Canarias e Islas)","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","poblacion_te_evolucion","Evolución de Población Turística Equivalente por ejercicio (Canarias e Islas)","ambito","character varying","NO","NO",NULL,NULL,"Nivel territorial: canarias, isla"
+"TABLA","public","poblacion_te_evolucion","Evolución de Población Turística Equivalente por ejercicio (Canarias e Islas)","isla_id","integer","YES","NO","islas","id","ID de isla (NULL para ámbito canarias)"
+"TABLA","public","poblacion_te_evolucion","Evolución de Población Turística Equivalente por ejercicio (Canarias e Islas)","nombre","character varying","NO","NO",NULL,NULL,"Nombre del territorio"
+"TABLA","public","poblacion_te_evolucion","Evolución de Población Turística Equivalente por ejercicio (Canarias e Islas)","ejercicio","integer","NO","NO",NULL,NULL,"Año del ejercicio"
+"TABLA","public","poblacion_te_evolucion","Evolución de Población Turística Equivalente por ejercicio (Canarias e Islas)","poblacion","numeric","NO","NO",NULL,NULL,"Población Turística Equivalente"
+"TABLA","public","portales_canarias",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"isla","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"municipio","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"tipo_vial","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"nombre_via","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"numero","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"codigo_postal","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"dir_original","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"dir_normalizada","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","portales_canarias",NULL,"geometria","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","pte_reglada",NULL,"ambito","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","pte_reglada",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","pte_reglada",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","pte_reglada",NULL,"year","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","pte_reglada",NULL,"pte_reglada","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","pte_reglada",NULL,"entidad_turistica_id","text","YES","NO",NULL,NULL,"Geocode de la zona turística (solo para ámbito localidad_turistica)."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","ambito","character varying","NO","NO",NULL,NULL,"Nivel administrativo del registro: canarias, isla o municipio."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","isla_id","integer","YES","NO","islas","id","Referencia a la tabla islas. NULL si el ámbito es canarias."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","municipio_id","integer","YES","NO","municipios","id","Referencia a la tabla municipios. NULL si el ámbito es isla o canarias."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","year","integer","NO","NO",NULL,NULL,"Año natural del dato."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","mes","integer","NO","NO",NULL,NULL,"Mes del dato (1-12)."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","dias_mes","integer","NO","NO",NULL,NULL,"Número de días del mes específico (28-31) para cálculos de precisión."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","viviendas_disponibles","integer","YES","NO",NULL,NULL,"Número total de viviendas vacacionales dadas de alta y activas en el periodo."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","plazas_disponibles","integer","YES","NO",NULL,NULL,"Capacidad total en plazas (camas) de las viviendas activas."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","viviendas_reservadas","integer","YES","NO",NULL,NULL,"Número medio de viviendas que han tenido reserva confirmada."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","tasa_vivienda_reservada","double precision","YES","NO",NULL,NULL,"Porcentaje de ocupación sobre el total de viviendas disponibles."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","estancia_media","double precision","YES","NO",NULL,NULL,"Duración media en días de las pernoctaciones en VV."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","ingresos_totales","double precision","YES","NO",NULL,NULL,"Estimación de ingresos brutos generados por el sector en el territorio (Euros)."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","noches_vv","double precision","YES","NO",NULL,NULL,"Cálculo derivado: plazas_disponibles * (tasa/100) * dias_mes. Representa el volumen total de pernoctaciones."
+"TABLA","public","pte_vacacional","Repositorio de indicadores de Vivienda Vacacional (VV). Fuente: Estadística Experimental ISTAC. Incluye datos a nivel regional, insular y municipal.","ptev","double precision","YES","NO",NULL,NULL,"Población Turística Equivalente (Vacacional). Carga media diaria de turistas sobre el territorio."
+"TABLA","public","recintos_municipales",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"INSPIREID","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"COUNTRY","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"NATLEV","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"NATLEVNAME","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"NATCODE","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"NAMEUNIT","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"CODNUT1","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"CODNUT2","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","recintos_municipales",NULL,"CODNUT3","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"id","integer","NO","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"ambito","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"fecha_calculo","timestamp without time zone","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"superficie_km2","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"poblacion","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"poblacion_year","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"viviendas_total","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"viviendas_vacias","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"viviendas_esporadicas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"viviendas_habituales","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pte_r","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pte_r_year","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pte_v","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pte_v_periodo","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"vv_turisticas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"vv_residenciales","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_vv_turisticas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_vv_residenciales","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_at_turisticas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_at_residenciales","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pte_total","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"vv_total","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_v","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_r","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"plazas_total","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"rit_r","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"rit_v","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"rit","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"rit_r_km2","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"rit_v_km2","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"rit_km2","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"res_km2","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"ph_km2","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pvv_vh","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pvv_vt","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"vv_vt","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"ve_vt","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"vh_vt","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"dtr","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"pasr","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"past","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"patsr","numeric","YES","NO",NULL,NULL,NULL
+"TABLA","public","snapshots",NULL,"etiqueta","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","spatial_ref_sys",NULL,"srid","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","spatial_ref_sys",NULL,"auth_name","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","spatial_ref_sys",NULL,"auth_srid","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","spatial_ref_sys",NULL,"srtext","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","spatial_ref_sys",NULL,"proj4text","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"origen_dato","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"establecimiento_id","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"nombre_comercial","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"modalidad_texto","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"tipologia_texto","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"clasificacion_texto","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"direccion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"isla_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"muni_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"loca_nombre","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"cp","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"dormitorios_indiv","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"dormitorios_dobles","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"unidades_explotacion","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"modalidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"tipologia_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"clasificacion_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"fuente_geocodigo","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"metodo_localidad","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"plazas_estimadas","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"direccion_match","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"distancia_fuzzy","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"estado","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"error_msg","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"ultimo_procesado","timestamp without time zone","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"muni_original_gobcan","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"geo_erronea_gobcan","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"audit_nota","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"muni_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"loca_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"dir_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"muni_detectado_geo","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"audit_resultado","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"visual_tag","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"tipo_oferta","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"en_area_turistica","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","staging_import",NULL,"geocode_area_turistica","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","superficies","Superficies por ámbito territorial en hectáreas","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","superficies","Superficies por ámbito territorial en hectáreas","ambito","character varying","NO","NO",NULL,NULL,"Nivel territorial: canarias, isla, municipio"
+"TABLA","public","superficies","Superficies por ámbito territorial en hectáreas","isla_id","integer","YES","NO",NULL,NULL,"ID de isla (NULL para ámbito canarias)"
+"TABLA","public","superficies","Superficies por ámbito territorial en hectáreas","municipio_id","integer","YES","NO",NULL,NULL,"ID de municipio (NULL para ámbitos canarias e isla)"
+"TABLA","public","superficies","Superficies por ámbito territorial en hectáreas","superficie","numeric","NO","NO",NULL,NULL,"Superficie en hectáreas"
+"TABLA","public","tasa_de_ocupacion_vvvv","Tasa de ocupación de viviendas vacacionales por isla y ejercicio","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","tasa_de_ocupacion_vvvv","Tasa de ocupación de viviendas vacacionales por isla y ejercicio","isla_id","integer","NO","NO","islas","id",NULL
+"TABLA","public","tasa_de_ocupacion_vvvv","Tasa de ocupación de viviendas vacacionales por isla y ejercicio","porcentaje","numeric","YES","NO",NULL,NULL,"Porcentaje de ocupación (0-100 con 2 decimales)"
+"TABLA","public","tasa_de_ocupacion_vvvv","Tasa de ocupación de viviendas vacacionales por isla y ejercicio","ejercicio","integer","NO","NO",NULL,NULL,"Año del ejercicio"
+"TABLA","public","temp_nums",NULL,"numero","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","temp_nums",NULL,"num_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","tipologias",NULL,"id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","tipologias",NULL,"modalidad_id","integer","YES","NO","modalidades","id",NULL
+"TABLA","public","tipologias",NULL,"nombre","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","tmp_locas_norm",NULL,"municipio_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","tmp_locas_norm",NULL,"poblacion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","tmp_locas_norm",NULL,"loca_norm","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","ambito","character varying","NO","NO",NULL,NULL,"Nivel territorial del registro: canarias, isla, municipio o localidad."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","isla_id","integer","YES","NO","islas","id","ID de referencia de la isla (Fk tablas maestras)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","municipio_id","integer","YES","NO","municipios","id","ID de referencia del municipio (Fk tablas maestras)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","localidad_id","integer","YES","NO",NULL,NULL,"ID de referencia de la localidad (Fk destinos_turisticos)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","fecha_calculo","timestamp without time zone","YES","NO",NULL,NULL,"Fecha de ejecución del proceso o fecha de referencia del parámetro temporal."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","superficie_km2","numeric","YES","NO",NULL,NULL,"Superficie terrestre en km2 (convertida desde Ha en tabla superficies)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","poblacion","integer","YES","NO",NULL,NULL,"Población residente censada (último periodo disponible)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","poblacion_year","integer","YES","NO",NULL,NULL,"Año de referencia del censo de población utilizado"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","viviendas_total","integer","YES","NO",NULL,NULL,"Total de viviendas del parque inmobiliario (Censo INE/ISTAC)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","viviendas_vacias","integer","YES","NO",NULL,NULL,"Viviendas sin uso detectado o vacías."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","viviendas_esporadicas","integer","YES","NO",NULL,NULL,"Viviendas de uso secundario o vacacional no reglado."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","viviendas_habituales","integer","YES","NO",NULL,NULL,"Viviendas que constituyen la residencia principal de los habitantes."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pte_r","integer","YES","NO",NULL,NULL,"Población Turística Equivalente Reglada (Hotelero + Extrahotelero)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pte_r_year","integer","YES","NO",NULL,NULL,"Año de referencia de la Población Turística Equivalente Reglada"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pte_v","numeric","YES","NO",NULL,NULL,"Población Turística Equivalente en Vivienda Vacacional (admite decimales)"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pte_v_periodo","character varying","YES","NO",NULL,NULL,"Periodo (YYYY-MM) del dato de PTE Vacacional"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","vv_turisticas","integer","YES","NO",NULL,NULL,"Número de Viviendas Vacacionales ubicadas DENTRO de áreas turísticas."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","vv_residenciales","integer","YES","NO",NULL,NULL,"Número de Viviendas Vacacionales ubicadas FUERA de áreas turísticas."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_vv_turisticas","integer","YES","NO",NULL,NULL,"Total plazas de VV en zonas turísticas."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_vv_residenciales","integer","YES","NO",NULL,NULL,"Total plazas de VV en zonas residenciales."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_at_turisticas","integer","YES","NO",NULL,NULL,"Total plazas de Alojamiento Reglado (AT) en zonas turísticas."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_at_residenciales","integer","YES","NO",NULL,NULL,"Total plazas de Alojamiento Reglado (AT) en zonas residenciales."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pte_total","numeric","YES","NO",NULL,NULL,"Suma de PTE Reglada y PTE Vacacional (Carga turística total)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","vv_total","integer","YES","NO",NULL,NULL,"Número total de Viviendas Vacacionales activas."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_v","integer","YES","NO",NULL,NULL,"Suma total de plazas en Vivienda Vacacional."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_r","integer","YES","NO",NULL,NULL,"Suma total de plazas en Alojamiento Reglado."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","plazas_total","integer","YES","NO",NULL,NULL,"Capacidad alojativa total (Reglado + Vacacional)."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","rit_r","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Reglada: PTE_R por cada 100 residentes."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","rit_v","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Vacacional: PTE_V por cada 100 residentes."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","rit","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Total: PTE_Total por cada 100 residentes."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","rit_r_km2","numeric","YES","NO",NULL,NULL,"Carga de turistas reglados por km2 de territorio."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","rit_v_km2","numeric","YES","NO",NULL,NULL,"Carga de turistas en VV por km2 de territorio."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","rit_km2","numeric","YES","NO",NULL,NULL,"Carga turística total (PTE) por km2 de territorio."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","res_km2","numeric","YES","NO",NULL,NULL,"Densidad de población residente por km2."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","ph_km2","numeric","YES","NO",NULL,NULL,"Presión Humana Total: (Población + PTE_Total) / km2."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pvv_vh","numeric","YES","NO",NULL,NULL,"Presión de la VV sobre el uso residencial: (VV_Total / Viviendas_Habituales) * 100."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pvv_vt","numeric","YES","NO",NULL,NULL,"Peso de la VV en el parque total de viviendas: (VV_Total / Viviendas_Total) * 100."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","vv_vt","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas vacías sobre el total del parque."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","ve_vt","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas esporádicas sobre el total del parque."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","vh_vt","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas habituales sobre el total del parque."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","dtr","numeric","YES","NO",NULL,NULL,"Índice de Desplazamiento: % de VV que se encuentra en zonas turísticas puras."
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","pasr","integer","YES","NO",NULL,NULL,"Plazas alojativas en suelo residencial"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","past","integer","YES","NO",NULL,NULL,"Plazas alojativas en suelo turístico (microdestinos)"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","patsr","numeric","YES","NO",NULL,NULL,"Porcentaje de actividad turística en suelo residencial"
+"TABLA","public","totales","Tabla maestra de indicadores de sostenibilidad: cruce de población, territorio y carga turística","etiqueta","character varying","YES","NO",NULL,NULL,"Nombre descriptivo del ámbito geográfico"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","id","integer","NO","SÍ",NULL,NULL,"Campo autoincrementado"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","ambito","character varying","NO","NO",NULL,NULL,"Nivel territorial: canarias, isla, municipio, localidad"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","isla_id","integer","YES","NO","islas","id","Código de isla"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","municipio_id","integer","YES","NO","municipios","id","Código de municipio"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","localidad_id","integer","YES","NO","localidades","id","Código de localidad"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","poblacion","integer","YES","NO",NULL,NULL,"Población censada del ámbito"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","plazas_vvtt","integer","YES","NO",NULL,NULL,"Total plazas en viviendas vacacionales"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","plazas_at","integer","YES","NO",NULL,NULL,"Total plazas en alojamientos turísticos"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","plazas_total","integer","YES","NO",NULL,NULL,"Total plazas turísticas (VVTT + AT)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","vvtt_turisticas","integer","YES","NO",NULL,NULL,"Número de VVTT en áreas turísticas"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","vvtt_residenciales","integer","YES","NO",NULL,NULL,"Número de VVTT en áreas residenciales"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","plazas_vvtt_turisticas","integer","YES","NO",NULL,NULL,"Plazas VVTT en áreas turísticas"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","plazas_vvtt_residenciales","integer","YES","NO",NULL,NULL,"Plazas VVTT en áreas residenciales"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","tasa_ocupacion_vvvv_porcentaje","numeric","YES","NO",NULL,NULL,"Tasa de ocupación VVVV"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","tasa_ocupacion_vvvv_ejercicio","integer","YES","NO",NULL,NULL,"Año de la tasa de ocupación"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","ptevv","integer","YES","NO",NULL,NULL,"Población turística equivalente en vivienda vacacional"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","pte","integer","YES","NO",NULL,NULL,"Población Turística Equivalente total"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","pte_ejercicio","integer","YES","NO",NULL,NULL,"Año de la PTE"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","rit","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística (sobre población)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","fecha_calculo","timestamp without time zone","YES","NO",NULL,NULL,"Fecha de proceso"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","viviendas_total","integer","YES","NO",NULL,NULL,"Total de viviendas"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","viviendas_vacias","integer","YES","NO",NULL,NULL,"Viviendas vacías en el ámbito"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","viviendas_esporadicas","integer","YES","NO",NULL,NULL,"Viviendas de uso esporádico en el ámbito"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","viviendas_habituales","integer","YES","NO",NULL,NULL,"Viviendas de uso habitual en el ámbito"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","rit_r","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Reglada (sobre población)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","rit_v","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Vacacional (sobre población)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","pvv_vh","numeric","YES","NO",NULL,NULL,"Presión de la vivienda vacacional sobre la vivienda habitual"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","pvv_vt","numeric","YES","NO",NULL,NULL,"Presión de la vivienda vacacional sobre el total de viviendas"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","vv_vt","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas vacías sobre el total"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","ve_vt","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas de uso esporádico sobre el total"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","vh_vt","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas habituales sobre el total"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","dtr","numeric","YES","NO",NULL,NULL,"Porcentaje de viviendas vacacionales desplazadas a uso turístico en zonas residenciales"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","superficie_ha","numeric","YES","NO",NULL,NULL,"Superficie en hectáreas"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","rit_ha","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística (sobre superficie en hectáreas)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","rit_r_ha","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Reglada (sobre superficie en hectáreas)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","rit_v_ha","numeric","YES","NO",NULL,NULL,"Ratio de Intensidad Turística Vacacional (sobre superficie en hectáreas)"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","ph_ha","numeric","YES","NO",NULL,NULL,"Presión humana total por hectárea"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","res_ha","numeric","YES","NO",NULL,NULL,"Presión humana de los residentes por hectárea"
+"TABLA","public","totalizaciones","Datos agregados por ámbito territorial para informes","vvtt_total","integer","YES","NO",NULL,NULL,"Total de viviendas vacacionales"
+"TABLA","public","turistas_llegados","Turistas llegados a Canarias por isla y ejercicio","ejercicio","integer","NO","NO",NULL,NULL,"Año del dato"
+"TABLA","public","turistas_llegados","Turistas llegados a Canarias por isla y ejercicio","ambito","character varying","NO","NO",NULL,NULL,"Ámbito del dato: canarias o isla"
+"TABLA","public","turistas_llegados","Turistas llegados a Canarias por isla y ejercicio","isla_id","integer","YES","NO","islas","id","ID de la isla (NULL para Canarias)"
+"TABLA","public","turistas_llegados","Turistas llegados a Canarias por isla y ejercicio","llegadas","integer","NO","NO",NULL,NULL,"Número de turistas llegados"
+"TABLA","public","vivienda_terminada_canarias","Viviendas terminadas en Canarias por ejercicio","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","vivienda_terminada_canarias","Viviendas terminadas en Canarias por ejercicio","ejercicio","integer","NO","NO",NULL,NULL,"Año del ejercicio"
+"TABLA","public","vivienda_terminada_canarias","Viviendas terminadas en Canarias por ejercicio","unidades","integer","NO","NO",NULL,NULL,"Número de viviendas terminadas"
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","id_vivienda_gobcan","character varying","NO","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","fecha_alta_sistema","timestamp without time zone","NO","NO",NULL,NULL,"Primera vez que aparece en nuestro sistema"
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","fecha_procesamiento","timestamp without time zone","NO","NO",NULL,NULL,"Última vez que se procesó el registro"
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","id_entidad","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","nombre_establecimiento","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","direccion","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","municipio","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","isla","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","provincia","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","dormitorios","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_historico","Histórico de viviendas vacacionales con fecha de alta","geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","municipio_id","integer","YES","NO","municipios","id","ID del municipio (FK a municipios)"
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","total","integer","YES","NO",NULL,NULL,"Total de viviendas en el municipio"
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","vacias","integer","YES","NO",NULL,NULL,"Viviendas vacías"
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","esporadicas","integer","YES","NO",NULL,NULL,"Viviendas de uso esporádico"
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","habituales","integer","YES","NO",NULL,NULL,"Viviendas habituales"
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","ambito","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","isla_id","integer","YES","NO","islas","id",NULL
+"TABLA","public","viviendas_municipios","Datos de viviendas por municipio según uso","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"establecimiento_id","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"direccion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"codigo_postal","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"fuente_geocodificacion","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"fuente_localidad","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"fecha_alta","date","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"fecha_baja","date","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"activa","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"en_area_turistica","boolean","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"geocode_area_turistica","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","vv_canarias",NULL,"geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","id","integer","NO","SÍ",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","establecimiento_id","character varying","NO","NO",NULL,NULL,"ID único del establecimiento del GobCan"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","direccion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","isla_id","integer","YES","NO","islas","id","Referencia a tabla islas"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","municipio_id","integer","YES","NO","municipios","id","Referencia a tabla municipios"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","localidad_id","integer","YES","NO","localidades","id","Referencia a tabla localidades"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","codigo_postal","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","fuente_geocodificacion","character varying","YES","NO",NULL,NULL,"Origen de las coordenadas: gobcan, callejero_exacto, callejero_fuzzy_XX"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","fuente_localidad","character varying","YES","NO",NULL,NULL,"Método de asignación: spatial_join, proximidad, busqueda_exhaustiva"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","fecha_alta","date","YES","NO",NULL,NULL,"Fecha de alta en el sistema"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","fecha_baja","date","YES","NO",NULL,NULL,"Fecha de baja (si aplica)"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","activa","boolean","YES","NO",NULL,NULL,"Indica si la VVTT está actualmente activa"
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","en_area_turistica","boolean","YES","NO",NULL,NULL,"Indica si la vivienda está dentro de un polígono de destino turístico oficial."
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","geocode_area_turistica","text","YES","NO",NULL,NULL,"Código del destino turístico (ISTAC) donde se ubica la vivienda."
+"TABLA","public","vvtt_canarias","Viviendas vacacionales turísticas de Canarias","geom","USER-DEFINED","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"establecimiento_id","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"direccion","text","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"localidad_id","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"codigo_postal","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"plazas","integer","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"longitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"latitud","double precision","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"fuente_geocodificacion","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"fuente_localidad","character varying","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"fecha_alta","date","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"fecha_baja","date","YES","NO",NULL,NULL,NULL
+"TABLA","public","vvtt_canarias_backup_20251204",NULL,"activa","boolean","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"f_table_catalog","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"f_table_schema","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"f_table_name","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"f_geography_column","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"coord_dimension","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"srid","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","geography_columns",NULL,"type","text","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"f_table_catalog","character varying","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"f_table_schema","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"f_table_name","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"f_geometry_column","name","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"coord_dimension","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"srid","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","geometry_columns",NULL,"type","character varying","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"id","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"isla_id","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"municipio_id","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"ambito","character varying","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"fecha_calculo","timestamp without time zone","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"vv_total","integer","YES","NO",NULL,NULL,NULL
+"VIEW","public","v_frontend_evolucion_vv",NULL,"etiqueta","character varying","YES","NO",NULL,NULL,NULL

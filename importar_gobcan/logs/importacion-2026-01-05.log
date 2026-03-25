@@ -1,0 +1,189 @@
+2026-01-05 00:42:13 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 00:43:18 | INGESTA VV | Cargados 74504
+2026-01-05 00:43:21 | INGESTA AT | Cargados 3616
+2026-01-05 00:43:25 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 00:43:25.840702]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 00:43:27 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24893
+2026-01-05 00:43:27 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 00:43:27 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 00:43:27 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 15:03:18 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 15:04:22 | INGESTA VV | Cargados 74504
+2026-01-05 15:04:26 | INGESTA AT | Cargados 3616
+2026-01-05 15:04:30 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 15:04:30.271503]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 15:04:32 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24893
+2026-01-05 15:04:32 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 15:04:32 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 15:04:32 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 15:06:45 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 15:07:49 | INGESTA VV | Cargados 74504
+2026-01-05 15:07:52 | INGESTA AT | Cargados 3616
+2026-01-05 15:07:57 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 15:07:57.423201]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 15:07:59 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24893
+2026-01-05 15:07:59 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 15:07:59 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 15:07:59 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 15:09:10 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 15:10:14 | INGESTA VV | Cargados 74504
+2026-01-05 15:10:18 | INGESTA AT | Cargados 3616
+2026-01-05 15:10:22 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 15:10:22.619293]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 15:10:24 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24893
+2026-01-05 15:10:24 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 15:10:24 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 15:10:24 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 15:23:10 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 15:24:13 | INGESTA VV | Cargados 74504
+2026-01-05 15:24:17 | INGESTA AT | Cargados 3616
+2026-01-05 15:24:21 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 15:24:21.461776]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 15:24:23 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24893
+2026-01-05 15:24:23 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 15:24:23 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 15:24:23 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 16:07:08 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 16:08:12 | INGESTA VV | Cargados 74504
+2026-01-05 16:08:15 | INGESTA AT | Cargados 3616
+2026-01-05 16:08:18 | LIMPIEZA | LIMPIEZA_GEO: 85 registros con coordenadas imposibles anulados.
+2026-01-05 16:08:21 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 16:08:21.474483]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 16:08:23 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24978
+2026-01-05 16:08:23 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 16:08:23 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 16:08:23 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 16:33:10 | SANEAMIENTO_GEO | [1] fuente_geocodigo total           
+<0 rows> (or 0-length row.names)
+2026-01-05 18:19:36 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 18:20:41 | INGESTA VV | Cargados 74504
+2026-01-05 18:20:45 | INGESTA AT | Cargados 3616
+2026-01-05 18:20:48 | LIMPIEZA | LIMPIEZA_GEO: 85 registros con coordenadas imposibles anulados.
+2026-01-05 18:20:51 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 18:20:51.086153]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 18:20:53 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24978
+2026-01-05 18:20:53 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 18:20:53 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 18:20:53 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 18:26:52 | SANEAMIENTO_GEO | [1] fuente_geocodigo total           
+<0 rows> (or 0-length row.names)
+2026-01-05 20:31:16 | DB_TRUNCATE | Tabla staging_import vaciada para nueva carga
+2026-01-05 20:32:17 | INGESTA VV | Cargados 74504
+2026-01-05 20:32:21 | INGESTA AT | Cargados 3616
+2026-01-05 20:32:24 | LIMPIEZA | LIMPIEZA_GEO: 85 registros con coordenadas imposibles anulados.
+2026-01-05 20:32:27 | AUDITORIA | 
+[AUDITORÍA INGESTA 2026-01-05 20:32:27.706485]
+Total registros: 78120
+Municipios vinculados: 77957
+Localidades vinculadas: 20097
+Localidades huérfanas: 8216
+------------------------------------------
+
+2026-01-05 20:32:29 | INFO | Coordenadas normalizadas. Registros pendientes de geo: 24978
+2026-01-05 20:32:29 | AUDITORIA | 
+--- Resumen de Vinculación de IDs ---
+Total registros en staging: 78120
+Municipios vinculados:  (Errores: )
+Localidades vinculadas:  (Errores: 8216)
+-------------------------------------
+
+2026-01-05 20:32:29 | AVISO | !!! ATENCIÓN: Existen nombres normalizados que no han cruzado con los maestros.
+
+2026-01-05 20:32:29 | RESUMEN_INGESTA | AT:  3616, VV: 74504
+2026-01-05 20:39:33 | SANEAMIENTO_GEO | [1] fuente_geocodigo total           
+<0 rows> (or 0-length row.names)
+2026-01-05 23:02:08 | CIERRE_GEOGRAFICO | ASIGNACIÓN FINAL: 76007 registros ubicados correctamente.
+HUÉRFANOS (Puntos fuera de polígonos): 1956
+SIN GEO (No procesables): 157
+

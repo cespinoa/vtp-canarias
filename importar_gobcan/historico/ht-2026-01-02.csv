@@ -1,0 +1,840 @@
+establecimiento_id;establecimiento_nombre_comercial;establecimiento_modalidad;establecimiento_tipologia;establecimiento_clasificacion;direccion;direccion_isla_nombre;direccion_provincia_nombre;direcion_municipio_nombre;direccion_localidad_nombre;direccion_codigo_postal;unidades_explotacion;plazas;longitud;latitud
+-38-4-0000001;San Diego;Hotelera;_U;Dos Estrellas;Avda. San Diego, 40;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;_U;_U;0;0;0;0
+-38-4-0000003;Sin Denominación;Hotelera;_U;Categoria Unica;Calle Carrera Escultor Estévez;Tenerife;Santa Cruz De Tenerife;La Orotava;_U;_U;0;0;0;0
+A-38-4-0006100;Pez Azul;Hotelera;Hotel;Cuatro Estrellas;C/. Rector Benito Rodriguez Rios, 1;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;135;270;-16.542721;28.412559
+H-35-1-0000004;"Lemon &Amp; Soul Las Palmas";Hotelera;Hotel;Tres Estrellas;Alfredo L Jones, 37;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;64;128;-15.433318;28.14194
+H-35-1-0000006;Madrid;Hotelera;Hotel;Una Estrella;De Cairasco, 4;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35002;33;53;-15.416196;28.102991
+H-35-1-0000010;Sercotel Hotel Parque;Hotelera;Hotel;Tres Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35003;102;196;-15.416984;28.109561
+H-35-1-0000011;Santa Catalina A Royal Hideaway Hotel;Hotelera;Hotel;Cinco Estrellas Gran Lujo;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35005;204;408;-15.428255;28.121159
+H-35-1-0000017;Matilde;Hotelera;Hotel Urbano;Tres Estrellas;Juan Rejon;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;38;78;-15.437827;28.131956
+H-35-1-0000021;Hotel Catalina Plaza;Hotelera;Hotel;Una Estrella;Luis Morote, 16;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;45;82;-15.431367;28.141511
+H-35-1-0000036;Turquesa;Hotelera;Pension;Una Estrella;Secretario Artiles, 69;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;6;12;-15.432156;28.14072
+H-35-1-0000038;Falow;Hotelera;Pension;Una Estrella;Alfredo Calderon, 25;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35006;19;30;-15.431224;28.130486
+H-35-1-0000039;España;Hotelera;Pension;Una Estrella;Domingo J Navarro, 34;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35002;18;25;-15.419158;28.10687
+H-35-1-0000054;Fataga;Hotelera;Hotel;Cuatro Estrellas;Nestor De La Torre, 21;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35006;1;176;-15.433265;28.133655
+H-35-1-0000056;Tamadaba;Hotelera;Hotel;Una Estrella;Pelayo, 10;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;39;59;-15.438516;28.13556
+H-35-1-0000060;Miraflor;Hotelera;Pension;Una Estrella;Buenos Aires, 43;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35002;9;12;-15.420058;28.107082
+H-35-1-0000062;Astoria;Hotelera;Hotel;Tres Estrellas;Fernando Guanarteme, 054;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;168;304;-15.437874;28.135102
+H-35-1-0000064;Faycan;Hotelera;Hotel;Tres Estrellas;Nicolas Estevanez, 61;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;61;143;-15.435992;28.139215
+H-35-1-0000068;Olympia;Hotelera;Hotel;Dos Estrellas;Doctor Grau Bassas, 01;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;40;78;-15.435599;28.137393
+H-35-1-0000074;Pujol;Hotelera;Hotel;Dos Estrellas;Salvador Cuyás, 5;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;48;92;-15.430643;28.143858
+H-35-1-0000077;"Bull Reina Isabel &Amp; Spa";Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;231;411;-15.433297;28.142166
+H-35-1-0000080;Folias;Hotelera;Hotel;Tres Estrellas;Las Retamas, 17;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;79;158;-15.545775;27.76918
+H-35-1-0000083;Hotel Playa Las Canteras;Hotelera;Hotel;Tres Estrellas;Prudencio Morales, 41;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35009;67;133;-15.430723;28.148998
+H-35-1-0000088;Leon;Hotelera;Pension;Una Estrella;Graciliano Afonso, 05;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35120;17;29;-15.682257;27.760509
+H-35-1-0000096;"Bull Costa Canaria &Amp; Spa";Hotelera;Hotel;Cuatro Estrellas;Las Retamas, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;245;518;-15.541664;27.771274
+H-35-1-0000099;Perez;Hotelera;Pension;Dos Estrellas;Tecén, 26;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35009;20;38;-15.426177;28.15081
+H-35-1-0000100;Alisios Canteras;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;67;128;-15.439176;28.13531
+H-35-1-0000101;Majorica;Hotelera;Hotel;Dos Estrellas;Ripoche, 22;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;34;48;-15.43326;28.140448
+H-35-1-0000102;Aloe Canteras;Hotelera;Hotel;Tres Estrellas;Sagasta, 98;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;45;92;-15.429937;28.147736
+H-35-1-0000106;Sea Of Clouds;Hotelera;Pension;Una Estrella;Nicolas Estevanez, 31;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;22;43;-15.433905;28.139342
+H-35-1-0000111;Hotel Occidental Las Canteras;Hotelera;Hotel;Tres Estrellas;C/ Bernardo De La Torre;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;79;158;-15.434766;28.140612
+H-35-1-0000112;Bajamar;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;19;37;-15.438462;28.134986
+H-35-1-0000113;Exe Las Palmas;Hotelera;Hotel;Cuatro Estrellas;Sagasta, 28;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;114;223;-15.431159;28.143818
+H-35-1-0000116;Oliva;Hotelera;Pension;Dos Estrellas;Luis Morote, 58;Gran Canaria;Palmas (Las);Telde;Melenara;35214;28;56;-15.374048;27.988493
+H-35-1-0000119;Bandama Golf Hotel;Hotelera;Hotel;Tres Estrellas;Campo De Golf, 14;Gran Canaria;Palmas (Las);Santa Brigida;Bandama;35319;25;49;-15.459575;28.030424
+H-35-1-0000120;Verol;Hotelera;Hotel;Tres Estrellas;Sagasta, 25;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;46;86;-15.431457;28.143371
+H-35-1-0000121;Sercotel Playa Canteras;Hotelera;Hotel Urbano;Cuatro Estrellas;Portugal, 68;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;125;250;-15.438603;28.136024
+H-35-1-0000124;Alvarez;Hotelera;Pension;Una Estrella;Americas (De Las), 29;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Tablero (El);35109;15;22;-15.60389;27.77065
+H-35-1-0000126;Rosalia;Hotelera;Hotel;Tres Estrellas;Doctor Miguel Rosas, 52;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;45;81;-15.433092;28.141969
+H-35-1-0000130;Riu Palace Oasis;Hotelera;Hotel;Cinco Estrellas;De Las Palmeras, 3;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;415;830;-15.597348;27.736704
+H-35-1-0000131;Idafe;Hotelera;Hotel;Dos Estrellas;Nicolas Estevanez, 49;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;34;64;-15.434952;28.139299
+H-35-1-0000132;Hotel Boutique Gurea;Hotelera;Hotel;Dos Estrellas;C/ Princesa Guayarmina;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;26;50;-15.428349;28.14891
+H-35-1-0000137;Nh Imperial Playa;Hotelera;Hotel Urbano;Cuatro Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;162;320;-15.430761;28.148424
+H-35-1-0000138;Concorde;Hotelera;Hotel;Cuatro Estrellas;Tomás Miller, 85;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;124;236;-15.433855;28.141442
+H-35-1-0000139;Ac Hotel Gran Canaria;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;227;432;-15.430331;28.142049
+H-35-1-0000142;Beverly Park;Hotelera;Hotel;Tres Estrellas;Calle Hamburgo, 10 / Calle Hannover, 3;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;497;937;-15.558125;27.764727
+H-35-1-0000143;"Bohemia Suites &Amp; Spa";Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;67;134;-15.570143;27.756394
+H-35-1-0000144;Hotel Cristina By Tigotan Las Palmas;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;312;596;-15.430646;28.144701
+H-35-1-0000145;Hotel Faro, A Lopesan Collection Hotel;Hotelera;Hotel;Cinco Estrellas;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;179;358;-15.598095;27.735629
+H-35-1-0000146;Playa Del Inglés;Hotelera;Hotel;Tres Estrellas;Italia (De), 21;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;258;573;-15.567358;27.759459
+H-35-1-0000147;Parque Tropical;Hotelera;Hotel;Cuatro Estrellas;Italia (De), 01;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;227;445;-15.561178;27.763981
+H-35-1-0000149;Corallium Dunamar By Lopesan Hotels;Hotelera;Hotel;Cuatro Estrellas;Helsinki, 08;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;272;544;-15.568333;27.756944
+H-35-1-0000150;Valencia;Hotelera;Hotel;Dos Estrellas;Valencia, 64;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35006;39;68;-15.432145;28.133547
+H-35-1-0000151;Caserio;Hotelera;Hotel;Cuatro Estrellas;Avda. De Italia, 8;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;170;234;-15.563536;27.763351
+H-35-1-0000152;Abora Interclub Atlantic By Lopesan Hotels;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;420;1132;-15.535815;27.770995
+H-35-1-0000153;Waikiki;Hotelera;Hotel;Tres Estrellas;Gran Canaria (De), 20;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;505;1010;-15.571436;27.763267
+H-35-1-0000154;Abora Buenaventura By Lopesan Hotel;Hotelera;Hotel;Cuatro Estrellas;Avda. De Ansite, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;724;1448;-15.568302;27.763897
+H-35-1-0000155;"Bull Escorial &Amp; Spa";Hotelera;Hotel;Tres Estrellas;Italia (De), 06;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;250;558;-15.562985;27.764061
+H-35-1-0000157;Ac Hotel Iberia Las Palmas;Hotelera;Hotel Urbano;Cuatro Estrellas;Alcalde José Ramírez Bethencourt, 8;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35003;281;608;-15.417258;28.11205
+H-35-1-0000162;Servatur Don Miguel;Hotelera;Hotel;Tres Estrellas;Avenida De Tirajana;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;281;490;-15.5788;27.760209
+H-35-1-0000163;Playa;Hotelera;Pension;Una Estrella;Corriente (La), 13;Gran Canaria;Palmas (Las);Mogan;Mogan;35140;5;10;-15.765342;27.818889
+H-35-1-0000165;Barcelo Margaritas;Hotelera;Hotel;Cuatro Estrellas;Gran Canaria (De), 38;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;491;982;-15.580531;27.762733
+H-35-1-0000167;Rey Carlos;Hotelera;Hotel;Tres Estrellas;Tirajana (De), 14;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;160;320;-15.576667;27.751667
+H-35-1-0000168;Don Gregory By Dunas;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;243;462;-15.550036;27.767882
+H-35-1-0000169;Paradisus Gran Canaria;Hotelera;Hotel;Cinco Estrellas;C/ Las Retamas;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;297;595;-15.543069;27.770634
+H-35-1-0000170;Lucana;Hotelera;Hotel;Cuatro Estrellas;Sol (De), 04;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;182;366;-15.559858;27.764406
+H-35-1-0000171;Palm Beach;Hotelera;Hotel;Cinco Estrellas;Del Oasis, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;327;654;-15.595275;27.73734
+H-35-1-0000173;Ocean Beach Club Gran Canaria;Hotelera;Hotel;Cuatro Estrellas;Avda. La Riviera, Urb. Playa Del Cura;Gran Canaria;Palmas (Las);Mogan;Playa Del Cura (La);35138;125;445;-15.731842;27.799127
+H-35-1-0000175;Vistaflor Puerto Plata;Hotelera;Hotel;Dos Estrellas;Avenida De La Cornisa;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;153;306;-15.712396;27.7906
+H-35-1-0000176;"Bull Eugenia Victoria &Amp; Spa";Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;400;761;-15.573987;27.76445
+H-35-1-0000177;Abora Catarina By Lopesan Hotels;Hotelera;Hotel;Cuatro Estrellas;Avda. De Tirajana, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;410;820;-15.577036;27.749084
+H-35-1-0000178;Tejeda;Hotelera;Pension;Una Estrella;Doctor Domingo Hernández Guerra, 19;Gran Canaria;Palmas (Las);Tejeda;Tejeda;35360;7;14;-15.61461;27.994195
+H-35-1-0000180;Abora Continental By Lopesan Hotels;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;404;808;-15.56153;27.764304
+H-35-1-0000182;San Fernando;Hotelera;Pension;Una Estrella;Palma (La), Bloque 16, P.13,;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Fernando;35109;57;102;-15.578338;27.76531
+H-35-1-0000183;Il Rondo;Hotelera;Hotel;Cuatro Estrellas;Tirajana (De), 38;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;101;279;-15.578617;27.762134
+H-35-1-0000184;Revoli;Hotelera;Hotel;Cuatro Estrellas;Mogan (De), 13;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;181;362;-15.712718;27.788301
+H-35-1-0000185;Tirajanas (Las);Hotelera;Hotel;Cuatro Estrellas;Oficial Mayor José Rubio,;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Tunte (Capital);35290;50;100;-15.573644;27.919203
+H-35-1-0000187;Orquidea Bahia Feliz;Hotelera;Hotel;Cuatro Estrellas;Carretera General Del Sur, Km. 44,;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Tarajalillo;35107;255;511;-15.51907;27.78226
+H-35-1-0000189;Eva;Hotelera;Pension;Una Estrella;El Marinero, , 65 Lomoquiebre;Gran Canaria;Palmas (Las);Mogan;Mogan;35140;10;20;-15.761366;27.824777
+H-35-1-0000192;Riu Palace Palmeras;Hotelera;Hotel;Cuatro Estrellas;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;231;448;-15.571413;27.756039
+H-35-1-0000193;Anamar Suites;Hotelera;Hotel;Cuatro Estrellas;De Estados Unidos, 38;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;128;256;-15.572157;27.75728
+H-35-1-0000194;Corallium Beach By Lopesan Hotels;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;210;420;-15.540795;27.771999
+H-35-1-0000195;Sunprime Atlantic View;Hotelera;Hotel;Cuatro Estrellas;De Gran Canaria, 48;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;250;504;-15.583674;27.762374
+H-35-1-0000196;Hotel Puerto De Mogán;Hotelera;Hotel;Cuatro Estrellas;Castillete, S/N;Gran Canaria;Palmas (Las);Mogan;Puerto De Mogan;35138;54;112;-15.763918;27.816802
+H-35-1-0000197;Nayra;Hotelera;Pension;Una Estrella;Saulo Toron, 09;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35120;8;16;-15.681403;27.758649
+H-35-1-0000199;Lumi;Hotelera;Pension;Una Estrella;Manchas, Las (Antes Lomoquiebre, 21 ), 5;Gran Canaria;Palmas (Las);Mogan;Lomoquiebre;35140;8;16;-15.762923;27.822512
+H-35-1-0000200;Neptuno Gran Canaria;Hotelera;Hotel;Cuatro Estrellas;Alf.Provisionales, 29;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;166;332;-15.576326;27.759513
+H-35-1-0000201;Riosol;Hotelera;Hotel;Tres Estrellas;Avenida De La Cornisa, 24;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;225;658;-15.715479;27.788831
+H-35-1-0000203;Sunwing Resort Arguineguin;Hotelera;Hotel;Tres Estrellas;Carretera General Del Sur, Km.. 68,2, S/N;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35120;278;734;-15.686477;27.764097
+H-35-1-0000205;Riu Palace Maspalomas;Hotelera;Hotel;Cuatro Estrellas;Fuerteventura, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;368;734;-15.576328;27.747035
+H-35-1-0000209;Alcaravaneras;Hotelera;Hotel;Dos Estrellas;Luis Antunez, 22;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35006;20;30;-15.430716;28.130651
+H-35-1-0000213;"Gloria Palace San Agustin Thalasso &Amp;  Hotel";Hotelera;Hotel;Cuatro Estrellas;Margaritas (Las),;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;448;900;-15.547144;27.772196
+H-35-1-0000214;Lofi;Hotelera;Pension;Una Estrella;Americas (De Las), 41;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Tablero (El);35109;6;10;-15.604669;27.770573
+H-35-1-0000217;Gran Canaria Princess;Hotelera;Hotel;Cuatro Estrellas;Gran Canaria (De), Avda., 18;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;431;827;-15.570384;27.763477
+H-35-1-0000219;Cortijo De Los Nardos (El);Hotelera;Pension;Una Estrella;Hoyas Del Cavadero, 11;Gran Canaria;Palmas (Las);Moya;Fontanales;35420;6;12;-15.613378;28.057929
+H-35-1-0000220;Green Beach;Hotelera;Hotel;Tres Estrellas;Avda. Los Canarios, 23;Gran Canaria;Palmas (Las);Mogan;Patalavaca;35129;172;344;-15.68826;27.76805
+H-35-1-0000222;Hotel Escuela Santa Brigida;Hotelera;Hotel Urbano;Cuatro Estrellas;Real De Coello, 2;Gran Canaria;Palmas (Las);Santa Brigida;Monte Lentiscal;35310;40;76;-15.476768;28.04567
+H-35-1-0000223;Radisson Blu Resort Gran Canaria;Hotelera;Hotel;Cinco Estrellas;Aquamarina, 1;Gran Canaria;Palmas (Las);Mogan;Patalavaca;35129;189;472;-15.690768;27.77215
+H-35-1-0000224;"Bull Dorado Beach &Amp; Spa";Hotelera;Hotel;Tres Estrellas;Los Canarios, 1;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35120;195;548;-15.6843;27.7624
+H-35-1-0000226;Altamar;Hotelera;Hotel;Tres Estrellas;Cornisa De (La), 21;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;257;638;-15.720102;27.788802
+H-35-1-0000227;Cascajos;Hotelera;Hotel;Una Estrella;Cascajos (Los), 09;Gran Canaria;Palmas (Las);La Aldea De San Nicolas;Aldea De San Nicolás (La);35470;20;38;-15.782133;27.986334
+H-35-1-0000228;Green Field;Hotelera;Hotel;Tres Estrellas;Tenerife (De), Avda., 6;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;324;730;-15.565802;27.763491
+H-35-1-0000230;Hotel Riu Papayas;Hotelera;Hotel;Cuatro Estrellas;Gran Canaria (De), 22;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;468;936;-15.572008;27.763355
+H-35-1-0000231;Hacienda De Anzo;Hotelera;Hotel;Tres Estrellas;Pablo Diaz, 37;Gran Canaria;Palmas (Las);Galdar;Anzofe;35460;6;12;-15.642763;28.129256
+H-35-1-0000232;"Dunas Suites &Amp; Villas Resort";Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Campo Internacional;35100;244;588;-15.597168;27.747063
+H-35-1-0000234;Villa De Agüimes;Hotelera;Hotel;Dos Estrellas;Sol (Sol), 03;Gran Canaria;Palmas (Las);Aguimes;Agüimes;35260;6;10;-15.445782;27.906178
+H-35-1-0000236;Taurito Princess;Hotelera;Hotel;Cuatro Estrellas;Alhambra, 8;Gran Canaria;Palmas (Las);Mogan;Taurito;35138;404;810;-15.754562;27.815676
+H-35-1-0000237;Principado;Hotelera;Hotel;Tres Estrellas;Bonn (De), 14;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;119;373;-15.572856;27.755538
+H-35-1-0000238;Servatur Puerto Azul;Hotelera;Hotel;Tres Estrellas;Avda. De La Cornisa, 21;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;520;1403;-15.717604;27.786825
+H-35-1-0000239;Seaside Sandy Beach;Hotelera;Hotel;Cuatro Estrellas;Avda. Los Menceyes, Nº 001;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;256;486;-15.570366;27.757939
+H-35-1-0000240;" Lopesan Costa Meloneras Resort &Amp; Spa";Hotelera;Hotel;Cinco Estrellas;Mar Mediterráneo, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Meloneras (Las);35100;1137;2265;-15.599956;27.737822
+H-35-1-0000241;Maspalomas Tabaiba Princess;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;799;1598;-15.596693;27.752178
+H-35-1-0000242;Mirador Del Atlantico;Hotelera;Hotel;Tres Estrellas;Islas Afortunadas, 5;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;116;232;-15.721367;27.790215
+H-35-1-0000243;Grand Hotel Residencia;Hotelera;Hotel;Cinco Estrellas Gran Lujo;Del Oasis, 32;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;93;181;-15.597042;27.739824
+H-35-1-0000244;Riu Palace Meloneras;Hotelera;Hotel;Cinco Estrellas;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Meloneras (Las);35100;515;1030;-15.602618;27.740083
+H-35-1-0000245;Hotel Riu Gran Canaria;Hotelera;Hotel;Cuatro Estrellas;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Meloneras (Las);35100;639;1235;-15.604497;27.741003
+H-35-1-0000246;Hotel Riu Vistamar;Hotelera;Hotel;Cuatro Estrellas;Cornisa De (La), Parcela H-14, 23;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;475;920;-15.721568;27.788212
+H-35-1-0000247;Gran Hotel Vecindario Aeropuerto;Hotelera;Hotel;Cuatro Estrellas;Atlantico (Del), 353;Gran Canaria;Palmas (Las);Santa Lucia De Tirajana;Vecindario;35110;171;336;-15.440972;27.840786
+H-35-1-0000248;"Gloria Palace Amadores Thalasso &Amp; Hotel";Hotelera;Hotel;Cuatro Estrellas;La Palma, 2;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;392;688;-15.718863;27.786072
+H-35-1-0000249;"Lopesan Villa Del Conde Resort &Amp;  Thalasso";Hotelera;Hotel;Cinco Estrellas;Avda. Mar Mediterraneo, 7;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;561;1124;-15.606501;27.742278
+H-35-1-0000250;H10 Playa Meloneras Palace;Hotelera;Hotel;Cinco Estrellas;Mar Caspio, 5;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Meloneras (Las);35100;374;748;-15.61079;27.746824
+H-35-1-0000251;Sun Suite;Hotelera;Hotel;Tres Estrellas;Palmeras (Las), S/N;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;158;316;-15.708104;27.794354
+H-35-1-0000252;Cordial Mogan Playa;Hotelera;Hotel;Cuatro Estrellas;Parcela 6-B, S/N;Gran Canaria;Palmas (Las);Mogan;Puerto De Mogan;35140;487;950;-15.759991;27.822463
+H-35-1-0000254;Hapimag San Agustin;Hotelera;Hotel;Dos Estrellas;Jazmines (Los), 23;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;60;120;-15.5404;27.772147
+H-35-1-0000255;Terrazamar Suite;Hotelera;Hotel;Tres Estrellas;Avda. De Las Palmeras, S/N;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35140;100;199;-15.708104;27.794354
+H-35-1-0000256;San Agustin Beach Club;Hotelera;Hotel;Cuatro Estrellas;Cocoteros (De Los), 2;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Agustin;35100;65;81;-15.544339;27.767403
+H-35-1-0000257;Hotel Livvo Costa Taurito;Hotelera;Hotel;Cuatro Estrellas;Alcazaba, Parcela 35 (Costa Taurito), 1;Gran Canaria;Palmas (Las);Mogan;Taurito;35140;80;160;-15.750567;27.817358
+H-35-1-0000258;Hotel Avenida De Canarias;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);Santa Lucia De Tirajana;Vecindario;35110;60;99;-15.442631;27.848929
+H-35-1-0000259;Hotel Fonda De La Tea;Hotelera;Hotel;Tres Estrellas;C/ Ezequiel Sanchez, 21;Gran Canaria;Palmas (Las);Tejeda;Tejeda;35360;9;18;-15.615031;27.996161
+H-35-1-0000260;Palm Oasis;Hotelera;Hotel;Tres Estrellas;Einstein, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Sonneland;35290;234;509;-15.599943;27.765285
+H-35-1-0000261;Morasol Suites;Hotelera;Hotel;Cuatro Estrellas;C/ Juan Diaz Rodriguez, 12;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;88;220;-15.708889;27.782222
+H-35-1-0000262;Pino (El);Hotelera;Hotel;Una Estrella;Cabildo Insular, 141;Gran Canaria;Palmas (Las);Teror;Teror;35330;9;18;-15.546032;28.066148
+H-35-1-0000263;Puerto De Las Nieves;Hotelera;Hotel;Cuatro Estrellas;Alcalde Jose De Armas Medina, S/N;Gran Canaria;Palmas (Las);Agaete;Puerto De Las Nieves;35480;28;48;-15.710415;28.10256
+H-35-1-0000264;"Gloria Palace Royal Hotel &Amp; Spa";Hotelera;Hotel;Cuatro Estrellas;C/ Tamara,  (Parcelas 3r Y 4r) Plan Parcial De Amadores, 1;Gran Canaria;Palmas (Las);Mogan;Barranco De Amadores;35130;197;399;-15.722674;27.79239
+H-35-1-0000265;Parador Cruz De Tejeda;Hotelera;Hotel;Cuatro Estrellas;Cruz De Tejeda, S/N;Gran Canaria;Palmas (Las);Tejeda;Tejeda;35328;43;113;-15.599937;28.006675
+H-35-1-0000266;Salobre Hotel Resort And Serenity;Hotelera;Hotel;Cinco Estrellas;Swing, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Salobre (El);35290;324;650;-15.650231;27.782187
+H-35-1-0000267;Hotel Tui Blue Suite Princess;Hotelera;Hotel;Cuatro Estrellas;C/ Alcazaba, 4;Gran Canaria;Palmas (Las);Mogan;Taurito;35138;304;608;-15.751928;27.814339
+H-35-1-0000268;Club Gran Anfi;Hotelera;Hotel;Cinco Estrellas;Anfi Del Mar, 4;Gran Canaria;Palmas (Las);Mogan;Patalavaca;35120;185;524;-15.700042;27.772058
+H-35-1-0000269;Hotel Livvo Lago Taurito;Hotelera;Hotel;Tres Estrellas;Alcazaba, 2;Gran Canaria;Palmas (Las);Mogan;Taurito;35138;192;517;-15.751334;27.81693
+H-35-1-0000270;Europalace;Hotelera;Hotel;Tres Estrellas;Hamburgo, 12;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;204;579;-15.559426;27.763982
+H-35-1-0000272;Hotel Occidental Roca Negra;Hotelera;Hotel Urbano;Cuatro Estrellas;Alfredo Kraus, 42;Gran Canaria;Palmas (Las);Agaete;Turman (El);35480;140;375;-15.707735;28.106408
+H-35-1-0000273;Hotel Livvo Valle Taurito;Hotelera;Hotel;Cuatro Estrellas;Parcela H-3,;Gran Canaria;Palmas (Las);Mogan;Taurito;35140;130;262;-15.752981;27.817075
+H-35-1-0000274;Lopesan Baobab Resort;Hotelera;Hotel;Cinco Estrellas;Mar Adriático, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Meloneras (Las);35100;677;1356;-15.599965;27.740909
+H-35-1-0000275;Anfi Emerald Club;Hotelera;Hotel;Cuatro Estrellas;Luxemburgo, 4;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35139;119;337;-15.715986;27.803933
+H-35-1-0000278;Maracaibo;Hotelera;Hotel;Tres Estrellas;Avenida De Mogán;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;102;304;-15.714443;27.786943
+H-35-1-0000279;Hotel Hd Parque Cristobal;Hotelera;Hotel;Tres Estrellas;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;233;923;-15.581667;27.761389
+H-35-1-0000281;Mirador Maspalomas;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Sonneland;35100;436;820;-15.601063;27.764151
+H-35-1-0000282;H10 Costa Mogán;Hotelera;Hotel;Cuatro Estrellas;Playa Del Cura, 4;Gran Canaria;Palmas (Las);Mogan;Playa Del Cura (La);35138;125;250;-15.732883;27.79905
+H-35-1-0000283;Hotel Kasa;Hotelera;Hotel;Una Estrella;General Vives, 75 1º;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;17;35;-15.431568;28.140376
+H-35-1-0000284;Hostal Albacar;Hotelera;Hotel;Dos Estrellas;Padre Cueto, 14;Gran Canaria;Palmas (Las);Telde;Melenara;35215;14;22;-15.377053;27.989589
+H-35-1-0000285;Maritim Playa;Hotelera;Hotel;Tres Estrellas;Avda. De Tenerife, , 10;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;116;348;-15.568943;27.760678
+H-35-1-0000286;Dunas Maspalomas Resort;Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Campo Internacional;35100;262;872;-15.597718;27.750373
+H-35-1-0000287;Casablanca;Hotelera;Hotel;Cuatro Estrellas;De Gran Canaria, 24;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;97;291;0;0
+H-35-1-0000288;Altamadores;Hotelera;Hotel;Cuatro Estrellas;San Borondón, 6;Gran Canaria;Palmas (Las);Mogan;Barranco De Amadores;35130;90;180;-15.718958;27.794383
+H-35-1-0000289;Hotel La Aldea Suites;Hotelera;Hotel Urbano;Dos Estrellas;Calle Maestra Doña Josefa Sosa Suárez, 5;Gran Canaria;Palmas (Las);La Aldea De San Nicolas;Aldea De San Nicolás (La);35470;49;123;-15.78149;27.982983
+H-35-1-0000290;Hotel Tusity Catalina;Hotelera;Hotel Emblematico;Categoria Unica;Calle General Vives;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;23;54;-15.431379;28.140207
+H-35-1-0000291;Las Palmas Center;Hotelera;Hotel Urbano;Dos Estrellas;Valencia, 4;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35006;12;27;-15.432153;28.129674
+H-35-1-0000292;Gold By Marina;Hotelera;Hotel;Cuatro Estrellas;Estados Unidos, 15;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;133;270;-15.572313;27.756775
+H-35-1-0000293;Casa Mozart;Hotelera;Hotel Urbano;Tres Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35005;5;10;-15.434161;28.127932
+H-35-1-0000296;Moraluz Los Helechos Sl;Hotelera;Hotel Urbano;Dos Estrellas;Benecharo, 13-15;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35009;27;39;-15.424051;28.150304
+H-35-1-0000297;Hotel Melva Suite;Hotelera;Hotel Urbano;Cuatro Estrellas;Gardenia, 16;Gran Canaria;Palmas (Las);Firgas;Caldera (La);35432;8;16;-15.547655;28.103204
+H-35-1-0000299;Wavia Hotel;Hotelera;Hotel Urbano;Tres Estrellas;Pajonales, 19;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35009;10;20;-15.431974;28.149227
+H-35-1-0000300;Playa De Arinaga;Hotelera;Hotel Urbano;Una Estrella;Polizón, , 55 Playa De Arinaga;Gran Canaria;Palmas (Las);Aguimes;Playa De Arinaga;35118;4;8;-15.395652;27.857313
+H-35-1-0000301;Santa Monica Suites Hotel;Hotelera;Hotel;Cuatro Estrellas;Costa Canaria, , 116 Parcela 73;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;182;546;-15.57249;27.750938
+H-35-1-0000302;Arguineguin;Hotelera;Hotel Urbano;Una Estrella;Manuel Pérez De La Barrera,, 6 Arguineguin;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35140;6;12;-15.681608;27.757624
+H-35-1-0000303;Arguineguin Ii;Hotelera;Hotel Urbano;Una Estrella;Princesa Tenesoya, 66 Arguineguin;Gran Canaria;Palmas (Las);Mogan;Arguineguin;35140;7;19;-15.679722;27.765583
+H-35-1-0000304;Villa Bandama Golf;Hotelera;Hotel Urbano;Cuatro Estrellas;Montañeta Cha María Miranda;Gran Canaria;Palmas (Las);Santa Brigida;Santa Brigida;35300;5;10;-15.468686;28.032897
+H-35-1-0000305;"Hotel Labranda Marieta &Amp; Spa";Hotelera;Hotel;_U;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;192;384;-15.563729;27.762249
+H-35-1-0000306;Hotel Akeah Broncemar;Hotelera;Hotel;_U;Calle San Cristobal De La Laguna;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;179;537;-15.565719;27.761682
+H-35-1-0000307;Calderones, Los;Hotelera;Hotel;Cuatro Estrellas;Ttoo Air Marin, 2;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Campo Internacional;35100;78;207;-15.600532;27.751732
+H-35-1-0000309;Radisson Blu Resort & Spa Gran Canaria Mogan;Hotelera;Hotel;Cinco Estrellas;De Los Marrero, 35;Gran Canaria;Palmas (Las);Mogan;Playa De Mogan;35140;422;912;-15.75769;27.826091
+H-35-1-0000310;Nayra;Hotelera;Hotel;Cuatro Estrellas;Irlanda, 25;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;46;92;-15.577199;27.757231
+H-35-1-0000311;Seven Hotel & Wellness;Hotelera;Hotel;Cuatro Estrellas;Touroperador Tjaereborg, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;16;48;-15.588645;27.752172
+H-35-1-0000312;Doña Luisa;Hotelera;Hotel Urbano;Tres Estrellas;Alfredo L. Jones, 29;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;35;70;-15.432767;28.142029
+H-35-1-0000313;Hotel The Cathedral;Hotelera;Hotel Urbano;Dos Estrellas;Espíritu Santo, 6;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35001;5;10;-15.413005;28.100798
+H-35-1-0000314;Arucas;Hotelera;Hotel Emblematico;Categoria Unica;Parroco Morales, 4;Gran Canaria;Palmas (Las);Arucas;Arucas;35400;5;16;-15.523451;28.118981
+H-35-1-0000315;Bellasombra Suites;Hotelera;Hotel Urbano;Tres Estrellas;Musico Juan Reyes De Armas, 4;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Tafira Alta;35017;3;8;-15.457118;28.064463
+H-35-1-0000316;Eó Maspalomas Resort;Hotelera;Hotel;Tres Estrellas;Touroperador Neckermann, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;84;252;-15.587531;27.756721
+H-35-1-0000317;La Maresía;Hotelera;Hotel Urbano;Tres Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;24;52;-15.432153;28.129674
+H-35-1-0000318;Canary Garden Club;Hotelera;Hotel;Tres Estrellas;Touroperador Old Wings, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Campo Internacional;35100;116;348;-15.596072;27.75651
+H-35-1-0000319;Santa Claudia;Hotelera;Hotel;Una Estrella;Timanfaya, 16;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35130;29;57;-15.711432;27.794975
+H-35-1-0000320;Nachosol Atlantic;Hotelera;Hotel;Cuatro Estrellas;Fuerteventura, 15;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;35140;51;102;-15.710225;27.785023
+H-35-1-0000321;Design Plus Bex;Hotelera;Hotel Urbano;Cuatro Estrellas;León Y Castillo, 330;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35007;97;194;-15.430376;28.138914
+H-35-1-0000322;Veintiuno·Emblematic Hotels ;Hotelera;Hotel Emblematico;Categoria Unica;Calle Espíritu Santo;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35001;16;32;-15.413825;28.100472
+H-35-1-0000323;La Palmera Hotel Boutique;Hotelera;Hotel Urbano;Una Estrella;Rafael Dávila, 12;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35005;7;14;-15.430569;28.128166
+H-35-1-0000324;Ciudad Del Mar;Hotelera;Hotel Urbano;Tres Estrellas;La Naval, 38;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;15;37;-15.428999;28.148989
+H-35-1-0000325;Club Maspalomas Suites & Spa;Hotelera;Hotel;Cuatro Estrellas;Touroperador Ols Wings, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;133;266;-15.597256;27.755185
+H-35-1-0000326;Koala Garden Suites;Hotelera;Hotel;Cuatro Estrellas;Geminis, 1;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;233;657;-15.592297;27.762716
+H-35-1-0000327;Hd Acuario Lifestyle;Hotelera;Hotel Emblematico;Categoria Unica;General Vives, 82, 84, 86,;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35000;21;42;-15.431367;28.140698
+H-35-1-0000328;Silken Saaj;Hotelera;Hotel Urbano;Cuatro Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35006;64;132;-15.430149;28.131212
+H-35-1-0000330;Dunagolf;Hotelera;Hotel;Tres Estrellas;_U;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35290;120;360;-15.585548;27.751532
+H-35-1-0000331;Silvi Marina;Hotelera;Hotel;Cinco Estrellas;Avenida Sargentos Provisionales;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;5;15;-15.570237;27.7615
+H-35-1-0000332;Sanom Beach Resort & Spa;Hotelera;Hotel;Cuatro Estrellas;Sargentos Provisionales, 38;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;35;83;-15.576727;27.76053
+H-35-1-0000333;Siglo Xvi;Hotelera;Hotel Emblematico;Categoria Unica;Marin Y Cubas, 2, Esquina Calle Duende,;Gran Canaria;Palmas (Las);Telde;San Juan;35215;7;14;-15.413765;28.003717
+H-35-1-0000334;Puerto De La Luz;Hotelera;Hotel Urbano;Tres Estrellas;Rosarito, 33, Esquina C/ Pérez Muñoz, 19, Esquina Juan Rejón, 42,;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35008;144;288;-15.426859;28.148795
+H-35-1-0000335;Eó Suite Hotel Jardín Dorado;Hotelera;Hotel;Cuatro Estrellas;Ttoo Tjaereborg, S/N;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Maspalomas;35100;114;342;-15.585005;27.755053
+H-35-1-0000336;Agaldar;Hotelera;Hotel Emblematico;Categoria Unica;De Santiago, 14;Gran Canaria;Palmas (Las);Galdar;Galdar;35460;20;40;-15.655866;28.14524
+H-35-1-0000337;Sahara Playa;Hotelera;Hotel;Dos Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;_U;121;238;0;0
+H-35-1-0000338;Alfredo Beach Urban Hotel;Hotelera;Hotel Urbano;Tres Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;7;16;-15.434941;28.138646
+H-35-1-0000339;Occidental Las Palmas;Hotelera;Hotel Urbano;Cuatro Estrellas;_U;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35010;70;155;-15.426087;28.121046
+H-35-1-0000340;Posada De Juncalillo;Hotelera;Hotel Urbano;Una Estrella;_U;Gran Canaria;Palmas (Las);Galdar;Juncalillo;35460;9;25;-15.646141;28.038441
+H-35-1-0000341;Hotel Veril Playa;Hotelera;Hotel;Tres Estrellas;Hamburgo, 8;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;Playa Del Ingles;35100;70;158;-15.557083;27.765156
+H-35-1-0000342;Kumara Serenoa By Lopesan Hotels;Hotelera;Hotel;Cuatro Estrellas;Avenida Touroperador Fritidresor;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;144;320;-15.583368;27.751797
+H-35-1-0000344;Hotel La Peregrina;Hotelera;Hotel Emblematico;Categoria Unica;Calle Peregrina;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;28;56;-15.415467;28.102828
+H-35-1-0000345;Marina Suites;Hotelera;Hotel;Cuatro Estrellas;C/ Juan Díaz Rodríguez;Gran Canaria;Palmas (Las);Mogan;Puerto Rico;_U;216;450;-15.709428;27.781369
+H-35-1-0000347;Boutique Hotel Cordial Malteses;Hotelera;Hotel Emblematico;Categoria Unica;Calle Malteses;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000348;Hotel Lumm;Hotelera;Hotel Urbano;Cuatro Estrellas;Calle Simón Bolivar (Esq. C/ Nicolás Estévanez);Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;88;176;0;0
+H-35-1-0000350;La Niña De Vegueta;Hotelera;Hotel Emblematico;Categoria Unica;Calle Doctor Chil, 13;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000351;Mg Poniente;Hotelera;Hotel Urbano;Tres Estrellas;Calle Nicolás Estévanez, 48 (Esq. C/ Bernardo De La Torre, 59-61);Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000352;Hotel Emeté;Hotelera;Hotel Urbano;Tres Estrellas;Calle Arístides Briand, 29;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000353;Cordial Plaza Mayor De Santa Ana;Hotelera;Hotel Emblematico;Categoria Unica;Plaza De Santa Ana, Nº 5 Y C/ Espíritu Santo, Nº 28;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000354;"Hotel Mogan Princess &Amp; Beach Club";Hotelera;Hotel;Tres Estrellas;Calle Albaicín;Gran Canaria;Palmas (Las);Mogan;_U;_U;0;0;0;0
+H-35-1-0000355;Cay Beah Meloneras;Hotelera;Hotel;Tres Estrellas;Calle Mar Báltico;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;0;0;0;0
+H-35-1-0000356;"Vital Suites Residencia Salud &Amp; Spa";Hotelera;Hotel;Cuatro Estrellas;Avenida De Gran Canaria;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;68;136;0;0
+H-35-1-0000357;Cay Beach Princess;Hotelera;Hotel;Tres Estrellas;Avenida Touroperador Thomson Hol. 04;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;137;388;0;0
+H-35-1-0000358;Sahera Hotel Boutique;Hotelera;Hotel Urbano;Una Estrella;Calle Ruben Dario, 4 Esq. Antonio Betancor Massiu, 9;Gran Canaria;Palmas (Las);Telde;_U;_U;11;22;0;0
+H-35-1-0000359;Hotel Chatur Palmera Mar;Hotelera;Hotel;Tres Estrellas;Calle Montaña Clara, Nº5;Gran Canaria;Palmas (Las);Mogan;_U;_U;0;0;0;0
+H-35-1-0000360;Hotel Ritual;Hotelera;Hotel;Tres Estrellas;Avenida 8 De Marzo;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;0;0;0;0
+H-35-1-0000361;Servatur Hartaguna;Hotelera;Hotel;Tres Estrellas;Avenida La Cornisa;Gran Canaria;Palmas (Las);Mogan;_U;_U;64;128;0;0
+H-35-1-0000362;La Vega De Ciudad Jardín Suites;Hotelera;Hotel Urbano;Dos Estrellas;Calle Fortuny, 3 Y Calle Brasil, 15;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;21;49;0;0
+H-35-1-0000363;Masanet Emblematic Hotels;Hotelera;Hotel Emblematico;Categoria Unica;Calle Obispo Codina;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000364;Hotel Livvo La Escarlata;Hotelera;Hotel Urbano;Cuatro Estrellas;Calle Nicolás Estévanez;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;57;114;0;0
+H-35-1-0000365;Maspalomas Villas Premium By Dunas;Hotelera;Hotel;Cuatro Estrellas;Av. Touroperador Air Marín;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;0;0;0;0
+H-35-1-0000366;Hotel Palmitos;Hotelera;Hotel;Cuatro Estrellas;Diseminado Lomo Los Palmitos;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;0;0;0;0
+H-35-1-0000368;Las Dunas De Santa Catalina Boutique House;Hotelera;Hotel Urbano;Dos Estrellas;Calle Maestro Valle;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;17;36;0;0
+H-35-1-0000369;Hotel Ocean Hill;Hotelera;Hotel;Tres Estrellas;Avenida La Cornisa;Gran Canaria;Palmas (Las);Mogan;_U;_U;0;0;0;0
+H-35-1-0000371;Cartagena De Indias;Hotelera;Hotel Urbano;Tres Estrellas;Calle Colombia;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;_U;_U;0;0;0;0
+H-35-1-0000372;La Marine Boutique Hotel;Hotelera;Hotel Urbano;Cuatro Estrellas;Calle Luis Morote;Gran Canaria;Palmas (Las);Telde;Melenara;_U;0;0;0;0
+H-35-1-0000373;Sholeo Lodges Maspalomas;Hotelera;Hotel;Cuatro Estrellas;Avenida De Gran Canaria;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;_U;_U;0;0;0;0
+H-35-2-0000002;Tamasite;Hotelera;Hotel;Dos Estrellas;León Y Castillo, 9;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;18;34;-13.859025;28.49866
+H-35-2-0000004;Avanti Hotel Boutique Fuerteventura;Hotelera;Hotel;Una Estrella;C/ Delfín, 1;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;14;28;-13.867544;28.738242
+H-35-2-0000006;Valeron;Hotelera;Hotel;Dos Estrellas;C/ Candelaria Del Castillo, 10;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;16;32;-13.856975;28.500285
+H-35-2-0000007;Robinson Club Jandia Playa;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35626;373;756;-14.343144;28.048271
+H-35-2-0000008;"R2 Bahia Playa Design Hotel &Amp; Spa - Adults Only";Hotelera;Hotel;Cuatro Estrellas;Avda. De Las Palmeras, S/N;Fuerteventura;Palmas (Las);Tuineje;Tarajalejo;35627;163;326;-14.118602;28.192661
+H-35-2-0000009;Roquemar;Hotelera;Pension;Dos Estrellas;C/ Ruperto Gonzalez Negrin, 1;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;10;20;-13.858222;28.498667
+H-35-2-0000010;Riu Palace Tres Islas;Hotelera;Hotel;Cuatro Estrellas;Grandes Playas,;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;375;725;-13.838537;28.712696
+H-35-2-0000011;Riu Oliva Beach;Hotelera;Hotel;Cuatro Estrellas;Avda. Grandes Playas De Corralejo, S/N;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;243;486;-13.839986;28.708684
+H-35-2-0000014;Paradisus/Innside Fuerteventura By Melia;Hotelera;Hotel;Cuatro Estrellas;Lg. Playa La Barca , S/N;Fuerteventura;Palmas (Las);Pájara;Playa Barca;35626;562;1096;-14.245284;28.137067
+H-35-2-0000015;Macario I;Hotelera;Pension;Una Estrella;C/ Almirante Fontan Lobe, 10;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;12;22;-13.852184;28.501548
+H-35-2-0000016;Solyventura;Hotelera;Hotel;Tres Estrellas;Escocia,;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;25;44;-14.228613;28.154888
+H-35-2-0000019;Aldiana Fuerteventura;Hotelera;Hotel;Cuatro Estrellas;Melindraga, Nº 2;Fuerteventura;Palmas (Las);Pájara;Gaviotas (Las);35626;361;760;-14.31701;28.059332
+H-35-2-0000020;Maxorata;Hotelera;Pension;Una Estrella;Maxorata, 31;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35625;8;10;-14.353293;28.051776
+H-35-2-0000022;Sbh Taro Beach;Hotelera;Hotel;Cuatro Estrellas;Urb. Cañada Del Río, Avda. Ltu, S/N;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;293;586;-14.222746;28.163938
+H-35-2-0000023;El Mirador De Fuerteventura;Hotelera;Hotel;Cuatro Estrellas;Playa Blanca, 45;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;50;102;-13.865657;28.473816
+H-35-2-0000024;C.V. Robinson Club Esquinzo Playa;Hotelera;Hotel;Tres Estrellas;Urb. Esquinzo (Bco. El Esquinzo),;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;436;1055;-14.302277;28.076176
+H-35-2-0000031;Ifa Altamarena;Hotelera;Hotel;Cuatro Estrellas;Avda. Del Saladar, 28;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35625;238;476;-14.340673;28.048395
+H-35-2-0000032;H10 Ocean Dunas;Hotelera;Hotel;Cuatro Estrellas;C/ La Red, 1;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;82;164;-13.869065;28.733968
+H-35-2-0000034;Sbh Crystal Beach Hotel & Suites;Hotelera;Hotel;Cuatro Estrellas;Avda. Ltu, 3;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;170;339;-14.223644;28.163992
+H-35-2-0000035;Club Barlovento;Hotelera;Hotel;Tres Estrellas;Barranco De Las Damas, Nº 2;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;252;504;-14.220661;28.166066
+H-35-2-0000036;Sbh Fuerteventura Playa;Hotelera;Hotel;Cuatro Estrellas;Urb. Cañada Del Rio, Parc. S1-1, Pol. C1,;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;304;618;-14.220647;28.166946
+H-35-2-0000037;Riu Palace Jandia;Hotelera;Hotel;Cuatro Estrellas;Urb. Solana Matorral, Parc. 9-A1, 9-A2 Y 10-15,;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35625;201;403;-14.34581;28.049477
+H-35-2-0000038;Riu Palace Calypso;Hotelera;Hotel;Cuatro Estrellas;C/ Acantilado, S/N;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35625;248;496;-14.349474;28.050147
+H-35-2-0000039;Tamonante;Hotelera;Pension;Una Estrella;Juan Carlos I, 17;Fuerteventura;Palmas (Las);Tuineje;Gran Tarajal;35626;6;12;-14.022385;28.211181
+H-35-2-0000040;Risco Del Gato;Hotelera;Hotel;Dos Estrellas;C/ Sicasumbre, 2;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;51;107;-14.232399;28.152486
+H-35-2-0000041;Sbh Maxorata Resort;Hotelera;Hotel;Cuatro Estrellas;"C/ Biocho, 4; Solana Matorral";Fuerteventura;Palmas (Las);Pájara;Morro Jable;35626;601;1210;-14.327502;28.052119
+H-35-2-0000043;El Artesano;Hotelera;Pension;Una Estrella;C/ Real, 23;Fuerteventura;Palmas (Las);Antigua;Antigua;35630;10;12;-14.012607;28.424656
+H-35-2-0000044;R2 Buganvila;Hotelera;Hotel;Cuatro Estrellas;C/ Las Afortunadas, 2;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35626;254;509;-14.337606;28.04957
+H-35-2-0000046;Esquinzo Beach;Hotelera;Hotel;Cuatro Estrellas;C/ Gran Canaria, 8;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;385;770;-14.308336;28.073746
+H-35-2-0000047;Xq El Palacete;Hotelera;Hotel;Cuatro Estrellas;C/ El Acantilado, S/N;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35625;54;108;-14.350177;28.049544
+H-35-2-0000048;Faro Jandia Fuerteventura;Hotelera;Hotel;Cuatro Estrellas;Avda. Del Saladar, 17;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35626;214;428;-14.334219;28.049078
+H-35-2-0000049;"R2 Rio Calma Spa &Amp; Conference";Hotelera;Hotel;Cuatro Estrellas;Urbanizacion El Granillo, Parcela 6,;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;416;709;-14.2096;28.1674
+H-35-2-0000050;Barcelo Fuerteventura Mar;Hotelera;Hotel;Cuatro Estrellas;Avda. Del Castillo;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;486;984;-13.858314;28.397585
+H-35-2-0000051;Club Hotel Drago Park;Hotelera;Hotel;Cuatro Estrellas;C/ Punta Pesebre, 5;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;235;497;-14.223093;28.1735
+H-35-2-0000052;R2 Higos Beach;Hotelera;Hotel;Tres Estrellas;C/ Baja De Los Erizos;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;46;92;-14.230021;28.154902
+H-35-2-0000053;Elba Sara;Hotelera;Hotel;Cuatro Estrellas;Urb. Fuerteventura Golf Club, Parc. Rli-3, Sect.3,;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;266;532;-13.865872;28.384153
+H-35-2-0000054;Jm Puerto Del Rosario;Hotelera;Hotel;Tres Estrellas;Avenida Ruperto Gonzalez Negrin, 9;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;88;116;-13.857651;28.499058
+H-35-2-0000055;Barcelo Corralejo Bay;Hotelera;Hotel;Cuatro Estrellas;Avenida Grandes Playas, 12;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;241;482;-13.86743;28.732637
+H-35-2-0000056;"Secrets Bahia Real Resort &Amp; Spa";Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;250;502;-13.855602;28.728512
+H-35-2-0000057;Elba Palace Golf;Hotelera;Hotel;Cinco Estrellas Lujo;Urbanizacion Fuerteventura Golf Club,;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;60;122;-13.874941;28.389516
+H-35-2-0000058;Labranda Bahia De Lobos;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;288;584;-13.871881;28.730592
+H-35-2-0000059;Kn Matas Blancas;Hotelera;Hotel;Cuatro Estrellas;C/ Punta Pesebre, 6-8;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;202;406;-14.221605;28.173399
+H-35-2-0000060;Iberostar Playa Gaviotas;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Pájara;Gaviotas (Las);35626;375;718;-14.318898;28.057192
+H-35-2-0000061;Elba Lucia Sport & Suite Hotel;Hotelera;Hotel;Tres Estrellas;Teniente Coronel José Zerra Guevara, Nº 8;Fuerteventura;Palmas (Las);Antigua;Costa De Antigua;35610;169;507;-13.855471;28.414102
+H-35-2-0000062;"Elba Castillo De San Jorge &Amp; Antigua";Hotelera;Hotel;Tres Estrellas;C/ Franchy Roca , S/N;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;272;604;-13.853492;28.399492
+H-35-2-0000063;Ereza Mar;Hotelera;Hotel;Cuatro Estrellas;José Franchy Roca, Nº 6;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;160;320;-13.854725;28.397788
+H-35-2-0000064;H10 Playa Esmeralda;Hotelera;Hotel;Cuatro Estrellas;C/ Punta Del Roquito, 2;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;333;589;-14.235143;28.148888
+H-35-2-0000065;Iberostar Palace Fuerteventura;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Pájara;Gaviotas (Las);35626;437;876;-14.320349;28.056656
+H-35-2-0000066;"R2 Pajara Beach Spa &Amp; All Inclusive";Hotelera;Hotel;Cuatro Estrellas;C/ Punta Del Roquito, 9;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;387;696;-14.232392;28.150473
+H-35-2-0000067;Macario Ii;Hotelera;Pension;Dos Estrellas;C/ Almi. Fontán Lobe, 12, Esq. Juan De Austria, 27,;Fuerteventura;Palmas (Las);Puerto Del Rosario;Puerto Del Rosario;35600;14;28;-13.852184;28.501548
+H-35-2-0000068;Arena Suite;Hotelera;Hotel;Cuatro Estrellas;El Moro, Nº 2;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;101;202;-13.859385;28.726344
+H-35-2-0000069;Jandía Princess;Hotelera;Hotel;Cuatro Estrellas;C/ Gran Canaria, 11;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;502;1004;-14.306134;28.072581
+H-35-2-0000070;Iberostar Waves Gaviotas Park;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Pájara;Gaviotas (Las);35626;206;444;-14.320058;28.058154
+H-35-2-0000071;Eurostars Las Salinas;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;222;449;-13.860854;28.393387
+H-35-2-0000072;Costa Caleta;Hotelera;Hotel;Tres Estrellas;Avda. Alcalde Juan Ramon Soto Morales, S/N;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;308;591;-13.85568;28.399035
+H-35-2-0000073;H10 Tindaya;Hotelera;Hotel;Cuatro Estrellas;C/ Punta Del Roquito, S/N;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;354;564;-14.230391;28.1525
+H-35-2-0000074;Sbh Club Paraiso Playa;Hotelera;Hotel;Cuatro Estrellas;Parcela H-1, S/N;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;317;634;-14.295029;28.081274
+H-35-2-0000075;Occidental Jandia Playa;Hotelera;Hotel;Cuatro Estrellas;Sancho Panza, S/N Barranco De Vinamar;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35626;649;1304;-14.325287;28.055438
+H-35-2-0000076;Sheraton Fuerteventura Golf, Beach & Spa Resort;Hotelera;Hotel;Cinco Estrellas Lujo;Carretera Fv-2, Km. 11, S/N;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;264;532;-13.863629;28.389988
+H-35-2-0000077;Sbh Costa Calma Beach;Hotelera;Hotel;Cuatro Estrellas;Avenida De Las Palmeras, S/N;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;344;700;-14.227351;28.160823
+H-35-2-0000078;Coral Cotillo Beach;Hotelera;Hotel;Cuatro Estrellas;Avda.De Los Lagos, S/N;Fuerteventura;Palmas (Las);La Oliva;Cotillo (El);35650;124;244;-14.010122;28.686266
+H-35-2-0000079;Sbh Costa Calma Palace;Hotelera;Hotel;Cuatro Estrellas;Avenida Jahn Reisen , S/N;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;417;834;-14.227351;28.160823
+H-35-2-0000080;Fuerteventura Princess;Hotelera;Hotel;Cuatro Estrellas;Gran Canaria, Nº 13;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;669;1338;-14.307364;28.070638
+H-35-2-0000081;Elba Carlota Beach & Golf & Convention;Hotelera;Hotel;Cuatro Estrellas;C/ Las Marismas, Fuerteventura Golf Resort, 3;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;346;692;-13.864167;28.388889
+H-35-2-0000082;Sbh Nautilus Beach;Hotelera;Hotel;Cuatro Estrellas;Agustín Millares, Nº 2;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;160;305;-14.217683;28.167383
+H-35-2-0000083;Broncemar Beach Suites;Hotelera;Hotel;Cuatro Estrellas;_U;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;267;598;-13.861844;28.39876
+H-35-2-0000084;Tui Magic Life Fuerteventura;Hotelera;Hotel;Cuatro Estrellas;De Los Pueblos, 1;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;689;1378;-14.309489;28.068066
+H-35-2-0000085;Alua Suites Fuerteventura;Hotelera;Hotel;Cuatro Estrellas;C/ Las Dunas, S/N;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;382;1008;-13.859366;28.73001
+H-35-2-0000086;Alua Village Fuerteventura;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;244;486;-14.305385;28.077312
+H-35-2-0000087;Golden Beach;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;135;270;-14.232645;28.156837
+H-35-2-0000088;Royal Suite;Hotelera;Hotel;Tres Estrellas;Valle De Los Escobones, 1;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;166;332;-14.223485;28.171378
+H-35-2-0000089;Occidental Jandía Mar;Hotelera;Hotel;Cuatro Estrellas;Barranco De Vinamar, C/ Sancho Panza, S/N;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35626;483;970;-14.326833;28.057636
+H-35-2-0000090;Playitas Apt;Hotelera;Hotel;Cuatro Estrellas;P.P. Las Playitas, Parcela R-1,;Fuerteventura;Palmas (Las);Tuineje;Playitas (Las);35629;210;630;-13.988732;28.229835
+H-35-2-0000091;Playitas;Hotelera;Hotel;Cuatro Estrellas;P.P. Las Playitas, Parcela R-3/4,;Fuerteventura;Palmas (Las);Tuineje;Playitas (Las);35629;223;446;-13.988732;28.229835
+H-35-2-0000092;Globales Costa Tropical;Hotelera;Hotel;Tres Estrellas;C/ Maestro Leonardo, S/N;Fuerteventura;Palmas (Las);Antigua;Costa De Antigua;35630;143;429;-13.856332;28.411707
+H-35-2-0000094;Surfing Colors;Hotelera;Hotel;Una Estrella;C/ Pejin,, 2;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;166;237;-13.87008;28.742264
+H-35-2-0000096;La Casita;Hotelera;Hotel;Una Estrella;C/ Alcalde Francisco Berriel Jordán, 8;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;17;34;-13.861232;28.399676
+H-35-2-0000097;Altavista;Hotelera;Hotel Urbano;Una Estrella;Abubilla, Nº 8;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35625;12;24;-14.353604;28.049987
+H-35-2-0000099;Villamar;Hotelera;Hotel Urbano;Tres Estrellas;De Jandia, Nº 11;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35625;28;58;-14.350157;28.050846
+H-35-2-0000101;Royal Palm Resort & Spa;Hotelera;Hotel;Cuatro Estrellas;De Los Pueblos, S/N;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;334;666;-14.312961;28.064282
+H-35-2-0000102;Maxorata Beach;Hotelera;Hotel Urbano;Tres Estrellas;Gran Canaria, S/N;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;106;232;-13.867105;28.730571
+H-35-2-0000103;Cala;Hotelera;Hotel Urbano;Tres Estrellas;Los Marineros, Nº 16;Fuerteventura;Palmas (Las);Tuineje;Giniginamar;35629;4;10;-14.07268;28.202602
+H-35-2-0000104;Sbh Monica Beach Resort;Hotelera;Hotel;Cuatro Estrellas;Jahn Reisen, S/N;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;409;818;-14.225001;28.163125
+H-35-2-0000105;Hotel Bakour Fuerteventura La Pared;Hotelera;Hotel;Tres Estrellas;Del Istmo, Nº 6;Fuerteventura;Palmas (Las);Pájara;Pared (La);35627;103;244;-14.219111;28.213364
+H-35-2-0000106;Marina Playa;Hotelera;Hotel;Tres Estrellas;C/ Valkiria-Urb. Marabu, P.P. Esquinzo, Pa -7,7,;Fuerteventura;Palmas (Las);Pájara;Esquinzo-Butihondo;35626;63;134;-14.299011;28.078105
+H-35-2-0000107;Esmeralda Maris;Hotelera;Hotel;Cuatro Estrellas;Punta Del Roquito, Nº 1;Fuerteventura;Palmas (Las);Pájara;Costa Calma;35627;82;236;-14.235686;28.149304
+H-35-2-0000108;Barcelo Corralejo Sands;Hotelera;Hotel;Cuatro Estrellas;Acacia, Nº 1;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;156;379;-13.870775;28.732955
+H-35-2-0000109;La Colina;Hotelera;Hotel Urbano;Cuatro Estrellas;Mafasca, 18;Fuerteventura;Palmas (Las);Pájara;Morro Jable;35625;4;8;-14.354274;28.051943
+H-35-2-0000110;Fergus Cactus Garden;Hotelera;Hotel;Cuatro Estrellas;_U;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;35626;150;300;-14.338505;28.049778
+H-35-2-0000111;Labranda Caleta Amarilla Ii;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);Antigua;Caleta De Fuste;35610;69;138;-13.866601;28.397256
+H-35-2-0000112;H10 Ocean Suites;Hotelera;Hotel;_U;Las Palmeras, Nº 1;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;200;400;-13.872592;28.731917
+H-35-2-0000113;H10 Ocean Dreams;Hotelera;Hotel;_U;_U;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;94;188;-13.872056;28.732445
+H-35-2-0000114;Cotillo House;Hotelera;Hotel Urbano;Dos Estrellas;San Pedro, Nº 2;Fuerteventura;Palmas (Las);La Oliva;Cotillo (El);35650;18;35;-14.011928;28.684977
+H-35-2-0000115;Playa Park Zensation;Hotelera;Hotel;Cuatro Estrellas;Lanzarote, Nº 4;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;173;403;-13.863152;28.726845
+H-35-2-0000116;Vacanzy Urban Boutique;Hotelera;Hotel Urbano;Dos Estrellas;Playa Cho León, 23,;Fuerteventura;Palmas (Las);La Oliva;Corralejo;35660;12;24;-13.868166;28.740631
+H-35-2-0000118;Taimar;Hotelera;Hotel;Cuatro Estrellas;C/ Valle De Los Mosquitos;Fuerteventura;Palmas (Las);Pájara;Costa Calma;_U;101;202;-14.222407;28.171681
+H-35-2-0000119;Boutique La Marquesina;Hotelera;Hotel Urbano;Cuatro Estrellas;C/ La Iglesia, 6, C/ El Muelle 7 Y 9;Fuerteventura;Palmas (Las);La Oliva;Corralejo;_U;18;36;-13.867374;28.739177
+H-35-2-0000120;El Hotelito;Hotelera;Hotel Urbano;Una Estrella;Avenida Los Lagos;Fuerteventura;Palmas (Las);La Oliva;Cotillo (El);_U;4;8;-14.009808;28.683362
+H-35-2-0000121;Helene Holidays And Retreats;Hotelera;Hotel Urbano;Dos Estrellas;C/ Poris;Fuerteventura;Palmas (Las);La Oliva;Corralejo;_U;8;19;-13.859105;28.731949
+H-35-2-0000122;Sol Fuerteventura Jandia;Hotelera;Hotel;Cuatro Estrellas;C/ Bentejui;Fuerteventura;Palmas (Las);Pájara;Solana Matorral;_U;295;590;0;0
+H-35-2-0000124;Corralejo Beach;Hotelera;Hotel;Cuatro Estrellas;C/ Víctor Grau Bassas;Fuerteventura;Palmas (Las);La Oliva;Corralejo;_U;115;238;0;0
+H-35-2-0000126;Blue Sea Jandia Luz;Hotelera;Hotel;Tres Estrellas;Avda. El Saladar;Fuerteventura;Palmas (Las);Pájara;_U;_U;114;230;0;0
+H-35-3-0000001;Miramar;Hotelera;Hotel;Tres Estrellas;Avda. Coll, 2;Lanzarote;Palmas (Las);Arrecife;Arrecife;_U;85;170;-13.54783;28.95875
+H-35-3-0000002;Hostal España;Hotelera;Pension;Una Estrella;Gran Canaria, 4;Lanzarote;Palmas (Las);Arrecife;Arrecife;35000;26;30;-13.54937;28.962624
+H-35-3-0000005;Fariones, Los;Hotelera;Hotel;Cinco Estrellas;C/Roque Del Este;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35000;213;434;-13.666256;28.919812
+H-35-3-0000007;Hotel Lancelot Playa;Hotelera;Hotel;Tres Estrellas;Avda. Mancomunidad, 9;Lanzarote;Palmas (Las);Arrecife;Arrecife;_U;111;192;-13.555744;28.95831
+H-35-3-0000009;Ramos;Hotelera;Pension;Una Estrella;Gran Canaria, 3;Lanzarote;Palmas (Las);Arrecife;Arrecife;_U;6;12;-13.549386;28.962454
+H-35-3-0000012;Cardona;Hotelera;Pension;Dos Estrellas;18 De Julio, 11;Lanzarote;Palmas (Las);Arrecife;Arrecife;35500;62;111;-13.553697;28.958908
+H-35-3-0000013;Vik Hotel San Antonio;Hotelera;Hotel;Cuatro Estrellas;Avda. De Las Playas, 84;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;348;662;-13.652778;28.953056
+H-35-3-0000014;San Gines;Hotelera;Pension;Una Estrella;Molino, 9;Lanzarote;Palmas (Las);Arrecife;Arrecife;35500;37;69;-13.549573;28.962748
+H-35-3-0000016;Paradisus By Melia Salinas Lanzarote;Hotelera;Hotel;Cinco Estrellas Lujo;Avda. Islas Canarias;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;317;603;-13.484651;29.000728
+H-35-3-0000018;Magec;Hotelera;Pension;Dos Estrellas;Hierro, 8;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;_U;14;23;-13.670499;28.920999
+H-35-3-0000019;Hotel Grand Teguise Playa;Hotelera;Hotel;Cuatro Estrellas;Avda, Islas Canarias (Pc 225);Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;300;600;-13.489899;28.993914
+H-35-3-0000020;Plus Fariones Suite Hotel;Hotelera;Hotel;Cuatro Estrellas;Acatife, 2 , 2;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;230;460;-13.665501;28.920611
+H-35-3-0000021;H10 Suites Lanzarote Gardens;Hotelera;Hotel;Cuatro Estrellas;Avda. Islas Canarias;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;241;482;-13.488069;29.001718
+H-35-3-0000022;H10 Lanzarote Princess;Hotelera;Hotel;Cuatro Estrellas;Maciot, 1;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;407;794;-13.825418;28.864829
+H-35-3-0000023; Hotel Riu Paraiso Lanzarote Resort Ii;Hotelera;Hotel;Cuatro Estrellas;Suiza, 4;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35572;248;496;-13.639075;28.926666
+H-35-3-0000034;Mynd Yaiza;Hotelera;Hotel;Cuatro Estrellas;C/Janubio;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;238;477;-13.82143;28.867598
+H-35-3-0000035;Dreams Lanzarote Playa Dorada;Hotelera;Hotel;Cinco Estrellas;Avda. Papagayo;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;438;876;-13.820556;28.863056
+H-35-3-0000036;Bakour Lanzarote Splash;Hotelera;Hotel;Cuatro Estrellas;Avda. Juan Carlos I;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;148;444;-13.665512;28.925753
+H-35-3-0000037;Iberostar Selection Lanzarote Park;Hotelera;Hotel;_U;Avda. Canarias;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;351;702;-13.839286;28.856557
+H-35-3-0000038;Las Costas;Hotelera;Hotel;Cuatro Estrellas;Avda. De Las Playas 88;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;187;374;-13.640691;28.922753
+H-35-3-0000039;Sol Lanzarote;Hotelera;Hotel;Cuatro Estrellas;Grama , 2;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;327;938;-13.623193;28.931299
+H-35-3-0000040;Barceló Lanzarote Active Resort I;Hotelera;Hotel;Cuatro Estrellas;Avda. Del Mar , Nº 6;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;372;744;-13.51102;28.98837
+H-35-3-0000041;Lanzarote Village;Hotelera;Hotel;Cuatro Estrellas;Suiza, 2;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;211;422;-13.640653;28.925833
+H-35-3-0000042;Hipotels La Geria;Hotelera;Hotel;Cuatro Estrellas;Jupiter, 5;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;242;470;-13.631758;28.93037
+H-35-3-0000043;Costamar;Hotelera;Hotel;Tres Estrellas;Playa De Los Pocillos, S/N;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;180;702;-13.63526;28.929902
+H-35-3-0000044;Hotel Elba Lanzarote Royal Village Resort;Hotelera;Hotel;_U;_U;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35000;360;720;-13.838509;28.865562
+H-35-3-0000045;H10 Timanfaya Palace;Hotelera;Hotel;Cuatro Estrellas;Montaña Roja, Parc. S-28, S/N;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;305;610;-13.844298;28.859829
+H-35-3-0000046;Hotel Relaxia Olivina;Hotelera;Hotel;Cuatro Estrellas;Grecia, 6;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;102;203;-13.643617;28.922922
+H-35-3-0000047; Hotel Riu Paraiso Lanzarote Resort I;Hotelera;Hotel;Cuatro Estrellas;Suiza, 06;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35000;253;474;-13.639075;28.926666
+H-35-3-0000048;Coronas Playa;Hotelera;Hotel;Cuatro Estrellas;Avda. Del Mar, 26;Lanzarote;Palmas (Las);Teguise;Costa Teguise;_U;208;416;-13.499444;28.993056
+H-35-3-0000049;Hotelito Del Golfo;Hotelera;Pension;Una Estrella;Avda. Maritima, 4;Lanzarote;Palmas (Las);Yaiza;Golfo (El);35000;5;9;-13.829609;28.981116
+H-35-3-0000050;Barcelo Lanzarote Active Resort Ii;Hotelera;Hotel;Cuatro Estrellas;Avenida Del Mar, Nº 5;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35509;442;896;-13.51102;28.98837
+H-35-3-0000051;Jameos Playa;Hotelera;Hotel;Cuatro Estrellas;Playa De Los Pocillos,;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35000;518;1036;-13.628196;28.928968
+H-35-3-0000052;Blue Sea Costa Bastian;Hotelera;Hotel;Cuatro Estrellas;Avda. De Las Palmeras 20,;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35509;195;390;-13.504917;28.99189
+H-35-3-0000053;Hipotels Natura Palace;Hotelera;Hotel;Cuatro Estrellas;Lanzarote, S/N;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;269;466;-13.852257;28.862553
+H-35-3-0000054;Volcan Lanzarote;Hotelera;Hotel;Cinco Estrellas Lujo;El Castillo, 1;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;255;502;-13.811128;28.857885
+H-35-3-0000055;Princesa Yaiza;Hotelera;Hotel;Cinco Estrellas Lujo;Avenida Papagayo S/N,;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35000;330;660;-13.822288;28.864267
+H-35-3-0000056;Beatriz Costa & Spa;Hotelera;Hotel;Cuatro Estrellas;Atalaya, 3;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;349;700;-13.488671;29.010383
+H-35-3-0000057;Beatriz Playa & Spa;Hotelera;Hotel;Cuatro Estrellas;Matos, 2;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;404;808;-13.617605;28.933387
+H-35-3-0000058;Royal Monica Playa Blanca;Hotelera;Hotel;Tres Estrellas;Irlanda, 1;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;220;440;-13.862583;28.86194
+H-35-3-0000059;"Arrecife Gran Hotel &Amp; Spa";Hotelera;Hotel;Cinco Estrellas;Avda. Mancomunidad S/N,;Lanzarote;Palmas (Las);Arrecife;Arrecife;35500;160;315;-13.554451;28.957595
+H-35-3-0000060;Secrets Lanzarote;Hotelera;Hotel;Cinco Estrellas;Puerto Calero S/N,;Lanzarote;Palmas (Las);Yaiza;Puerto Calero;35570;335;600;-13.711069;28.917161
+H-35-3-0000061;Blue Sea Los Fiscos;Hotelera;Hotel;Tres Estrellas;Cabezos Los, 4;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;99;315;-13.676058;28.924506
+H-35-3-0000062;Hotel Diamar;Hotelera;Hotel;Tres Estrellas;Fred Olsen, 8;Lanzarote;Palmas (Las);Arrecife;Arrecife;35500;90;180;-13.557985;28.95881
+H-35-3-0000063;Cay Beach Sun;Hotelera;Hotel;Tres Estrellas;Las Breñas, S/N;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;150;467;-13.824229;28.868309
+H-35-3-0000064;Thb Royal;Hotelera;Hotel;Tres Estrellas;Calle Janubio;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;200;400;-13.821828;28.869214
+H-35-3-0000065;Hotel Cordial Marina Blanca;Hotelera;Hotel;Cuatro Estrellas;La Cocinilla, 2-4;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;96;297;-13.812757;28.859662
+H-35-3-0000066;Hotel Costa Calero;Hotelera;Hotel;Cuatro Estrellas;Urb. Costa Calero, Parc. 113, 114 Y 115, S/N;Lanzarote;Palmas (Las);Yaiza;Puerto Calero;35570;340;680;-13.703846;28.920298
+H-35-3-0000067;Pueblo Marinero;Hotelera;Hotel;Cuatro Estrellas;Castillo Del Aguila, Parcela Pm,;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;43;123;-13.815172;28.860609
+H-35-3-0000068;La Villa Vik;Hotelera;Hotel;Cinco Estrellas;Urb. La Bufona , 1 Y 3;Lanzarote;Palmas (Las);Arrecife;El Cable;35550;14;27;-13.570283;28.956081
+H-35-3-0000069;Flora;Hotelera;Hotel;Tres Estrellas;Reina Sofia, 25;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;205;610;-13.674724;28.924943
+H-35-3-0000070;Thb Tropical Island;Hotelera;Hotel;Cuatro Estrellas;Bonilla, S/N;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;414;1240;-13.824287;28.871334
+H-35-3-0000071;Floresta, La;Hotelera;Hotel;Tres Estrellas;Mercurio, 2;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;242;796;-13.629196;28.929962
+H-35-3-0000072;Montana Club;Hotelera;Hotel;Tres Estrellas;Timon, 3;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;68;204;-13.650244;28.923143
+H-35-3-0000073;Hd Beach Resort;Hotelera;Hotel;Cuatro Estrellas;Avenida Islas Canarias, S/N;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;177;531;-13.482928;29.002417
+H-35-3-0000074;Hl Paradise Island;Hotelera;Hotel;Tres Estrellas;Urb. Montaña Roja Pc 60, Calle Francia;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;290;604;-13.843448;28.867956
+H-35-3-0000075;Tabaiba;Hotelera;Hotel;Tres Estrellas;Piteras, 20;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35530;56;224;-13.506782;28.995743
+H-35-3-0000076;Sands Beach Resrot;Hotelera;Hotel;Cuatro Estrellas;Islas Canarias , 18;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35530;360;806;-13.481353;29.003996
+H-35-3-0000077;Club La Santa S.A.;Hotelera;Hotel;Cuatro Estrellas;Krogager, S/N;Lanzarote;Palmas (Las);Tinajo;Tinajo;35560;96;300;-13.650565;29.118689
+H-35-3-0000078;Hotel Club Siroco;Hotelera;Hotel;Tres Estrellas;Islas Canarias, 7;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;166;532;-13.483579;29.004453
+H-35-3-0000079;La Isla Y El Mar;Hotelera;Hotel;Cinco Estrellas;Reina Sofia, 23;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;81;169;-13.673875;28.924505
+H-35-3-0000080;Lanzarote Aequora Suites;Hotelera;Hotel;Cuatro Estrellas;Venus, 1;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;398;926;-13.629561;28.932514
+H-35-3-0000081;Barcelo Teguise Beach;Hotelera;Hotel;Cuatro Estrellas;_U;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35508;305;611;-13.489085;28.995522
+H-35-3-0000082;H10 Rubicon Palace;Hotelera;Hotel;Cinco Estrellas;Parcela 100 Urb. Montaña Roja;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;584;1168;-13.857256;28.863041
+H-35-3-0000083;Palacio Ico;Hotelera;Hotel Emblematico;Categoria Unica;El Rayo, 2;Lanzarote;Palmas (Las);Teguise;Teguise;35530;9;34;-13.560537;29.060635
+H-35-3-0000084;Aqua Suites;Hotelera;Hotel;Cuatro Estrellas;Anzuelo, 23;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35572;67;205;-13.654707;28.924801
+H-35-3-0000085;Los Zocos Impressive Lanzarote;Hotelera;Hotel;Cuatro Estrellas;Islas Canarias, 1;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35530;237;609;-13.485757;29.001906
+H-35-3-0000086;Thb Lanzarote Beach;Hotelera;Hotel;Cuatro Estrellas;Janubio, 2;Lanzarote;Palmas (Las);Teguise;Costa Teguise;35530;237;609;-13.489618;28.996303
+H-35-3-0000087;Casona De Yaiza, La;Hotelera;Hotel Emblematico;Categoria Unica;C/Valle De Fenauso, 11;Lanzarote;Palmas (Las);Yaiza;_U;35570;8;18;-13.762272;28.94874
+H-35-3-0000088;H10 White Suites;Hotelera;Hotel;Cuatro Estrellas;Janubio, 1;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;195;390;-13.821749;28.865194
+H-35-3-0000089;Lava Beach;Hotelera;Hotel;Cinco Estrellas;C/Marte 6;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35572;154;308;-13.625689;28.931007
+H-35-3-0000090;La Cala Suites Hotel;Hotelera;Hotel;Cinco Estrellas;La Gaveta Y La Cómoda, S/N;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;45;96;-13.808844;28.857641
+H-35-3-0000091;Club Playa Blanca Hoteles López Hl;Hotelera;Hotel;Tres Estrellas;Sector 56, Montaña Roja,;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35570;136;476;-13.834613;28.868222
+H-35-3-0000093;Labranda Alyssa Suites Hotel;Hotelera;Hotel;_U;_U;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;_U;120;240;-13.847503;28.865562
+H-35-3-0000094;Delmas;Hotelera;Hotel Emblematico;Categoria Unica;C/El Palmeral;Lanzarote;Palmas (Las);Haria;Haria;_U;0;0;0;0
+H-35-3-0000095;Casa De Las Flores - Hotel Boutique  Lanzarote;Hotelera;Hotel Emblematico;Categoria Unica;C/De Las Flores;Lanzarote;Palmas (Las);Teguise;Teguise;35530;5;10;0;0
+H-35-3-0000096;La Casa De Los Naranjos;Hotelera;Hotel Emblematico;Categoria Unica;C/Rincón De Aganada;Lanzarote;Palmas (Las);Haria;Haria;_U;0;0;0;0
+H-35-3-0000097;Gloria Izaro Club;Hotelera;Hotel;Cuatro Estrellas;Calle Salinas;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;106;236;0;0
+H-35-3-0000098;Pocillos Playa;Hotelera;Hotel;Cuatro Estrellas;Calle Burgao;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;35510;59;154;0;0
+H-35-3-0000099;Barcelo Playa Blanca;Hotelera;Hotel;Cuatro Estrellas;Parcela Ab1 De Urb. Castillo Del Aguila. Avda. Papagayo;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;35580;0;0;0;0
+H-35-3-0000100;Royal Marina Suites Hotel;Hotelera;Hotel;Cuatro Estrellas;Calle Barranco Del Agua. Cortijo Viejo;Lanzarote;Palmas (Las);Yaiza;Puerto Calero;_U;0;0;0;0
+H-35-3-0000101;Hyde Park Lane;Hotelera;Hotel;Cuatro Estrellas;Calle Hungría;Lanzarote;Palmas (Las);Tias;Puerto Del Carmen;_U;0;0;0;0
+H-35-3-0000102;Albatros Club Resort;Hotelera;Hotel;Cuatro Estrellas;Avda Jablilllo;Lanzarote;Palmas (Las);Teguise;_U;_U;0;0;0;0
+H-35-3-0000103;Albatros Club Resort;Hotelera;Hotel;Cuatro Estrellas;Avda Jablilllo;Lanzarote;Palmas (Las);Teguise;_U;_U;0;0;0;0
+H-38-4-0000001;Aguere;Hotelera;Hotel;Una Estrella;Carrera, 55, 55;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38201;31;47;-16.318326;28.48946
+H-38-4-0000004;Ramos;Hotelera;Pension;Dos Estrellas;Rambla De Pulido, 91, 91;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38006;20;36;-16.261035;28.467709
+H-38-4-0000005;Mencey;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38001;261;507;-16.253194;28.474503
+H-38-4-0000006;Urban Anaga Hotel;Hotelera;Hotel;Cuatro Estrellas;_U;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38003;50;100;-16.2493;28.465706
+H-38-4-0000009;Marquesa;Hotelera;Hotel;Tres Estrellas;C/. Quintana, 11;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;91;163;-16.549057;28.417145
+H-38-4-0000010;Tenerife Playa;Hotelera;Hotel;Cuatro Estrellas;Colon, 12 Avda.,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;340;599;-16.542632;28.41884
+H-38-4-0000011;Hotel Tigaiga;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;83;158;-16.549232;28.41035
+H-38-4-0000012;Valle Mar;Hotelera;Hotel;Cuatro Estrellas;Avda. Colon, 4;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;161;305;-16.544269;28.418005
+H-38-4-0000013;Catalonia Las Vegas;Hotelera;Hotel;Cuatro Estrellas;Colon, 2 Avda.,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;261;495;-16.541856;28.417883
+H-38-4-0000016;Monopol;Hotelera;Hotel;Tres Estrellas;Quintana, 15, 15;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;100;185;-16.548598;28.417354
+H-38-4-0000017;Maga;Hotelera;Hotel;Una Estrella;Iriarte, 11-San Juan, 24,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;24;47;-16.549584;28.415582
+H-38-4-0000026;Padron;Hotelera;Pension;Una Estrella;C/. Nuñez De La Peña, 29;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38202;20;37;-16.318669;28.487984
+H-38-4-0000031;Condesa;Hotelera;Hotel;Tres Estrellas;Quintana, 11, 15;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;46;88;-16.54903;28.417166
+H-38-4-0000037;Costa Jardin & Spa;Hotelera;Hotel;Cuatro Estrellas;C/. Guerrero, 14;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Durazno (El);38400;238;452;-16.539587;28.406445
+H-38-4-0000041;Rochil;Hotelera;Pension;Una Estrella;Corpus Christi, 29, 29;Tenerife;Santa Cruz De Tenerife;Adeje;Adeje;38670;11;22;-16.724196;28.121391
+H-38-4-0000048;Valverde;Hotelera;Pension;Una Estrella;Sabino Berthelot, 46, 46;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;10;15;-16.253474;28.469266
+H-38-4-0000049;Casa Alta;Hotelera;Pension;Dos Estrellas;Calzada De Martianez, 9, 9;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;13;22;-16.542912;28.414268
+H-38-4-0000050;Medano;Hotelera;Hotel;Tres Estrellas;Paseo Picacho, 2,;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Medano (El);38612;91;162;-16.537985;28.043889
+H-38-4-0000055;Marte;Hotelera;Hotel;Tres Estrellas;C/. Dr. Ingram, 20;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;95;170;-16.552307;28.415153
+H-38-4-0000057;Neptuno;Hotelera;Hotel;Tres Estrellas;Ctra. General Bajamar-Punta Hidalgo, 163;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Bajamar;38200;104;197;-16.337721;28.555705
+H-38-4-0000058;Arosa;Hotelera;Pension;Dos Estrellas;Iriarte, 21, 21;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;24;41;-16.548174;28.415827
+H-38-4-0000059;Refugio Dilani;Hotelera;Pension;Dos Estrellas;Blanco, 29, 29;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;9;18;-16.550573;28.413697
+H-38-4-0000060;Delfin Bajamar;Hotelera;Hotel;Tres Estrellas;Avda. Del Sol, 39;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Bajamar;38250;69;125;-16.344543;28.554195
+H-38-4-0000066;Padron;Hotelera;Pension;Dos Estrellas;General Mola, 114, 114;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38007;33;45;-16.26904;28.465551
+H-38-4-0000071;Tanausu;Hotelera;Hotel;Tres Estrellas;Padre Anchieta, 8, 8;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38005;18;31;-16.253495;28.463842
+H-38-4-0000074;Loly;Hotelera;Pension;Dos Estrellas;Salas, 4, 4;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38000;7;14;-16.55106;28.413769
+H-38-4-0000076;Santiago;Hotelera;Pension;Una Estrella;Isaac De Vega, 12, 12;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Granadilla De Abona;38600;15;23;-16.576864;28.124904
+H-38-4-0000077;Tenerife Tour;Hotelera;Hotel;Tres Estrellas;Maritima,  Avda., 170, 170;Tenerife;Santa Cruz De Tenerife;Candelaria;Caletillas (Las);38520;95;180;-16.362442;28.37492
+H-38-4-0000078;Bahia Principe San Felipe;Hotelera;Hotel;Cuatro Estrellas;Avda. Cristobal Colon, 22;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;293;633;-16.541498;28.416705
+H-38-4-0000079;Adonis Capital;Hotelera;Hotel;Dos Estrellas;C/. Cruz Verde, 24;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38003;45;69;-16.249079;28.466718
+H-38-4-0000085;Playa Sur Tenerife (Los Valos);Hotelera;Hotel;Tres Estrellas;Los Valos S/N - Playa Del Medano,;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Medano (El);38612;76;149;-16.543098;28.041426
+H-38-4-0000087;4 Dreams Hotel;Hotelera;Hotel;Tres Estrellas;C/. Agustin De Bethencourt, 14;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;62;117;-16.549292;28.416469
+H-38-4-0000088;Taburiente;Hotelera;Hotel Urbano;Cuatro Estrellas;C/. Dr. Jose Navieras, 24-A;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38001;165;317;-16.253061;28.473425
+H-38-4-0000089;Adonis Pelinor;Hotelera;Hotel;Dos Estrellas;_U;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;73;127;-16.249079;28.466718
+H-38-4-0000090;Acuario;Hotelera;Hotel;Dos Estrellas;C/. Parque Las Flores, 36;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;31;58;-16.551928;28.404999
+H-38-4-0000092;Dos Hermanos;Hotelera;Pension;Una Estrella;Fundador Gonzalez Gonzalez, 7 Avda.,;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Granadilla De Abona;38600;20;31;-16.576793;28.120052
+H-38-4-0000097;Principes, Los;Hotelera;Hotel;Tres Estrellas;Dr. Victor Perez, S/N. Pza.,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;35;66;-16.550273;28.416827
+H-38-4-0000098;H.A.S.-80 Tenerife;Hotelera;Hotel;Tres Estrellas;C/. Puerto Viejo, 40;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;89;169;-16.554384;28.41572
+H-38-4-0000099;Rambla;Hotelera;Pension;Una Estrella;Grande, 7, 8;Tenerife;Santa Cruz De Tenerife;Adeje;Adeje;38670;9;15;-16.724397;28.12237
+H-38-4-0000100;Nieves, Las;Hotelera;Hotel;Una Estrella;El Campo, 18, 18;Tenerife;Santa Cruz De Tenerife;Guia Isora;Playa De San Juan;38680;21;36;-16.780524;28.212782
+H-38-4-0000101;Padilla;Hotelera;Pension;Una Estrella;General Mola, 16 3º  - 2º Izda.,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38006;11;16;-16.250066;28.465476
+H-38-4-0000102;Geranios, Los;Hotelera;Pension;Dos Estrellas;El Lomo, 14, 14;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;10;20;-16.552645;28.417102
+H-38-4-0000104;Silken Saaj Maar;Hotelera;Hotel;Tres Estrellas;Paseo San Telmo, 18;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;91;174;-16.546491;28.417152
+H-38-4-0000106;Gigantes, Los;Hotelera;Hotel;Cuatro Estrellas;C/. Flor De Pascua, 12,;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Acantilados De Los Gigantes;38683;225;451;-16.841978;28.243899
+H-38-4-0000107;Don Manolito;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;79;151;-16.555575;28.415742
+H-38-4-0000109;Milema;Hotelera;Pension;Una Estrella;Simon Bolivar, 3, 3;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38007;16;32;-16.269757;28.464246
+H-38-4-0000113;Atlantic Hills;Hotelera;Hotel;Tres Estrellas;C/. Parque Taoro, 23;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;143;271;-16.547222;28.4118
+H-38-4-0000115;Dwo Nopal;Hotelera;Hotel;Tres Estrellas;San Juan, 15, 17;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;51;96;-16.549339;28.415723
+H-38-4-0000118;Rosamary;Hotelera;Pension;Dos Estrellas;San Felipe, 14, 16;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;11;21;-16.552312;28.416869
+H-38-4-0000120;Mova;Hotelera;Pension;Dos Estrellas;San Martin, 33, 33;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38001;21;33;-16.249174;28.472482
+H-38-4-0000122;Parque San Antonio;Hotelera;Hotel;Cuatro Estrellas;Ctra. General De Las Arenas, S/N.,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Arenas (Las);38400;210;384;-16.549255;28.40783
+H-38-4-0000125;H10 Big Sur;Hotelera;Hotel;Cuatro Estrellas;Avda. Juan Carlos I, 28;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38650;167;334;-16.712705;28.049216
+H-38-4-0000127;Sun Holidays;Hotelera;Hotel;Una Estrella;C/. La Peñita, 6;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;25;44;-16.553755;28.416823
+H-38-4-0000128;La Niña;Hotelera;Hotel;Cuatro Estrellas;Avda. Aguilar Y Quesada, 3;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;225;450;-16.543318;28.416281
+H-38-4-0000129;Angeles, Los;Hotelera;Pension;Una Estrella;C/. Juan De Vera, 37;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38200;14;15;-16.316077;28.491562
+H-38-4-0000134;Tropical;Hotelera;Hotel;Tres Estrellas;Puerto Viejo, 1,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;43;82;-16.551267;28.416198
+H-38-4-0000135;Atlantic El Tope;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;229;426;-16.543656;28.414659
+H-38-4-0000136;Gijon;Hotelera;Pension;Una Estrella;Callao De Lima, 37-3.,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;4;6;-16.253721;28.469845
+H-38-4-0000138;Pinocho;Hotelera;Hotel;Dos Estrellas;Esquilon, 32 (Las Arenas),;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;24;46;-16.552964;28.407699
+H-38-4-0000140;Hc Hotel Magec;Hotelera;Hotel;Cuatro Estrellas;C/. Cupido , 11;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;187;355;-16.552035;28.414445
+H-38-4-0000142;San Borondon;Hotelera;Hotel;Cuatro Estrellas;C/. Agustin De Espinosa, 2;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;104;198;-16.555583;28.414954
+H-38-4-0000143;Concordia Playa;Hotelera;Hotel;Cuatro Estrellas;Avda. Bethencourt Y Molina, 32;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;236;452;-16.542885;28.417676
+H-38-4-0000144;Don Cándido;Hotelera;Hotel;Una Estrella;Portugal (San Fernando);Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38000;19;31;-16.545918;28.410362
+H-38-4-0000146;Casablanca Bed And Breakfast;Hotelera;Pension;Una Estrella;C/. Viera Y Clavijo, 15;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38003;18;25;-16.253724;28.468786
+H-38-4-0000147;Silene;Hotelera;Pension;Dos Estrellas;Tomas Zerolo, 9, 9;Tenerife;Santa Cruz De Tenerife;La Orotava;Orotava (La);38300;3;5;-16.524447;28.390976
+H-38-4-0000151;Sol Costa Atlantis Tenerife;Hotelera;Hotel;Cuatro Estrellas;Avda. Venezuela, 15;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;286;572;-16.542278;28.417418
+H-38-4-0000152;Las Águilas;Hotelera;Hotel;Cuatro Estrellas;C/. Dr. Barajas, 19;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Arenas (Las);38400;220;460;-16.545893;28.399852
+H-38-4-0000153;Carel;Hotelera;Pension;Dos Estrellas;Principes De España, 22 Avda.,;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Medano (El);38600;21;42;-16.538465;28.046673
+H-38-4-0000154;Interpalace;Hotelera;Hotel;Cuatro Estrellas;C/. Aceviño (Urb. La Paz) , 21;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;250;500;-16.535583;28.415489
+H-38-4-0000158;Puerto Azul;Hotelera;Hotel;Dos Estrellas;El Lomo, 24, 24;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;27;39;-16.553081;28.417157
+H-38-4-0000159;Tejuma;Hotelera;Hotel;Dos Estrellas;Perez Zamora, 49, 51;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;20;38;-16.551174;28.413447
+H-38-4-0000160;Tierra De Oro;Hotelera;Hotel;Cuatro Estrellas;Tierra De Oro, S/N. Urb., 39;Tenerife;Santa Cruz De Tenerife;Los Realejos;Realejo Alto (El);38410;50;99;-16.562502;28.382898
+H-38-4-0000162;Gran Tinerfe;Hotelera;Hotel;Cuatro Estrellas;Avda. Rafael Puig Lluvina, 13;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38660;365;703;-16.731413;28.072184
+H-38-4-0000165;Taoro Garden;Hotelera;Hotel;Cuatro Estrellas;C/. Dinamarca, 3;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;182;334;-16.546414;28.410976
+H-38-4-0000166;Elegance Dania Park;Hotelera;Hotel;Cuatro Estrellas;C/. Cupido, 12;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;225;433;-16.547542;28.411878
+H-38-4-0000168;Magec Park;Hotelera;Hotel;Tres Estrellas;C/ Pérez Zamora, S/N, 2;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;132;252;-16.552035;28.414445
+H-38-4-0000169;Catalonia Punta Del Rey;Hotelera;Hotel;Cuatro Estrellas;Maritima  Avda., 165, 165;Tenerife;Santa Cruz De Tenerife;Candelaria;Caletillas (Las);38520;424;806;-16.36221;28.377305
+H-38-4-0000170;Sol Puerto De La Cruz;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;183;350;-16.556932;28.414919
+H-38-4-0000171;Discovering Puerto De La Cruz;Hotelera;Hotel;Tres Estrellas;C/. Valois, 28;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;108;206;-16.5461;28.414986
+H-38-4-0000174;Ponderosa;Hotelera;Hotel;Tres Estrellas;Las Americas Pya.,;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38660;175;406;-16.728968;28.072636
+H-38-4-0000175;Fergus Puerto De La Cruz;Hotelera;Hotel;Cuatro Estrellas;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;300;564;-16.542038;28.414072
+H-38-4-0000177;Troya;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38670;354;708;-16.731832;28.06783
+H-38-4-0000178;Colon Rambla;Hotelera;Hotel;Tres Estrellas;C/. Viera Y Clavijo, 49;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38004;49;104;-16.256978;28.471209
+H-38-4-0000180;Casa Del Sol;Hotelera;Hotel;Tres Estrellas;C/. Finlandia (Urb. San Fernando) , 4;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;52;127;-16.544374;28.409559
+H-38-4-0000182;Botanico;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;282;542;-16.538037;28.411553
+H-38-4-0000184;Canarife Palace;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;215;416;-16.550527;28.408169
+H-38-4-0000185;Be Live Tenerife;Hotelera;Hotel;Cuatro Estrellas;Avda. Blas Perez Gonzalez , 11;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;318;604;-16.543318;28.416281
+H-38-4-0000191;Jardin Tropical;Hotelera;Hotel;Tres Estrellas;Gran Bretaña ,;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38670;37;76;-16.733635;28.076107
+H-38-4-0000192;Catalonia Oro Negro;Hotelera;Hotel;Tres Estrellas;Arquitecto Gomez Cuesta, 14, S/N;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;269;538;-16.72755;28.063197
+H-38-4-0000196;Bouganville Playa;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;481;914;-16.732448;28.074179
+H-38-4-0000199;Sol Tenerife;Hotelera;Hotel;Cuatro Estrellas;Avda. Rafael Puig Lluvina, 12;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38640;522;991;-16.731895;28.064426
+H-38-4-0000200;Precise Resort Puerto De La Cruz Tenerife;Hotelera;Hotel;Cuatro Estrellas;El Burgado, 1, 1;Tenerife;Santa Cruz De Tenerife;Los Realejos;Realejo Bajo (El);38008;237;476;-16.571237;28.405758
+H-38-4-0000201;Cervantes;Hotelera;Pension;Una Estrella;Rodriguez Oliva, 5, 5;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Cuesta (La);38200;13;26;-16.289169;28.469256
+H-38-4-0000203;Angeles;Hotelera;Pension;Una Estrella;Mequinez, 98, 98;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;9;9;-16.555103;28.416838
+H-38-4-0000205;Andrea'S;Hotelera;Hotel;Dos Estrellas;Valle Menendez, Avda., S/N, 26;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38600;42;78;-16.714768;28.052568
+H-38-4-0000206;Casa Blanca;Hotelera;Pension;Una Estrella;Ramon Pino, 28, 28;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38640;10;16;-16.718919;28.05221
+H-38-4-0000207;Palmeras, Las;Hotelera;Hotel;Cuatro Estrellas;Avda. Rafael Puig Lluvina, 28;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;519;1045;-16.732267;28.061249
+H-38-4-0000209;Palmero;Hotelera;Pension;Una Estrella;Isla Bonita, 11, 11;Tenerife;Santa Cruz De Tenerife;Guia Isora;Playa De San Juan;38008;8;14;-16.815825;28.181833
+H-38-4-0000210;Conquistador;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;485;922;-16.734613;28.057362
+H-38-4-0000211;Hibiscos, Los;Hotelera;Hotel;Tres Estrellas;San Eugenio Urb.,;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;296;577;-16.732194;28.075724
+H-38-4-0000212;Casamaravillas;Hotelera;Pension;Una Estrella;C/. Juan Xxiii, 34;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38006;3;7;-16.719811;28.05144
+H-38-4-0000213;Playa;Hotelera;Pension;Una Estrella;La Paloma, 9, 9;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38650;15;31;-16.719145;28.051313
+H-38-4-0000214;Vinitos, Los;Hotelera;Pension;Una Estrella;C/. Venezuela, 4;Tenerife;Santa Cruz De Tenerife;Arona;Galletas (Las);38640;17;30;-16.654408;28.007387
+H-38-4-0000215;Paloma, La;Hotelera;Pension;Una Estrella;La Paloma, 7, 5;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38006;10;20;-16.719026;28.051523
+H-38-4-0000219;Panorama;Hotelera;Hotel;Tres Estrellas;C/. Gran Bretaña,;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;174;446;-16.734081;28.076402
+H-38-4-0000220;Palm-Beach;Hotelera;Hotel;Dos Estrellas;Avda. V Centenario, 11, 11;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38660;318;967;-16.732076;28.068783
+H-38-4-0000221;Horizonte;Hotelera;Hotel;Una Estrella;C/. Santa Rosa De Lima, 11;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38027;40;65;-16.249672;28.469969
+H-38-4-0000222;Marino;Hotelera;Pension;Dos Estrellas;C/ Barrio Nuevo, Núm. 18-20,;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38006;9;18;-16.71851;28.05754
+H-38-4-0000223;Best Tenerife;Hotelera;Hotel;Cuatro Estrellas;Avda. Antonio Dominguez, 6;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;365;696;-16.731657;28.057181
+H-38-4-0000224;Siesta, La;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;282;536;-16.733166;28.059009
+H-38-4-0000225;Panoramica Garden;Hotelera;Hotel;Tres Estrellas;La Longuera, S/N,;Tenerife;Santa Cruz De Tenerife;Los Realejos;Realejo Alto (El);38418;242;484;-16.581472;28.397486
+H-38-4-0000226;Bitacora;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;314;628;-16.731147;28.058271
+H-38-4-0000228;Europe Park Club;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;241;482;-16.734003;28.056517
+H-38-4-0000230;Cano;Hotelera;Pension;Una Estrella;Galvan Bello, 9, 9;Tenerife;Santa Cruz De Tenerife;Arona;Galletas (Las);38640;6;8;-16.654645;28.007055
+H-38-4-0000231;German;Hotelera;Pension;Una Estrella;Santo Domingo, 1;Tenerife;Santa Cruz De Tenerife;Vilaflor De Chasna;Vilaflor;38613;10;17;-16.637412;28.156216
+H-38-4-0000232;Hovima Costa Adeje;Hotelera;Hotel;Cuatro Estrellas;Avda. Ernesto Sarti (Urb. Torviscas), 8;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38660;313;589;-16.733161;28.083727
+H-38-4-0000234;Vulcano;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;371;705;-16.730402;28.05692
+H-38-4-0000235;Teresa;Hotelera;Pension;Una Estrella;Ramon Pino, 44, 44;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38640;3;8;-16.719604;28.052094
+H-38-4-0000236;Laura;Hotelera;Pension;Una Estrella;C/ La Esplanda Num.7, S/N;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38650;8;14;-16.72049;28.052247
+H-38-4-0000237;Club Atlantis;Hotelera;Hotel;Cuatro Estrellas;Avda. Colon (Urb. San Eugenio), 3;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38670;255;533;-16.734082;28.077632
+H-38-4-0000238;Santa Maria;Hotelera;Hotel;Tres Estrellas;Avda. Ernesto Sarti, S/N ,;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;402;906;-16.732249;28.08144
+H-38-4-0000239;"Dreams Jardín Tropical Resort &Amp; Spa";Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;376;737;-16.733635;28.076107
+H-38-4-0000240;Atlantico Centro;Hotelera;Hotel;Dos Estrellas;C/. Castillo, 12;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;60;96;-16.249877;28.467016
+H-38-4-0000242;Tigotan;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;416;832;-16.729183;28.059899
+H-38-4-0000243;Parque La Paz;Hotelera;Hotel;Cuatro Estrellas;Avda. Luis Diaz De Losada, 2;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;221;476;-16.728711;28.055922
+H-38-4-0000245;Columbus;Hotelera;Hotel;Tres Estrellas;Avda. Santiago Puig, 8;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38640;472;604;-16.72773;28.060912
+H-38-4-0000246;Oasis Paraiso;Hotelera;Hotel;Cinco Estrellas;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Paraiso (Pya.);38678;624;1250;-16.774471;28.121357
+H-38-4-0000247;Estrella, La;Hotelera;Pension;Una Estrella;Gral, Km.1, Núm.9  Ctra.,;Tenerife;Santa Cruz De Tenerife;Arona;Galletas (Las);38640;10;12;-16.677386;28.051033
+H-38-4-0000248;La Pinta;Hotelera;Hotel;Cuatro Estrellas;Avda. De España (Urb. San Eugenio), 5;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;229;523;-16.733948;28.080416
+H-38-4-0000249;Berlin;Hotelera;Pension;Una Estrella;Marcelino Perdomo Reyes, 1, El Coromoto, 1;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38206;20;25;-16.324169;28.483888
+H-38-4-0000250;Mediterranean Palace;Hotelera;Hotel;Cinco Estrellas;Las Americas S/N. Avda.,;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;536;1072;-16.729461;28.054242
+H-38-4-0000252;Paradise Park;Hotelera;Hotel;Cuatro Estrellas;C/. Hawai, 2 (Urb. Oasis Del Sur), 2;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38650;255;501;-16.705884;28.053736
+H-38-4-0000255;Alcala;Hotelera;Pension;Una Estrella;Marruecos, 2, 2;Tenerife;Santa Cruz De Tenerife;Guia Isora;Alcala;38686;22;31;-16.830427;28.20261
+H-38-4-0000256;Iberostar Sabila;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;472;836;-16.733802;28.084406
+H-38-4-0000257;Las Dalias;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;404;728;-16.731003;28.076625
+H-38-4-0000258;Gran Hotel Callao Sport;Hotelera;Hotel;Cuatro Estrellas;C/. El Canto, S/N. (Urb. El Jable) ,;Tenerife;Santa Cruz De Tenerife;Adeje;Callao Salvaje;38670;92;190;-16.770885;28.133574
+H-38-4-0000259;Gala;Hotelera;Hotel;Cuatro Estrellas;Avda. Arquitecto Gomez Cuesta , 3;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;308;616;-16.730081;28.066436
+H-38-4-0000260;Guayarmina Princess;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;514;1028;-16.73448;28.084979
+H-38-4-0000261;Bonanza Palace;Hotelera;Hotel;Cuatro Estrellas;C/. Aceviño (Urb.La Paz), 8;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;206;392;-16.535794;28.414881
+H-38-4-0000262;Malibu Park I;Hotelera;Hotel;Tres Estrellas;C/. Italia (Urb. San Eugenio Alto), 4;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38670;161;332;-16.725664;28.078509
+H-38-4-0000263;Hovima Suites Costa Adeje;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;439;1317;-16.734303;28.089094
+H-38-4-0000264;Ucanca;Hotelera;Hotel;Dos Estrellas;Santa Cruz, 183 Avda.,;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;San Isidro;38611;22;42;-16.555772;28.071869
+H-38-4-0000265;Parador De Turismo Las Cañadas Del Teide;Hotelera;Hotel;Tres Estrellas;Las Cañadas Del Teide, S/N.,;Tenerife;Santa Cruz De Tenerife;La Orotava;Cañadas Del Teide (Las);38300;37;74;-16.627139;28.224653
+H-38-4-0000284;Sir Anthony;Hotelera;Hotel;Cinco Estrellas;Avda. Las Américas, S/N.,;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;70;140;-16.729724;28.052854
+H-38-4-0000285;Barcelo Santiago;Hotelera;Hotel;Cuatro Estrellas;C/. La Hondura, 8;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Puerto De Santiago;38683;407;810;-16.844624;28.239431
+H-38-4-0000286;Velazquez;Hotelera;Pension;Una Estrella;Los Escudos, 8, 10;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Taco;38108;12;14;-16.299488;28.44817
+H-38-4-0000291;Laguna Nivaria;Hotelera;Hotel Urbano;Cuatro Estrellas;Pza. Del Adelantado, 11;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38201;80;171;-16.313194;28.486752
+H-38-4-0000292;Nautico;Hotelera;Hotel;Dos Estrellas;Profesor Peraza De Ayala Avda.,13, 13;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38001;40;76;-16.245981;28.479733
+H-38-4-0000293;Colon Guanahani;Hotelera;Hotel;Cuatro Estrellas;C/. Bruselas (Urb. Playa Fañabe) ,;Tenerife;Santa Cruz De Tenerife;Adeje;Fañabe;38670;154;308;-16.734971;28.08858
+H-38-4-0000294;Puerto Palace;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;315;594;-16.550527;28.408169
+H-38-4-0000295;Udalla Park;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Cristianos (Los);38640;93;186;0;0
+H-38-4-0000296;Arona Gran Hotel;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38650;391;776;-16.709789;28.046722
+H-38-4-0000297;Arenas Del Mar;Hotelera;Hotel;Cuatro Estrellas;Avda. Europa, 2;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Medano (El);38612;155;320;-16.528766;28.050239
+H-38-4-0000298;Aeropuerto Sur;Hotelera;Hotel;Tres Estrellas;C/. Benchijigua, 4;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;San Isidro;38611;94;161;-16.555818;28.073038
+H-38-4-0000299;Principe Paz;Hotelera;Hotel;Tres Estrellas;Valentin Sanz, 33-35, Esq. Adelantado,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;80;118;-16.250767;28.468824
+H-38-4-0000301;Finquita, La;Hotelera;Pension;Una Estrella;Subida De Taucho, Los Menores,;Tenerife;Santa Cruz De Tenerife;Adeje;Quinta (La) - Taucho;38670;10;20;-16.753351;28.142799
+H-38-4-0000302;Medina;Hotelera;Pension;Dos Estrellas;Eduardo Roo, 68, 68;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Cuesta (La);38320;20;32;-16.288127;28.473655
+H-38-4-0000303;Estefania Arona;Hotelera;Hotel;Cuatro Estrellas;Urb. Aguilas Del Teide,;Tenerife;Santa Cruz De Tenerife;Arona;Chayofa;38008;32;64;-16.698362;28.072653
+H-38-4-0000304;Gran Hotel Bahia Del Duque;Hotelera;Hotel;Cinco Estrellas Gran Lujo;Avda. Alcalde Walter Paetzman, S/N.,;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38660;362;732;-16.740819;28.093708
+H-38-4-0000305;Casa Rutter;Hotelera;Pension;Dos Estrellas;Casa 75 (Puertito Del Sauzal), 75;Tenerife;Santa Cruz De Tenerife;El Sauzal;Sauzal (El);38008;7;14;-16.44633;28.471079
+H-38-4-0000306;Gf Fañabe;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;413;826;-16.735499;28.090404
+H-38-4-0000307;Coral Beach;Hotelera;Hotel;Cuatro Estrellas;C/. Noelia Afonso, 10;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38640;191;382;-16.730027;28.058438
+H-38-4-0000309;"Hotel Tenerife Golf &Amp; Sea View";Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;Golf Del Sur;38620;129;258;-16.599935;28.027595
+H-38-4-0000311;Perla Tenerife;Hotelera;Hotel;Tres Estrellas;C/. Isla De La Gomera (Urb. Guacimara), 3;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;130;260;-16.54114;28.408272
+H-38-4-0000312;Andorra Iii;Hotelera;Hotel;Tres Estrellas;Antonio Dominguez, 10,;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;101;303;-16.729477;28.056762
+H-38-4-0000313;Jardin Caleta;Hotelera;Hotel;Tres Estrellas;C/. La Caleta, 34 ,;Tenerife;Santa Cruz De Tenerife;Adeje;Caleta (La);38670;244;496;-16.753615;28.099176
+H-38-4-0000314;Cassandra;Hotelera;Pension;Una Estrella;C/. San Miguel, Esq. C/ San José, S/N. ,;Tenerife;Santa Cruz De Tenerife;Arona;Buzanada;38660;22;44;-16.65469;28.068544
+H-38-4-0000315;Gema Puerto;Hotelera;Hotel;Tres Estrellas;C/. Blanco, 13;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;48;88;-16.55013;28.415094
+H-38-4-0000316;Viña Vieja;Hotelera;Hotel;Dos Estrellas;La Luz, 8, 8;Tenerife;Santa Cruz De Tenerife;Arico;Arico El Nuevo;38589;9;18;-16.481736;28.178767
+H-38-4-0000317;Ole Tropical Tenerife ;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;189;392;-16.72718;28.06645
+H-38-4-0000318;Casa Nati;Hotelera;Pension;Una Estrella;Boruga, 20, 20;Tenerife;Santa Cruz De Tenerife;La Orotava;Orotava (La);38300;4;8;-16.531731;28.399329
+H-38-4-0000319;Alta Montaña;Hotelera;Hotel;Dos Estrellas;C/. Morro El Cano, 1;Tenerife;Santa Cruz De Tenerife;Vilaflor De Chasna;Vilaflor;38613;15;32;-16.639311;28.155956
+H-38-4-0000320;Oceano Centro;Hotelera;Hotel;Una Estrella;Castillo, 6 ,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;28;48;-16.249563;28.466977
+H-38-4-0000322;San Roque;Hotelera;Hotel;Cuatro Estrellas;Esteban De Ponte, 32, 32;Tenerife;Santa Cruz De Tenerife;Garachico;Garachico;38450;20;40;-16.764373;28.374362
+H-38-4-0000324;Jardin, El;Hotelera;Pension;Una Estrella;Esteban De Ponte, 8, 8;Tenerife;Santa Cruz De Tenerife;Garachico;Garachico;38450;3;6;-16.765497;28.372955
+H-38-4-0000325;Costa Adeje Palace;Hotelera;Hotel;Cuatro Estrellas;Playa De La Enramada S/N, La Caleta,;Tenerife;Santa Cruz De Tenerife;Adeje;Adeje;38670;467;646;-16.749203;28.097262
+H-38-4-0000326;Jacaranda;Hotelera;Hotel;Cuatro Estrellas;C/. Bruselas (Urb. Fañabe), 4-6;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;563;1083;-16.732361;28.088168
+H-38-4-0000327;Riu Palace Tenerife;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Caleta (La);38679;296;502;-16.747502;28.094561
+H-38-4-0000328;Flamingo Suites;Hotelera;Hotel;Cuatro Estrellas;Avda. De España S/N,;Tenerife;Santa Cruz De Tenerife;Adeje;Adeje;38670;18;50;-16.733465;28.080012
+H-38-4-0000329;"Santa Barbara Golf Resort &Amp; Ocean Club";Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;Golf Del Sur;38630;279;722;-16.60738;28.024278
+H-38-4-0000330;Reveron Plaza;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38650;43;86;-16.716788;28.051959
+H-38-4-0000332;Riu Arecas;Hotelera;Hotel;Cuatro Estrellas;La Herradura Parcela I Urb.,;Tenerife;Santa Cruz De Tenerife;Adeje;Caleta (La);38670;371;697;-16.745942;28.095385
+H-38-4-0000333;Escuela Santa Cruz;Hotelera;Hotel;Cuatro Estrellas;San Sebastian, 152,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38006;65;132;-16.26011;28.463945
+H-38-4-0000334;Jardines De Nivaria;Hotelera;Hotel;Cinco Estrellas;C/. Paris, S/N. (Urb. Playa De Fañabe) ,;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;271;546;-16.736406;28.088787
+H-38-4-0000335;Lagos De Cesar;Hotelera;Hotel;Cuatro Estrellas;C/. Jose Gonzalez Gonzalez, 7;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Puerto De Santiago;38436;116;235;-16.840365;28.234388
+H-38-4-0000336;Atlantic Holiday Center;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Callao Salvaje;38678;94;188;-16.783178;28.127469
+H-38-4-0000337;Villa De Adeje Beach;Hotelera;Hotel;Tres Estrellas;Avda. Los Pueblos, 41, Las Americas,;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;120;240;-16.73078;28.080337
+H-38-4-0000338;Gran Tacande;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;250;428;-16.739887;28.091933
+H-38-4-0000340;Adonis Plaza;Hotelera;Hotel;Tres Estrellas;Plaza De La Candelaria, 10;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38002;95;133;-16.24852;28.467204
+H-38-4-0000341;Landmar Playa La Arena;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Puerto De Santiago;38436;432;864;-16.839178;28.232218
+H-38-4-0000343;Flamingo Beachmate;Hotelera;Hotel;Tres Estrellas;Avda. España (Urb. San Eugenio), 3;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;107;262;-16.733807;28.079013
+H-38-4-0000344;Alhambra;Hotelera;Hotel;Dos Estrellas;Nicandro Gonzalez Borges, 19, 19;Tenerife;Santa Cruz De Tenerife;La Orotava;Orotava (La);38300;5;10;-16.523442;28.392674
+H-38-4-0000345;Iberostar Grand Hotel Anthelia;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;391;727;-16.737581;28.089592
+H-38-4-0000346;Mare Nostrum;Hotelera;Hotel;Cuatro Estrellas;Playa De Las Americas, .;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38000;431;866;-16.729722;28.054167
+H-38-4-0000348;O7 Tenerife;Hotelera;Hotel;Cuatro Estrellas;C/. La Haya (Urb. La Paz) , 4;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;165;330;-16.539239;28.41453
+H-38-4-0000349;Villa Montemar;Hotelera;Hotel;Tres Estrellas;El Parque, 6, 6;Tenerife;Santa Cruz De Tenerife;Los Realejos;Realejos (Los);38410;6;12;-16.582278;28.396787
+H-38-4-0000352;Sholeo Lodges Los Gigantes;Hotelera;Hotel;_U;Avda. La Gaviota (Urb. Varadero);Tenerife;Santa Cruz De Tenerife;Guia Isora;Guia De Isora;38686;0;0;-16.838565;28.226705
+H-38-4-0000354;Alua Tenerife;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;372;834;-16.557844;28.410517
+H-38-4-0000355;Altos Del Duque;Hotelera;Hotel;Cinco Estrellas;Parcela 3b Plan Parcial Playas Del Duque,;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;40;94;0;0
+H-38-4-0000356;Wyndham Residences Costa Adeje;Hotelera;Hotel;Una Estrella;C/. Finlandia (San Eugenio Alto), 8-10;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38660;63;179;-16.72447;28.076016
+H-38-4-0000357;Parque Cristobal;Hotelera;Hotel;Tres Estrellas;Avda. Rafael Puig Lluvina, 15;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;151;665;-16.731973;28.060577
+H-38-4-0000359;Europe Villa Cortes;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38640;151;277;-16.73477;28.056267
+H-38-4-0000360;Gran Muthu Golf Plaza;Hotelera;Hotel;Cinco Estrellas;Avda. J.M. Galvan Bello, S/N.,;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;Golf Del Sur;38639;174;378;-16.610998;28.027666
+H-38-4-0000363;Aluasoul Costa Adeje ;Hotelera;Hotel;Cuatro Estrellas;Avda. De España, 26 (San Eugenio),;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;226;454;-16.73347;28.081401
+H-38-4-0000364;Astoria;Hotelera;Hotel;Tres Estrellas;La Hoya, 60,;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;33;66;-16.545345;28.416466
+H-38-4-0000365;Meliá Jardines Del Teide;Hotelera;Hotel;Cinco Estrellas;Avda. Agando, S/N. (Urb. Mirador Del Duque),;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;300;600;-16.738697;28.096415
+H-38-4-0000366;Chatur Playa Real;Hotelera;Hotel;Cuatro Estrellas;Avda. Moscu (Urb. Jardines Del Duque);Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38000;102;204;0;0
+H-38-4-0000367;Bahia Principe Costa Adeje;Hotelera;Hotel;Cuatro Estrellas;C/. Idafe, 5 (Plan Parcial Playa Paraiso, Parcela 18, Sector Iii),;Tenerife;Santa Cruz De Tenerife;Adeje;Paraiso (Pya.);38670;505;1112;-16.773725;28.117912
+H-38-4-0000368;Iberostar Grand Hotel El Mirador;Hotelera;Hotel;Cinco Estrellas;Avda. Bruselas, S/N. (Playa Del Duque),;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;127;254;-16.74429;28.092966
+H-38-4-0000369;Gf Gran Costa Adeje;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;458;802;-16.73668;28.093321
+H-38-4-0000370;Princess Inspire Tenerife;Hotelera;Hotel;Cuatro Estrellas;Parcela 3b Plan Parcial Fañabe,;Tenerife;Santa Cruz De Tenerife;Adeje;Fañabe;38660;275;550;-16.733026;28.085571
+H-38-4-0000371;Aluasoul Orotava Valley;Hotelera;Hotel;Cuatro Estrellas;C/. Manuel Yanes Barreto (Playa Jardin), 13;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;202;455;-16.556654;28.408449
+H-38-4-0000372;Madrigueras, Las;Hotelera;Hotel;Cinco Estrellas;Plan Parcial Parcela Nº3 Golf Las Americas,;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;57;118;-16.714002;28.06235
+H-38-4-0000374;Dragos Del Sur;Hotelera;Hotel;Tres Estrellas;Maritima Avda. Esq. Caleta Del Jurado ,;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Santiago Del Teide;38436;78;234;-16.841387;28.235719
+H-38-4-0000375;Sunwing Resort Fañabe;Hotelera;Hotel;Cuatro Estrellas;C/. Londres, 4 (Urb. Playa De Fañabe), 4;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38000;241;482;-16.734167;28.085833
+H-38-4-0000377;Isabel;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;384;778;-16.7342;28.091462
+H-38-4-0000378;Gran Hotel Riu Garoe;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;190;380;-16.531656;28.412731
+H-38-4-0000379;Riu Buenavista;Hotelera;Hotel;Cuatro Estrellas;C/. Horno, S/N. (Urb. Playa Paraiso),;Tenerife;Santa Cruz De Tenerife;Adeje;Paraiso (Pya.);38660;509;1100;-16.778393;28.123558
+H-38-4-0000380;Alua Atlantico Golf Resort;Hotelera;Hotel;Cuatro Estrellas;Avda. Del Atlantico (Urb. Golf Del Sur), 3;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;Golf Del Sur;38620;234;590;-16.610056;28.02398
+H-38-4-0000382;Victoria Suite Hotel;Hotelera;Hotel;Cinco Estrellas Gran Lujo;Playa Del Duque, S/N.,;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;242;484;-16.738728;28.091836
+H-38-4-0000383;Roca Nivaria;Hotelera;Hotel;Cinco Estrellas;Avda. De Adeje, 300, 300;Tenerife;Santa Cruz De Tenerife;Adeje;Paraiso (Pya.);38000;289;577;-16.776993;28.120438
+H-38-4-0000384;La Laguna Gran Hotel;Hotelera;Hotel Urbano;Cuatro Estrellas;_U;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38201;123;246;-16.313332;28.489063
+H-38-4-0000385;Regency Country Club;Hotelera;Hotel;Tres Estrellas;C/. Tiguanfaya, Plan Parcial Parcelas 1-2 ,;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38670;69;232;-16.700415;28.07147
+H-38-4-0000388;Eurostars Atlántida;Hotelera;Hotel;Cuatro Estrellas;Avda. Tres De Mayo Esq. Aurea Diaz Flores ,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38005;112;224;-16.25732;28.458713
+H-38-4-0000390;Villalba;Hotelera;Hotel;Cuatro Estrellas;Ctra. San Roque, S/N, S/N;Tenerife;Santa Cruz De Tenerife;Vilaflor De Chasna;Vilaflor;38613;21;42;-16.642483;28.160259
+H-38-4-0000391;Landmar Hotel Costa Los Gigantes;Hotelera;Hotel;Cuatro Estrellas;C/. Juan Manuel Capdevielle (Playa De La Arena), 8;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Puerto De Santiago;38683;518;1001;-16.836982;28.234121
+H-38-4-0000392;Zentral Center;Hotelera;Hotel;Cuatro Estrellas;C/. Arquitecto Gomez Cuesta , 22;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;208;416;-16.728193;28.057949
+H-38-4-0000393;Bahia Principe Tenerife;Hotelera;Hotel;Cuatro Estrellas;C/. Idafe, 5,;Tenerife;Santa Cruz De Tenerife;Adeje;Paraiso (Pya.);38670;244;560;-16.773725;28.117912
+H-38-4-0000395;Bahia Principe Fantasia;Hotelera;Hotel;Cinco Estrellas;Avda. J.M. Galvan Bello, S/N. (Parcela C.C.V. Urb. Golf Del Sur),;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;Golf Del Sur;38620;372;744;-16.606265;28.026905
+H-38-4-0000396;Tivoli La Caleta, Costa Adeje, Tenerife Resort;Hotelera;Hotel;Cinco Estrellas Gran Lujo;C/. La Enramada, 9;Tenerife;Santa Cruz De Tenerife;Adeje;Caleta (La);38779;284;544;-16.748354;28.095766
+H-38-4-0000397;Gran Melia Palacio De Isora;Hotelera;Hotel;Cinco Estrellas Gran Lujo;_U;Tenerife;Santa Cruz De Tenerife;Guia Isora;Alcala;38686;609;1218;-16.831656;28.20465
+H-38-4-0000398;Ritz Carlton Abama;Hotelera;Hotel;Cinco Estrellas Gran Lujo;Ctra. General Tf-47  Km.9 (Urb. Club De Campo Abama),;Tenerife;Santa Cruz De Tenerife;Guia Isora;Abama;38687;479;962;-16.792609;28.170844
+H-38-4-0000402;Nh Tenerife;Hotelera;Hotel;Tres Estrellas;C/. Candelaria Esq. Dr. Allart, S/N.,;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38003;64;112;-16.248424;28.466132
+H-38-4-0000406;"Marylanza Suites &Amp; Spa";Hotelera;Hotel;Cuatro Estrellas;C/. Arenales, 20;Tenerife;Santa Cruz De Tenerife;Arona;Cristianos (Los);38640;217;434;-16.722652;28.059703
+H-38-4-0000408;Vista, La;Hotelera;Hotel Urbano;Dos Estrellas;_U;Tenerife;Santa Cruz De Tenerife;Guia Isora;Guia De Isora;38000;3;6;-16.778071;28.212759
+H-38-4-0000412;Wyndham Residences Costa Adeje;Hotelera;Hotel;Una Estrella;C/. Finlandia (Urb. San Eugenio Alto) , 8-10;Tenerife;Santa Cruz De Tenerife;Adeje;San Eugenio;38670;25;81;-16.72447;28.076016
+H-38-4-0000418;La Plantacion Del Sur;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Fañabe;38679;164;330;-16.742746;28.094612
+H-38-4-0000421;Villa Tagoro;Hotelera;Hotel;_U;_U;Tenerife;Santa Cruz De Tenerife;Adeje;Torviscas;38679;205;615;-16.726482;28.087725
+H-38-4-0000423;Cañadas;Hotelera;Hotel;Una Estrella;Ctra. General La Esperanza, Km.7'5 ,;Tenerife;Santa Cruz De Tenerife;El Rosario;Esperanza (La);38290;7;14;-16.369167;28.443084
+H-38-4-0000425;Finca Susanna;Hotelera;Pension;Tres Estrellas;C/ Elías Bacallado Hernandez , 57;Tenerife;Santa Cruz De Tenerife;El Rosario;Esperanza (La);38290;3;7;-16.375745;28.447459
+H-38-4-0000428;"El Tejar &Amp; Spa";Hotelera;Hotel;Dos Estrellas;C/. El Calvario Esq. El Tejar, 37;Tenerife;Santa Cruz De Tenerife;Vilaflor De Chasna;Vilaflor;38613;14;28;-16.635849;28.15409
+H-38-4-0000430;Duque, El;Hotelera;Hotel;Tres Estrellas;Avda. Bruselas, 14;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;210;486;-16.734933;28.09257
+H-38-4-0000431;Barcelo Tenerife;Hotelera;Hotel;Cinco Estrellas;C/. Greñamora, S/N (Parcela H1 Del P.P. San Blas),;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;San Miguel De Abona;38629;331;662;-16.598615;28.030655
+H-38-4-0000433;Suite Villa Maria;Hotelera;Hotel;Cinco Estrellas;Avda. De Los Acantilados, S/N. ,;Tenerife;Santa Cruz De Tenerife;Adeje;Puerto Colón;38670;78;318;-16.750281;28.10732
+H-38-4-0000434;Casona Del Patio, La;Hotelera;Hotel;Cuatro Estrellas;Avda. La Iglesia, 72;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Santiago Del Teide;38683;20;40;-16.815481;28.29809
+H-38-4-0000435;Luz Del Mar;Hotelera;Hotel;Cuatro Estrellas;Avda.Sibora Núm. 10,;Tenerife;Santa Cruz De Tenerife;Los Silos;Silos (Los);38000;49;98;-16.811947;28.374446
+H-38-4-0000436;Royal Garden Villas;Hotelera;Hotel;Cinco Estrellas Gran Lujo;C/. Alcojora (Parcela Rt-4) Campo De Golf De Adeje,;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38670;28;90;-16.748193;28.113014
+H-38-4-0000438;Melia Hacienda Del Conde;Hotelera;Hotel;Cinco Estrellas Gran Lujo;C/. La Finca, S/N.,;Tenerife;Santa Cruz De Tenerife;Buenavista Del Norte;Buenavista Del Norte;38000;117;234;-16.858908;28.369435
+H-38-4-0000439;Precise Resort Puerto De La Cruz Tenerife;Hotelera;Hotel;Cuatro Estrellas;Camino El Burgado, S/N,;Tenerife;Santa Cruz De Tenerife;Los Realejos;Azadilla (La);38000;142;284;-16.571237;28.405758
+H-38-4-0000442;Club Bonanza;Hotelera;Hotel;Tres Estrellas;Avda. Venezuela, 10;Tenerife;Santa Cruz De Tenerife;Adeje;Playa De Las Americas;38670;108;241;-16.728336;28.071255
+H-38-4-0000444;Eurostars Atlantida;Hotelera;Hotel;Cuatro Estrellas;Avda. Tres De Mayo, 71;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38005;32;52;-16.25732;28.458713
+H-38-4-0000455;Oceano Hotel Health Spa Tenerife;Hotelera;Hotel;Cuatro Estrellas;C/. Oceano Pacifico, 1;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Punta Del Hidalgo;38240;100;206;-16.331101;28.566753
+H-38-4-0000456;Cuatro Esquinas ;Hotelera;Hotel Emblematico;Categoria Unica;C/ La Iglesia, 11,;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;San Miguel De Abona;38620;7;14;-16.617531;28.097921
+H-38-4-0000457;San Agustin;Hotelera;Hotel Emblematico;Categoria Unica;C/ San Agustin, 18,;Tenerife;Santa Cruz De Tenerife;Icod De Los Vinos;Icod De Los Vinos;38430;8;16;-16.718132;28.367086
+H-38-4-0000461;Casa Casilda;Hotelera;Hotel Emblematico;Categoria Unica;C/ Calvario, 53,;Tenerife;Santa Cruz De Tenerife;Tacoronte;Tacoronte;38350;6;12;-16.414569;28.48381
+H-38-4-0000464;Buen Retiro;Hotelera;Hotel Emblematico;Categoria Unica;C/ Chacaica, 9, 9;Tenerife;Santa Cruz De Tenerife;Guimar;Güimar;38500;4;8;-16.418053;28.317535
+H-38-4-0000469;Orotava;Hotelera;Hotel Emblematico;Categoria Unica;C/. Carrera Escultor Estevez, 17;Tenerife;Santa Cruz De Tenerife;La Orotava;Orotava (La);38300;6;14;-16.525408;28.389097
+H-38-4-0000474;San Marcos;Hotelera;Hotel Emblematico;Categoria Unica;C/ Hercules, 11, 11;Tenerife;Santa Cruz De Tenerife;Icod De Los Vinos;Icod De Los Vinos;38430;6;12;-16.72197;28.367958
+H-38-4-0000475;Tamaimo Tropical;Hotelera;Hotel;Tres Estrellas;C/. La Hondura, S/N.,;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Puerto De Santiago;38683;372;824;-16.843257;28.238841
+H-38-4-0000478;Mc San Agustin;Hotelera;Hotel Urbano;Cinco Estrellas;C/. San Agustin, Esq. C/ Viana, 12;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38201;4;16;-16.314232;28.48924
+H-38-4-0000479;Drago De San Antonio;Hotelera;Hotel Urbano;Tres Estrellas;C/. La Rosa (San Antonio), 10;Tenerife;Santa Cruz De Tenerife;Icod De Los Vinos;Icod De Los Vinos;38430;3;8;-16.722241;28.366586
+H-38-4-0000488;Gara Suites Golf & Spa;Hotelera;Hotel;Cuatro Estrellas;Parcela C-1 Plan Parcial Campo De Golf, S/N.,;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;437;893;-16.721718;28.06351
+H-38-4-0000493;Vanilla Garden;Hotelera;Hotel;Cuatro Estrellas;Avda. Arquitecto Gomez Cuesta, 5;Tenerife;Santa Cruz De Tenerife;Arona;Playa De Las Americas (Arona);38660;106;212;-16.729311;28.066371
+H-38-4-0000495;Allegro Isora;Hotelera;Hotel;Cuatro Estrellas;Avda. La Gaviota, 1;Tenerife;Santa Cruz De Tenerife;Santiago Del Teide;Playa De La Arena;38687;312;624;0;0
+H-38-4-0000496;Royal Hideaway Corales Resort;Hotelera;Hotel;Cinco Estrellas Gran Lujo;Avda. Virgen De Guadalupe (Playa De La Enramada), 21;Tenerife;Santa Cruz De Tenerife;Adeje;Caleta (La);38670;235;602;-16.753529;28.101863
+H-38-4-0000504;Bed & Breakfast Dorotea;Hotelera;Hotel Urbano;Tres Estrellas;C/. Jesus Y Maria, 40;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38004;2;8;-16.25711;28.468422
+H-38-4-0000510;Royal Garden River;Hotelera;Hotel;Cinco Estrellas Gran Lujo;Parcela Rt-9a, Sector Barranco Las Torres,;Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38660;50;140;-16.748193;28.113014
+H-38-4-0000513;Casa Kilig;Hotelera;Hotel Urbano;Tres Estrellas;Rambla De Santa Cruz, 90;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38004;2;6;-16.258201;28.470733
+H-38-4-0000514;Casa Armonia Bed & Breakfast;Hotelera;Hotel Urbano;Tres Estrellas;C/. Maria Cristina, 22;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38004;2;9;-16.258018;28.469615
+H-38-4-0000516;H10 Atlantic Sunset;Hotelera;Hotel;Cinco Estrellas;Avda. Adeje 300, 15,;Tenerife;Santa Cruz De Tenerife;Adeje;Paraiso (Pya.);38678;291;582;-16.774884;28.119072
+H-38-4-0000519;Suncanarias Hotel Adeje Plaza;Hotelera;Hotel Urbano;Una Estrella;C/ Grande;Tenerife;Santa Cruz De Tenerife;Adeje;Adeje;38670;9;18;-16.724867;28.121785
+H-38-4-0000521;Tropical Park;Hotelera;Hotel;Cuatro Estrellas;C/. El Jable, 41;Tenerife;Santa Cruz De Tenerife;Adeje;Callao Salvaje;3867;160;506;-16.780558;28.130438
+H-38-4-0000523;Doña Justa;Hotelera;Hotel Emblematico;Categoria Unica;C/ Astrofisico Pedro Alvarez Martin, 24,;Tenerife;Santa Cruz De Tenerife;Tegueste;Pedro Alvarez;38280;5;10;-16.33714;28.525382
+H-38-4-0000528;"Atlantic Mirage Suites &Amp; Spa";Hotelera;Hotel;Cuatro Estrellas;C/. Eucaliptus, 4, 4;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;184;368;-16.536893;28.416435
+H-38-4-0000530;Ac Tenerife;Hotelera;Hotel Urbano;Cuatro Estrellas;C/ Doctor Allart, 12 Esq. C/ Candelaria, 31;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38001;83;166;-16.248571;28.466398
+H-38-4-0000531;San Diego;Hotelera;Hotel Urbano;Dos Estrellas;Avda. San Diego, 40;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;San Cristobal De La Laguna;38201;5;10;-16.322874;28.495314
+H-38-4-0000540;Gran Hotel Taoro;Hotelera;Hotel;Cinco Estrellas;Parque Del Taoro;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;Puerto De La Cruz;38400;0;0;0;0
+H-38-4-0000542;Innside Tenerife Santa Cruz;Hotelera;Hotel Urbano;_U;C/ El Pilar;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;Santa Cruz De Tenerife;38001;0;0;-16.251107;28.468172
+H-38-4-0000543;Mynd Adeje;Hotelera;Hotel;Cuatro Estrellas;C/. El Jable (Callao Salvaje);Tenerife;Santa Cruz De Tenerife;Adeje;Costa Adeje;38670;165;330;-16.781243;28.130681
+H-38-4-0004441;San Diego;Hotelera;Hotel Urbano;Dos Estrellas;Avda. San Diego, 40;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;_U;_U;0;0;-16.322874;28.495314
+H-38-4-0004442;Royal Hideaway Corales Villas;Hotelera;Hotel;Cinco Estrellas;Avda. Virgen De Guadalupe;Tenerife;Santa Cruz De Tenerife;Adeje;_U;_U;139;420;-16.753529;28.101863
+H-38-4-0004443;Royal Garden River;Hotelera;Hotel;Cinco Estrellas;C/. Alcojora, S/N. (Barranco Las Torres);Tenerife;Santa Cruz De Tenerife;Adeje;_U;_U;0;0;-16.748193;28.113014
+H-38-4-0004444;Royal Garden River;Hotelera;Hotel;Cinco Estrellas Gran Lujo;C/. Alcojora, S/N. (Barranco Las Torres);Tenerife;Santa Cruz De Tenerife;Adeje;_U;_U;0;0;-16.748193;28.113014
+H-38-4-0004445;Gara;Hotelera;Hotel Emblematico;Categoria Unica;C/. Esteban Ponte;Tenerife;Santa Cruz De Tenerife;Garachico;_U;_U;0;0;0;0
+H-38-4-0004446;Valle Orotava;Hotelera;Hotel;Cuatro Estrellas;C/. Cupido;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;_U;_U;0;0;0;0
+H-38-4-0004447;F24;Hotelera;Hotel Emblematico;_U;Calle San Vicente Ferrer;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;_U;_U;0;0;0;0
+H-38-4-0004448;Hi Suites;Hotelera;Hotel Emblematico;Categoria Unica;C/ Emilio Calzadilla;Tenerife;Santa Cruz De Tenerife;Santa Cruz Tenerife;_U;_U;0;0;0;0
+H-38-4-0004450;Parque Vacacional Eden;Hotelera;Hotel;Cuatro Estrellas;C/. Francia, (San Fernando);Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;_U;_U;0;0;0;0
+H-38-4-0004451;Silken Saaj Maar;Hotelera;Hotel;Cuatro Estrellas;Paseo San Telmo;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;_U;_U;0;0;0;0
+H-38-4-0004452;Skyview;Hotelera;Hotel;Tres Estrellas;Hermanos Fernandez Perdigon;Tenerife;Santa Cruz De Tenerife;Puerto De La Cruz;_U;_U;0;0;0;0
+H-38-4-0004453;La Paloma;Hotelera;Hotel;Dos Estrellas;C/. La Paloma,;Tenerife;Santa Cruz De Tenerife;Adeje;_U;_U;0;0;0;0
+H-38-5-0000002;La Cubana;Hotelera;Pension;Una Estrella;O'Daly, 24;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;6;10;-17.765769;28.682146
+H-38-5-0000005;El Porvenir;Hotelera;Pension;Una Estrella;Fernandez Taño, 3;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Llanos De Aridane (Los);38760;11;16;-17.910843;28.659423
+H-38-5-0000006;Monterrey;Hotelera;Pension;Dos Estrellas;Carretera General Km1, S.N.;La Palma;Santa Cruz De Tenerife;El Paso;Paso (El);38750;19;32;-17.881665;28.651689
+H-38-5-0000009;Vazdekis;Hotelera;Pension;Dos Estrellas;Montaña Tenisca, S.N.;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Montaña Tenisca;38760;9;13;-17.91743;28.656602
+H-38-5-0000012;Edén;Hotelera;Hotel;Una Estrella;Ángel, 1;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Llanos De Aridane (Los);38760;18;28;-17.912374;28.658953
+H-38-5-0000014;El L'Otelito 27;Hotelera;Pension;Dos Estrellas;Adolfo Cabrera Pinto, 27;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;14;23;-17.765464;28.683862
+H-38-5-0000017;Roque Faro;Hotelera;Pension;Una Estrella;Roque Faro,;La Palma;Santa Cruz De Tenerife;Garafia;Roque Del Faro;38787;6;12;-17.878939;28.803197
+H-38-5-0000018;Nambroque;Hotelera;Pension;Dos Estrellas;General, 98;La Palma;Santa Cruz De Tenerife;El Paso;Paso (El);38750;10;19;-17.870657;28.650271
+H-38-5-0000019;Fuencaliente;Hotelera;Pension;Una Estrella;General, 35;La Palma;Santa Cruz De Tenerife;Fuencaliente De La Palma;Canarios (Los) (Capital);38740;5;10;-17.844425;28.494599
+H-38-5-0000020;Marítimo;Hotelera;Hotel;Tres Estrellas;Marítima, 80;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;69;131;-17.759858;28.687236
+H-38-5-0000021;Las Breñas;Hotelera;Pension;Una Estrella;General Franco, 68;La Palma;Santa Cruz De Tenerife;Breña Alta;San Pedro De Breña Alta (Capital);38710;10;16;0;0
+H-38-5-0000023;Valle Aridane;Hotelera;Hotel;Tres Estrellas;Glorieta C. Olivares, 3;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Llanos De Aridane (Los);38760;42;81;-17.91602;28.658219
+H-38-5-0000024;Los Volcanes;Hotelera;Pension;Dos Estrellas;General, 72;La Palma;Santa Cruz De Tenerife;Fuencaliente De La Palma;Canarios (Los) (Capital);38740;4;8;-17.844309;28.494209
+H-38-5-0000025;Avenida;Hotelera;Hotel;Tres Estrellas;Castillete, 14-16;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;27;54;-17.760485;28.687442
+H-38-5-0000026;La Palma Romantica;Hotelera;Hotel;Tres Estrellas;Topo De Las Llanadas, S.N.;La Palma;Santa Cruz De Tenerife;Barlovento;Barlovento;38726;40;77;-17.805071;28.822338
+H-38-5-0000029;Arrocha;Hotelera;Pension;Una Estrella;Pérez De Brito, 77;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;7;11;-17.761565;28.686759
+H-38-5-0000030;El Drago;Hotelera;Pension;Una Estrella;Carretera General, S.N.;La Palma;Santa Cruz De Tenerife;San Andres Y Sauces;San Andres Y Sauces;38720;13;26;-17.772885;28.801261
+H-38-5-0000032;Castillete;Hotelera;Hotel;Tres Estrellas;Avda. Marítima, 75;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;39;84;-17.759874;28.687391
+H-38-5-0000033;Sol Elite La Palma;Hotelera;Hotel;Cuatro Estrellas;Punta Del Pozo,;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Puerto Naos;38760;308;616;-17.909091;28.582197
+H-38-5-0000034;Argeo;Hotelera;Pension;Una Estrella;San Sebastian, 4;La Palma;Santa Cruz De Tenerife;San Andres Y Sauces;San Andres Y Sauces;38720;4;7;-17.761057;28.799233
+H-38-5-0000035;Montemar;Hotelera;Pension;Una Estrella;La Jurona, 47;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Manchas (Las);38760;6;11;-17.886768;28.606744
+H-38-5-0000036;Central;Hotelera;Pension;Una Estrella;Yaiza, 4;La Palma;Santa Cruz De Tenerife;Fuencaliente De La Palma;Fuencaliente;38740;6;11;-17.844425;28.494599
+H-38-5-0000037;H10 Taburiente Playa;Hotelera;Hotel;Cuatro Estrellas;Travesia Los Cancajos;La Palma;Santa Cruz De Tenerife;Breña Baja;Cancajos (Los);38712;293;576;-17.758087;28.649444
+H-38-5-0000038;Arminda;Hotelera;Hotel;Una Estrella;Lodero, 181;La Palma;Santa Cruz De Tenerife;Villa De Mazo;Lodero;38730;5;10;-17.771538;28.616223
+H-38-5-0000039;Las Lonjas;Hotelera;Pension;Una Estrella;San Sebastian, 16;La Palma;Santa Cruz De Tenerife;San Andres Y Sauces;San Andres Y Sauces;38720;4;8;-17.760881;28.798542
+H-38-5-0000040;Amberes;Hotelera;Hotel;Dos Estrellas;General Franco, 13;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Llanos De Aridane (Los);38760;7;13;-17.91152;28.658491
+H-38-5-0000041;Mar Y Monte;Hotelera;Pension;Una Estrella;Pino De La Virgen, 7 B;La Palma;Santa Cruz De Tenerife;Puntagorda;Puntagorda;38789;4;8;-17.980938;28.765724
+H-38-5-0000042;Parador De Turismo De La Palma;Hotelera;Hotel;Cuatro Estrellas;Carretera El Zumacal;La Palma;Santa Cruz De Tenerife;Breña Baja;San Antonio;38712;78;156;-17.774874;28.651195
+H-38-5-0000043;Las Olas;Hotelera;Hotel;Cuatro Estrellas;Travesía, 2;La Palma;Santa Cruz De Tenerife;Breña Baja;Cancajos (Los);38712;182;364;-17.75906;28.644362
+H-38-5-0000044;El Galeón;Hotelera;Hotel;Tres Estrellas;Carretera Del Galeón, 10;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;25;50;-17.771347;28.678353
+H-38-5-0000045;Hotel Teneguía La Palma  Princess;Hotelera;Hotel;Cuatro Estrellas;De La Costa, 10 Cerca Vieja;La Palma;Santa Cruz De Tenerife;Fuencaliente De La Palma;Fuencaliente;38740;625;1250;-17.874162;28.503512
+H-38-5-0000046;San Telmo ;Hotelera;Hotel;Dos Estrellas;San Telmo , 5;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;8;16;-17.76678;28.68205
+H-38-5-0000047;Benahoare;Hotelera;Hotel;Tres Estrellas;Las Adelfas , 8;La Palma;Santa Cruz De Tenerife;Los Llanos De Aridane;Llanos De Aridane (Los);38760;18;36;-17.910781;28.65664
+H-38-5-0000048;La Tienda;Hotelera;Pension;Dos Estrellas;Cruz Grande, Calle La Rosa, 1;La Palma;Santa Cruz De Tenerife;El Paso;Paso (El);38750;8;15;-17.872573;28.653863
+H-38-5-0000049;Hacienda De Abajo;Hotelera;Hotel Emblematico;Categoria Unica;C/ Miguel Unamuno, 11;La Palma;Santa Cruz De Tenerife;Tazacorte;Tazacorte;38770;32;64;-17.934936;28.643326
+H-38-5-0000050;Olio;Hotelera;Hotel Emblematico;Categoria Unica;Acerjó, 3;La Palma;Santa Cruz De Tenerife;El Paso;Paso (El);38750;3;6;-17.872782;28.651518
+H-38-5-0000051;Holiday Time;Hotelera;Hotel Emblematico;Categoria Unica;Álvarez De Abreu, 13;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;Santa Cruz De La Palma;38700;16;32;-17.763517;28.683716
+H-38-5-0000052;Banana Garden La Palma;Hotelera;Hotel Urbano;Una Estrella;Calle Garachico;La Palma;Santa Cruz De Tenerife;Santa Cruz De La Palma;_U;_U;9;20;0;0
+H-38-6-0000001;Garajonay;Hotelera;Hotel;Dos Estrellas;Ruiz De Padrón, 17;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38800;29;56;-17.111484;28.091403
+H-38-6-0000005;Hespérides;Hotelera;Pension;Dos Estrellas;Ruiz De Padrón, 42;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;8;11;-17.111271;28.091504
+H-38-6-0000006;El Carmen;Hotelera;Pension;Una Estrella;Playa Santiago,;La Gomera;Santa Cruz De Tenerife;Alajero;Alajero;38600;4;8;-17.198239;28.028052
+H-38-6-0000008;Las Jornadas;Hotelera;Pension;Una Estrella;Playa La Calera,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38600;3;25;-17.339158;28.088524
+H-38-6-0000009;Colombina;Hotelera;Pension;Una Estrella;Ruiz De Padrón, 81;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38800;29;60;-17.113238;28.093838
+H-38-6-0000010;Amaya;Hotelera;Pension;Una Estrella;El Paso,;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38600;2;7;-17.266478;28.179186
+H-38-6-0000012;Parada;Hotelera;Pension;Una Estrella;El Caidero, E;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38600;3;13;-17.335202;28.095042
+H-38-6-0000013;Gomera;Hotelera;Pension;Una Estrella;Del Medio, 33;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;7;14;-17.112534;28.093387
+H-38-6-0000014;Victorino Leralta;Hotelera;Pension;Una Estrella;Del Medio, 23;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;2;14;-17.110916;28.091745
+H-38-6-0000015;Colón;Hotelera;Pension;Dos Estrellas;Del Medio, 59;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;3;15;-17.112017;28.093337
+H-38-6-0000016;Jardin Tecina;Hotelera;Hotel;Cuatro Estrellas;Tecina,;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;434;868;-17.189427;28.030855
+H-38-6-0000018;Candelaria;Hotelera;Pension;Una Estrella;Vueltas,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38600;2;12;-17.333196;28.083429
+H-38-6-0000019;Las Vueltas;Hotelera;Pension;Una Estrella;Vueltas,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38600;2;10;-17.333618;28.082372
+H-38-6-0000020;La Gaviota;Hotelera;Pension;Dos Estrellas;Playa Santiago,;La Gomera;Santa Cruz De Tenerife;Alajero;Alajero;38600;10;20;-17.197141;28.028606
+H-38-6-0000021;Vallehermoso;Hotelera;Pension;Una Estrella;Triana, 13;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38600;3;9;-17.26563;28.177957
+H-38-6-0000022;Parador Nacional Conde De La Gomera;Hotelera;Hotel;Cuatro Estrellas;Cerro De La Horca, 1;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38800;60;112;-17.108296;28.091019
+H-38-6-0000024;Argayall;Hotelera;Pension;Una Estrella;Playa De Argaga,;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38600;4;12;-17.32311;28.07915
+H-38-6-0000025;Playamar;Hotelera;Pension;Dos Estrellas;La Playa,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38600;12;28;-17.342847;28.095148
+H-38-6-0000026;Hotel Villa Gomera;Hotelera;Hotel;_U;_U;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;16;32;-17.112505;28.093239
+H-38-6-0000027;Sonia;Hotelera;Pension;Una Estrella;Chipude,;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38600;7;10;-17.2835;28.109944
+H-38-6-0000028;Ramón;Hotelera;Pension;Una Estrella;La Calera,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Calera (La) (Capital);38600;3;6;-17.334916;28.096441
+H-38-6-0000029;Casa Amaya;Hotelera;Pension;Una Estrella;Mayor, 2;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38600;3;14;-17.266478;28.179171
+H-38-6-0000030;Villa Aurora;Hotelera;Pension;Una Estrella;Borbalán,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38600;3;10;-17.336122;28.089617
+H-38-6-0000031;Cueva Honda;Hotelera;Pension;Una Estrella;Cueva Honda, Playa Santiago,;La Gomera;Santa Cruz De Tenerife;Alajero;Alajero;38600;2;3;-17.197799;28.028542
+H-38-6-0000033;La Castellana;Hotelera;Pension;Una Estrella;La Castellana, S/N;La Gomera;Santa Cruz De Tenerife;Hermigua;Hermigua;38600;3;16;-17.191555;28.170463
+H-38-6-0000034;Hotel Gran Rey;Hotelera;Hotel;Tres Estrellas;La Puntilla,;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Puntilla (La);38600;99;198;-17.338859;28.089034
+H-38-6-0000035;Hotel Torre Del  Conde;Hotelera;Hotel;Tres Estrellas;Ruiz De Padrón, 19;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;3;67;-17.111379;28.091397
+H-38-6-0000036;Hotel El Cabrito;Hotelera;Hotel;Dos Estrellas;El Cabrito,;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;S. Sebastian De La Gomera;38600;3;46;-17.143726;28.063287
+H-38-6-0000037;Hotel Suite El Paso;Hotelera;Hotel;Cuatro Estrellas;Lomo Los Cardos, S/N;La Gomera;Santa Cruz De Tenerife;Alajero;Alajero;38812;29;58;-17.239533;28.059684
+H-38-6-0000038;Triana Ii;Hotelera;Hotel;Dos Estrellas;Avenida Guillermo Ascanio, S/N;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38840;18;36;-17.265342;28.180338
+H-38-6-0000039;Jardin Concha;Hotelera;Hotel;Una Estrella;La Hurona, S/N;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38870;7;13;-17.336058;28.095743
+H-38-6-0000040;Hotel Playa Calera;Hotelera;Hotel Urbano;Cuatro Estrellas;Playa Calera, 2;La Gomera;Santa Cruz De Tenerife;Valle Gran Rey;Valle Gran Rey;38870;63;130;-17.343768;28.095256
+H-38-6-0000042;Bancal Hotel Spa;Hotelera;Hotel;Cuatro Estrellas;Sapu Turístico Lomo Del Clavo;La Gomera;Santa Cruz De Tenerife;San Sebastian De La Gomera;_U;_U;0;0;0;0
+H-38-7-0000002;Sur Restinga;Hotelera;Pension;Dos Estrellas;El Varadero, 6;El Hierro;Santa Cruz De Tenerife;El Pinar De El Hierro;Restinga (La);38917;7;13;-17.979753;27.640747
+H-38-7-0000003;Residencia Casañas;Hotelera;Pension;Dos Estrellas;San Francisco, 9;El Hierro;Santa Cruz De Tenerife;Valverde;Valverde;38900;15;30;-17.914704;27.80618
+H-38-7-0000008;Boomerang;Hotelera;Hotel;Dos Estrellas;Doctor Gost, 1;El Hierro;Santa Cruz De Tenerife;Valverde;Valverde;38900;17;34;-17.91467;27.80845
+H-38-7-0000009;El Guanche;Hotelera;Pension;Una Estrella;Panadería, 1 Cruz Alta;El Hierro;Santa Cruz De Tenerife;Frontera;Frontera;38911;7;13;-18.016312;27.752567
+H-38-7-0000010;Punta Grande;Hotelera;Hotel;Dos Estrellas;Punta Grande, 1 Las Puntas;El Hierro;Santa Cruz De Tenerife;Frontera;Frontera;38911;4;8;-17.992107;27.797192
+H-38-7-0000014;Parador De Turismo De El Hierro;Hotelera;Hotel;Cuatro Estrellas;_U;El Hierro;Santa Cruz De Tenerife;Valverde;Playas (Las);38910;45;90;-17.9583;27.717496
+H-38-7-0000018;Balneario Pozo La Salud;Hotelera;Hotel;Tres Estrellas;Pozo De La Salud, S/N Próx. A Sabinosa;El Hierro;Santa Cruz De Tenerife;Frontera;Sabinosa;38912;22;34;-18.104783;27.756349
+H-38-7-0000019;Caribe;Hotelera;Pension;Una Estrella;Punta Grande, S/N Las Puntas;El Hierro;Santa Cruz De Tenerife;Frontera;Frontera;38911;4;8;-17.990727;27.796576
+H-38-7-0000021;Ida-Inés;Hotelera;Hotel;Dos Estrellas;Belgara Alta, 2;El Hierro;Santa Cruz De Tenerife;Frontera;Frontera;38911;11;22;-18.0046;27.754369
+H-38-7-0000022;Atlántico;Hotelera;Pension;Una Estrella;Tigaday, 11;El Hierro;Santa Cruz De Tenerife;Frontera;Frontera;38911;20;40;-18.017417;27.751836
+H-38-7-0000024;El Sitio;Hotelera;Pension;Una Estrella;La Carrera, 26;El Hierro;Santa Cruz De Tenerife;Frontera;Frontera;38911;6;12;-17.997329;27.75564
+H-38-7-0000025;Villa El Mocanal;Hotelera;Hotel;Dos Estrellas;Barlovento, 18;El Hierro;Santa Cruz De Tenerife;Valverde;Mocanal (El);38916;15;23;-17.941388;27.821009
+H-38-7-0000026;Lua;Hotelera;Hotel;Dos Estrellas;C/Travesía Del Pino, 64 -El Pinar;El Hierro;Santa Cruz De Tenerife;El Pinar De El Hierro;Pinar (El);38914;11;20;-17.981421;27.702584
+HMR-38-5-0000043;Los Piratas;Hotelera;Medio Rural;Categoria Unica;Camino La Justa;La Palma;Santa Cruz De Tenerife;Tijarafe;Arecida;_U;10;20;0;0
+HR-35-1-0000001;Calas (Las);Hotelera;Hotel Rural;1 Palmera;Arenal, 36;Gran Canaria;Palmas (Las);Vega San Mateo;Lechuza (La);35329;10;20;-15.551186;28.003676
+HR-35-1-0000004;Casa De Los Camellos;Hotelera;Hotel Rural;2 Palmeras;Progreso (El), - Esq. Retama, 12;Gran Canaria;Palmas (Las);Aguimes;Agüimes;35260;12;24;-15.446871;27.906132
+HR-35-1-0000005;Maipez;Hotelera;Hotel Rural;1 Palmera;Ctra. De La Calzada, 104;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35017;10;22;-15.473684;28.058401
+HR-35-1-0000006;Hacienda Del Buen Suceso (La);Hotelera;Hotel Rural;2 Palmeras;Carretera De Arucas A Bañaderos, Km. 1,;Gran Canaria;Palmas (Las);Arucas;Hoyas (Las);35413;18;35;-15.532036;28.126361
+HR-35-1-0000007;Cortijo De San Ignacio Golf;Hotelera;Hotel Rural;2 Palmeras;Autopista Del Sur Gc-1, Km.6,4,;Gran Canaria;Palmas (Las);Telde;Telde;35218;18;34;-15.393899;28.020804
+HR-35-1-0000008;Finca Las Longueras Casa Roja;Hotelera;Hotel Rural;1 Palmera;Finca Las Longueras, S/Nº;Gran Canaria;Palmas (Las);Agaete;Valle De Agaete;35480;10;22;-15.682767;28.090069
+HR-35-1-0000009;Hacienda Del Molino (La);Hotelera;Hotel Rural;Categoria Unica;C/ Los Naranjos, 2;Gran Canaria;Palmas (Las);San Bartolome De Tirajana;San Bartolome De Tirajana;35290;8;16;-15.573566;27.925394
+HR-35-1-0000010;Mondalon (El);Hotelera;Hotel Rural;Categoria Unica;Carretera Los Hoyos, 124;Gran Canaria;Palmas (Las);Las Palmas De Gran Canaria;Las Palmas De Gran Canaria;35000;10;20;-15.446776;28.039814
+HR-35-2-0000002;Mahoh;Hotelera;Hotel Rural;2 Palmeras;Francisco Bordón Méndez, 1;Fuerteventura;Palmas (Las);La Oliva;Villaverde;35640;9;18;-13.910687;28.620956
+HR-35-2-0000003;Los Rugama;Hotelera;Hotel Rural;2 Palmeras;Sitio De Dª Isabel Rugama, S/N;Fuerteventura;Palmas (Las);Puerto Del Rosario;Casillas Del Ángel;35611;13;26;-13.960927;28.491591
+HR-35-2-0000004;Alma Calma;Hotelera;Hotel Rural;Categoria Unica;C/ Juan Méndez;Fuerteventura;Palmas (Las);La Oliva;_U;_U;4;10;-13.992066;28.583851
+HR-35-2-0000006;El Cabo De Casa Marcos;Hotelera;Hotel Rural;Categoria Unica;C/ Los Geranios;Fuerteventura;Palmas (Las);La Oliva;Villaverde;_U;0;0;0;0
+HR-35-2-0000007;Finca Luz;Hotelera;Hotel Rural;Categoria Unica;C/ Lucas Méndez, Nº;Fuerteventura;Palmas (Las);Puerto Del Rosario;_U;_U;0;0;0;0
+HR-35-3-0000001;Finca De La Florida;Hotelera;Hotel Rural;2 Palmeras;El Islote, 90;Lanzarote;Palmas (Las);San Bartolome;San Bartolome;_U;15;30;-13.631267;29.00911
+HR-35-3-0000002;Finca De Las Salinas;Hotelera;Hotel Rural;2 Palmeras;La Cuesta, 17;Lanzarote;Palmas (Las);Yaiza;Yaiza;35570;19;38;-13.762764;28.954635
+HR-35-3-0000003;Embajador Del Atlantico, El;Hotelera;Hotel Rural;2 Palmeras;La Tegala, 30;Lanzarote;Palmas (Las);Yaiza;Playa Blanca;_U;13;26;-13.827421;28.862409
+HR-35-3-0000004;Finca Tomaren;Hotelera;Hotel Rural;Categoria Unica;Tomaren, 33;Lanzarote;Palmas (Las);San Bartolome;Islote (El);35550;7;22;-13.624091;29.019405
+HR-35-3-0000005;Los Lirios;Hotelera;Hotel Rural;Categoria Unica;Camino Los Lirios;Lanzarote;Palmas (Las);Tias;Tias;35572;6;12;-13.658406;28.958465
+HR-35-3-0000006;Caserio De Mozaga;Hotelera;Hotel Rural;Categoria Unica;Calle Malva;Lanzarote;Palmas (Las);San Bartolome;Mozaga;_U;12;29;0;0
+HR-35-3-0000009;Cesar Lanzarote;Hotelera;Hotel Rural;Categoria Unica;Camino De San Pedro Pol 15 Pc 63;Lanzarote;Palmas (Las);Tias;Macher;_U;18;34;0;0
+HR-38-4-0000001;Finca Salamanca;Hotelera;Hotel Rural;2 Palmeras;Ctra. Guimar - El Puertito, Km.1,5,;Tenerife;Santa Cruz De Tenerife;Guimar;Guimar;38500;20;39;-16.401251;28.312932
+HR-38-4-0000002;San Miguel;Hotelera;Hotel Rural;2 Palmeras;C/ Las Morales, 2, 2-4;Tenerife;Santa Cruz De Tenerife;San Miguel De Abona;San Miguel De Abona;38620;16;32;-16.619558;28.097054
+HR-38-4-0000003;Patio, El;Hotelera;Hotel Rural;2 Palmeras;Finca Malpais, 11, 11;Tenerife;Santa Cruz De Tenerife;Garachico;Guincho (El);38450;18;38;-16.739065;28.376434
+HR-38-4-0000004;Victoria;Hotelera;Hotel Rural;2 Palmeras;Hermano Apolinar, 8, 8;Tenerife;Santa Cruz De Tenerife;La Orotava;Orotava (La);38300;14;28;-16.525202;28.388255
+HR-38-4-0000005;Senderos De Abona;Hotelera;Hotel Rural;1 Palmera;C/ La Iglesia, 5,;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Granadilla De Abona;38600;16;38;-16.577274;28.126108
+HR-38-4-0000006;Ohana;Hotelera;Hotel Rural;2 Palmeras;C/ Preventorio, 17, 17;Tenerife;Santa Cruz De Tenerife;El Rosario;Esperanza (La);38290;7;20;-16.37289;28.429233
+HR-38-4-0000007;La Raya 1866;Hotelera;Hotel Rural;2 Palmeras;C/. La Raya, 25 (Barrio De La Hoya) ,;Tenerife;Santa Cruz De Tenerife;Guimar;Güimar;38500;6;15;-16.420253;28.316723
+HR-38-4-0000009;Finca San Juan;Hotelera;Hotel Rural;2 Palmeras;C/ Mazape;Tenerife;Santa Cruz De Tenerife;San Juan De La Rambla;San Juan De La Rambla;38420;8;16;-16.643748;28.391005
+HR-38-4-0000010;Caserio Los Partidos;Hotelera;Hotel Rural;2 Palmeras;C/ Los Partidos De Franquis, 4 ,;Tenerife;Santa Cruz De Tenerife;El Tanque;San Jose De Los Llanos;38435;11;21;-16.791982;28.316109
+HR-38-4-0000011;Nogal, El;Hotelera;Hotel Rural;1 Palmera;Camino Real, S/N.,;Tenerife;Santa Cruz De Tenerife;Vilaflor De Chasna;Escalona (La);38614;20;40;-16.662834;28.121924
+HR-38-4-0000012;Fonda Central;Hotelera;Hotel Rural;1 Palmera;Grande, 26, 6;Tenerife;Santa Cruz De Tenerife;Adeje;Adeje;38670;11;22;-16.724733;28.122101
+HR-38-4-0000017;"Costa Magica Suites &Amp; Spa";Hotelera;Hotel Rural;2 Palmeras;Cmno. La Costa, S/N. (Finca Oasis),;Tenerife;Santa Cruz De Tenerife;San Cristobal De La Laguna;Valle De Guerra;38270;12;22;-16.388754;28.542595
+HR-38-4-0000018;Villa Ariadna;Hotelera;Hotel Rural;1 Palmera;Lomo Del Fuego, 90;Tenerife;Santa Cruz De Tenerife;Guimar;Guimar;38500;6;11;-16.418138;28.308364
+HR-38-4-0000019;Quinta Roja, La;Hotelera;Hotel Rural;2 Palmeras;Glorieta San Francisco, S/N., S/N;Tenerife;Santa Cruz De Tenerife;Garachico;Garachico;38450;20;40;-16.764264;28.373423
+HR-38-4-0000029;Finca La Hacienda;Hotelera;Hotel Rural;1 Palmera;C/. Nuestra Sra. De Lourdes, 2,;Tenerife;Santa Cruz De Tenerife;Los Silos;Tierra Del Trigo (La);38479;9;24;-16.802766;28.352653
+HR-38-4-0000031;Cañas, Las;Hotelera;Hotel Rural;2 Palmeras;C/. Del Medio Arriba, 21, 40;Tenerife;Santa Cruz De Tenerife;Los Realejos;Realejos (Los);38410;7;12;-16.585293;28.378436
+HR-38-4-0000032;Casablanca;Hotelera;Hotel Rural;2 Palmeras;C/ Real, 146, 146;Tenerife;Santa Cruz De Tenerife;Los Realejos;Icod El Alto;38410;20;40;-16.619211;28.381918
+HR-38-4-0000035;Bentor;Hotelera;Hotel Rural;1 Palmera;C/ Guillermo Camacho Y Perez Galdós, 6, 6;Tenerife;Santa Cruz De Tenerife;Los Realejos;Realejos (Los);38410;19;38;-16.588425;28.386578
+HR-38-4-0000046;Finca El Navio;Hotelera;Hotel Rural;2 Palmeras;Prolongación Avda. Los Pescadores, S/N, S/N;Tenerife;Santa Cruz De Tenerife;Guia Isora;Alcala;38686;8;15;-16.828331;28.211437
+HR-38-4-0000059;Casa Lena;Hotelera;Hotel Rural;Categoria Unica;C/ Mantillo, 18 (Charco Del Pino), 18;Tenerife;Santa Cruz De Tenerife;Granadilla De Abona;Charco Del Pino;38595;2;4;-16.592087;28.103934
+HR-38-4-0000060;La Correa Del Almendro ;Hotelera;Hotel Rural;Categoria Unica;Ctra De Altavista, 58, 58;Tenerife;Santa Cruz De Tenerife;Arona;Arona;38649;6;12;-16.676994;28.109076
+HR-38-5-0000001;Finca  Del  Ingeniero ;Hotelera;Hotel Rural;1 Palmera;Camino El Reventón , 122;La Palma;Santa Cruz De Tenerife;Breña Alta;Buenavista De Arriba;38710;3;7;-17.79332;28.674761
+HR-38-6-0000001;H-R Ibo Alfaro;Hotelera;Hotel Rural;1 Palmera;Finca Los Pajaritos,;La Gomera;Santa Cruz De Tenerife;Hermigua;Hermigua;38600;1;36;-17.19833;28.167075
+HR-38-6-0000002;Villa De Hermigua;Hotelera;Hotel Rural;1 Palmera;Ctra. Gral, 117;La Gomera;Santa Cruz De Tenerife;Hermigua;Hermigua;38600;1;14;-17.198367;28.163765
+HR-38-6-0000003;Tamahuche;Hotelera;Hotel Rural;1 Palmera;La Hoya, S/N;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38840;10;20;-17.264923;28.181902
+HR-38-6-0000004;Hotel Escuela Rural Casa De Los Herrera;Hotelera;Hotel Rural;2 Palmeras;Ctra. General Tf-711,Barrio De La Encarnación,;La Gomera;Santa Cruz De Tenerife;Hermigua;Hermigua;38820;8;16;0;0
+HR-38-6-0000005;Triana;Hotelera;Hotel Rural;1 Palmera;Triana, S/N;La Gomera;Santa Cruz De Tenerife;Vallehermoso;Vallehermoso;38840;10;16;-17.266006;28.17778
+HR-38-6-0000006;Hotel Rural Los Lugo;Hotelera;Hotel Rural;Categoria Unica;Pintor Aguiar, 33;La Gomera;Santa Cruz De Tenerife;Agulo;Agulo;38830;10;17;-17.196291;28.186901
+HR-38-6-0000007;Imada;Hotelera;Hotel Rural;1 Palmera;Imada, S/N;La Gomera;Santa Cruz De Tenerife;Alajero;Alajero;38812;7;14;-17.241328;28.086011

@@ -1,0 +1,12 @@
+# Credenciales
+.env
+
+# R session
+.RData
+.Rhistory
+
+# Datos temporales de trabajo
+importar_gobcan/tmp/
+
+# Claude Code
+.claude/

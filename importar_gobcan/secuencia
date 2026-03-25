@@ -1,0 +1,14 @@
+SECUENCIA:
+Rscript P01-ingesta_controlada.R
+Rscript P02-geocodificacion_filtrada_callejero.R
+Rscript P03-geocodificacion_por_centroide_localidad.R
+Rscript P04-geocodificacion_por_centroide_cp.R 
+Rscript P05-geocodificacion_por_centroide_municipio.R
+Rscript P06-rescate_del_mar.R
+Rscript P07-validacion_espacial.R
+Rscript P08-asignacionde_municipio_localidad_por_geo.R
+Rscript P09-asignar_isla_y_clasificacion.R
+Rscript P10-comprobar_duplicados.R
+Rscript P11-migrar_a_alojamientos.R
+Rscript P12-informe_de_auditoria.R
+
