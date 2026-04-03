@@ -1,6 +1,14 @@
+#!/usr/bin/env Rscript
 # ==============================================================================
-# SCRIPT 2: calcular_ratios_dinamicos.R
-# Objetivo: Motor dinámico con tipado por diccionario y fallo explícito
+# SCRIPT: PT02-Calcular_ratios_dinamicos.R
+# Lee base_snapshots y el diccionario_de_datos para calcular ratios y benchmarks.
+# Vuelca el resultado a full_snapshots.
+#
+# La fecha de proceso se obtiene de base_snapshots (escrita por PT01).
+# PT01 ya eliminó los registros previos de full_snapshots para esa fecha.
+#
+# Uso:
+#   Rscript informes/PT02-Calcular_ratios_dinamicos.R
 # ==============================================================================
 
 library(tidyverse)
@@ -10,101 +18,125 @@ library(RPostgres)
 source("importar_gobcan/helper.R")
 con <- conecta_db()
 
-cat("--- INICIANDO MOTOR DE CÁLCULO DINÁMICO ---\n")
+cat("========================================\n")
+cat("PT02 — Cálculo de ratios dinámicos\n")
+cat(format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
+cat("========================================\n\n")
 
-# 1. Cargar datos base y metadatos del Diccionario
-df_trabajo <- dbGetQuery(con, "SELECT * FROM base_snapshots") %>% 
+# --- 1. CARGAR DATOS BASE Y DICCIONARIO ---
+df_trabajo <- dbGetQuery(con, "SELECT * FROM base_snapshots") %>%
   mutate(across(where(is.numeric), as.numeric))
 
-# Traemos todo el diccionario para tener fórmulas y formatos
-diccionario_completo <- dbGetQuery(con, "SELECT id_campo, formula, orden_de_calculo, formato FROM diccionario_de_datos")
+if (nrow(df_trabajo) == 0)
+  stop("base_snapshots está vacío. Ejecute PT01 primero.")
 
-# Filtramos las que tienen fórmula para el motor de cálculo y ORDENAMOS
-diccionario_formulas <- diccionario_completo %>% 
-  filter(!is.na(formula) & formula != "") %>% 
+fecha_proceso <- as.character(unique(df_trabajo$fecha_calculo)[1])
+cat("Fecha de proceso:", fecha_proceso, "\n")
+cat("Filas en base_snapshots:", nrow(df_trabajo), "\n\n")
+
+escribir_log("PT02_INICIO", paste("fecha_proceso:", fecha_proceso,
+  "| filas base:", nrow(df_trabajo)))
+
+diccionario_completo <- dbGetQuery(con,
+  "SELECT id_campo, formula, orden_de_calculo, formato FROM diccionario_de_datos")
+
+diccionario_formulas <- diccionario_completo %>%
+  filter(!is.na(formula) & formula != "") %>%
   arrange(orden_de_calculo)
 
-# 2. Separar Fórmulas Literales de Benchmarks
+# --- 2. SEPARAR FÓRMULAS LITERALES Y BENCHMARKS ---
 formulas_literales <- diccionario_formulas %>% filter(!str_detect(formula, "avg\\(|max\\("))
-formulas_bench     <- diccionario_formulas %>% filter(str_detect(formula, "avg\\(|max\\("))
+formulas_bench     <- diccionario_formulas %>% filter( str_detect(formula, "avg\\(|max\\("))
 
-# 3. Ejecutar Cálculos Literales fila a fila
+# --- 3. CALCULAR FÓRMULAS LITERALES ---
 cat("Calculando ratios literales por orden de precedencia...\n")
-for(i in 1:nrow(formulas_literales)) {
-    v_col <- formulas_literales$id_campo[i]
-    v_for <- formulas_literales$formula[i]
-    cat("  - Procesando:", v_col, "\n")
-    df_trabajo <- df_trabajo %>% mutate(!!v_col := eval(parse(text = v_for)))
+for (i in 1:nrow(formulas_literales)) {
+  v_col <- formulas_literales$id_campo[i]
+  v_for <- formulas_literales$formula[i]
+  cat("  -", v_col, "\n")
+  df_trabajo <- df_trabajo %>% mutate(!!v_col := eval(parse(text = v_for)))
 }
 
-# 4. Calcular Benchmarks (Medias y Máximos)
-cat("Calculando benchmarks segmentados por ámbito y tipo...\n")
+# --- 4. CALCULAR BENCHMARKS ---
+cat("\nCalculando benchmarks segmentados por ámbito y tipo...\n")
 df_final <- df_trabajo %>% group_by(ambito, tipo_municipio)
 
-for(i in 1:nrow(formulas_bench)) {
-    v_col <- formulas_bench$id_campo[i]
-    v_raw <- formulas_bench$formula[i]
-    campo_base <- str_extract(v_raw, "(?<=avg\\(|max\\().*?(?=\\))")
-    
-    cat("  - Referenciando benchmark:", v_col, "\n")
-    
-    excluir_100 <- str_detect(v_raw, fixed("| Excluyendo valores 100"))
+for (i in 1:nrow(formulas_bench)) {
+  v_col      <- formulas_bench$id_campo[i]
+  v_raw      <- formulas_bench$formula[i]
+  campo_base <- str_extract(v_raw, "(?<=avg\\(|max\\().*?(?=\\))")
 
-    if(str_detect(v_raw, "avg")) {
-        df_final <- df_final %>% mutate(!!v_col := {
-            x <- .data[[campo_base]]
-            if(excluir_100) x <- x[x < 100]
-            x <- x[!is.na(x) & is.finite(x)]
-            if(length(x) == 0) NA_real_ else mean(x)
-        })
-    } else if(str_detect(v_raw, "max")) {
-        df_final <- df_final %>% mutate(!!v_col := {
-            x <- .data[[campo_base]]
-            if(excluir_100) x <- x[x < 100]
-            x <- x[!is.na(x) & is.finite(x)]
-            if(length(x) == 0) NA_real_ else max(x)
-        })
+  cat("  -", v_col, "\n")
+
+  if (str_detect(v_raw, "avg")) {
+    formula_max_equiv <- formulas_bench %>%
+      filter(str_detect(formula, paste0("max\\(", campo_base, "\\)"))) %>%
+      pull(formula)
+    excluir_100 <- length(formula_max_equiv) > 0 &&
+      str_detect(formula_max_equiv[1], fixed("| Excluyendo valores 100"))
+
+    val_canarias <- {
+      x <- df_final %>% ungroup() %>% filter(ambito == "canarias") %>% pull(!!sym(campo_base))
+      if (excluir_100) x <- x[x < 100]
+      x <- x[!is.na(x) & is.finite(x)]
+      if (length(x) == 0) NA_real_ else x[1]
     }
+    df_final <- df_final %>% mutate(!!v_col := {
+      if (ambito[1] == "isla") {
+        val_canarias
+      } else {
+        x <- .data[[campo_base]]
+        if (excluir_100) x <- x[x < 100]
+        x <- x[!is.na(x) & is.finite(x)]
+        if (length(x) == 0) NA_real_ else mean(x)
+      }
+    })
+  } else if (str_detect(v_raw, "max")) {
+    excluir_100 <- str_detect(v_raw, fixed("| Excluyendo valores 100"))
+    df_final <- df_final %>% mutate(!!v_col := {
+      x <- .data[[campo_base]]
+      if (excluir_100) x <- x[x < 100]
+      x <- x[!is.na(x) & is.finite(x)]
+      if (length(x) == 0) NA_real_ else max(x)
+    })
+  }
 }
 df_final <- df_final %>% ungroup()
 
-# --- 5. LIMPIEZA Y TIPADO POR DICCIONARIO ---
-cat("Aplicando formatos según el diccionario...\n")
+# --- 5. TIPADO POR DICCIONARIO ---
+cat("\nAplicando formatos según el diccionario...\n")
 
-campos_enteros <- diccionario_completo %>% 
-  filter(formato == 'entero') %>% 
+campos_enteros <- diccionario_completo %>%
+  filter(formato == "entero") %>%
   pull(id_campo)
 
 df_post <- df_final %>%
   mutate(
-    across(c(isla_id, municipio_id, localidad_id), ~ if_else(is.na(.) | . == 0, NA_integer_, as.integer(.))),
+    across(c(isla_id, municipio_id, localidad_id),
+           ~ if_else(is.na(.) | . == 0, NA_integer_, as.integer(.))),
     across(where(is.numeric), ~ if_else(is.finite(.), ., NA_real_)),
     across(any_of(campos_enteros), ~ as.integer(round(coalesce(., 0))))
   )
 
-# --- 6. GESTIÓN DE DUPLICADOS EN EL HISTÓRICO ---
-# Extraemos la fecha única de nuestro proceso actual (está en la columna fecha_calculo)
-fecha_proceso <- as.character(unique(df_post$fecha_calculo)[1])
-fecha_a_borrar <- shQuote(paste0(as.character(fecha_proceso), " 00:00:00"), type = "sh")
-
-if (!is.na(fecha_a_borrar)) {
-    cat("Comprobando si existe snapshot previo para la fecha:", fecha_a_borrar, "...\n")
-    
-    # Ejecutamos el borrado preventivo en full_snapshots
-    # Usamos un casting explícito a ::date o ::timestamp según tu tabla
-    n_borrados <- dbExecute(con, glue::glue("DELETE FROM full_snapshots WHERE fecha_calculo = {fecha_a_borrar}"))
-    
-    if (n_borrados > 0) {
-        cat("  - Se han eliminado", n_borrados, "registros antiguos para evitar duplicados.\n")
-    } else {
-        cat("  - No existen registros previos para esta fecha. Procediendo...\n")
-    }
+# --- 6. VOLCADO A full_snapshots ---
+# PT01 ya eliminó los registros previos para esta fecha.
+# Comprobación de seguridad por si PT02 se ejecuta en solitario.
+n_previos <- dbGetQuery(con, paste0(
+  "SELECT COUNT(*) AS n FROM full_snapshots ",
+  "WHERE fecha_calculo = '", fecha_proceso, " 00:00:00'"))$n
+if (n_previos > 0) {
+  cat("Aviso: eliminando", n_previos, "registros previos (PT02 ejecutado en solitario)...\n")
+  dbExecute(con, paste0(
+    "DELETE FROM full_snapshots WHERE fecha_calculo = '", fecha_proceso, " 00:00:00'"))
 }
 
-# --- 7. VOLCADO FINAL (Fallo explícito si falta columna en DB)
-cat("Volcando datos a full_snapshots...\n")
-# Eliminamos la columna 'id' para que PostgreSQL use su propio serial auto-incremental
+cat("Volcando", nrow(df_post), "filas a full_snapshots...\n")
 df_envio <- df_post %>% select(-any_of("id"))
-
 dbWriteTable(con, "full_snapshots", df_envio, append = TRUE, row.names = FALSE)
-cat("¡Proceso completado con éxito!\n")
+
+escribir_log("PT02_FIN", paste(
+  "fecha_proceso:", fecha_proceso,
+  "| filas volcadas:", nrow(df_post)))
+
+dbDisconnect(con)
+cat("\n✓ PT02 completado —", nrow(df_post), "filas en full_snapshots.\n")

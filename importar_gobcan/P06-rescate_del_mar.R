@@ -1,81 +1,130 @@
-# =========================================================================
-# SANEAMIENTO GEOGRÁFICO AUTOMÁTICO (Rescate de Náufragos y Bañistas)
-# =========================================================================
+#!/usr/bin/env Rscript
+# ==============================================================================
+# SCRIPT: P06-rescate_del_mar.R
+# 1. Genera la geometría (geom) de staging_import a partir de longitud/latitud.
+# 2. Detecta registros cuya coordenada cae fuera de cualquier polígono municipal
+#    (es decir, en el mar o en tierra ajena a Canarias).
+# 3. Si el punto está a menos de 1 km de un centroide de localidad del municipio
+#    asignado: mueve la coordenada a ese centroide.
+# 4. Fallback: si sigue fuera, mueve al centroide del municipio.
+#
+# Uso:
+#   Rscript importar_gobcan/P06-rescate_del_mar.R
+# ==============================================================================
 
 source("importar_gobcan/helper.R")
 con <- conecta_db()
 
+cat("========================================\n")
+cat("P06 — Rescate de coordenadas en el mar\n")
+cat(format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
+cat("========================================\n\n")
 
-cat("\nIniciando saneamiento de coordenadas disparatadas y bañistas...\n")
+escribir_log("P06_INICIO", "Rescate del mar iniciado")
 
-# 1. LIMPIEZA DE "ASTRONAUTAS" (Fuera del Bounding Box de Canarias)
-# Anula coordenadas imposibles y deja nota en la auditoría
-dbExecute(con, "
-    UPDATE staging_import
-    SET 
-        audit_nota = 'COORDS_FUERA_RANGO: ' || longitud || ', ' || latitud,
-        fuente_geocodigo = NULL,
-        longitud = NULL,
-        latitud = NULL,
-        geom = NULL
-    WHERE fuente_geocodigo = 'gobcan'
-      AND ((longitud NOT BETWEEN -19 AND -13) OR (latitud NOT BETWEEN 27 AND 30));
-")
+# --- 1. GENERAR GEOMETRÍA DESDE LONGITUD/LATITUD ---
+cat("Generando geometría (geom) desde longitud/latitud...\n")
+n_geom <- dbExecute(con, "
+  UPDATE staging_import
+  SET geom = ST_SetSRID(ST_MakePoint(longitud, latitud), 4326)
+  WHERE longitud IS NOT NULL AND latitud IS NOT NULL;")
+cat("  Geometrías generadas:", n_geom, "\n\n")
 
-# 2. RESCATE DE "BAÑISTAS" (Puntos en el mar a menos de 1km de su municipio)
-# Esto salvará al registro de Adeje y similares de cualquier fuente
-dbExecute(con, "
-    WITH rescate AS (
-        SELECT 
-            s.id,
-            cl.geom as nueva_geom,
-            cl.nombre_loca as destino,
-            ST_Distance(s.geom::geography, cl.geom::geography) as dist
-        FROM staging_import s
-        CROSS JOIN LATERAL (
-            SELECT geom, nombre_loca
-            FROM public.centroides_localidad
-            WHERE municipio_id = s.municipio_id
-            ORDER BY s.geom <-> geom
-            LIMIT 1
-        ) cl
-        WHERE s.audit_resultado = 'FUERA_DE_TIERRA (MAR)'
-          AND ST_Distance(s.geom::geography, cl.geom::geography) < 1000
+# --- 2. DETECTAR PUNTOS EN EL MAR ---
+# Un punto está "en el mar" si no cae dentro de ningún polígono municipal.
+# Solo se comprueban registros con municipio_id asignado (los demás ya están
+# gestionados como sin_posicion por P05).
+n_mar <- dbGetQuery(con, "
+  SELECT COUNT(*)::int AS n FROM staging_import s
+  WHERE s.geom IS NOT NULL
+    AND s.municipio_id IS NOT NULL
+    AND NOT EXISTS (
+      SELECT 1 FROM municipios m WHERE ST_Within(s.geom, m.geom)
+    );")$n
+
+cat("Registros con coordenadas fuera de polígonos municipales:", n_mar, "\n\n")
+
+if (n_mar > 0) {
+  # --- 3. RESCATE CERCANO: centroide de localidad a menos de 1 km ---
+  n_rescate_localidad <- dbExecute(con, "
+    WITH en_mar AS (
+      SELECT s.id, s.geom, s.municipio_id
+      FROM staging_import s
+      WHERE s.geom IS NOT NULL
+        AND s.municipio_id IS NOT NULL
+        AND NOT EXISTS (
+          SELECT 1 FROM municipios m WHERE ST_Within(s.geom, m.geom)
+        )
+    ),
+    rescate AS (
+      SELECT
+        em.id,
+        cl.geom                                                     AS nueva_geom,
+        cl.nombre_loca                                              AS destino,
+        ST_Distance(em.geom::geography, cl.geom::geography)        AS dist
+      FROM en_mar em
+      CROSS JOIN LATERAL (
+        SELECT geom, nombre_loca
+        FROM centroides_localidad
+        WHERE municipio_id = em.municipio_id
+        ORDER BY em.geom <-> geom
+        LIMIT 1
+      ) cl
+      WHERE ST_Distance(em.geom::geography, cl.geom::geography) < 1000
     )
     UPDATE staging_import s
-    SET 
-        geom = r.nueva_geom,
-        latitud = ST_Y(r.nueva_geom),
-        longitud = ST_X(r.nueva_geom),
+    SET geom             = r.nueva_geom,
+        latitud          = ST_Y(r.nueva_geom),
+        longitud         = ST_X(r.nueva_geom),
         fuente_geocodigo = 'centroide:rescate_mar',
-        audit_nota = COALESCE(audit_nota, '') || ' | RESCATE_BAÑISTA: ' || ROUND(r.dist::numeric, 0) || 'm a ' || r.destino,
-        audit_resultado = 'OK_COHERENTE'
-    FROM rescate r
-    WHERE s.id = r.id;
-")
+        audit_nota       = COALESCE(audit_nota, '') ||
+                           ' | RESCATE_MAR: ' || ROUND(r.dist::numeric, 0) ||
+                           'm → ' || r.destino
+    FROM rescate r WHERE s.id = r.id;")
 
-# 3. FALLBACK PARA NÁUFRAGOS LEJANOS
-# Si después de lo anterior sigue habiendo MAR, los mandamos al centroide del municipio
-dbExecute(con, "
+  cat("Rescatados por localidad cercana (<1 km):", n_rescate_localidad, "\n")
+
+  # --- 4. FALLBACK: centroide de municipio para los que siguen en el mar ---
+  n_rescate_municipio <- dbExecute(con, "
+    WITH en_mar AS (
+      SELECT s.id, s.geom, s.municipio_id
+      FROM staging_import s
+      WHERE s.geom IS NOT NULL
+        AND s.municipio_id IS NOT NULL
+        AND NOT EXISTS (
+          SELECT 1 FROM municipios m WHERE ST_Within(s.geom, m.geom)
+        )
+    )
     UPDATE staging_import s
-    SET 
-        geom = cm.geom,
-        latitud = ST_Y(cm.geom),
-        longitud = ST_X(cm.geom),
+    SET geom             = cm.geom,
+        latitud          = ST_Y(cm.geom),
+        longitud         = ST_X(cm.geom),
         fuente_geocodigo = 'centroide:municipio_forzado',
-        audit_resultado = 'OK_COHERENTE'
-    FROM public.centroides_municipio cm
-    WHERE s.municipio_id = cm.id
-      AND s.audit_resultado = 'FUERA_DE_TIERRA (MAR)';
-")
+        audit_nota       = COALESCE(audit_nota, '') || ' | RESCATE_MAR_FALLBACK'
+    FROM en_mar em
+    JOIN centroides_municipio cm ON em.municipio_id = cm.municipio_id
+    WHERE s.id = em.id;")
 
-# Reporte al Log
-resumen_rescate <- dbGetQuery(con, "
-    SELECT fuente_geocodigo, COUNT(*) as total 
-    FROM staging_import 
-    WHERE fuente_geocodigo LIKE 'centroide:%_rescate%' 
-    GROUP BY 1
-")
-escribir_log("SANEAMIENTO_GEO", paste(capture.output(print(resumen_rescate)), collapse="\n"))
+  cat("Rescatados por centroide de municipio (>1 km):", n_rescate_municipio, "\n")
 
-cat("✓ Saneamiento geográfico completado.\n")
+  escribir_log("P06_RESCATE", paste0(
+    "En el mar: ", n_mar,
+    ". Rescatados por localidad: ", n_rescate_localidad,
+    ". Por municipio: ", n_rescate_municipio))
+} else {
+  cat("Ningún punto en el mar. Nada que rescatar.\n")
+  escribir_log("P06_RESCATE", "Ningún punto en el mar detectado")
+}
+
+# --- 5. RESUMEN ---
+cat("\nFuentes actuales:\n")
+print(dbGetQuery(con, "
+  SELECT COALESCE(fuente_geocodigo, 'sin_posicion') AS fuente,
+         COUNT(*)::int AS n
+  FROM staging_import
+  GROUP BY fuente ORDER BY n DESC"))
+
+escribir_log("P06_FIN", paste("geom generadas:", n_geom, "| en el mar detectados:", n_mar))
+
+dbDisconnect(con)
+cat("\n✓ P06 completado.\n")
