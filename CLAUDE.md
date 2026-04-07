@@ -328,6 +328,19 @@ Scripts de exploración (no usar en producción):
     viviendas_municipios, superficies
     vivienda_iniciada_terminada_canarias   ES70/ES701/ES702, anuales+mensuales 2002–
     vivienda_terminada_canarias            OBSOLETA (solo ES70 anual total) — pendiente de eliminar
+    nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
+                                           Formato ancho: hogares_0..3 + year. Solo nivel municipio.
+                                           Integrada en snapshot (base_snapshots / full_snapshots).
+    ech_hogares_tipo                       Hogares por tipo de hogar, solo Canarias, 2013-2021.
+                                           Solo indicador analítico — NO integrada en snapshot.
+                                           Fuentes y cobertura:
+                                             ECH  2013-2020  INE op.274, anual, miles de hogares
+                                                             ine_ech_tipo_hogar.py + importar_ech_hogares_tipo.R
+                                             ECEPOV  2021    INE tabla 56531, quinquenal (próxima ed. ~2026)
+                                                             ine_ech_hogares.py + importar_ech_hogares_tipo.R
+                                             CENSO   2021    nucleos_censales → hogares_2+hogares_3
+                                                             Cubre "Dos o más núcleos" que ECEPOV no desglosa
+                                           Hueco sin dato: 2022-2025
 
   Tablas de clasificación:
     modalidades, tipologias, clasificaciones, destinos_turisticos

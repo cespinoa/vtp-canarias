@@ -89,13 +89,35 @@ ecepov <- read_csv(csv_ecepov, show_col_types = FALSE,
 cat("ECEPOV — filas leídas:", nrow(ecepov),
     "| años:", paste(sort(unique(ecepov$anyo)), collapse = ", "), "\n\n")
 
-# --- 4. COMBINAR ---
-tabla_final <- bind_rows(ech, ecepov) %>%
+# --- 4. CENSO 2021: "Dos o más núcleos familiares" desde nucleos_censales ---
+# ECEPOV 2021 agrupa plurinucleares en "Otros tipos de hogar" sin desglosarlos.
+# El Censo 2021 sí los distingue (hogares_2 + hogares_3). Se añade como fuente
+# CENSO para completar la serie de plurinucleares 2013–2021.
+censo_pluri <- dbGetQuery(con,
+  "SELECT SUM(hogares_2 + hogares_3) AS total, MAX(year) AS yr
+   FROM nucleos_censales")
+
+if (!is.na(censo_pluri$total)) {
+  censo <- tibble(
+    anyo          = as.integer(format(censo_pluri$yr, "%Y")),
+    tipo_hogar    = "Dos o más núcleos familiares",
+    hogares_miles = as.numeric(censo_pluri$total) / 1000,
+    fuente        = "CENSO"
+  )
+  cat("CENSO 2021 — plurinucleares:", round(censo$hogares_miles, 1), "k\n\n")
+} else {
+  censo <- tibble(anyo=integer(), tipo_hogar=character(),
+                  hogares_miles=numeric(), fuente=character())
+  cat("AVISO: nucleos_censales vacía, no se añade dato Censo 2021.\n\n")
+}
+
+# --- 5. COMBINAR ---
+tabla_final <- bind_rows(ech, ecepov, censo) %>%
   arrange(fuente, anyo, tipo_hogar)
 
 cat("Total filas a cargar:", nrow(tabla_final), "\n")
 
-# --- 5. RESUMEN COMPARADO ---
+# --- 6. RESUMEN COMPARADO ---
 cat("\nHogares unipersonales (miles):\n")
 uni <- tabla_final %>%
   filter(str_detect(tipo_hogar, "(?i)unipersonal")) %>%
@@ -110,7 +132,7 @@ pluri <- tabla_final %>%
   arrange(anyo)
 if (nrow(pluri) > 0) print(pluri, n = Inf) else cat("  (sin categoría explícita en ECEPOV)\n")
 
-# --- 6. CARGA (TRUNCATE + reload) ---
+# --- 7. CARGA (TRUNCATE + reload) ---
 cat("\nTRUNCATE + carga...\n")
 dbBegin(con)
 tryCatch({
@@ -125,7 +147,7 @@ tryCatch({
   stop("Error en la carga: ", conditionMessage(e))
 })
 
-# --- 7. RESUMEN FINAL ---
+# --- 8. RESUMEN FINAL ---
 cat("\nResumen en BD:\n")
 print(dbGetQuery(con,
   "SELECT fuente, count(*) categorias, min(anyo) anyo_min, max(anyo) anyo_max
