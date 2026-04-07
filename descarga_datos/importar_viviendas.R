@@ -7,6 +7,12 @@
 # Uso:
 #   Rscript descarga_datos/importar_viviendas.R
 #   Rscript descarga_datos/importar_viviendas.R ruta/al/fichero.csv
+#   Rscript descarga_datos/importar_viviendas.R 2031-12-31          # fecha del censo
+#   Rscript descarga_datos/importar_viviendas.R ruta.csv 2031-12-31 # ambos
+#
+# El campo year (DATE) identifica la fecha del Censo de origen. Por defecto 2021-12-31.
+# Se usa en PT02 para aplicar la corrección COVID: si year < 2026-01-01,
+# viviendas_disponibles = viviendas_habituales (sin descontar VV).
 #
 # La tabla viviendas_municipios almacena los tres ámbitos (canarias, isla,
 # municipio). Los niveles isla y canarias se calculan aquí por agregación.
@@ -24,14 +30,29 @@ library(RPostgres)
 source("importar_gobcan/helper.R")
 con <- conecta_db()
 
-# --- 1. LOCALIZAR CSV ---
-args     <- commandArgs(trailingOnly = TRUE)
-csv_path <- if (length(args) > 0) args[1] else {
+# --- 1. LOCALIZAR CSV Y FECHA DEL CENSO ---
+args <- commandArgs(trailingOnly = TRUE)
+
+# Primer argumento: ruta al CSV (opcional, por defecto el más reciente en tmp/)
+csv_path <- if (length(args) >= 1 && !grepl("^\\d{4}-\\d{2}-\\d{2}$", args[1])) {
+  args[1]
+} else {
   candidatos <- Sys.glob("descarga_datos/tmp/ine_viviendas_????????.csv")
   if (length(candidatos) == 0) stop("No se encontró ningún CSV en descarga_datos/tmp/")
   tail(sort(candidatos), 1)
 }
+
+# Segundo argumento (o primero si es fecha): fecha del censo en formato YYYY-MM-DD
+# Por defecto: 2021-12-31 (Censo 2021)
+fecha_arg <- Filter(function(x) grepl("^\\d{4}-\\d{2}-\\d{2}$", x), args)
+year_censo <- if (length(fecha_arg) > 0) {
+  as.Date(fecha_arg[1])
+} else {
+  as.Date("2021-12-31")
+}
+
 cat("Fuente:", csv_path, "\n")
+cat("Fecha del censo:", format(year_censo), "\n")
 
 # --- 2. TABLAS MAESTRAS ---
 municipios_db <- dbGetQuery(con, "SELECT id, isla_id, codigo_ine FROM municipios WHERE codigo_ine IS NOT NULL")
@@ -99,7 +120,8 @@ canarias <- mun %>%
   ) %>%
   select(ambito, isla_id, municipio_id, total, vacias, esporadicas, habituales)
 
-tabla_final <- bind_rows(canarias, isla, mun)
+tabla_final <- bind_rows(canarias, isla, mun) %>%
+  mutate(year = year_censo)
 
 cat("\nRegistros a cargar por ámbito:\n")
 print(tabla_final %>% count(ambito))
@@ -130,7 +152,9 @@ cat("\nTRUNCATE + carga...\n")
 dbBegin(con)
 tryCatch({
   dbExecute(con, "TRUNCATE TABLE viviendas_municipios")
-  dbWriteTable(con, "viviendas_municipios", tabla_final, append = TRUE, row.names = FALSE)
+  dbWriteTable(con, "viviendas_municipios", tabla_final %>%
+                 select(ambito, isla_id, municipio_id, total, vacias, esporadicas, habituales, year),
+               append = TRUE, row.names = FALSE)
   dbCommit(con)
   cat("Cargados:", nrow(tabla_final), "registros.\n")
 }, error = function(e) {

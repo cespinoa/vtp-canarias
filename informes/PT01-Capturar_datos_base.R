@@ -169,7 +169,7 @@ get_nucleos_censales <- function(ambito_val, i_id, m_id) {
 }
 
 get_ext_viviendas <- function(ambito_val, i_id, m_id) {
-  if (ambito_val == "localidad") return(list(sup = NA, tot = 0, vac = 0, esp = 0, hab = 0))
+  if (ambito_val == "localidad") return(list(sup = NA, tot = 0, vac = 0, esp = 0, hab = 0, yr = NA))
 
   filtros <- if (ambito_val == "canarias") "" else
              if (ambito_val == "isla")     "AND isla_id=$2" else "AND municipio_id=$2"
@@ -179,14 +179,15 @@ get_ext_viviendas <- function(ambito_val, i_id, m_id) {
   sup <- dbGetQuery(con, paste0(
     "SELECT superficie FROM superficies WHERE ambito=$1 ", filtros), params = p)
   viv <- dbGetQuery(con, paste0(
-    "SELECT total, vacias, esporadicas, habituales FROM viviendas_municipios WHERE ambito=$1 ", filtros), params = p)
+    "SELECT total, vacias, esporadicas, habituales, year FROM viviendas_municipios WHERE ambito=$1 ", filtros), params = p)
 
   list(
     sup = if (nrow(sup) > 0) sup$superficie / 100 else NA,
     tot = if (nrow(viv) > 0) viv$total       else 0,
     vac = if (nrow(viv) > 0) viv$vacias      else 0,
     esp = if (nrow(viv) > 0) viv$esporadicas else 0,
-    hab = if (nrow(viv) > 0) viv$habituales  else 0
+    hab = if (nrow(viv) > 0) viv$habituales  else 0,
+    yr  = if (nrow(viv) > 0) viv$year        else NA
   )
 }
 
@@ -212,6 +213,7 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
     viviendas_vacias      = ext$vac,
     viviendas_esporadicas = ext$esp,
     viviendas_habituales  = ext$hab,
+    viviendas_year        = ext$yr,
     pte_r                 = m_dat$ptr,
     pte_r_year            = m_dat$ptr_y,
     pte_v                 = m_dat$ptv,

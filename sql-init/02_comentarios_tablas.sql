@@ -204,15 +204,15 @@ COMMENT ON TABLE ech_hogares_tipo IS
 @notas: La ECH no está disponible en Tempus3/API; se descarga directamente del JAXI como CSV. La ECEPOV es quinquenal, no hay datos 2022–2025.';
 
 COMMENT ON TABLE viviendas_municipios IS
-'Distribución de viviendas según uso (habitual, vacía, esporádica) por municipio, isla y Canarias. Foto fija del Censo 2021 basada en metodología de consumo eléctrico (>750 kWh/año = vivienda habitual). Los niveles isla y canarias se calculan por agregación desde municipios.
+'Distribución de viviendas según uso (habitual, vacía, esporádica) por municipio, isla y Canarias. Una fila por ámbito y edición censal (campo year). Basada en metodología de consumo eléctrico (>750 kWh/año = vivienda habitual). Los niveles isla y canarias se calculan por agregación desde municipios.
 
 @fuente: INE — Censo de Población y Viviendas 2021, tabla 59531
 @descarga: ine_viviendas.py → tmp/ine_viviendas_YYYYMMDD.csv
-@importacion: importar_viviendas.R
-@cobertura_temporal: 2021 (foto fija; próximo censo ~2031)
+@importacion: importar_viviendas.R [acepta fecha del censo: Rscript importar_viviendas.R 2031-12-31]
+@cobertura_temporal: 2021-12-31 (Censo 2021); próxima edición ~2031
 @cobertura_geografica: Canarias, 7 islas, 88 municipios
 @actualizacion: Decenal
-@notas: Metodología eléctrica → diferente del total de hogares encuestados (nucleos_censales/ECEPOV). Totales 2021: 1.088.700 viviendas (793.529 habituales, 211.452 vacías, 83.719 esporádicas).';
+@notas: Metodología eléctrica → diferente del total de hogares encuestados (nucleos_censales/ECEPOV). El Censo 2021 usó consumos de 2020 (año COVID), por lo que muchas VV clasificaron como no habituales. PT02 aplica corrección automática: si year < 2026-01-01, viviendas_disponibles = viviendas_habituales (sin descontar VV). Totales 2021: 1.088.700 viviendas (793.529 habituales, 211.452 vacías, 83.719 esporádicas).';
 
 COMMENT ON TABLE superficies IS
 'Superficies territoriales en hectáreas por ámbito (Canarias, isla, municipio, localidad). Usada en PT01 para calcular superficie_km2 en el snapshot.
