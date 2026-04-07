@@ -146,6 +146,28 @@ get_datos_maestros <- function(ambito_val, i_id, m_id, f_proceso) {
   )
 }
 
+get_nucleos_censales <- function(ambito_val, i_id, m_id) {
+  if (ambito_val == "localidad")
+    return(list(yr = NA, tot = NA, n0 = NA, n1 = NA, n2 = NA, n3 = NA))
+
+  sql_base <- "SELECT SUM(hogares_0) h0, SUM(hogares_1) h1, SUM(hogares_2) h2, SUM(hogares_3) h3, MAX(year) yr
+               FROM nucleos_censales"
+  res <- if (ambito_val == "canarias")
+    dbGetQuery(con, sql_base)
+  else if (ambito_val == "isla")
+    dbGetQuery(con, paste(sql_base, "WHERE isla_id = $1"),     params = list(as.integer(i_id)))
+  else
+    dbGetQuery(con, paste(sql_base, "WHERE municipio_id = $1"), params = list(as.integer(m_id)))
+
+  if (nrow(res) > 0 && !is.na(res$yr))
+    list(yr  = res$yr,
+         tot = res$h0 + res$h1 + res$h2 + res$h3,
+         n0  = as.integer(res$h0), n1 = as.integer(res$h1),
+         n2  = as.integer(res$h2), n3 = as.integer(res$h3))
+  else
+    list(yr = NA, tot = NA, n0 = NA, n1 = NA, n2 = NA, n3 = NA)
+}
+
 get_ext_viviendas <- function(ambito_val, i_id, m_id) {
   if (ambito_val == "localidad") return(list(sup = NA, tot = 0, vac = 0, esp = 0, hab = 0))
 
@@ -174,6 +196,7 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
   m_dat <- get_datos_maestros(ambito, i_id, m_id, f_p)
   ext   <- get_ext_viviendas(ambito, i_id, m_id)
   hog   <- get_hogares_limitado(ambito, i_id, m_id)
+  nuc   <- get_nucleos_censales(ambito, i_id, m_id)
 
   data.frame(
     ambito        = ambito,
@@ -200,7 +223,13 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
     plazas_vv_turisticas   = o_vv$pla_t,
     plazas_vv_residenciales = o_vv$pla_r,
     plazas_at_turisticas   = o_ar$pla_t,
-    plazas_at_residenciales = o_ar$pla_r
+    plazas_at_residenciales = o_ar$pla_r,
+    year_nucleos_censales  = nuc$yr,
+    hogares_total          = nuc$tot,
+    hogares_0              = nuc$n0,
+    hogares_1              = nuc$n1,
+    hogares_2              = nuc$n2,
+    hogares_3              = nuc$n3
   )
 }
 

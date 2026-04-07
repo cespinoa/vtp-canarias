@@ -7,8 +7,19 @@
 # La fecha de proceso se obtiene de base_snapshots (escrita por PT01).
 # PT01 ya eliminó los registros previos de full_snapshots para esa fecha.
 #
+# Modo histórico (parámetro opcional):
+#   Rscript informes/PT02-Calcular_ratios_dinamicos.R 2025-06-30
+#   La fecha debe existir en full_snapshots. En este modo los datos base se
+#   leen directamente desde full_snapshots (no desde base_snapshots) y los
+#   campos calculados se recalculan con las fórmulas actuales del diccionario.
+#   Útil para propagar nuevos ratios a snapshots históricos.
+#   NOTA: los campos cuya base no existía en el snapshot histórico (ej. campos
+#   añadidos posteriormente) producirán NULL, lo cual es el comportamiento
+#   correcto.
+#
 # Uso:
 #   Rscript informes/PT02-Calcular_ratios_dinamicos.R
+#   Rscript informes/PT02-Calcular_ratios_dinamicos.R 2025-06-30
 # ==============================================================================
 
 library(tidyverse)
@@ -24,17 +35,53 @@ cat(format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
 cat("========================================\n\n")
 
 # --- 1. CARGAR DATOS BASE Y DICCIONARIO ---
-df_trabajo <- dbGetQuery(con, "SELECT * FROM base_snapshots") %>%
-  mutate(across(where(is.numeric), as.numeric))
+args <- commandArgs(trailingOnly = TRUE)
 
-if (nrow(df_trabajo) == 0)
-  stop("base_snapshots está vacío. Ejecute PT01 primero.")
+modo_historico <- length(args) > 0
 
-fecha_proceso <- as.character(unique(df_trabajo$fecha_calculo)[1])
-cat("Fecha de proceso:", fecha_proceso, "\n")
-cat("Filas en base_snapshots:", nrow(df_trabajo), "\n\n")
+if (modo_historico) {
+  fecha_param <- args[1]
+  if (is.na(as.Date(fecha_param, format = "%Y-%m-%d")))
+    stop("Fecha no válida. Use el formato YYYY-MM-DD")
 
-escribir_log("PT02_INICIO", paste("fecha_proceso:", fecha_proceso,
+  n_existentes <- dbGetQuery(con, paste0(
+    "SELECT COUNT(*) AS n FROM full_snapshots ",
+    "WHERE fecha_calculo::date = '", fecha_param, "'"))$n
+  if (n_existentes == 0)
+    stop("La fecha ", fecha_param, " no existe en full_snapshots.")
+
+  cat("Modo histórico — fecha:", fecha_param, "\n")
+  cat("Leyendo datos base desde full_snapshots...\n")
+
+  campos_base <- dbGetQuery(con,
+    "SELECT id_campo FROM diccionario_de_datos WHERE tipo = 'base'")$id_campo
+  campos_base_calculado <- dbGetQuery(con,
+    "SELECT id_campo FROM diccionario_de_datos WHERE tipo = 'base_calculado'")$id_campo
+
+  df_trabajo <- dbGetQuery(con, paste0(
+    "SELECT * FROM full_snapshots WHERE fecha_calculo::date = '", fecha_param, "'")) %>%
+    mutate(across(where(is.numeric), as.numeric))
+
+  fecha_proceso <- fecha_param
+  cat("Filas leídas:", nrow(df_trabajo), "\n\n")
+
+} else {
+  df_trabajo <- dbGetQuery(con, "SELECT * FROM base_snapshots") %>%
+    mutate(across(where(is.numeric), as.numeric))
+
+  if (nrow(df_trabajo) == 0)
+    stop("base_snapshots está vacío. Ejecute PT01 primero.")
+
+  fecha_proceso <- as.character(unique(df_trabajo$fecha_calculo)[1])
+  cat("Modo normal\n")
+  cat("Filas en base_snapshots:", nrow(df_trabajo), "\n\n")
+}
+
+cat("Fecha de proceso:", fecha_proceso, "\n\n")
+
+escribir_log("PT02_INICIO", paste(
+  "fecha_proceso:", fecha_proceso,
+  "| modo:", if (modo_historico) "historico" else "normal",
   "| filas base:", nrow(df_trabajo)))
 
 diccionario_completo <- dbGetQuery(con,
@@ -136,6 +183,7 @@ dbWriteTable(con, "full_snapshots", df_envio, append = TRUE, row.names = FALSE)
 
 escribir_log("PT02_FIN", paste(
   "fecha_proceso:", fecha_proceso,
+  "| modo:", if (modo_historico) "historico" else "normal",
   "| filas volcadas:", nrow(df_post)))
 
 dbDisconnect(con)

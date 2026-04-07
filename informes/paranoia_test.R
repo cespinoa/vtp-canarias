@@ -168,6 +168,23 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
     data.frame(miembros = NA_real_)
   )
 
+  # ---- Núcleos censales -------------------------------------------------------
+  nuc <- switch(ambito,
+    canarias  = dbGetQuery(con,
+      "SELECT SUM(hogares_0) h0, SUM(hogares_1) h1, SUM(hogares_2) h2, SUM(hogares_3) h3
+       FROM nucleos_censales"),
+    isla      = dbGetQuery(con, paste0(
+      "SELECT SUM(hogares_0) h0, SUM(hogares_1) h1, SUM(hogares_2) h2, SUM(hogares_3) h3
+       FROM nucleos_censales WHERE isla_id = ", isla_id)),
+    municipio = dbGetQuery(con, paste0(
+      "SELECT hogares_0 h0, hogares_1 h1, hogares_2 h2, hogares_3 h3
+       FROM nucleos_censales WHERE municipio_id = ", muni_id))
+  )
+  nuc_h0  <- if (!is.null(nuc) && nrow(nuc) > 0 && !is.na(nuc$h0)) as.numeric(nuc$h0) else NA_real_
+  nuc_h1  <- if (!is.null(nuc) && nrow(nuc) > 0 && !is.na(nuc$h1)) as.numeric(nuc$h1) else NA_real_
+  nuc_h2  <- if (!is.null(nuc) && nrow(nuc) > 0 && !is.na(nuc$h2)) as.numeric(nuc$h2) else NA_real_
+  nuc_h3  <- if (!is.null(nuc) && nrow(nuc) > 0 && !is.na(nuc$h3)) as.numeric(nuc$h3) else NA_real_
+
   # ---- Valores base -----------------------------------------------------------
   uds_vv_t  <- vv$uds_t
   uds_vv_r  <- vv$uds_r
@@ -241,6 +258,14 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
   plz_vv_tur_tur_c   <- plz_vv_t / plazas_s_tur_c * 100
   plz_res_tot_c      <- plazas_s_res_c / plazas_tot_c * 100
   plz_tur_tot_c      <- plazas_s_tur_c / plazas_tot_c * 100
+
+  nuc_tot_c          <- nuc_h0 + nuc_h1 + nuc_h2 + nuc_h3
+  nuc_h0_porc_c      <- nuc_h0 / nuc_tot_c * 100
+  nuc_h1_porc_c      <- nuc_h1 / nuc_tot_c * 100
+  nuc_h2_porc_c      <- nuc_h2 / nuc_tot_c * 100
+  nuc_h3_porc_c      <- nuc_h3 / nuc_tot_c * 100
+  deficit_teo_c      <- nuc_h2 + nuc_h3 * 2
+  deficit_teo_porc_c <- deficit_teo_c / nuc_tot_c * 100
 
   # ---- Snapshot ---------------------------------------------------------------
   sf <- switch(ambito,
@@ -330,7 +355,19 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
     list("plz_at_tur/suelo_tur_%",  plz_at_tur_tur_c, sn$plazas_at_turisticas_oferta_en_turistico),
     list("plz_vv_tur/suelo_tur_%",  plz_vv_tur_tur_c, sn$plazas_vv_turisticas_oferta_en_turistico),
     list("plazas_suelo_residencial_%", plz_res_tot_c, sn$plazas_suelo_residencial_porc),
-    list("plazas_suelo_turistico_%", plz_tur_tot_c, sn$plazas_suelo_turistico_porc)
+    list("plazas_suelo_turistico_%", plz_tur_tot_c, sn$plazas_suelo_turistico_porc),
+    # ── Núcleos censales ────────────────────────────────────────────────────────
+    list("hogares_total",              nuc_tot_c,        sn$hogares_total),
+    list("hogares_0",                  nuc_h0,           sn$hogares_0),
+    list("hogares_1",                  nuc_h1,           sn$hogares_1),
+    list("hogares_2",                  nuc_h2,           sn$hogares_2),
+    list("hogares_3",                  nuc_h3,           sn$hogares_3),
+    list("hogares_0_porc",             nuc_h0_porc_c,    sn$hogares_0_porc),
+    list("hogares_1_porc",             nuc_h1_porc_c,    sn$hogares_1_porc),
+    list("hogares_2_porc",             nuc_h2_porc_c,    sn$hogares_2_porc),
+    list("hogares_3_porc",             nuc_h3_porc_c,    sn$hogares_3_porc),
+    list("deficit_teorico_viviendas",  deficit_teo_c,    sn$deficit_teorico_viviendas),
+    list("deficit_teorico_viv_porc",   deficit_teo_porc_c, sn$deficit_teorico_viviendas_porc)
   )
 
   imprimir_tabla(titulo, pares)
