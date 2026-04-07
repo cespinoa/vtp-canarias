@@ -136,10 +136,10 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
     " AND year <= ", y, " ORDER BY year DESC LIMIT 1"))
 
   ptev <- dbGetQuery(con, paste0("
-    SELECT ptev FROM pte_vacacional
+    SELECT AVG(ptev) AS ptev FROM pte_vacacional
     WHERE ambito = '", ambito, "'", fp,
-    " AND (year < ", y, " OR (year = ", y, " AND mes <= ", m, "))",
-    " ORDER BY year DESC, mes DESC LIMIT 1"))
+    " AND make_date(year, mes, 1) <= make_date(", y, ", ", m, ", 1)",
+    " AND make_date(year, mes, 1) >  make_date(", y, ", ", m, ", 1) - INTERVAL '12 months'"))
 
   # ---- Población --------------------------------------------------------------
   pob <- dbGetQuery(con, paste0("
@@ -149,7 +149,7 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
 
   # ---- Viviendas y superficie -------------------------------------------------
   viv <- dbGetQuery(con, paste0("
-    SELECT total, vacias, esporadicas, habituales
+    SELECT total, vacias, esporadicas, habituales, year
     FROM viviendas_municipios WHERE ambito = '", ambito, "'", fm))
 
   sup <- dbGetQuery(con, paste0("
@@ -199,6 +199,7 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
   viv_vac   <- if (nrow(viv) > 0)  viv$vacias             else 0
   viv_esp   <- if (nrow(viv) > 0)  viv$esporadicas        else 0
   viv_hab   <- if (nrow(viv) > 0)  viv$habituales         else 0
+  viv_year  <- if (nrow(viv) > 0)  as.Date(viv$year)      else NA
   sup_km2   <- if (nrow(sup) > 0)  sup$superficie / 100   else NA_real_
   pphogar   <- if (nrow(hog) > 0 && !is.na(hog$miembros[1])) hog$miembros[1] else NA_real_
 
@@ -210,7 +211,7 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
   plazas_tot_c       <- plazas_vac_c + plazas_reg_c
   plazas_s_res_c     <- plz_vv_r + plz_at_r
   plazas_s_tur_c     <- plz_vv_t + plz_at_t
-  viv_disp_c         <- viv_hab - uds_vv_r
+  viv_disp_c         <- if (!is.na(viv_year) && viv_year < as.Date("2026-01-01")) viv_hab else viv_hab - uds_vv_r
   viv_nec_c          <- pob_val / pphogar            # NA para municipios
   viv_disp_hab_c     <- viv_disp_c / viv_hab * 100
   deficit_viv_c      <- viv_disp_c - viv_nec_c      # NA si viv_nec es NA
@@ -294,10 +295,11 @@ verificar <- function(ambito, isla_id, muni_id, titulo) {
     list("pte_r",                   pte_r_val,      sn$pte_r),
     list("pte_v",                   pte_v_val,      sn$pte_v),
     list("poblacion",               pob_val,        sn$poblacion),
-    list("viviendas_total",         viv_tot,        sn$viviendas_total),
-    list("viviendas_vacias",        viv_vac,        sn$viviendas_vacias),
-    list("viviendas_esporadicas",   viv_esp,        sn$viviendas_esporadicas),
-    list("viviendas_habituales",    viv_hab,        sn$viviendas_habituales),
+    list("viviendas_total",         viv_tot,                   sn$viviendas_total),
+    list("viviendas_vacias",        viv_vac,                   sn$viviendas_vacias),
+    list("viviendas_esporadicas",   viv_esp,                   sn$viviendas_esporadicas),
+    list("viviendas_habituales",    viv_hab,                   sn$viviendas_habituales),
+    list("viviendas_year",          as.numeric(viv_year),      as.numeric(as.Date(sn$viviendas_year))),
     list("superficie_km2",          sup_km2,        sn$superficie_km2),
     list("personas_por_hogar",      pphogar,        sn$personas_por_hogar),
     # ── Derivados ───────────────────────────────────────────────────────────────
