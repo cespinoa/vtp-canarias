@@ -355,6 +355,54 @@ Scripts de exploración (no usar en producción):
   Metadatos:
     diccionario_de_datos             Campos, fórmulas, orden de cálculo, flags de exportación
 
+# Documentación de tablas (pg_description / COMMENT ON TABLE)
+
+Cada tabla y vista materializada de producción tiene un comentario estructurado cargado desde
+`sql-init/02_comentarios_tablas.sql` (se aplica automáticamente al inicializar el contenedor
+postgis via docker-entrypoint-initdb.d).
+
+## Formato de los comentarios
+
+```
+Descripción libre en texto plano.
+
+@fuente: Organismo o sistema de origen de los datos
+@dataset: Código o nombre del dataset de origen
+@descarga: script.py → tmp/archivo_YYYYMMDD.csv
+@importacion: script.R
+@cobertura_temporal: rango o descripción del período
+@cobertura_geografica: ámbito territorial
+@actualizacion: frecuencia o política de actualización
+@notas: advertencias, casos especiales, limitaciones conocidas
+```
+
+Solo se incluyen los @tags relevantes para cada tabla. Los tags son parseables con la
+expresión regular `/^@(\w+):\s*(.+)$/m` sobre el texto completo del comentario.
+
+## Consulta base desde Drupal (o cualquier cliente SQL)
+
+```sql
+SELECT
+  relname                             AS tabla,
+  obj_description(oid, 'pg_class')    AS comentario
+FROM pg_class
+WHERE relkind IN ('r', 'm')
+  AND relnamespace = (SELECT oid FROM pg_namespace WHERE nspname = 'public')
+  AND relname != 'spatial_ref_sys'
+ORDER BY relname;
+```
+
+`relkind = 'r'` → tablas ordinarias; `relkind = 'm'` → vistas materializadas.
+`spatial_ref_sys` se excluye por ser tabla interna de PostGIS sin comentario de dominio.
+
+## Reaplicar los comentarios (si se recrea el contenedor o se actualiza el fichero)
+
+```bash
+docker cp sql-init/02_comentarios_tablas.sql gis-canarias-production:/tmp/
+docker exec gis-canarias-production psql -U gis_user -d viviendas_canarias \
+  -f /tmp/02_comentarios_tablas.sql
+```
+
 # Docker
 
 docker-compose.yml
