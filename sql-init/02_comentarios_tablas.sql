@@ -252,6 +252,16 @@ COMMENT ON TABLE historico_plazas_regladas IS
 @cobertura_geografica: Canarias + 7 islas (sin desglose municipal)
 @actualizacion: Anual';
 
+COMMENT ON TABLE historico_tasa_ocupacion_reglada IS
+'Tasa de ocupación por plaza (%) del alojamiento turístico reglado por isla y año. Complemento de historico_plazas_regladas: mismo origen, misma cobertura, pero almacena el índice de ocupación en lugar del stock de plazas. La caída pronunciada en 2020 refleja los cierres por COVID (42%); récord hasta 2025 en 73,83%.
+
+@fuente: ISTAC C00065A_000033 (Encuesta de Ocupación en Alojamientos Turísticos), medida TASA_OCUPACION_PLAZA
+@descarga: istac_plazas.py → tmp/plazas_YYYYMMDD.csv (columna tasa_ocupacion_plaza)
+@importacion: importar_plazas.R
+@cobertura_temporal: 2009–año más reciente publicado (anual)
+@cobertura_geografica: Canarias + 7 islas (sin desglose municipal)
+@actualizacion: Anual (TRUNCATE + reload junto con historico_plazas_regladas)';
+
 COMMENT ON TABLE turistas_llegadas IS
 'Turistas llegados por isla y mes. Solo incluye las 5 islas principales (sin El Hierro ni La Gomera, que no están en el dataset ISTAC). Tipo: TURISTA (excluye excursionistas); mercado: todos los orígenes.
 

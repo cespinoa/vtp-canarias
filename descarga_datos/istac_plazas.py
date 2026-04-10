@@ -71,7 +71,8 @@ def extract_dim_values(data_dims: list) -> dict:
 def build_csv(raw: dict) -> list[dict]:
     """
     Orden de iteración: TIME_PERIOD × TERRITORIO × MEDIDAS × ALOJAMIENTO_TURISTICO_CATEGORIA
-    Extrae solo periodos anuales (YYYY), MEDIDAS=PLAZAS, territorios ES70+ES703-ES709.
+    Extrae solo periodos anuales (YYYY), MEDIDAS=PLAZAS y TASA_OCUPACION_PLAZA,
+    territorios ES70+ES703-ES709.
     """
     data_dims  = raw["data"]["dimensions"]["dimension"]
     dim_values = extract_dim_values(data_dims)
@@ -92,7 +93,13 @@ def build_csv(raw: dict) -> list[dict]:
     print(f"  Observaciones esperadas: {n_p * n_t * n_m * n_c}")
     print(f"  Observaciones recibidas: {len(obs_vals)}")
 
-    m_idx = medidas.index("PLAZAS")
+    m_plazas = medidas.index("PLAZAS")
+    m_tasa   = medidas.index("TASA_OCUPACION_PLAZA")
+
+    def get_val(p_i, t_i, m_i):
+        idx = p_i * (n_t * n_m * n_c) + t_i * (n_m * n_c) + m_i * n_c + 0
+        v = obs_vals[idx] if idx < len(obs_vals) else ""
+        return None if v in ("", ".", "..") else v
 
     rows = []
     for p_i, periodo in enumerate(periodos):
@@ -105,15 +112,17 @@ def build_csv(raw: dict) -> list[dict]:
             if terr not in TERRITORIOS_OBJETIVO:
                 continue
 
-            idx = p_i * (n_t * n_m * n_c) + t_i * (n_m * n_c) + m_idx * n_c + 0
-            v = obs_vals[idx] if idx < len(obs_vals) else ""
-            if v in ("", ".", ".."):
+            v_plazas = get_val(p_i, t_i, m_plazas)
+            v_tasa   = get_val(p_i, t_i, m_tasa)
+
+            if v_plazas is None and v_tasa is None:
                 continue
 
             rows.append({
-                "territorio_codigo": terr,
-                "ejercicio":         ejercicio,
-                "plazas":            int(float(v)),
+                "territorio_codigo":  terr,
+                "ejercicio":          ejercicio,
+                "plazas":             int(float(v_plazas)) if v_plazas is not None else "",
+                "tasa_ocupacion_plaza": round(float(v_tasa), 2) if v_tasa is not None else "",
             })
 
     return rows
@@ -151,7 +160,7 @@ def main():
     print("Construyendo CSV...")
     rows = build_csv(raw)
 
-    fieldnames = ["territorio_codigo", "ejercicio", "plazas"]
+    fieldnames = ["territorio_codigo", "ejercicio", "plazas", "tasa_ocupacion_plaza"]
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
@@ -164,11 +173,13 @@ def main():
     ejercicios = sorted({r["ejercicio"] for r in rows})
     print(f"\nEjercicios: {ejercicios[0]}–{ejercicios[-1]} ({len(ejercicios)} años)")
 
-    print(f"\nPlazas por territorio en {ejercicios[-1]}:")
+    print(f"\nPlazas y tasa de ocupación por territorio en {ejercicios[-1]}:")
     ultimo = sorted([r for r in rows if r["ejercicio"] == ejercicios[-1]],
-                    key=lambda r: -r["plazas"])
+                    key=lambda r: -(r["plazas"] if r["plazas"] != "" else 0))
     for r in ultimo:
-        print(f"  {r['territorio_codigo']}: {r['plazas']:>10,}")
+        plazas = f"{r['plazas']:>10,}" if r["plazas"] != "" else f"{'—':>10}"
+        tasa   = f"{r['tasa_ocupacion_plaza']:>6}" if r["tasa_ocupacion_plaza"] != "" else f"{'—':>6}"
+        print(f"  {r['territorio_codigo']}: {plazas}  tasa={tasa}%")
 
 
 if __name__ == "__main__":

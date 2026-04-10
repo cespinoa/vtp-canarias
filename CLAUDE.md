@@ -279,17 +279,20 @@ Accesibles via API ISTAC JSON. Corte duro en 2019; no se actualiza desde entonce
 Mide permisos concedidos (proxy de inicio), no terminaciones.
 Posible uso: análisis histórico 1994–2019 con desglose insular/municipal si se necesita.
 
-### Histórico de Plazas Regladas (historico_plazas_regladas)
+### Histórico de Plazas Regladas (historico_plazas_regladas) y Tasa de Ocupación (historico_tasa_ocupacion_reglada)
 Fuente: ISTAC, dataset C00065A_000033 "Encuesta de Ocupación en Alojamientos Turísticos".
 Script de descarga: istac_plazas.py → tmp/plazas_YYYYMMDD.csv
 Script de importación: importar_plazas.R
 
-Cobertura: anual 2009–año más reciente publicado. Ámbitos: canarias + 7 islas.
-Campo plazas: MEDIDAS=PLAZAS, ALOJAMIENTO_TURISTICO_CATEGORIA=_T (todas las categorías).
+El CSV incluye dos medidas del dataset, ambas con ALOJAMIENTO_TURISTICO_CATEGORIA=_T (todas las categorías):
+  - PLAZAS               → tabla historico_plazas_regladas (campo plazas, INTEGER)
+  - TASA_OCUPACION_PLAZA → tabla historico_tasa_ocupacion_reglada (campo tasa, NUMERIC 5,2)
+
+Cobertura de ambas tablas: anual 2009–año más reciente publicado. Ámbitos: canarias + 7 islas.
 Dimensiones API (orden): TIME_PERIOD × TERRITORIO × MEDIDAS × ALOJAMIENTO_TURISTICO_CATEGORIA.
-Registros: 17 canarias + 119 isla = 136 total.
-Estrategia de carga: TRUNCATE + reload completo.
-Nota: caída pronunciada en 2020 (395k→190k plazas) por cierre COVID.
+Registros: 17 canarias + 119 isla = 136 total (en cada tabla).
+Estrategia de carga: TRUNCATE + reload completo en ambas tablas en el mismo script.
+Nota: caída pronunciada en 2020 (plazas 395k→190k; tasa 68%→42%) por cierre COVID.
 
 ### Turistas Llegados por Isla (turistas_llegadas)
 Fuente: ISTAC, dataset E16028B_000011 "Encuesta de Gasto Turístico".
@@ -328,6 +331,8 @@ Scripts de exploración (no usar en producción):
     viviendas_municipios, superficies
     vivienda_iniciada_terminada_canarias   ES70/ES701/ES702, anuales+mensuales 2002–
     vivienda_terminada_canarias            OBSOLETA (solo ES70 anual total) — pendiente de eliminar
+    historico_plazas_regladas              Plazas regladas anuales, canarias+7 islas, 2009–
+    historico_tasa_ocupacion_reglada       Tasa de ocupación por plaza (%), mismo origen y cobertura
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.
                                            Integrada en snapshot (base_snapshots / full_snapshots).

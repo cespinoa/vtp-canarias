@@ -34,9 +34,10 @@ islas_db <- dbGetQuery(con, "SELECT id, geo_code, nombre FROM islas")
 # --- 3. LEER CSV ---
 df_raw <- read_csv(csv_path, show_col_types = FALSE,
                    col_types = cols(
-                     territorio_codigo = col_character(),
-                     ejercicio         = col_integer(),
-                     plazas            = col_integer()
+                     territorio_codigo  = col_character(),
+                     ejercicio          = col_integer(),
+                     plazas             = col_integer(),
+                     tasa_ocupacion_plaza = col_double()
                    ))
 
 ejercicios <- sort(unique(df_raw$ejercicio))
@@ -76,6 +77,9 @@ cat("\nRegistros a cargar por ámbito:\n")
 print(tabla_final %>% count(ambito))
 cat("Total:", nrow(tabla_final), "\n\n")
 
+# Separar columna tasa antes de construir tabla_final de plazas
+df_tasa <- df_raw %>% filter(!is.na(tasa_ocupacion_plaza))
+
 # --- 5. VALIDACIÓN: suma islas ≈ canarias ---
 cat("Validando suma islas vs Canarias (últimos 3 ejercicios):\n")
 suma_islas <- tabla_final %>%
@@ -108,11 +112,52 @@ tryCatch({
   stop("Error en la carga: ", conditionMessage(e))
 })
 
-# --- 7. RESUMEN FINAL ---
+# --- 7. CARGAR TASA EN historico_tasa_ocupacion_reglada ---
+cat("\nCargando tasa de ocupación por plaza...\n")
+
+tabla_tasa <- df_tasa %>%
+  mutate(
+    ambito  = if_else(territorio_codigo == "ES70", "canarias", "isla"),
+    isla_id = NA_integer_
+  )
+
+islas_join_tasa <- df_tasa %>%
+  filter(territorio_codigo != "ES70") %>%
+  inner_join(islas_db, by = c("territorio_codigo" = "geo_code")) %>%
+  select(territorio_codigo, ejercicio, id)
+
+tabla_tasa <- tabla_tasa %>%
+  left_join(islas_join_tasa, by = c("territorio_codigo", "ejercicio")) %>%
+  mutate(isla_id = if_else(ambito == "isla", id, NA_integer_)) %>%
+  select(ejercicio, ambito, isla_id, tasa = tasa_ocupacion_plaza)
+
+cat("Registros a cargar:\n")
+print(tabla_tasa %>% count(ambito))
+
+dbBegin(con)
+tryCatch({
+  dbExecute(con, "TRUNCATE TABLE historico_tasa_ocupacion_reglada")
+  dbWriteTable(con, "historico_tasa_ocupacion_reglada", tabla_tasa,
+               append = TRUE, row.names = FALSE)
+  dbCommit(con)
+  cat("Cargados:", nrow(tabla_tasa), "registros.\n")
+}, error = function(e) {
+  dbRollback(con)
+  stop("Error en la carga de tasa: ", conditionMessage(e))
+})
+
+# --- 8. RESUMEN FINAL ---
 cat("\nEvolución Canarias (plazas totales):\n")
 print(dbGetQuery(con,
   "SELECT ejercicio, plazas
    FROM historico_plazas_regladas
+   WHERE ambito = 'canarias'
+   ORDER BY ejercicio"))
+
+cat("\nEvolución Canarias (tasa ocupación plaza %):\n")
+print(dbGetQuery(con,
+  "SELECT ejercicio, tasa
+   FROM historico_tasa_ocupacion_reglada
    WHERE ambito = 'canarias'
    ORDER BY ejercicio"))
 
