@@ -203,6 +203,19 @@ COMMENT ON TABLE ech_hogares_tipo IS
 @actualizacion: ECH: descontinuada (sustituida por ECEPOV). ECEPOV: quinquenal. Próxima actualización ~2026.
 @notas: La ECH no está disponible en Tempus3/API; se descarga directamente del JAXI como CSV. La ECEPOV es quinquenal, no hay datos 2022–2025.';
 
+COMMENT ON TABLE ech_tamano_hogar_ccaa IS
+'Tamaño medio del hogar (personas/hogar) por comunidad autónoma y trimestre.
+Permite comparar la evolución de Canarias frente al resto de CCAA y al total nacional.
+Canarias (ccaa_cod=05) se sitúa por encima de la media nacional de forma estable (~2.60 vs 2.49 en 2026-T1).
+Solo indicador analítico — no integrada en el pipeline de snapshots.
+
+@fuente: INE, tabla 60132 (Encuesta Continua de Hogares)
+@descarga: ine_tamano_hogar_ccaa.py → tmp/tamano_hogar_ccaa_YYYYMMDD.csv
+@importacion: descarga_datos/importar_tamano_hogar_ccaa.R
+@cobertura_temporal: Q1 2021 – trimestre más reciente publicado (trimestral)
+@cobertura_geografica: Total nacional (ccaa_cod=00) + 19 comunidades y ciudades autónomas
+@actualizacion: Trimestral (TRUNCATE + reload; INE revisa datos retroactivos)';
+
 COMMENT ON TABLE viviendas_municipios IS
 'Distribución de viviendas según uso (habitual, vacía, esporádica) por municipio, isla y Canarias. Una fila por ámbito y edición censal (campo year). Basada en metodología de consumo eléctrico (>750 kWh/año = vivienda habitual). Los niveles isla y canarias se calculan por agregación desde municipios.
 

@@ -333,6 +333,7 @@ Scripts de exploración (no usar en producción):
     vivienda_terminada_canarias            OBSOLETA (solo ES70 anual total) — pendiente de eliminar
     historico_plazas_regladas              Plazas regladas anuales, canarias+7 islas, 2009–
     historico_tasa_ocupacion_reglada       Tasa de ocupación por plaza (%), mismo origen y cobertura
+    ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.
                                            Integrada en snapshot (base_snapshots / full_snapshots).
@@ -346,6 +347,12 @@ Scripts de exploración (no usar en producción):
                                              CENSO   2021    nucleos_censales → hogares_2+hogares_3
                                                              Cubre "Dos o más núcleos" que ECEPOV no desglosa
                                            Hueco sin dato: 2022-2025
+    ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre (ECH).
+                                           Total nacional + 19 CCAA. Solo indicador analítico —
+                                           NO integrada en snapshot. Permite comparar Canarias
+                                           con el resto de CCAA. Cobertura: Q1 2021–presente.
+                                           ccaa_cod "00"=nacional, "05"=Canarias (códigos INE 2 dígitos).
+                                           ine_tamano_hogar_ccaa.py + importar_tamano_hogar_ccaa.R
 
   Tablas de clasificación:
     modalidades, tipologias, clasificaciones, destinos_turisticos
