@@ -107,6 +107,37 @@ cat(sprintf("Totales: 2001=%s  2011=%s  2021=%s\n",
 # 5. Preparar datos para gráficos
 # -----------------------------------------------------------------------------
 
+# Resumen por isla (suma de municipios con dato 2001 y 2021)
+resumen_isla <- datos %>%
+  filter(!is.na(no_hab_2001), !is.na(no_hab_2021)) %>%
+  group_by(isla) %>%
+  summarise(
+    tot_2001 = sum(no_hab_2001, na.rm = TRUE),
+    tot_2011 = sum(no_hab_2011, na.rm = TRUE),
+    tot_2021 = sum(no_hab_2021, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    idx_2001 = 100,
+    idx_2011 = round(100 * tot_2011 / tot_2001, 1),
+    idx_2021 = round(100 * tot_2021 / tot_2001, 1)
+  )
+
+can_tot <- datos %>%
+  filter(!is.na(no_hab_2001), !is.na(no_hab_2021)) %>%
+  summarise(
+    tot_2001 = sum(no_hab_2001, na.rm = TRUE),
+    tot_2011 = sum(no_hab_2011, na.rm = TRUE),
+    tot_2021 = sum(no_hab_2021, na.rm = TRUE)
+  )
+
+can_ref <- tibble(
+  anyo    = c(2001L, 2011L, 2021L),
+  ref_idx = c(100,
+              round(100 * can_tot$tot_2011 / can_tot$tot_2001, 1),
+              round(100 * can_tot$tot_2021 / can_tot$tot_2001, 1))
+)
+
 # Solo municipios con dato 2001 (80 de 88)
 graf <- datos %>%
   filter(!is.na(no_hab_2001), !is.na(no_hab_2021)) %>%
@@ -230,7 +261,44 @@ pagina_isla <- function(dat_mun, ref_dat, titulo, subtitulo) {
 # -----------------------------------------------------------------------------
 pdf("auxiliares/viviendas_no_habituales.pdf", width = 11, height = 8.5)
 
-# --- Páginas 1–7: por isla ---
+# --- Página 1: evolución por isla vs Canarias ---
+resumen_long <- resumen_isla %>%
+  pivot_longer(cols = c(idx_2001, idx_2011, idx_2021),
+               names_to = "periodo", values_to = "indice") %>%
+  mutate(anyo = as.integer(str_extract(periodo, "\\d{4}")))
+
+subtitulo_islas <- sprintf(
+  "Canarias total — 2001: %s  →  2011: %s  →  2021: %s",
+  format(can_tot$tot_2001, big.mark = ","),
+  format(can_tot$tot_2011, big.mark = ","),
+  format(can_tot$tot_2021, big.mark = ",")
+)
+
+p_islas <- ggplot(resumen_long, aes(x = anyo, y = indice)) +
+  geom_line(
+    data = cross_join(can_ref, resumen_long %>% distinct(isla)),
+    aes(x = anyo, y = ref_idx),
+    color = COLOR_REF, linewidth = 0.6, linetype = "dashed",
+    inherit.aes = FALSE
+  ) +
+  geom_hline(yintercept = 100, color = "grey80", linewidth = 0.3) +
+  geom_line(color = COLOR_MUN, linewidth = 0.9) +
+  geom_point(color = COLOR_MUN, size = 2.2) +
+  geom_text(aes(label = round(indice)),
+            vjust = -0.9, size = 2.5, color = "grey30") +
+  facet_wrap(~isla, ncol = 4) +
+  scale_x_continuous(breaks = c(2001, 2011, 2021)) +
+  labs(
+    title    = "Viviendas no habituales por isla (índice 2001 = 100)",
+    subtitle = paste0("Línea gris discontinua: evolución de Canarias\n", subtitulo_islas),
+    x = NULL, y = "Índice (2001 = 100)",
+    caption  = CAPTION
+  ) +
+  tema_base
+
+print(p_islas)
+
+# --- Páginas 2–8: por isla ---
 islas_orden <- graf %>%
   distinct(isla_id, isla) %>%
   arrange(isla)
