@@ -203,6 +203,24 @@ COMMENT ON TABLE ech_hogares_tipo IS
 @actualizacion: ECH: descontinuada (sustituida por ECEPOV). ECEPOV: quinquenal. Próxima actualización ~2026.
 @notas: La ECH no está disponible en Tempus3/API; se descarga directamente del JAXI como CSV. La ECEPOV es quinquenal, no hay datos 2022–2025.';
 
+COMMENT ON TABLE viviendas_no_habituales_censos IS
+'Viviendas no habituales por municipio en los tres últimos censos disponibles.
+Permite analizar la evolución del stock no ocupado a nivel municipal (2001, 2011, 2021).
+
+CAUTELA METODOLÓGICA: los tres valores NO son comparables directamente.
+  no_hab_2001, no_hab_2011: "viviendas no principales" (vacías + secundarias juntas),
+    Censo INE de encuesta de campo. Fuente: PC-Axis nal02.px / 02mun00.px (JAXI p07).
+  no_hab_2021: vacías + esporádicas del Censo 2021, metodología de consumo eléctrico.
+    La clasificación eléctrica tiende a elevar el número de vacías respecto a la encuesta.
+Solo disponible para municipios >2.000 hab en 2001/2011 (80 de 88 en Canarias).
+
+@fuente: INE — Censos de Población y Viviendas 2001/2011/2021
+@descarga: ine_viviendas_no_hab_historico.py → tmp/viviendas_no_hab_YYYYMMDD.csv
+@importacion: auxiliares/viviendas_no_habituales.R
+@cobertura_temporal: Censos 2001, 2011, 2021 (tres puntos)
+@cobertura_geografica: 80 municipios de Canarias (>2.000 hab en 2001/2011); 88 con dato 2021
+@actualizacion: Estático (censal)';
+
 COMMENT ON TABLE ech_tamano_hogar_ccaa IS
 'Tamaño medio del hogar (personas/hogar) por comunidad autónoma y trimestre.
 Permite comparar la evolución de Canarias frente al resto de CCAA y al total nacional.

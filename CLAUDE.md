@@ -331,6 +331,10 @@ Scripts de exploración (no usar en producción):
     viviendas_municipios, superficies
     vivienda_iniciada_terminada_canarias   ES70/ES701/ES702, anuales+mensuales 2002–
     vivienda_terminada_canarias            OBSOLETA (solo ES70 anual total) — pendiente de eliminar
+    viviendas_no_habituales_censos         Viviendas no hab. por municipio, censos 2001/2011/2021.
+                                           2001/2011: "no principales" (vacías+secundarias); 2021: vacías+esporádicas.
+                                           Metodologías no comparables directamente. 80/88 municipios.
+                                           ine_viviendas_no_hab_historico.py + auxiliares/viviendas_no_habituales.R
     historico_plazas_regladas              Plazas regladas anuales, canarias+7 islas, 2009–
     historico_tasa_ocupacion_reglada       Tasa de ocupación por plaza (%), mismo origen y cobertura
     ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
