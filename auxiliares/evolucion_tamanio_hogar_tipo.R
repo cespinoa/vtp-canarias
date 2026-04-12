@@ -84,7 +84,7 @@ pendientes <- pendientes |>
 cat("\n=== PENDIENTE LINEAL POR TIPO DE MUNICIPIO ===\n")
 cat(sprintf("Referencia Canarias: %.4f personas/año\n\n", pendiente_canarias))
 
-tipos_orden <- c("GRANDE", "MEDIO", "TURISTICO", "PEQUEÑO")
+tipos_orden <- c("GRANDE", "MEDIO", "TURÍSTICO", "PEQUEÑO")
 
 pendientes |>
   mutate(tipo_municipio = gsub("\u00cd", "I", tipo_municipio),
@@ -131,7 +131,7 @@ tema_base <- theme_minimal(base_size = 8) +
 colores_tipo <- c(
   "GRANDE"    = "#2166ac",
   "MEDIO"     = "#4dac26",
-  "TURISTICO" = "#d6604d",
+  "TURÍSTICO" = "#d6604d",
   "PEQUEÑO"   = "#8073ac"
 )
 

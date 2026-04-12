@@ -189,7 +189,7 @@ COLOR_REF  <- "grey60"
 colores_tipo <- c(
   "GRANDE"    = "#2166ac",
   "MEDIO"     = "#4dac26",
-  "TURISTICO" = "#d6604d",
+  "TURÍSTICO" = "#d6604d",
   "PEQUEÑO"   = "#8073ac"
 )
 
@@ -260,11 +260,11 @@ for (i in seq_len(nrow(islas_orden))) {
 }
 
 # --- Páginas 8–11: por tipo de municipio ---
-tipos_orden <- c("GRANDE", "MEDIO", "TURISTICO", "PEQUEÑO")
+tipos_orden <- c("GRANDE", "MEDIO", "TURÍSTICO", "PEQUEÑO")
 tipos_etiqueta <- c(
   "GRANDE"    = "Grandes",
   "MEDIO"     = "Medios",
-  "TURISTICO" = "Turísticos",
+  "TURÍSTICO" = "Turísticos",
   "PEQUEÑO"   = "Pequeños"
 )
 
