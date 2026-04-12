@@ -1,20 +1,21 @@
 # =============================================================================
 # viviendas_no_habituales.R
-# Carga la tabla viviendas_no_habituales_censos y genera PDF con
-# gráficos de pendiente (índice 2001=100) por isla y por tipo de municipio.
+# Genera PDF con gráficos de pendiente (índice 2001=100) de viviendas no
+# habituales por isla y por tipo de municipio, leyendo de la BD.
 #
-# Fuentes:
-#   - 2001 y 2011: "viviendas no principales" (Censo INE, encuesta de campo)
-#   - 2021: vacías + esporádicas (Censo INE, metodología consumo eléctrico)
+# Fuentes (en BD):
+#   - viviendas_no_habituales_censos: no hab. 2001/2011 (Censo encuesta)
+#     y 2021 (vacías + esporádicas, consumo eléctrico)
 #   ⚠ Los tres valores NO son directamente comparables entre sí.
 #
-# Salidas:
-#   - BD: tabla viviendas_no_habituales_censos (TRUNCATE + reload)
-#   - PDF: auxiliares/viviendas_no_habituales.pdf
+# Para recargar los datos históricos desde el INE:
+#   python3 descarga_datos/ine_viviendas_no_hab_historico.py
+#   (luego ejecutar este script — cargará la tabla automáticamente si
+#    se le pasa el CSV como argumento)
 #
 # Uso:
-#   Rscript auxiliares/viviendas_no_habituales.R
-#   Rscript auxiliares/viviendas_no_habituales.R ruta/csv
+#   Rscript auxiliares/viviendas_no_habituales.R          # solo PDF
+#   Rscript auxiliares/viviendas_no_habituales.R ruta/csv  # recarga + PDF
 # =============================================================================
 
 library(tidyverse)
@@ -33,79 +34,74 @@ con <- dbConnect(RPostgres::Postgres(),
 )
 
 # -----------------------------------------------------------------------------
-# 1. Localizar CSV 2001/2011
+# 1. Recarga opcional desde CSV (solo si se pasa como argumento)
 # -----------------------------------------------------------------------------
-args     <- commandArgs(trailingOnly = TRUE)
-csv_path <- if (length(args) > 0) args[1] else {
-  candidatos <- Sys.glob("descarga_datos/tmp/viviendas_no_hab_????????.csv")
-  if (length(candidatos) == 0) stop("No se encontró CSV en descarga_datos/tmp/")
-  tail(sort(candidatos), 1)
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) > 0) {
+  csv_path <- args[1]
+  cat("CSV fuente:", csv_path, "\n")
+
+  censo_hist <- read_csv(csv_path, show_col_types = FALSE,
+    col_types = cols(
+      codigo_ine  = col_character(),
+      nombre      = col_character(),
+      no_hab_2011 = col_integer(),
+      no_hab_2001 = col_integer()
+    ))
+
+  municipios_ids <- dbGetQuery(con, "SELECT id, codigo_ine FROM municipios")
+  viv_2021 <- dbGetQuery(con, "
+    SELECT municipio_id, (vacias + esporadicas) AS no_hab_2021
+    FROM viviendas_municipios WHERE ambito = 'municipio'")
+
+  tabla_bd <- censo_hist %>%
+    select(-nombre) %>%
+    left_join(municipios_ids, by = "codigo_ine") %>%
+    left_join(viv_2021, by = c("id" = "municipio_id")) %>%
+    select(municipio_id = id, no_hab_2001, no_hab_2011, no_hab_2021)
+
+  # Añadir municipios sin dato 2001/2011 (solo 2021)
+  municipios_sin_hist <- municipios_ids %>%
+    filter(!codigo_ine %in% censo_hist$codigo_ine) %>%
+    left_join(viv_2021, by = c("id" = "municipio_id")) %>%
+    transmute(municipio_id = id, no_hab_2001 = NA_integer_,
+              no_hab_2011 = NA_integer_, no_hab_2021)
+
+  tabla_bd <- bind_rows(tabla_bd, municipios_sin_hist)
+
+  dbBegin(con)
+  tryCatch({
+    dbExecute(con, "TRUNCATE TABLE viviendas_no_habituales_censos")
+    dbWriteTable(con, "viviendas_no_habituales_censos", tabla_bd,
+                 append = TRUE, row.names = FALSE)
+    dbCommit(con)
+    cat(sprintf("Tabla recargada: %d registros.\n", nrow(tabla_bd)))
+  }, error = function(e) { dbRollback(con); stop(conditionMessage(e)) })
+} else {
+  cat("Leyendo de BD (viviendas_no_habituales_censos)...\n")
 }
-cat("CSV fuente:", csv_path, "\n")
 
 # -----------------------------------------------------------------------------
-# 2. Leer CSV + tablas maestras
+# 2. Leer datos directamente de la BD
 # -----------------------------------------------------------------------------
-censo_hist <- read_csv(csv_path, show_col_types = FALSE,
-  col_types = cols(
-    codigo_ine  = col_character(),
-    nombre      = col_character(),
-    no_hab_2011 = col_integer(),
-    no_hab_2001 = col_integer()
-  ))
-
-municipios_db <- dbGetQuery(con, "
-  SELECT m.id, m.codigo_ine, m.nombre, m.tipo_municipio,
+datos <- dbGetQuery(con, "
+  SELECT v.municipio_id AS id, v.no_hab_2001, v.no_hab_2011, v.no_hab_2021,
+         m.nombre, m.tipo_municipio, m.codigo_ine,
          i.id AS isla_id, i.nombre AS isla
-  FROM municipios m
-  JOIN islas i ON m.isla_id = i.id
+  FROM viviendas_no_habituales_censos v
+  JOIN municipios m ON v.municipio_id = m.id
+  JOIN islas      i ON m.isla_id      = i.id
+  ORDER BY i.nombre, m.nombre
 ")
 
-# 2021: vacias + esporadicas
-viv_2021 <- dbGetQuery(con, "
-  SELECT municipio_id, (vacias + esporadicas) AS no_hab_2021
-  FROM viviendas_municipios
-  WHERE ambito = 'municipio'
-")
-
-# -----------------------------------------------------------------------------
-# 3. Cruzar
-# -----------------------------------------------------------------------------
-datos <- municipios_db %>%
-  left_join(censo_hist %>% select(-nombre), by = "codigo_ine") %>%
-  left_join(viv_2021,   by = c("id" = "municipio_id")) %>%
-  arrange(isla, nombre)
-
-cat(sprintf("\nMunicipios con dato 2001/2011: %d de %d\n",
+cat(sprintf("Municipios con dato 2001/2011: %d de %d\n",
             sum(!is.na(datos$no_hab_2001)), nrow(datos)))
 cat(sprintf("Municipios con dato 2021:      %d de %d\n",
             sum(!is.na(datos$no_hab_2021)), nrow(datos)))
-
-# Total Canarias para referencia
-cat("\nTotales Canarias:\n")
-cat(sprintf("  2001: %s  2011: %s  2021: %s\n",
+cat(sprintf("Totales: 2001=%s  2011=%s  2021=%s\n",
   format(sum(datos$no_hab_2001, na.rm=TRUE), big.mark=","),
   format(sum(datos$no_hab_2011, na.rm=TRUE), big.mark=","),
   format(sum(datos$no_hab_2021, na.rm=TRUE), big.mark=",")))
-
-# -----------------------------------------------------------------------------
-# 4. Cargar tabla en BD
-# -----------------------------------------------------------------------------
-tabla_bd <- datos %>%
-  select(municipio_id = id, no_hab_2001, no_hab_2011, no_hab_2021)
-
-cat("\nCargando viviendas_no_habituales_censos...\n")
-dbBegin(con)
-tryCatch({
-  dbExecute(con, "TRUNCATE TABLE viviendas_no_habituales_censos")
-  dbWriteTable(con, "viviendas_no_habituales_censos", tabla_bd,
-               append = TRUE, row.names = FALSE)
-  dbCommit(con)
-  cat(sprintf("Cargados: %d registros.\n", nrow(tabla_bd)))
-}, error = function(e) {
-  dbRollback(con)
-  stop("Error en la carga: ", conditionMessage(e))
-})
 
 # -----------------------------------------------------------------------------
 # 5. Preparar datos para gráficos
