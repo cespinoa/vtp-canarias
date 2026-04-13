@@ -97,7 +97,10 @@ if (length(args) > 0) {
 # 2. Leer datos directamente de la BD
 # -----------------------------------------------------------------------------
 datos <- dbGetQuery(con, "
-  SELECT v.municipio_id AS id, v.no_hab_2001, v.no_hab_2011, v.no_hab_2021,
+  SELECT v.municipio_id AS id,
+         v.no_hab_2001, v.no_hab_2011, v.no_hab_2021,
+         v.hab_2001,    v.hab_2011,    v.hab_2021,
+         v.total_2001,  v.total_2011,  v.total_2021,
          m.nombre, m.tipo_municipio, m.codigo_ine,
          i.id AS isla_id, i.nombre AS isla
   FROM viviendas_no_habituales_censos v
@@ -207,6 +210,75 @@ ref_tipo <- graf %>%
                names_to = "periodo", values_to = "ref_idx") %>%
   mutate(anyo = as.integer(str_extract(periodo, "\\d{4}")))
 
+# Porcentajes por municipio (no_hab / total)
+graf_pct <- datos %>%
+  filter(!is.na(no_hab_2001), !is.na(total_2001), !is.na(no_hab_2021), !is.na(total_2021)) %>%
+  mutate(
+    pct_2001 = round(100 * no_hab_2001 / total_2001, 1),
+    pct_2011 = round(100 * no_hab_2011 / total_2011, 1),
+    pct_2021 = round(100 * no_hab_2021 / total_2021, 1)
+  )
+
+graf_pct_long <- graf_pct %>%
+  select(nombre, isla, isla_id, tipo_municipio, pct_2001, pct_2011, pct_2021) %>%
+  pivot_longer(cols = c(pct_2001, pct_2011, pct_2021),
+               names_to = "periodo", values_to = "pct") %>%
+  mutate(anyo = as.integer(str_extract(periodo, "\\d{4}")))
+
+# Referencia isla: % agregado (suma no_hab / suma total)
+ref_isla_pct <- graf_pct %>%
+  group_by(isla) %>%
+  summarise(
+    sno_2001 = sum(no_hab_2001, na.rm = TRUE), stot_2001 = sum(total_2001, na.rm = TRUE),
+    sno_2011 = sum(no_hab_2011, na.rm = TRUE), stot_2011 = sum(total_2011, na.rm = TRUE),
+    sno_2021 = sum(no_hab_2021, na.rm = TRUE), stot_2021 = sum(total_2021, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    pct_2001 = round(100 * sno_2001 / stot_2001, 1),
+    pct_2011 = round(100 * sno_2011 / stot_2011, 1),
+    pct_2021 = round(100 * sno_2021 / stot_2021, 1)
+  ) %>%
+  pivot_longer(cols = c(pct_2001, pct_2011, pct_2021),
+               names_to = "periodo", values_to = "ref_pct") %>%
+  mutate(anyo = as.integer(str_extract(periodo, "\\d{4}")))
+
+# Referencia tipo: % agregado
+ref_tipo_pct <- graf_pct %>%
+  group_by(tipo_municipio) %>%
+  summarise(
+    sno_2001 = sum(no_hab_2001, na.rm = TRUE), stot_2001 = sum(total_2001, na.rm = TRUE),
+    sno_2011 = sum(no_hab_2011, na.rm = TRUE), stot_2011 = sum(total_2011, na.rm = TRUE),
+    sno_2021 = sum(no_hab_2021, na.rm = TRUE), stot_2021 = sum(total_2021, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    pct_2001 = round(100 * sno_2001 / stot_2001, 1),
+    pct_2011 = round(100 * sno_2011 / stot_2011, 1),
+    pct_2021 = round(100 * sno_2021 / stot_2021, 1)
+  ) %>%
+  pivot_longer(cols = c(pct_2001, pct_2011, pct_2021),
+               names_to = "periodo", values_to = "ref_pct") %>%
+  mutate(anyo = as.integer(str_extract(periodo, "\\d{4}")))
+
+# Canarias total: % para la referencia del resumen por isla
+can_pct_vec <- datos %>%
+  filter(!is.na(no_hab_2001), !is.na(total_2001), !is.na(no_hab_2021), !is.na(total_2021)) %>%
+  summarise(
+    pct_2001 = round(100 * sum(no_hab_2001) / sum(total_2001), 1),
+    pct_2011 = round(100 * sum(no_hab_2011, na.rm=TRUE) / sum(total_2011, na.rm=TRUE), 1),
+    pct_2021 = round(100 * sum(no_hab_2021) / sum(total_2021), 1)
+  )
+
+can_ref_pct <- tibble(
+  anyo    = c(2001L, 2011L, 2021L),
+  ref_pct = c(can_pct_vec$pct_2001, can_pct_vec$pct_2011, can_pct_vec$pct_2021)
+)
+
+# Resumen por isla para la página de portada (porcentajes)
+resumen_isla_pct <- ref_isla_pct %>%
+  select(isla, anyo, pct = ref_pct)
+
 # -----------------------------------------------------------------------------
 # 6. Tema y paleta
 # -----------------------------------------------------------------------------
@@ -236,6 +308,12 @@ CAPTION <- paste0(
   "2001/2011: viviendas no principales (vacías + secundarias), encuesta de campo.\n",
   "2021: vacías + esporádicas, metodología consumo eléctrico. Las tres cifras no son directamente comparables.\n",
   "Base 2001 = 100. Solo municipios >2.000 hab."
+)
+
+CAPTION_PCT <- paste0(
+  "2001/2011: no principales (vacías + secundarias) / total viviendas, encuesta de campo.\n",
+  "2021: (vacías + esporádicas) / total, metodología consumo eléctrico. Las tres cifras no son directamente comparables.\n",
+  "Solo municipios >2.000 hab."
 )
 
 # -----------------------------------------------------------------------------
@@ -380,6 +458,132 @@ for (tipo in tipos_orden) {
       subtitle = subtitulo,
       x = NULL, y = "Índice (2001 = 100)",
       caption  = CAPTION
+    ) +
+    tema_base
+
+  print(p)
+}
+
+# =============================================================================
+# SEGUNDA PARTE: Porcentajes (no_hab / total)
+# =============================================================================
+
+# --- Portada %: resumen por isla ---
+p_islas_pct <- ggplot(resumen_isla_pct, aes(x = anyo, y = pct)) +
+  geom_line(
+    data = cross_join(can_ref_pct, resumen_isla_pct %>% distinct(isla)),
+    aes(x = anyo, y = ref_pct),
+    color = COLOR_REF, linewidth = 0.6, linetype = "dashed",
+    inherit.aes = FALSE
+  ) +
+  geom_line(color = COLOR_MUN, linewidth = 0.9) +
+  geom_point(color = COLOR_MUN, size = 2.2) +
+  geom_text(aes(label = sprintf("%.1f%%", pct)),
+            vjust = -0.9, size = 2.5, color = "grey30") +
+  facet_wrap(~isla, ncol = 4) +
+  scale_x_continuous(breaks = c(2001, 2011, 2021)) +
+  labs(
+    title    = "% Viviendas no habituales sobre el total por isla",
+    subtitle = sprintf(
+      "Línea gris discontinua: %% Canarias — 2001: %.1f%%  →  2011: %.1f%%  →  2021: %.1f%%",
+      can_pct_vec$pct_2001, can_pct_vec$pct_2011, can_pct_vec$pct_2021),
+    x = NULL, y = "% sobre total viviendas",
+    caption = CAPTION_PCT
+  ) +
+  tema_base
+
+print(p_islas_pct)
+
+# --- Páginas %: por isla ---
+for (i in seq_len(nrow(islas_orden))) {
+  isla_id_i   <- islas_orden$isla_id[i]
+  isla_nombre <- islas_orden$isla[i]
+
+  dat_i  <- graf_pct_long %>% filter(isla_id == isla_id_i)
+  ref_i  <- ref_isla_pct  %>% filter(isla == isla_nombre) %>% select(anyo, ref_pct)
+  if (nrow(dat_i) == 0) next
+
+  n_mun <- n_distinct(dat_i$nombre)
+  ncols  <- if (n_mun <= 4) 2 else if (n_mun <= 9) 3 else 4
+
+  ref_agg <- graf_pct %>% filter(isla_id == isla_id_i) %>%
+    summarise(sno_2001 = sum(no_hab_2001), stot_2001 = sum(total_2001),
+              sno_2011 = sum(no_hab_2011, na.rm=T), stot_2011 = sum(total_2011, na.rm=T),
+              sno_2021 = sum(no_hab_2021), stot_2021 = sum(total_2021))
+
+  subtitulo <- paste0(
+    "Línea gris discontinua: % agregado de la isla\n",
+    sprintf("Isla 2001: %.1f%%  →  2011: %.1f%%  →  2021: %.1f%%",
+      100 * ref_agg$sno_2001 / ref_agg$stot_2001,
+      100 * ref_agg$sno_2011 / ref_agg$stot_2011,
+      100 * ref_agg$sno_2021 / ref_agg$stot_2021)
+  )
+
+  p <- ggplot(dat_i, aes(x = anyo, y = pct)) +
+    geom_line(
+      data = cross_join(ref_i, dat_i %>% distinct(nombre)),
+      aes(x = anyo, y = ref_pct),
+      color = COLOR_REF, linewidth = 0.5, linetype = "dashed",
+      inherit.aes = FALSE
+    ) +
+    geom_line(color = COLOR_MUN, linewidth = 0.8) +
+    geom_point(color = COLOR_MUN, size = 1.8) +
+    geom_text(aes(label = sprintf("%.1f%%", pct)),
+              vjust = -0.9, size = 2.0, color = "grey30") +
+    facet_wrap(~nombre, ncol = ncols) +
+    scale_x_continuous(breaks = c(2001, 2011, 2021)) +
+    labs(
+      title    = paste0("% Viviendas no habituales — ", isla_nombre),
+      subtitle = subtitulo,
+      x = NULL, y = "% sobre total viviendas",
+      caption  = CAPTION_PCT
+    ) +
+    tema_base
+
+  print(p)
+}
+
+# --- Páginas %: por tipo de municipio ---
+for (tipo in tipos_orden) {
+  dat_t <- graf_pct_long %>% filter(tipo_municipio == tipo)
+  ref_t <- ref_tipo_pct  %>% filter(tipo_municipio == tipo) %>% select(anyo, ref_pct)
+  if (nrow(dat_t) == 0) next
+
+  color_t <- colores_tipo[tipo]
+  n_mun   <- n_distinct(dat_t$nombre)
+  ncols   <- if (n_mun <= 6) 3 else if (n_mun <= 12) 4 else 5
+
+  ref_agg <- graf_pct %>% filter(tipo_municipio == tipo) %>%
+    summarise(sno_2001 = sum(no_hab_2001), stot_2001 = sum(total_2001),
+              sno_2011 = sum(no_hab_2011, na.rm=T), stot_2011 = sum(total_2011, na.rm=T),
+              sno_2021 = sum(no_hab_2021), stot_2021 = sum(total_2021))
+
+  subtitulo <- paste0(
+    "Línea gris discontinua: % agregado del grupo\n",
+    sprintf("Grupo 2001: %.1f%%  →  2011: %.1f%%  →  2021: %.1f%%",
+      100 * ref_agg$sno_2001 / ref_agg$stot_2001,
+      100 * ref_agg$sno_2011 / ref_agg$stot_2011,
+      100 * ref_agg$sno_2021 / ref_agg$stot_2021)
+  )
+
+  p <- ggplot(dat_t, aes(x = anyo, y = pct)) +
+    geom_line(
+      data = cross_join(ref_t, dat_t %>% distinct(nombre)),
+      aes(x = anyo, y = ref_pct),
+      color = COLOR_REF, linewidth = 0.5, linetype = "dashed",
+      inherit.aes = FALSE
+    ) +
+    geom_line(color = color_t, linewidth = 0.8) +
+    geom_point(color = color_t, size = 1.8) +
+    geom_text(aes(label = sprintf("%.1f%%", pct)),
+              vjust = -0.9, size = 2.0, color = "grey30") +
+    facet_wrap(~nombre, ncol = ncols) +
+    scale_x_continuous(breaks = c(2001, 2011, 2021)) +
+    labs(
+      title    = paste0("% Viviendas no habituales — Municipios ", tipos_etiqueta[tipo]),
+      subtitle = subtitulo,
+      x = NULL, y = "% sobre total viviendas",
+      caption  = CAPTION_PCT
     ) +
     tema_base
 
