@@ -79,9 +79,12 @@ def parse_px(content: str) -> list[dict]:
             except ValueError:
                 data_vals.append(None)
 
-    # Índices de "no principales" dentro de los n_tipo tipos
+    # Índices de tipos dentro de los n_tipo tipos
     idx_no_princ = next(
         i for i, t in enumerate(tipos) if "no principal" in t.lower()
+    )
+    idx_princ = next(
+        i for i, t in enumerate(tipos) if "no principal" not in t.lower()
     )
     # Índices de periodos
     idx_2011 = periodos.index("2011")
@@ -97,14 +100,23 @@ def parse_px(content: str) -> list[dict]:
         nombre = mun_raw[5:].strip().lstrip()
 
         base = i * n_tipo * n_per
-        v_2011 = data_vals[base + idx_no_princ * n_per + idx_2011]
-        v_2001 = data_vals[base + idx_no_princ * n_per + idx_2001]
+        no_2011 = data_vals[base + idx_no_princ * n_per + idx_2011]
+        no_2001 = data_vals[base + idx_no_princ * n_per + idx_2001]
+        hab_2011 = data_vals[base + idx_princ * n_per + idx_2011]
+        hab_2001 = data_vals[base + idx_princ * n_per + idx_2001]
+
+        def to_int(v):
+            return int(round(v)) if v is not None else ""
 
         rows.append({
-            "codigo_ine": codigo,
-            "nombre":     nombre,
-            "no_hab_2011": int(round(v_2011)) if v_2011 is not None else "",
-            "no_hab_2001": int(round(v_2001)) if v_2001 is not None else "",
+            "codigo_ine":  codigo,
+            "nombre":      nombre,
+            "no_hab_2011": to_int(no_2011),
+            "no_hab_2001": to_int(no_2001),
+            "hab_2011":    to_int(hab_2011),
+            "hab_2001":    to_int(hab_2001),
+            "total_2011":  to_int(no_2011 + hab_2011) if no_2011 is not None and hab_2011 is not None else "",
+            "total_2001":  to_int(no_2001 + hab_2001) if no_2001 is not None and hab_2001 is not None else "",
         })
 
     return rows
@@ -126,7 +138,8 @@ def main():
     rows = parse_px(content)
     print(f"  Municipios Canarias extraídos: {len(rows)}")
 
-    fieldnames = ["codigo_ine", "nombre", "no_hab_2011", "no_hab_2001"]
+    fieldnames = ["codigo_ine", "nombre", "no_hab_2011", "no_hab_2001",
+                  "hab_2011", "hab_2001", "total_2011", "total_2001"]
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
@@ -136,11 +149,14 @@ def main():
     print(f"  ✓ {len(rows)} filas → {csv_path} ({kb:.1f} KB)")
 
     # Verificación: total Canarias
-    total_2011 = sum(r["no_hab_2011"] for r in rows if r["no_hab_2011"] != "")
-    total_2001 = sum(r["no_hab_2001"] for r in rows if r["no_hab_2001"] != "")
-    print(f"\nTotal no habituales Canarias (municipios >2.000 hab):")
-    print(f"  2001: {total_2001:,}  (referencia: ~117.617 total)")
-    print(f"  2011: {total_2011:,}  (referencia: ~138.252 total)")
+    sum_no_2011  = sum(r["no_hab_2011"] for r in rows if r["no_hab_2011"] != "")
+    sum_no_2001  = sum(r["no_hab_2001"] for r in rows if r["no_hab_2001"] != "")
+    sum_hab_2011 = sum(r["hab_2011"]    for r in rows if r["hab_2011"]    != "")
+    sum_hab_2001 = sum(r["hab_2001"]    for r in rows if r["hab_2001"]    != "")
+    print(f"\nCanarias (municipios >2.000 hab):")
+    print(f"  No habituales — 2001: {sum_no_2001:,}  2011: {sum_no_2011:,}")
+    print(f"  Habituales    — 2001: {sum_hab_2001:,}  2011: {sum_hab_2011:,}")
+    print(f"  Total         — 2001: {sum_hab_2001+sum_no_2001:,}  2011: {sum_hab_2011+sum_no_2011:,}")
 
 
 if __name__ == "__main__":

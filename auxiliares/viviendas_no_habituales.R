@@ -46,26 +46,38 @@ if (length(args) > 0) {
       codigo_ine  = col_character(),
       nombre      = col_character(),
       no_hab_2011 = col_integer(),
-      no_hab_2001 = col_integer()
+      no_hab_2001 = col_integer(),
+      hab_2011    = col_integer(),
+      hab_2001    = col_integer(),
+      total_2011  = col_integer(),
+      total_2001  = col_integer()
     ))
 
   municipios_ids <- dbGetQuery(con, "SELECT id, codigo_ine FROM municipios")
   viv_2021 <- dbGetQuery(con, "
-    SELECT municipio_id, (vacias + esporadicas) AS no_hab_2021
+    SELECT municipio_id,
+           (vacias + esporadicas) AS no_hab_2021,
+           habituales             AS hab_2021,
+           total                  AS total_2021
     FROM viviendas_municipios WHERE ambito = 'municipio'")
 
   tabla_bd <- censo_hist %>%
     select(-nombre) %>%
     left_join(municipios_ids, by = "codigo_ine") %>%
     left_join(viv_2021, by = c("id" = "municipio_id")) %>%
-    select(municipio_id = id, no_hab_2001, no_hab_2011, no_hab_2021)
+    select(municipio_id = id,
+           no_hab_2001, no_hab_2011, no_hab_2021,
+           hab_2001, hab_2011, hab_2021,
+           total_2001, total_2011, total_2021)
 
   # Añadir municipios sin dato 2001/2011 (solo 2021)
   municipios_sin_hist <- municipios_ids %>%
     filter(!codigo_ine %in% censo_hist$codigo_ine) %>%
     left_join(viv_2021, by = c("id" = "municipio_id")) %>%
-    transmute(municipio_id = id, no_hab_2001 = NA_integer_,
-              no_hab_2011 = NA_integer_, no_hab_2021)
+    transmute(municipio_id = id,
+              no_hab_2001 = NA_integer_, no_hab_2011 = NA_integer_, no_hab_2021,
+              hab_2001    = NA_integer_, hab_2011    = NA_integer_, hab_2021,
+              total_2001  = NA_integer_, total_2011  = NA_integer_, total_2021)
 
   tabla_bd <- bind_rows(tabla_bd, municipios_sin_hist)
 
