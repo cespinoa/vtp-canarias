@@ -293,6 +293,31 @@ COMMENT ON TABLE historico_tasa_ocupacion_reglada IS
 @cobertura_geografica: Canarias + 7 islas (sin desglose municipal)
 @actualizacion: Anual (TRUNCATE + reload junto con historico_plazas_regladas)';
 
+COMMENT ON TABLE historico_estancia_media_reglada IS
+'Estancia media anual del alojamiento turístico reglado por isla y año. Se calcula sumando
+PERNOCTACIONES y VIAJEROS_ENTRADOS sobre las 27 nacionalidades disponibles y dividiendo:
+ESTANCIA_MEDIA = PERNOCTACIONES_total / VIAJEROS_ENTRADOS_total.
+El dataset ISTAC no publica un agregado _T de nacionalidades; la suma es metodológicamente
+correcta porque ambas magnitudes son aditivas (sin doble cómputo por viajero).
+Tendencia: ~8.7 días en 2009 → ~7.2 en 2025, con caída pronunciada en 2020–2021 (COVID).
+
+@fuente: ISTAC C00065A_000039 (Encuesta de Ocupación en Alojamientos Turísticos, serie anual con desglose por nacionalidad)
+@descarga: istac_estancia_reglada.py → tmp/estancia_reglada_YYYYMMDD.csv
+@importacion: importar_estancia_reglada.R
+@cobertura_temporal: 2009–año más reciente publicado (anual)
+@cobertura_geografica: Canarias + 7 islas (sin desglose municipal)
+@actualizacion: Anual (TRUNCATE + reload)';
+
+COMMENT ON TABLE historico_estancia_media_vv IS
+'Estancia media anual en viviendas vacacionales (VV) por isla y año. Media ponderada por viviendas_reservadas a partir de los datos mensuales de pte_vacacional. Refleja la duración media de las estancias en días; los meses con mayor actividad turística tienen mayor peso.
+
+@fuente: ISTAC C00065A_000061 (Estadística de Vivienda Vacacional), campo estancia_media
+@importacion: importar_estancia_media_vv.R (lee directamente de pte_vacacional)
+@cobertura_temporal: 2019–año más reciente en pte_vacacional (anual)
+@cobertura_geografica: Canarias + 7 islas (sin desglose municipal)
+@notas: El año en curso aparece con datos parciales (meses disponibles < 12) mientras no cierre el año.
+@actualizacion: Tras cada actualización de pte_vacacional (TRUNCATE + reload)';
+
 COMMENT ON TABLE turistas_llegadas IS
 'Turistas llegados por isla y mes. Solo incluye las 5 islas principales (sin El Hierro ni La Gomera, que no están en el dataset ISTAC). Tipo: TURISTA (excluye excursionistas); mercado: todos los orígenes.
 

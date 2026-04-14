@@ -1,0 +1,39 @@
+<!-- Cap. 1 — Visión general y arquitectura -->
+<h2>Cap. 1 — Visión general y arquitectura</h2> <h3>Objetivo del proyecto</h3> <p>VTP-Canarias (<em>Vivienda, Turismo y Población — Canarias</em>) integra registros oficiales de turismo, estadísticas de población y cartografía para construir indicadores que permiten evaluar la presión que el alojamiento turístico ejerce sobre el parque residencial, la población y el territorio en Canarias.</p> <p>El ámbito de análisis cubre cuatro niveles: <strong>Canarias</strong> (total archipiélago), <strong>isla</strong> (7 islas), <strong>municipio</strong> (88 municipios) y <strong>localidad</strong> (2.346 entidades de población).</p> <h3>Stack tecnológico</h3> <ul><li><strong>Base de datos: </strong>PostgreSQL 16 con extensión PostGIS (arm64, Raspberry Pi). Contenedor Docker <code>imresamu/postgis-arm64:16-3.5</code>.</li>
+<li><strong>Servidor de tiles: </strong>Martin (Rust), contenedor Docker, expone geometrías como vector tiles.</li>
+<li><strong>Frontend: </strong>Módulo Drupal personalizado con visor cartográfico (<code>/home/carlos/visor/</code>).</li>
+<li><strong>Procesamiento: </strong>R directo en el sistema (sin contenedor). Librerías principales: <code>DBI</code>, <code>RPostgres</code>, <code>tidyverse</code>.</li>
+<li><strong>Descarga de datos: </strong>Scripts Python (<code>descarga_datos/</code>) para APIs de CKAN, ISTAC e INE.</li></ul> <h3>Flujo general de datos</h3> <pre><code>Fuentes externas
+  ├── GobCan (CKAN)   →  vv.csv, at.csv, ht.csv
+  ├── ISTAC (API)     →  poblacion, PTE, hogares, plazas, turistas
+  └── INE (API)       →  poblacion municipal, viviendas
+
+Importación y geocodificación
+  └── P00–P12 (importar_gobcan/)
+        P00  Prepara ficheros CSV (fusiona AT+HT → at.csv)
+        P01  Ingesta → staging_import
+        P02  Geocodificación por callejero (fuzzy, similitud > 0.45)
+        P03  Fallback: centroide de localidad
+        P04  Fallback: centroide de código postal
+        P05  Fallback: centroide de municipio
+        P06  Rescate de coordenadas en el mar
+        P07  Validación espacial (auditoría pasiva)
+        P08  Asignación de municipio y localidad por geometría
+        P09  Asignación de isla_id, clasificación y microdestino
+        P10  Detección de duplicados
+        P11  Migración staging_import → alojamientos
+        P12  Informe de auditoría final
+
+Cálculo de indicadores
+  └── PT01–PT03 (informes/)
+        PT01  Captura datos base → base_snapshots
+        PT02  Calcula ratios y benchmarks → full_snapshots
+        PT03  Reconstruye vista materializada + exporta JSONs
+
+Visualización
+  └── Drupal + Martin → visor cartográfico web</code></pre> <h3>Cadencia de actualización</h3> <ul><li><strong>Registros turísticos: </strong>frecuente (cada publicación del GobCan, típicamente mensual). Requiere ejecutar P00–P12.</li>
+<li><strong>PTE vacacional: </strong>mensual (ISTAC publica con ~2 meses de retraso).</li>
+<li><strong>PTE reglada, plazas históricas, turistas: </strong>anual o cuando el ISTAC actualiza.</li>
+<li><strong>Población: </strong>el INE publica datos del padrón a principios de año para el año anterior.</li>
+<li><strong>Viviendas, hogares, superficies: </strong>censal o puntual (cada 10 años aproximadamente).</li>
+<li><strong>Indicadores (PT01–PT03): </strong>se ejecutan tras cualquier actualización de datos.</li></ul>

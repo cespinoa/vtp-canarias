@@ -1,0 +1,72 @@
+<!-- Cap. 5 — Clasificación turística -->
+<h2>Cap. 5 — Clasificación turística</h2> <p>Tablas que definen la jerarquía de clasificación de los establecimientos turísticos y la delimitación geográfica de las zonas turísticas regladas.</p> <hr> <h3>Jerarquía de clasificación</h3> <pre><code>Modalidad (2)
+  └── Tipología (18)
+        └── Clasificación (41)</code></pre> <p>La jerarquía se usa en P09 para asignar los IDs correspondientes a cada establecimiento a partir de los textos del CSV del GobCan.</p> <hr> <h3>Tabla: modalidades</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>modalidades</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>2</small></p> <p><em>Carga: manual. Valores estables.</em></p> <table class="table table-sm table-bordered table-striped"><thead><tr><th>id</th><th>nombre</th></tr></thead><tbody><tr><td>2</td><td>Extrahotelera</td></tr>
+<tr><td>3</td><td>Hotelera</td></tr></tbody></table> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>nombre</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>descripcion</code></td><td>text</td><td></td></tr></tbody></table> <hr> <h3>Tabla: tipologias</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>tipologias</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>18</small></p> <p><em>Carga: manual. Se amplía cuando el GobCan introduce nuevas tipologías en sus CSVs.</em></p> <table class="table table-sm table-bordered table-striped"><thead><tr><th>id</th><th>modalidad</th><th>nombre</th></tr></thead><tbody><tr><td> 2</td><td>Extrahotelera</td><td>Apartamento</td></tr>
+<tr><td> 3</td><td>Extrahotelera</td><td>Casa Emblematica</td></tr>
+<tr><td> 4</td><td>Extrahotelera</td><td>Casa Rural</td></tr>
+<tr><td> 5</td><td>Extrahotelera</td><td>Hotel Emblematico</td></tr>
+<tr><td> 6</td><td>Extrahotelera</td><td>Hotel Rural</td></tr>
+<tr><td> 7</td><td>Extrahotelera</td><td>Medio Rural</td></tr>
+<tr><td> 8</td><td>Extrahotelera</td><td>Pension</td></tr>
+<tr><td> 9</td><td>Extrahotelera</td><td>Sin tipologia</td></tr>
+<tr><td>10</td><td>Extrahotelera</td><td>Villa</td></tr>
+<tr><td>11</td><td>Extrahotelera</td><td>Vivienda Turistica</td></tr>
+<tr><td>19</td><td>Extrahotelera</td><td>Vivienda Vacacional</td></tr>
+<tr><td>12</td><td>Hotelera</td><td>Hotel</td></tr>
+<tr><td>13</td><td>Hotelera</td><td>Hotel Emblematico</td></tr>
+<tr><td>14</td><td>Hotelera</td><td>Hotel Rural</td></tr>
+<tr><td>15</td><td>Hotelera</td><td>Hotel Urbano</td></tr>
+<tr><td>16</td><td>Hotelera</td><td>Medio Rural</td></tr>
+<tr><td>17</td><td>Hotelera</td><td>Pension</td></tr>
+<tr><td>18</td><td>Hotelera</td><td>Sin tipologia</td></tr></tbody></table> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>modalidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>nombre</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr></tbody></table> <hr> <h3>Tabla: clasificaciones</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>clasificaciones</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>41</small></p> <p><em>Carga: manual. Incluye estrellas, llaves, categorías únicas, etc.</em></p> <table class="table table-sm table-bordered table-striped"><thead><tr><th>id</th><th>tipologia</th><th>nombre</th></tr></thead><tbody><tr><td> 3</td><td>Apartamento</td><td>1 Llave</td></tr>
+<tr><td> 4</td><td>Apartamento</td><td>2 Llaves</td></tr>
+<tr><td> 5</td><td>Apartamento</td><td>Categoria Unica</td></tr>
+<tr><td> 6</td><td>Apartamento</td><td>Cinco Estrellas</td></tr>
+<tr><td> 7</td><td>Apartamento</td><td>Cuatro Estrellas</td></tr>
+<tr><td> 8</td><td>Apartamento</td><td>Sin categoria</td></tr>
+<tr><td> 9</td><td>Apartamento</td><td>Tres Estrellas</td></tr>
+<tr><td>10</td><td>Casa Emblematica</td><td>Categoria Unica</td></tr>
+<tr><td>11</td><td>Casa Rural</td><td>Categoria Unica</td></tr>
+<tr><td>12</td><td>Hotel Emblematico</td><td>Categoria Unica</td></tr>
+<tr><td>13</td><td>Hotel Rural</td><td>Categoria Unica</td></tr>
+<tr><td>14</td><td>Medio Rural</td><td>Categoria Unica</td></tr>
+<tr><td>15</td><td>Pension</td><td>Una Estrella</td></tr>
+<tr><td>16</td><td>Sin tipologia</td><td>Categoria Unica</td></tr>
+<tr><td>17</td><td>Villa</td><td>Categoria Unica</td></tr>
+<tr><td>18</td><td>Vivienda Turistica</td><td>Categoria Unica</td></tr>
+<tr><td>19</td><td>Hotel</td><td>Cinco Estrellas</td></tr>
+<tr><td>20</td><td>Hotel</td><td>Cinco Estrellas Gran Lujo</td></tr>
+<tr><td>21</td><td>Hotel</td><td>Cinco Estrellas Lujo</td></tr>
+<tr><td>22</td><td>Hotel</td><td>Cuatro Estrellas</td></tr>
+<tr><td>23</td><td>Hotel</td><td>Dos Estrellas</td></tr>
+<tr><td>24</td><td>Hotel</td><td>Sin categoria</td></tr>
+<tr><td>25</td><td>Hotel</td><td>Tres Estrellas</td></tr>
+<tr><td>26</td><td>Hotel</td><td>Una Estrella</td></tr>
+<tr><td>27</td><td>Hotel Emblematico</td><td>Categoria Unica</td></tr>
+<tr><td>28</td><td>Hotel Rural</td><td>1 Palmera</td></tr>
+<tr><td>29</td><td>Hotel Rural</td><td>2 Palmeras</td></tr>
+<tr><td>30</td><td>Hotel Rural</td><td>Categoria Unica</td></tr>
+<tr><td>31</td><td>Hotel Urbano</td><td>Cinco Estrellas</td></tr>
+<tr><td>32</td><td>Hotel Urbano</td><td>Cuatro Estrellas</td></tr>
+<tr><td>33</td><td>Hotel Urbano</td><td>Dos Estrellas</td></tr>
+<tr><td>34</td><td>Hotel Urbano</td><td>Sin categoria</td></tr>
+<tr><td>35</td><td>Hotel Urbano</td><td>Tres Estrellas</td></tr>
+<tr><td>36</td><td>Hotel Urbano</td><td>Una Estrella</td></tr>
+<tr><td>37</td><td>Medio Rural</td><td>Categoria Unica</td></tr>
+<tr><td>38</td><td>Pension</td><td>Dos Estrellas</td></tr>
+<tr><td>39</td><td>Pension</td><td>Tres Estrellas</td></tr>
+<tr><td>40</td><td>Pension</td><td>Una Estrella</td></tr>
+<tr><td>41</td><td>Sin tipologia</td><td>Categoria Unica</td></tr>
+<tr><td>42</td><td>Sin tipologia</td><td>Dos Estrellas</td></tr>
+<tr><td>43</td><td>Vivienda Vacacional</td><td>Categoría Unica</td></tr></tbody></table> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>tipologia_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>nombre</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr></tbody></table> <hr> <h3>Tabla: destinos_turisticos</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>destinos_turisticos</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>23</small></p> <p>Ya documentada en el capítulo de tablas geográficas (Cap. 3). Se incluye aquí por su papel en la clasificación de establecimientos: el campo <code>turistica</code> determina si el establecimiento está en suelo turístico reglado.</p> <hr> <h3>Tabla: at_canarias_no_microdestino</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>at_canarias_no_microdestino</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>107</small></p> <p>Plazas turísticas regladas fuera de microdestinos, agregadas por (isla, municipio). Se usa como pesos para el reparto de las <em>bolsas</em> insulo-municipales en <code>importar_pte_reglada.R</code>.</p> <p><strong>Lógica:</strong> <code>ratio_municipio = plazas_municipio / total_plazas_isla</code>, y <code>PTE_municipio = PTE_localidades_propias + (bolsa_isla × ratio)</code>.</p> <p><em>Carga: derivada de alojamientos. Se recalcula al actualizar alojamientos. Sin script automatizado actualmente.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>isla_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>geocode_area_turistica</code></td><td>text</td><td></td></tr>
+<tr><td><code>total_plazas_no_turisticas</code></td><td>bigint</td><td></td></tr>
+<tr><td><code>total_establecimientos</code></td><td>bigint</td><td></td></tr></tbody></table>

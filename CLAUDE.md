@@ -294,6 +294,38 @@ Registros: 17 canarias + 119 isla = 136 total (en cada tabla).
 Estrategia de carga: TRUNCATE + reload completo en ambas tablas en el mismo script.
 Nota: caída pronunciada en 2020 (plazas 395k→190k; tasa 68%→42%) por cierre COVID.
 
+### Estancia Media Reglada (historico_estancia_media_reglada)
+Fuente: ISTAC, dataset C00065A_000039 "Encuesta de Ocupación en Alojamientos Turísticos" (serie anual con desglose por nacionalidad).
+Script de descarga: istac_estancia_reglada.py → tmp/estancia_reglada_YYYYMMDD.csv
+Script de importación: importar_estancia_reglada.R
+
+El dataset no publica un agregado `_T` de nacionalidades. La estancia media total se calcula como:
+  ESTANCIA_MEDIA = PERNOCTACIONES_suma / VIAJEROS_ENTRADOS_suma
+sumando las 27 nacionalidades disponibles (pernoctaciones y viajeros son aditivos).
+
+Cobertura: anual 2009–año más reciente publicado. Ámbitos: canarias + 7 islas.
+Dimensiones API: MEDIDAS × TERRITORIO × TIME_PERIOD × NACIONALIDAD (orden de iteración real).
+Registros: 17 canarias + 119 isla = 136 total.
+Estrategia de carga: TRUNCATE + reload completo.
+Tendencia: ~8.7 días en 2009 → ~7.2 en 2025. Caída 2020–2021 por COVID.
+
+Nota: C00065A_000033 (fuente de plazas y tasa) no incluye ESTANCIA_MEDIA. C00065A_000039
+es el dataset anual específico para pernoctaciones y viajeros (mismo origen, diferente dataset).
+
+### Estancia Media VV (historico_estancia_media_vv)
+Fuente: tabla pte_vacacional (ISTAC C00065A_000061), campo estancia_media.
+No requiere descarga externa: el script lee directamente de la BD.
+Script de importación: importar_estancia_media_vv.R
+
+Cobertura: anual 2019–año en curso. Ámbitos: canarias + 7 islas.
+Metodología: media ponderada por viviendas_reservadas.
+  estancia_anual = Σ(estancia_media_mes × viviendas_reservadas_mes) / Σ(viviendas_reservadas_mes)
+  → Los meses con más actividad turística pesan más que los meses con poca reserva.
+  → Los meses con viviendas_reservadas = 0 o NULL se excluyen.
+Registros: 8 canarias + 56 isla = 64 total (incluye año en curso con datos parciales).
+Estrategia de carga: TRUNCATE + reload completo. Ejecutar tras cada actualización de pte_vacacional.
+Nota: el año en curso aparece en la tabla pero con datos incompletos (solo meses disponibles a la fecha).
+
 ### Turistas Llegados por Isla (turistas_llegadas)
 Fuente: ISTAC, dataset E16028B_000011 "Encuesta de Gasto Turístico".
 Script de descarga: istac_turistas.py → tmp/turistas_YYYYMMDD.csv
@@ -337,6 +369,10 @@ Scripts de exploración (no usar en producción):
                                            ine_viviendas_no_hab_historico.py + auxiliares/viviendas_no_habituales.R
     historico_plazas_regladas              Plazas regladas anuales, canarias+7 islas, 2009–
     historico_tasa_ocupacion_reglada       Tasa de ocupación por plaza (%), mismo origen y cobertura
+    historico_estancia_media_reglada       Estancia media reglada (días) anual, canarias+7 islas, 2009–
+                                           PERNOC/VIAJEROS sumando 27 nacs. Fuente: C00065A_000039.
+    historico_estancia_media_vv            Estancia media VV (días) anual, canarias+7 islas, 2019–
+                                           Ponderada por viviendas_reservadas. Fuente: pte_vacacional.
     ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.

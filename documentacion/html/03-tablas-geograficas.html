@@ -1,0 +1,82 @@
+<!-- Cap. 3 — Tablas geográficas de referencia -->
+<h2>Cap. 3 — Tablas geográficas de referencia</h2> <p>Estas tablas proporcionan la base cartográfica y los identificadores geográficos que utilizan todos los demás componentes del sistema. La mayoría se cargaron manualmente a partir de fuentes cartográficas oficiales (IGN, GRAFCAN, INE).</p> <h3>Jerarquía territorial</h3> <pre><code>canarias (1)
+  └── islas (7)
+        └── municipios (88)
+              └── localidades (2.346)</code></pre> <hr> <h3>Tabla: islas</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>islas</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>7</small></p> <p>Catálogo de las 7 islas. Incluye el campo <code>tipo_isla</code> (segmentación para los benchmarks del diccionario) y el polígono <code>geom</code>.</p> <p><em>Carga: manual. Sin script automatizado.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>nombre</code></td><td>text</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>diciembre_2019</code></td><td>integer</td><td></td></tr>
+<tr><td><code>junio_2023</code></td><td>integer</td><td></td></tr>
+<tr><td><code>abril_2024</code></td><td>integer</td><td></td></tr>
+<tr><td><code>bloque</code></td><td>integer</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>geo_code</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>tipo_isla</code></td><td>character varying</td><td></td></tr></tbody></table> <hr> <h3>Tabla: municipios</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>municipios</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>88</small></p> <p>Los 88 municipios de Canarias. Contiene el campo <code>tipo_municipio</code> (segmentación para benchmarks: turístico, mixto, residencial), el código INE (<code>codigo_ine</code>), y el polígono <code>geom</code>.</p> <p><em>Carga: manual. Sin script automatizado.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>isla_id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>codigo_ine</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>nombre</code></td><td>text</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>poblacion</code></td><td>integer</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>muni_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>tipo_municipio</code></td><td>character varying</td><td></td></tr></tbody></table> <hr> <h3>Tabla: localidades</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>localidades</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>2346</small></p> <p>Las 2.346 entidades de población (núcleos y diseminados) del INE para Canarias. Se usa para asignar el núcleo de pertenencia de cada alojamiento (P08) y para el nivel de análisis de localidad en PT01.</p> <p><em>Carga: manual. Sin script automatizado.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>nombre</code></td><td>text</td><td></td></tr>
+<tr><td><code>poblacion_padron</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>poblacion_estacional</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>viviendas</code></td><td>integer</td><td></td></tr>
+<tr><td><code>altitud</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>ejercicio</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>fuente</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>isla_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>loca_norm</code></td><td>text</td><td></td></tr></tbody></table> <hr> <h3>Tabla: canarias</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>canarias</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>1</small></p> <p>Tabla de una sola fila con el polígono del archipiélago completo. Se usa en PT03 para hacer el JOIN geométrico del nivel <em>canarias</em> en la vista materializada.</p> <p><em>Carga: manual.</em></p> <hr> <h3>Tabla: mapa_municipios</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>mapa_municipios</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>89</small></p> <p>Geometrías municipales simplificadas para uso en el frontend. Incluye los 88 municipios más una entrada adicional para el nivel insular agrupado.</p> <p><em>Carga: manual.</em></p> <hr> <h3>Tabla: recintos_municipales</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>recintos_municipales</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>88</small></p> <p>Polígonos de recintos municipales, versión más detallada que <code>municipios</code>. Usada en determinadas operaciones espaciales de auditoría.</p> <p><em>Carga: manual.</em></p> <hr> <h3>Tabla: centroides_localidad</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>centroides_localidad</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>2346</small></p> <p>Un centroide por localidad, calculado como media ponderada de los portales del callejero pertenecientes a esa localidad. Se usa en P03 (fallback de geocodificación) y en P08 (asignación de localidad por proximidad).</p> <p><em>Carga: derivada del callejero. Script de construcción no automatizado actualmente.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>localidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>nombre_loca</code></td><td>text</td><td></td></tr>
+<tr><td><code>loca_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>warning_audit</code></td><td>text</td><td></td></tr></tbody></table> <hr> <h3>Tabla: centroides_cp</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>centroides_cp</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>529</small></p> <p>Un centroide por código postal, calculado como media de portales con ese CP en el callejero. Campo adicional <code>num_portales_usados</code> para diagnóstico. Se usa en P04.</p> <p><em>Carga: derivada del callejero. Script de construcción no automatizado actualmente.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>cod_postal</code></td><td>text</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>num_portales_usados</code></td><td>bigint</td><td></td></tr></tbody></table> <hr> <h3>Tabla: centroides_municipio</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>centroides_municipio</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>88</small></p> <p>Centroide oficial de cada municipio (ST_Centroid del polígono). Se usa en P05 y como fallback final en P06.</p> <p><em>Carga: derivada de la tabla municipios. Script de construcción no automatizado.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>nombre</code></td><td>text</td><td></td></tr>
+<tr><td><code>muni_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr></tbody></table> <hr> <h3>Tabla: callejero_portales</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>callejero_portales</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>526751</small></p> <p>Callejero de Canarias a nivel de portal (número de calle), con geometría de punto, dirección normalizada y código postal. Se usa en P02 para la geocodificación fuzzy de establecimientos turísticos mediante similitud trigonométrica (pg_trgm).</p> <p>Campos clave para la geocodificación: <code>dir_normalizada</code> (dirección estandarizada para la búsqueda fuzzy), <code>municipio_id</code>, <code>localidad_id</code>, <code>geom</code>.</p> <p><em>Fuente: cartografía oficial (GRAFCAN/Cartociudad). Carga manual.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id_porpk</code></td><td>text</td><td></td></tr>
+<tr><td><code>tipo</code></td><td>text</td><td></td></tr>
+<tr><td><code>tipo_vial</code></td><td>text</td><td></td></tr>
+<tr><td><code>nombre_via</code></td><td>text</td><td></td></tr>
+<tr><td><code>numero</code></td><td>text</td><td></td></tr>
+<tr><td><code>extension</code></td><td>text</td><td></td></tr>
+<tr><td><code>id_pob</code></td><td>text</td><td></td></tr>
+<tr><td><code>poblacion</code></td><td>text</td><td></td></tr>
+<tr><td><code>cod_postal</code></td><td>text</td><td></td></tr>
+<tr><td><code>ine_mun</code></td><td>text</td><td></td></tr>
+<tr><td><code>municipio</code></td><td>text</td><td></td></tr>
+<tr><td><code>provincia</code></td><td>text</td><td></td></tr>
+<tr><td><code>comunidad_autonoma</code></td><td>text</td><td></td></tr>
+<tr><td><code>fuente_datos</code></td><td>text</td><td></td></tr>
+<tr><td><code>fecha_modificacion</code></td><td>timestamp with time zone</td><td></td></tr>
+<tr><td><code>dir_normalizada</code></td><td>text</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>isla_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>localidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>loca_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>nombre_via_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>num_norm</code></td><td>text</td><td></td></tr></tbody></table> <hr> <h3>Tabla: portales_canarias</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>portales_canarias</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>526748</small></p> <p>Tabla auxiliar con contenido equivalente a <code>callejero_portales</code>. Mantiene compatibilidad con consultas heredadas. No se usa en el pipeline actual.</p> <hr> <h3>Tabla: codigos_postales</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>codigos_postales</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>583</small></p> <p>Catálogo de códigos postales de Canarias con su isla y municipio de referencia. Tabla auxiliar para validación y diagnóstico.</p> <p><em>Carga: manual.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>codigo_postal</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>isla</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>municipio</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>num_registros</code></td><td>integer</td><td></td></tr></tbody></table> <hr> <h3>Tabla: destinos_turisticos</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>destinos_turisticos</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>23</small></p> <p>Los 23 microdestinos turísticos reglados de Canarias, delimitados por el planeamiento urbanístico de suelo de uso turístico. Se usan en P09 para clasificar cada alojamiento según si está en un área turística oficial (<code>en_area_turistica = TRUE</code>) o en suelo residencial.</p> <p>El campo <code>turistica</code> distingue entre zonas con ordenación turística activa y las <em>bolsas</em> de suelo sin microdestino definido (que se tratarán como suelo residencial a efectos del análisis).</p> <p><em>Fuente: delimitación oficial de zonas turísticas del GobCan / GRAFCAN. Carga manual.</em></p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>geocode</code></td><td>text</td><td></td></tr>
+<tr><td><code>etiqueta</code></td><td>text</td><td></td></tr>
+<tr><td><code>granularidad</code></td><td>text</td><td></td></tr>
+<tr><td><code>gcd_isla</code></td><td>text</td><td></td></tr>
+<tr><td><code>superficie</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>perimetro</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>utm_x</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>utm_y</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>longitud</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>latitud</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>geometria</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>turistica</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>isla_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr></tbody></table>

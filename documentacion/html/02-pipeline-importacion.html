@@ -1,0 +1,109 @@
+<!-- Cap. 2 — Pipeline de importación turística -->
+<h2>Cap. 2 — Pipeline de importación turística (P00–P12)</h2> <p>El pipeline transforma los ficheros CSV publicados por el Gobierno de Canarias en registros de producción geocodificados y auditados en la tabla <code>alojamientos</code>.</p> <h3>Ficheros de entrada</h3> <ul><li><strong>vv-YYYY-MM-DD.csv</strong> — Viviendas vacacionales inscritas en el Registro General Turístico.</li>
+<li><strong>ht-YYYY-MM-DD.csv</strong> — Establecimientos hoteleros.</li>
+<li><strong>ap-YYYY-MM-DD.csv</strong> — Establecimientos extrahoteleros (excluidas viviendas vacacionales).</li></ul> <p>Los ficheros se descargan con <code>descarga_datos/importar_registro_alojamientos.py</code> y se guardan en <code>importar_gobcan/historico/</code>. La fecha del fichero se obtiene del campo <code>metadata_modified</code> de la API CKAN del GobCan.</p> <h3>Scripts del pipeline</h3> <h4>P00 — Preparación de ficheros</h4> <p>Script: <code>importar_gobcan/P00-preparar_ficheros.R</code></p> <ul><li>Determina la fecha de proceso (argumento o fichero más reciente en historico/).</li>
+<li>Corrige la errata <code>direcion_municipio_nombre</code> en los ficheros de hoteles.</li>
+<li>Fusiona <code>ap</code> + <code>ht</code> → <code>tmp/at.csv</code>.</li>
+<li>Copia <code>vv</code> → <code>tmp/vv.csv</code>.</li>
+<li>Limpia saltos de línea embebidos en los campos.</li></ul> <h4>P01 — Ingesta controlada</h4> <p>Script: <code>importar_gobcan/P01-ingesta_controlada.R</code></p> <ul><li>Lee <code>tmp/at.csv</code> y <code>tmp/vv.csv</code>.</li>
+<li>Normaliza municipio, tipología y clasificación.</li>
+<li>Hace TRUNCATE de <code>staging_import</code> e inserta todos los registros con estado <code>bruto</code>.</li>
+<li>Asigna <code>municipio_id</code> y <code>localidad_id</code> por join con tablas maestras.</li>
+<li>Filtra coordenadas fuera del bounding box de Canarias (marca <code>COORDS_FUERA_RANGO</code> en <code>audit_nota</code>).</li></ul> <h4>P02 — Geocodificación por callejero</h4> <p>Script: <code>importar_gobcan/P02-geocodificacion_filtrada_callejero.R</code></p> <ul><li>Busca cada dirección en <code>callejero_portales</code> usando similitud fuzzy (pg_trgm).</li>
+<li>Umbral mínimo: similitud ≥ 0.45. Filtro adicional: el portal geocodificado debe estar en el mismo municipio.</li>
+<li>Resultado almacenado en <code>fuente_geocodigo = 'callejero_fuzzy:cp_portal'</code>.</li>
+<li>Procesamiento por lotes de 500 registros con pausa de 0.05 s entre lotes.</li></ul> <h4>P03 — Fallback: centroide de localidad</h4> <p>Script: <code>importar_gobcan/P03-geocodificacion_por_centroide_localidad.R</code></p> <p>Asigna el centroide de la entidad de población (<code>centroides_localidad</code>) a los registros que tienen <code>localidad_id</code> pero no coordenadas. Los que no encuentran centroide pasan a estado <code>geocod_cp_pendiente</code> para que P04 los reintente.</p> <h4>P04 — Fallback: centroide de código postal</h4> <p>Script: <code>importar_gobcan/P04-geocodificacion_por_centroide_cp.R</code></p> <p>Usa la tabla <code>centroides_cp</code> (calculada como media de portales del callejero por CP). Alcance: ~92% de los candidatos.</p> <h4>P05 — Fallback: centroide de municipio</h4> <p>Script: <code>importar_gobcan/P05-geocodificacion_por_centroide_municipio.R</code></p> <p>Último recurso geométrico. Los registros sin coordenadas tras P05 quedan en estado <code>sin_posicion</code> y no se migran a producción.</p> <h4>P06 — Rescate de coordenadas en el mar</h4> <p>Script: <code>importar_gobcan/P06-rescate_del_mar.R</code></p> <ul><li>Genera la columna <code>geom</code> (PostGIS Point) desde latitud/longitud para todos los registros.</li>
+<li>Detecta registros cuya geometría cae fuera de cualquier polígono municipal (en el mar).</li>
+<li>Intenta rescatarlos asignando el centroide de la localidad más cercana dentro de 1 km.</li>
+<li>Los que no se rescatan reciben el centroide del municipio de origen declarado.</li></ul> <h4>P07 — Validación espacial (auditoría pasiva)</h4> <p>Script: <code>importar_gobcan/P07-validacion_espacial.R</code></p> <p>Clasifica cada registro en <code>audit_resultado</code>:</p> <ul><li><code>OK</code> — la geometría está en el municipio declarado por el GobCan.</li>
+<li><code>DISCREPANCIA</code> — la geometría apunta a un municipio distinto al declarado.</li>
+<li><code>SIN_GEOMETRIA</code> — sin coordenadas válidas.</li>
+<li><code>FUERA_DE_TIERRA</code> — coordenada en el mar no rescatada.</li>
+<li><code>SIN_MUNICIPIO_ORIGEN</code> — municipio de origen no identificado en la BD.</li></ul> <h4>P08 — Asignación de municipio y localidad por geometría</h4> <p>Script: <code>importar_gobcan/P08-asignacion_de_municipio_localidad_por_geo.R</code></p> <ul><li><strong>Método directa: </strong>ST_Intersects con polígonos de localidades.</li>
+<li><strong>Método proximidad: </strong>distancia al centroide de localidad más cercano (máx. 5 km) para los que no intersectan.</li>
+<li>Actualiza <code>municipio_id</code>, <code>localidad_id</code> y <code>muni_detectado_geo</code>.</li></ul> <h4>P09 — Asignación de isla, clasificación y microdestino</h4> <p>Script: <code>importar_gobcan/P09-asignar_isla_y_clasificacion.R</code></p> <ul><li>Mapea <code>isla_id</code> desde la tabla <code>municipios</code>.</li>
+<li>Mapea <code>modalidad_id</code>, <code>tipologia_id</code>, <code>clasificacion_id</code> mediante joins con las tablas de clasificación.</li>
+<li>Asigna <code>tipo_oferta</code> (VV/AR).</li>
+<li>Cruza con <code>destinos_turisticos</code> por ST_Intersects para determinar si el establecimiento está en área turística reglada.</li></ul> <h4>P10 — Detección de duplicados</h4> <p>Script: <code>importar_gobcan/P10-comprobar_duplicados.R</code></p> <p>Detecta y documenta establecimientos con <code>establecimiento_id</code> repetido en <code>staging_import</code>. Los duplicados <strong>no se eliminan aquí</strong>: P11 los resuelve con DISTINCT ON al migrar. Exporta un CSV de auditoría a <code>importar_gobcan/logs/</code>.</p> <h4>P11 — Migración a producción</h4> <p>Script: <code>importar_gobcan/P11-migrar_a_alojamientos.R</code></p> <ul><li>Usa <code>INSERT ... SELECT DISTINCT ON (establecimiento_id) ... ORDER BY id DESC</code>: conserva siempre el registro más reciente.</li>
+<li><code>ON CONFLICT (establecimiento_id) DO UPDATE</code>: actualiza campos clave de los registros ya existentes.</li>
+<li>Gestión de altas: <code>fecha_alta = fecha_proceso</code> (fecha del fichero CSV procesado).</li>
+<li>Gestión de reactivaciones: <code>fecha_baja = NULL</code> para establecimientos que reaparecen.</li>
+<li>Gestión de bajas: marca <code>fecha_baja = fecha_proceso</code> en los establecimientos que ya no figuran en el CSV.</li></ul> <h4>P12 — Informe de auditoría final</h4> <p>Script: <code>importar_gobcan/P12-informe_de_auditoria.R</code></p> <p>Genera un informe por pantalla con secciones: duplicados, totales por modalidad, origen de geocodificación, precisión fuzzy, proximidad a núcleo, integridad de plazas y balance de correcciones municipales. Exporta CSV del balance municipal a <code>importar_gobcan/logs/</code>.</p> <hr> <h3>Tabla: staging_import</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>staging_import</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>77464</small></p> <p>Tabla de trabajo temporal. Se hace TRUNCATE al inicio de cada ejecución de P01. Contiene todos los registros en proceso de geocodificación y clasificación. <strong>No debe considerarse una fuente de verdad</strong>: su contenido es transitorio.</p> <p>El campo <code>estado</code> refleja el avance en el pipeline:</p> <ul><li><code>bruto</code> → recién ingestado, sin geocodificar.</li>
+<li><code>geocod_cp_pendiente</code> → sin centroide de localidad, pendiente de P04.</li>
+<li><code>sin_posicion</code> → sin coordenadas recuperables.</li>
+<li><code>finalizado_geo</code> → geocodificación completa, listo para P09–P11.</li></ul> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>origen_dato</code></td><td>text</td><td></td></tr>
+<tr><td><code>establecimiento_id</code></td><td>text</td><td></td></tr>
+<tr><td><code>nombre_comercial</code></td><td>text</td><td></td></tr>
+<tr><td><code>modalidad_texto</code></td><td>text</td><td></td></tr>
+<tr><td><code>tipologia_texto</code></td><td>text</td><td></td></tr>
+<tr><td><code>clasificacion_texto</code></td><td>text</td><td></td></tr>
+<tr><td><code>direccion</code></td><td>text</td><td></td></tr>
+<tr><td><code>isla_nombre</code></td><td>text</td><td></td></tr>
+<tr><td><code>muni_nombre</code></td><td>text</td><td></td></tr>
+<tr><td><code>loca_nombre</code></td><td>text</td><td></td></tr>
+<tr><td><code>cp</code></td><td>text</td><td></td></tr>
+<tr><td><code>dormitorios_indiv</code></td><td>integer</td><td></td></tr>
+<tr><td><code>dormitorios_dobles</code></td><td>integer</td><td></td></tr>
+<tr><td><code>unidades_explotacion</code></td><td>integer</td><td></td></tr>
+<tr><td><code>plazas</code></td><td>integer</td><td></td></tr>
+<tr><td><code>longitud</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>latitud</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>isla_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>localidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>modalidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>tipologia_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>clasificacion_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>fuente_geocodigo</code></td><td>text</td><td></td></tr>
+<tr><td><code>metodo_localidad</code></td><td>text</td><td></td></tr>
+<tr><td><code>plazas_estimadas</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>direccion_match</code></td><td>text</td><td></td></tr>
+<tr><td><code>distancia_fuzzy</code></td><td>double precision</td><td></td></tr>
+<tr><td><code>estado</code></td><td>text</td><td></td></tr>
+<tr><td><code>error_msg</code></td><td>text</td><td></td></tr>
+<tr><td><code>ultimo_procesado</code></td><td>timestamp without time zone</td><td></td></tr>
+<tr><td><code>muni_original_gobcan</code></td><td>text</td><td></td></tr>
+<tr><td><code>geo_erronea_gobcan</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>audit_nota</code></td><td>text</td><td></td></tr>
+<tr><td><code>muni_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>loca_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>dir_norm</code></td><td>text</td><td></td></tr>
+<tr><td><code>muni_detectado_geo</code></td><td>text</td><td></td></tr>
+<tr><td><code>audit_resultado</code></td><td>text</td><td></td></tr>
+<tr><td><code>visual_tag</code></td><td>text</td><td></td></tr>
+<tr><td><code>tipo_oferta</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>en_area_turistica</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>geocode_area_turistica</code></td><td>character varying</td><td></td></tr></tbody></table> <hr> <h3>Tabla: alojamientos</h3> <p class="text-muted"><small><strong>Tabla: </strong><code>alojamientos</code> &nbsp;|&nbsp; <strong>Filas actuales: </strong>78202</small></p> <p>Tabla de producción. Contiene el registro definitivo de todos los establecimientos turísticos de Canarias procesados por el pipeline, con trazabilidad completa de geocodificación, clasificación y auditoría. Es la principal fuente de datos para el cálculo de indicadores en PT01.</p> <p><strong>Campos de auditoría:</strong> <code>audit_resultado</code> (OK/DISCREPANCIA/…), <code>audit_nota</code> (texto libre con eventos del pipeline), <code>geo_erronea_gobcan</code> (flag si las coords originales del GobCan eran incorrectas).</p> <p><strong>Ciclo de vida:</strong> un establecimiento entra con <code>fecha_alta</code> y sale (si desaparece del registro oficial) con <code>fecha_baja</code>. Los registros con baja se conservan para mantener el histórico.</p> <table class="table table-sm table-bordered"><thead><tr><th>Columna</th><th>Tipo</th><th></th></tr></thead><tbody><tr><td><code>id</code></td><td>integer</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>establecimiento_id</code></td><td>character varying</td><td><span class="badge badge-danger">NOT NULL</span></td></tr>
+<tr><td><code>nombre_comercial</code></td><td>text</td><td></td></tr>
+<tr><td><code>isla_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>municipio_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>localidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>modalidad_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>tipologia_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>clasificacion_id</code></td><td>integer</td><td></td></tr>
+<tr><td><code>tipo_oferta</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>plazas</code></td><td>integer</td><td></td></tr>
+<tr><td><code>unidades_explotacion</code></td><td>integer</td><td></td></tr>
+<tr><td><code>plazas_estimadas</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>muni_original_gobcan</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>muni_detectado_geo</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>direccion_original</code></td><td>text</td><td></td></tr>
+<tr><td><code>direccion_match</code></td><td>text</td><td></td></tr>
+<tr><td><code>distancia_fuzzy</code></td><td>numeric</td><td></td></tr>
+<tr><td><code>fuente_geocodigo</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>metodo_localidad</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>geo_erronea_gobcan</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>modalidad_original</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>tipologia_original</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>clasificacion_original</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>geom</code></td><td>USER-DEFINED</td><td></td></tr>
+<tr><td><code>audit_resultado</code></td><td>character varying</td><td></td></tr>
+<tr><td><code>audit_nota</code></td><td>text</td><td></td></tr>
+<tr><td><code>fecha_alta</code></td><td>date</td><td></td></tr>
+<tr><td><code>fecha_baja</code></td><td>date</td><td></td></tr>
+<tr><td><code>fecha_sistema</code></td><td>timestamp without time zone</td><td></td></tr>
+<tr><td><code>en_area_turistica</code></td><td>boolean</td><td></td></tr>
+<tr><td><code>geocode_area_turistica</code></td><td>character varying</td><td></td></tr></tbody></table>
