@@ -235,6 +235,82 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
   )
 }
 
+# --- FACTORES DE CORRECCIÓN PTEv (FRONTUR-based) ---
+# Para Canarias e islas: reemplaza pte_v por PTEv_real = PTEt(FRONTUR×EGT/365) - PTEr(reglado)
+# Para municipios: escala pte_v proporcional al PTEv_real de su isla, conservando
+# la distribución relativa del ISTAC y garantizando que la suma municipal = isla.
+# El Hierro y La Gomera (sin FRONTUR) conservan pte_v del ISTAC sin corrección.
+
+y_corte <- as.numeric(format(fecha_proceso, "%Y"))
+m_corte <- as.numeric(format(fecha_proceso, "%m"))
+
+pte_v_real_islas <- dbGetQuery(con, "
+  WITH
+  pte_t AS (
+    SELECT f.year, f.isla_id, f.turistas * e.estancia_media / 365.0 AS pte_t
+    FROM (SELECT year, isla_id, SUM(turistas) AS turistas
+          FROM frontur_turistas WHERE ambito = 'isla' GROUP BY year, isla_id) f
+    JOIN egt_estancia_media e ON e.isla_id = f.isla_id AND e.year = f.year
+  ),
+  pte_r AS (
+    SELECT p.ejercicio AS year, p.isla_id, p.plazas * t.tasa / 100.0 AS pte_r
+    FROM historico_plazas_regladas p
+    JOIN historico_tasa_ocupacion_reglada t
+      ON t.ejercicio = p.ejercicio AND t.ambito = p.ambito
+      AND COALESCE(t.isla_id, 0) = COALESCE(p.isla_id, 0)
+    WHERE p.ambito = 'isla'
+  ),
+  pte_v_real AS (
+    SELECT t.year, t.isla_id, GREATEST(t.pte_t - r.pte_r, 0) AS pte_v_real
+    FROM pte_t t JOIN pte_r r USING (year, isla_id)
+  ),
+  sistema AS (
+    SELECT isla_id, AVG(ptev) AS pte_v_sistema
+    FROM pte_vacacional
+    WHERE ambito = 'isla'
+      AND make_date(year, mes, 1) <= make_date($1, $2, 1)
+      AND make_date(year, mes, 1) >  make_date($1, $2, 1) - INTERVAL '12 months'
+    GROUP BY isla_id
+  ),
+  ultimo AS (
+    SELECT isla_id, MAX(year) AS year FROM pte_v_real WHERE year <= $1 GROUP BY isla_id
+  )
+  SELECT s.isla_id, u.year AS year_ref, v.pte_v_real, s.pte_v_sistema,
+         v.pte_v_real / NULLIF(s.pte_v_sistema, 0) AS factor
+  FROM sistema s
+  JOIN ultimo u USING (isla_id)
+  JOIN pte_v_real v ON v.isla_id = s.isla_id AND v.year = u.year
+", params = list(as.integer(y_corte), as.integer(m_corte)))
+
+pte_v_real_can <- dbGetQuery(con, "
+  WITH
+  pte_t AS (
+    SELECT f.year, f.turistas * e.estancia_media / 365.0 AS pte_t
+    FROM (SELECT year, SUM(turistas) AS turistas
+          FROM frontur_turistas WHERE ambito = 'canarias' GROUP BY year) f
+    JOIN egt_estancia_media e ON e.ambito = 'canarias' AND e.year = f.year
+  ),
+  pte_r AS (
+    SELECT p.ejercicio AS year, p.plazas * t.tasa / 100.0 AS pte_r
+    FROM historico_plazas_regladas p
+    JOIN historico_tasa_ocupacion_reglada t
+      ON t.ejercicio = p.ejercicio AND t.ambito = p.ambito
+      AND COALESCE(t.isla_id, 0) = 0
+    WHERE p.ambito = 'canarias'
+  )
+  SELECT t.year, GREATEST(t.pte_t - r.pte_r, 0) AS pte_v_real
+  FROM pte_t t JOIN pte_r r USING (year)
+  WHERE t.year <= $1 ORDER BY t.year DESC LIMIT 1
+", params = list(as.integer(y_corte)))
+
+# Vectores de consulta rápida por isla_id
+pte_v_real_vec  <- setNames(pte_v_real_islas$pte_v_real,  pte_v_real_islas$isla_id)
+factor_vec      <- setNames(pte_v_real_islas$factor,       pte_v_real_islas$isla_id)
+
+cat("Factores de corrección PTEv por isla:\n")
+print(pte_v_real_islas[, c("isla_id", "year_ref", "pte_v_real", "pte_v_sistema", "factor")])
+cat("\n")
+
 # --- PROCESAMIENTO ---
 
 invisible(dbExecute(con, "TRUNCATE TABLE base_snapshots RESTART IDENTITY"))
@@ -242,6 +318,7 @@ lista_base <- list()
 
 cat("1/4 Canarias...\n")
 d_can <- capturar("canarias", NA, NA, NA, fecha_proceso, "Canarias")
+if (nrow(pte_v_real_can) > 0) d_can$pte_v <- pte_v_real_can$pte_v_real[1]
 d_can$tipo_municipio <- "General"
 d_can$tipo_isla      <- "General"
 d_can$etiqueta_ambito_superior <- NA
@@ -251,6 +328,8 @@ cat("2/4 Islas...\n")
 islas_ref <- dbGetQuery(con, "SELECT id, nombre, tipo_isla FROM islas")
 for (i in 1:nrow(islas_ref)) {
   d <- capturar("isla", islas_ref$id[i], NA, NA, fecha_proceso, islas_ref$nombre[i])
+  iid <- as.character(islas_ref$id[i])
+  if (!is.na(pte_v_real_vec[iid])) d$pte_v <- pte_v_real_vec[iid]
   d$tipo_municipio <- "General"
   d$tipo_isla      <- islas_ref$tipo_isla[i]
   d$etiqueta_ambito_superior <- "Canarias"
@@ -263,6 +342,9 @@ muni_ref <- dbGetQuery(con, "
   FROM municipios m JOIN islas i ON m.isla_id = i.id")
 for (i in 1:nrow(muni_ref)) {
   d <- capturar("municipio", muni_ref$isla_id[i], muni_ref$id[i], NA, fecha_proceso, muni_ref$nombre[i])
+  iid <- as.character(muni_ref$isla_id[i])
+  f <- factor_vec[iid]
+  if (!is.na(f) && f > 0) d$pte_v <- d$pte_v * f
   d$tipo_municipio <- muni_ref$tipo_municipio[i]
   d$tipo_isla      <- "General"
   d$etiqueta_ambito_superior <- muni_ref$nombre_isla[i]

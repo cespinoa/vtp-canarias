@@ -328,6 +328,16 @@ COMMENT ON TABLE turistas_llegadas IS
 @cobertura_geografica: ES704 (Fuerteventura), ES705 (Gran Canaria), ES707 (La Palma), ES708 (Lanzarote), ES709 (Tenerife)
 @actualizacion: Mensual (TRUNCATE + reload)';
 
+COMMENT ON TABLE frontur_turistas IS
+'Turistas llegados por territorio y mes según FRONTUR (estadística de fronteras). Incluye Canarias total (ES70) y 5 islas principales (sin El Hierro ni La Gomera). Complementa turistas_llegadas (EGT) con el enfoque de conteo en frontera utilizado en el informe de Presión Turística (Turismo de Islas Canarias).
+
+@fuente: ISTAC E16028B_000016 (FRONTUR — Movimientos Turísticos en Fronteras)
+@descarga: frontur_canarias.py → tmp/frontur_YYYYMMDD.csv
+@importacion: importar_frontur.R
+@cobertura_temporal: 2010-M01 hasta el mes más reciente publicado (solo mensual)
+@cobertura_geografica: ES70 (Canarias), ES704 (Fuerteventura), ES705 (Gran Canaria), ES707 (La Palma), ES708 (Lanzarote), ES709 (Tenerife)
+@actualizacion: Mensual (TRUNCATE + reload)';
+
 COMMENT ON TABLE vivienda_iniciada_terminada_canarias IS
 'Viviendas iniciadas y terminadas en Canarias (libre y protegida) por territorio y período. Territorios: ES70 (Canarias), ES701 (Las Palmas), ES702 (SCT). Períodos: anuales (YYYY) y mensuales (YYYY-Mxx). Seis campos: iniciadas/terminadas × total/libres/protegidas.
 
@@ -337,6 +347,17 @@ COMMENT ON TABLE vivienda_iniciada_terminada_canarias IS
 @cobertura_temporal: ES70: 2002–presente; ES701/ES702: 2008–presente (anual y mensual)
 @cobertura_geografica: Canarias (ES70), provincia Las Palmas (ES701), provincia SCT (ES702)
 @actualizacion: El ISTAC revisa valores retroactivos → TRUNCATE + reload';
+
+COMMENT ON TABLE egt_estancia_media IS
+'Estancia media del turista en Canarias (días) según la EGT (Encuesta sobre el Gasto Turístico). Se calcula como NOCHES_PERNOCTADAS / TURISTAS a partir del mismo dataset, garantizando consistencia metodológica. Usada para calcular el PTEt según la metodología del informe de Presión Turística (Turismo de Islas Canarias): PTEt = FRONTUR × estancia_EGT / 365.
+
+@fuente: ISTAC C00028A (Encuesta sobre el Gasto Turístico — EGT)
+@dataset: C00028A_000003 (TURISTAS) + C00028A_000004 (NOCHES_PERNOCTADAS)
+@descarga: istac_egt_estancia.py → tmp/egt_estancia_YYYYMMDD.csv
+@importacion: importar_egt_estancia.R
+@cobertura_temporal: anual 2010–año más reciente publicado
+@cobertura_geografica: ES70 (Canarias), ES704 (Fuerteventura), ES705 (Gran Canaria), ES707 (La Palma), ES708 (Lanzarote), ES709 (Tenerife)
+@actualizacion: Anual cuando el ISTAC publica nuevos datos (TRUNCATE + reload)';
 
 -- ============================================================
 -- PIPELINE DE SNAPSHOTS — SALIDA CALCULADA

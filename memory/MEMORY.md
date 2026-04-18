@@ -6,3 +6,5 @@
 - [PT02 modo histórico — limitación crítica](feedback_pt02_historico.md) — solo seguro en snapshots de pipeline completo, no en snapshots PT04 manuales
 - [No pedir autorización durante búsquedas](feedback_autonomia_busqueda.md) — ejecutar exploración/APIs/ficheros sin confirmación; solo interrumpir en decisiones de diseño
 - [INE Censo viviendas histórico 2001/2011/2021](reference_ine_censo_viviendas.md) — URLs PC-Axis, limitaciones metodológicas, cifras Canarias por edición censal
+- [Clasificación tipo_municipio — criterios y casos límite](project_clasificacion_tipo_municipio.md) — decisiones sobre TURÍSTICO vs GRANDE/MEDIO; San Miguel, Las Palmas, Granadilla, etc.
+- [PTEv y PTEt — metodología y trabajo pendiente](project_pte_total_metodologia.md) — limitaciones del PTEv actual, metodología del informe TIC, línea de trabajo para calcular PTEt por diferencia

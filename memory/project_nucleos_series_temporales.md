@@ -36,9 +36,10 @@ Investigación realizada en abril 2026 para obtener series históricas de hogare
   https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176952
 
 **ECEPOV 2022+ (ediciones posteriores)**
-- Cada edición es una tabla Tempus3 independiente con ID diferente
-- No se encontró ninguna tabla para años posteriores a 2021 (IDs cercanos a 56531 no devuelven JSON)
-- Para futuras ediciones: buscar en la página de ECEPOV del INE y añadir `{id: año}` en `ECEPOV_TABLAS` del script
+- La ECEPOV es quinquenal, NO anual. Solo existe la edición 2021 (publicada feb 2023).
+- La próxima edición sería 2026, sin fecha anunciada a abril 2026.
+- No hay datos 2022–2025 en ninguna fuente para hogares por tipo de hogar en Canarias.
+- Cuando salga la próxima edición: buscar su ID Tempus3 en la página de la operación (código INE 30280) y añadirlo en `ECEPOV_TABLAS` del script `ine_ech_hogares.py`.
 
 ## Arquitectura del sistema Tempus3 del INE
 

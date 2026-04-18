@@ -346,6 +346,34 @@ Nota sobre tipos de viajero (no almacenados):
 Scripts de exploración (no usar en producción):
   istac_explore.py     Explora metadatos y endpoints de la API ISTAC
 
+### Turistas FRONTUR por Isla (frontur_turistas)
+Fuente: ISTAC, dataset E16028B_000016 "FRONTUR — Movimientos Turísticos en Fronteras".
+Script de descarga: frontur_canarias.py → tmp/frontur_YYYYMMDD.csv
+Script de importación: importar_frontur.R
+
+Cobertura: mensual 2010-M01 hasta el mes más reciente publicado.
+Territorios: ES70 (Canarias), ES704 (Fuerteventura), ES705 (Gran Canaria),
+  ES707 (La Palma), ES708 (Lanzarote), ES709 (Tenerife).
+Complementa turistas_llegadas (EGT) con el enfoque FRONTUR.
+Usado para calcular PTEt: FRONTUR × estancia_EGT / 365.
+Registros: 1.152 (192 meses × 6 territorios).
+Estrategia de carga: TRUNCATE + reload completo (el ISTAC revisa datos retroactivos).
+
+### Estancia Media EGT por Isla (egt_estancia_media)
+Fuente: ISTAC, datasets C00028A_000003 (TURISTAS) y C00028A_000004 (NOCHES_PERNOCTADAS).
+Script de descarga: istac_egt_estancia.py → tmp/egt_estancia_YYYYMMDD.csv
+Script de importación: importar_egt_estancia.R
+
+La estancia media se calcula como NOCHES_PERNOCTADAS / TURISTAS, garantizando
+consistencia metodológica. Usada para PTEt según metodología TIC.
+Cobertura: anual 2010–año más reciente publicado.
+Territorios: ES70 (Canarias), ES704 (Fuerteventura), ES705 (Gran Canaria),
+  ES707 (La Palma), ES708 (Lanzarote), ES709 (Tenerife).
+Registros: 96 (16 años × 6 territorios en última carga).
+Estrategia de carga: TRUNCATE + reload completo.
+Nota: los datos de los últimos años pueden diferir ligeramente del informe TIC
+  (el ISTAC revisa retroactivamente).
+
 # Tablas principales de la base de datos
 
   Datos primarios:
@@ -373,6 +401,11 @@ Scripts de exploración (no usar en producción):
                                            PERNOC/VIAJEROS sumando 27 nacs. Fuente: C00065A_000039.
     historico_estancia_media_vv            Estancia media VV (días) anual, canarias+7 islas, 2019–
                                            Ponderada por viviendas_reservadas. Fuente: pte_vacacional.
+    frontur_turistas                       Turistas FRONTUR por territorio y mes, canarias+5 islas, 2010–
+                                           Fuente: ISTAC E16028B_000016. Usada para calcular PTEt.
+    egt_estancia_media                     Estancia media EGT anual (días), canarias+5 islas, 2010–
+                                           NOCHES_PERNOCTADAS/TURISTAS. Fuente: ISTAC C00028A.
+                                           Usada para calcular PTEt y el corrector proporcional PTEv.
     ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.
