@@ -147,11 +147,60 @@ tryCatch({
   stop("Error en la carga: ", conditionMessage(e))
 })
 
-# --- 8. RESUMEN FINAL ---
-cat("\nResumen en BD:\n")
+# --- 8. CARGA ech_hogares_tipo_agrupada (solo ECH 2013–2020) ---
+# 4 categorías con clasificación homogénea en toda la serie:
+#   - Hogar unipersonal
+#   - Hogares con un núcleo familiar  (pareja sin hijos + pareja con hijos +
+#                                      monoparental + núcleo con otras personas)
+#   - Personas sin núcleo entre sí
+#   - Dos o más núcleos familiares
+
+agrupada <- ech %>%
+  mutate(categoria = case_when(
+    tipo_hogar == "Hogar unipersonal"
+      ~ "Hogar unipersonal",
+    tipo_hogar %in% c(
+      "Pareja sin hijos que convivan en el hogar",
+      "Pareja con hijos que convivan en el hogar: Total",
+      "Hogar monoparental",
+      "Núcleo familiar con otras personas que no forman núcleo familiar")
+      ~ "Hogares con un núcleo familiar",
+    tipo_hogar == "Personas que no forman ningún núcleo familiar entre sí"
+      ~ "Personas sin núcleo entre sí",
+    tipo_hogar == "Dos o más núcleos familiares"
+      ~ "Dos o más núcleos familiares",
+    TRUE ~ NA_character_
+  )) %>%
+  filter(!is.na(categoria)) %>%
+  group_by(anyo, categoria, fuente) %>%
+  summarise(hogares_miles = sum(hogares_miles), .groups = "drop") %>%
+  arrange(anyo, categoria)
+
+cat("\nAgrupada — filas a cargar:", nrow(agrupada), "\n")
+
+dbBegin(con)
+tryCatch({
+  dbExecute(con, "TRUNCATE TABLE ech_hogares_tipo_agrupada")
+  dbWriteTable(con, "ech_hogares_tipo_agrupada",
+               agrupada %>% select(anyo, categoria, hogares_miles, fuente),
+               append = TRUE, row.names = FALSE)
+  dbCommit(con)
+  cat("Cargados:", nrow(agrupada), "registros en ech_hogares_tipo_agrupada.\n")
+}, error = function(e) {
+  dbRollback(con)
+  stop("Error en la carga agrupada: ", conditionMessage(e))
+})
+
+# --- 9. RESUMEN FINAL ---
+cat("\nResumen ech_hogares_tipo:\n")
 print(dbGetQuery(con,
   "SELECT fuente, count(*) categorias, min(anyo) anyo_min, max(anyo) anyo_max
    FROM ech_hogares_tipo GROUP BY fuente ORDER BY fuente"))
+
+cat("\nResumen ech_hogares_tipo_agrupada:\n")
+print(dbGetQuery(con,
+  "SELECT categoria, min(anyo) anyo_min, max(anyo) anyo_max, count(*) anyos
+   FROM ech_hogares_tipo_agrupada GROUP BY categoria ORDER BY categoria"))
 
 dbDisconnect(con)
 cat("\nProceso completado.\n")

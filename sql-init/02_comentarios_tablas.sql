@@ -203,6 +203,23 @@ COMMENT ON TABLE ech_hogares_tipo IS
 @actualizacion: ECH: descontinuada (sustituida por ECEPOV). ECEPOV: quinquenal. Próxima actualización ~2026.
 @notas: La ECH no está disponible en Tempus3/API; se descarga directamente del JAXI como CSV. La ECEPOV es quinquenal, no hay datos 2022–2025.';
 
+COMMENT ON TABLE ech_hogares_tipo_agrupada IS
+'Serie temporal de hogares por categoría agrupada para Canarias (2013–2020), derivada de ech_hogares_tipo.
+Agrupa las categorías ECH en 4 grupos con clasificación homogénea en toda la serie:
+  - Hogar unipersonal
+  - Hogares con un núcleo familiar (pareja sin hijos + pareja con hijos + monoparental + núcleo con otras personas)
+  - Personas sin núcleo entre sí
+  - Dos o más núcleos familiares
+Solo fuente ECH (2013–2020) para garantizar consistencia metodológica. No incluye ECEPOV ni Censo 2021.
+Solo ámbito Canarias — no integrar en el pipeline de snapshots.
+
+@fuente: ECH (INE operación 274)
+@importacion: descarga_datos/importar_ech_hogares_tipo.R (se carga junto a ech_hogares_tipo)
+@cobertura_temporal: 2013–2020 anual
+@cobertura_geografica: Canarias
+@actualizacion: ECH descontinuada; serie cerrada en 2020.
+@notas: Diseñada para visualización en frontend. Permite mostrar la evolución de hogares con posible hacinamiento o vivienda compartida (plurinucleares y personas sin núcleo).';
+
 COMMENT ON TABLE viviendas_no_habituales_censos IS
 'Viviendas no habituales por municipio en los tres últimos censos disponibles.
 Permite analizar la evolución del stock no ocupado a nivel municipal (2001, 2011, 2021).
