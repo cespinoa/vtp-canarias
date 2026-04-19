@@ -374,6 +374,45 @@ Estrategia de carga: TRUNCATE + reload completo.
 Nota: los datos de los últimos años pueden diferir ligeramente del informe TIC
   (el ISTAC revisa retroactivamente).
 
+### Precio de Referencia del Alquiler (serpavi_alquiler)
+Fuente: MIVAU, Sistema Estatal de Referencia del Precio del Alquiler de Vivienda (SERPAVI).
+Explotación de fuentes tributarias (AEAT, Modelo 100) sobre contratos de arrendamiento
+de vivienda habitual.
+No hay script de descarga: el MIVAU publica un único Excel anual de descarga manual.
+Script de importación: importar_serpavi.R (en descarga_datos/)
+
+Descarga manual desde:
+  https://cdn.mivau.gob.es/portal-web-mivau/vivienda/serpavi/
+  Guardar en descarga_datos/tmp/ con nombre serpavi_YYYYMMDD.xlsx
+
+Cobertura: anual 2011–2024. Niveles: solo municipio (88 municipios canarios en el Excel,
+  54 con datos reales; los 34 restantes quedan en NULL por secreto estadístico).
+  Los niveles isla y canarias se calculan en PT01 como media ponderada por n_viviendas.
+
+Campos almacenados por municipio y año:
+  n_contratos      Número de contratos de arrendamiento (TVC)
+  n_viviendas      Número de viviendas únicas en alquiler habitual (TVU)
+  alq_m2_media     Precio medio €/m² (media ponderada por viviendas, perspectiva VU)
+  alq_m2_p25       Percentil 25 del precio €/m²
+  alq_m2_p75       Percentil 75 del precio €/m²
+  alq_anual_media  Renta total media anual en €
+  superficie_media Superficie media de la vivienda alquilada en m²
+
+Campos en el snapshot (PT01 → full_snapshots):
+  alq_m2_media          Precio medio del alquiler (€/m²) — visualizable
+  alq_m2_year           Año del dato SERPAVI (no visualizable)
+  alq_m2_variacion_10a  Variación % respecto a 10 años atrás — visualizable
+                        Fórmula: (actual − base) / base × 100
+
+Benchmarks (calculados por PT02 agrupando por tipo_municipio):
+  alq_m2_media_avg / alq_m2_media_max
+  alq_m2_variacion_10a_avg / alq_m2_variacion_10a_max
+
+Estrategia de carga: TRUNCATE + reload completo (el MIVAU revisa datos retroactivos).
+Registros: 1.232 (88 municipios × 14 años).
+Nota: la serie histórica completa (2011–2024) queda disponible directamente en la tabla
+  serpavi_alquiler para consulta desde el controller de Drupal; no se exporta a series.json.
+
 # Tablas principales de la base de datos
 
   Datos primarios:
@@ -406,6 +445,13 @@ Nota: los datos de los últimos años pueden diferir ligeramente del informe TIC
     egt_estancia_media                     Estancia media EGT anual (días), canarias+5 islas, 2010–
                                            NOCHES_PERNOCTADAS/TURISTAS. Fuente: ISTAC C00028A.
                                            Usada para calcular PTEt y el corrector proporcional PTEv.
+    serpavi_alquiler                       Precio de referencia del alquiler de vivienda habitual.
+                                           Fuente: MIVAU/AEAT (SERPAVI). Descarga manual anual (Excel).
+                                           88 municipios canarios × 14 años (2011–2024). 54 con datos.
+                                           Campos: n_contratos, n_viviendas, alq_m2_media, alq_m2_p25,
+                                           alq_m2_p75, alq_anual_media, superficie_media.
+                                           Integrada en snapshot: alq_m2_media + alq_m2_variacion_10a.
+                                           Serie histórica consultable directamente (no en series.json).
     ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.

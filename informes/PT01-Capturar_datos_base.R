@@ -146,6 +146,53 @@ get_datos_maestros <- function(ambito_val, i_id, m_id, f_proceso) {
   )
 }
 
+get_serpavi <- function(ambito_val, i_id, m_id, f_proceso) {
+  if (ambito_val == "localidad") return(list(media = NA, anyo = NA, var10 = NA))
+
+  y <- as.integer(format(f_proceso, "%Y"))
+
+  # Precio medio ponderado por n_viviendas: el último año disponible <= año del snapshot
+  # Para canarias/isla se agrega desde municipios (único nivel disponible en SERPAVI)
+  filtro_ambito <- switch(ambito_val,
+    canarias = "",
+    isla     = "AND isla_id = $2",
+    municipio = "AND municipio_id = $2"
+  )
+  params_base <- if (ambito_val == "canarias") list(y) else
+    list(y, if (ambito_val == "isla") as.integer(i_id) else as.integer(m_id))
+
+  sql_precio <- paste0("
+    SELECT anyo,
+           SUM(alq_m2_media * n_viviendas) / NULLIF(SUM(n_viviendas), 0) AS media
+    FROM serpavi_alquiler
+    WHERE alq_m2_media IS NOT NULL AND n_viviendas IS NOT NULL
+      AND anyo <= $1 ", filtro_ambito, "
+    GROUP BY anyo ORDER BY anyo DESC LIMIT 1")
+  res <- dbGetQuery(con, sql_precio, params = params_base)
+
+  if (nrow(res) == 0 || is.na(res$media)) return(list(media = NA, anyo = NA, var10 = NA))
+
+  anyo_actual <- res$anyo
+  precio_actual <- res$media
+  anyo_base <- anyo_actual - 10
+
+  params_base10 <- if (ambito_val == "canarias") list(anyo_base) else
+    list(anyo_base, if (ambito_val == "isla") as.integer(i_id) else as.integer(m_id))
+
+  sql_base10 <- paste0("
+    SELECT SUM(alq_m2_media * n_viviendas) / NULLIF(SUM(n_viviendas), 0) AS media
+    FROM serpavi_alquiler
+    WHERE alq_m2_media IS NOT NULL AND n_viviendas IS NOT NULL
+      AND anyo = $1 ", filtro_ambito)
+  res10 <- dbGetQuery(con, sql_base10, params = params_base10)
+
+  var10 <- if (nrow(res10) > 0 && !is.na(res10$media) && res10$media > 0)
+    round((precio_actual - res10$media) / res10$media * 100, 2)
+  else NA
+
+  list(media = round(precio_actual, 2), anyo = anyo_actual, var10 = var10)
+}
+
 get_nucleos_censales <- function(ambito_val, i_id, m_id) {
   if (ambito_val == "localidad")
     return(list(yr = NA, tot = NA, n0 = NA, n1 = NA, n2 = NA, n3 = NA))
@@ -198,6 +245,7 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
   ext   <- get_ext_viviendas(ambito, i_id, m_id)
   hog   <- get_hogares_limitado(ambito, i_id, m_id)
   nuc   <- get_nucleos_censales(ambito, i_id, m_id)
+  alq   <- get_serpavi(ambito, i_id, m_id, f_p)
 
   data.frame(
     ambito        = ambito,
@@ -231,7 +279,10 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
     hogares_0              = nuc$n0,
     hogares_1              = nuc$n1,
     hogares_2              = nuc$n2,
-    hogares_3              = nuc$n3
+    hogares_3              = nuc$n3,
+    alq_m2_media           = alq$media,
+    alq_m2_year            = alq$anyo,
+    alq_m2_variacion_10a   = alq$var10
   )
 }
 
