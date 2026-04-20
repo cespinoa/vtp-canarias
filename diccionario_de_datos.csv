@@ -1,152 +1,202 @@
-"id_campo","etiqueta","descripcion","tipo","orden_de_calculo","formula","origen","formato","unidades","visualizable","comparable","en_mv","en_localidades"
-"ambito","Ámbito","Ámbito","base",NULL,NULL,"Determinado en el proceso",NULL,NULL,False,True,True,True
-"cobertura_demanda_viviendas","Cobertura de la demanda de viviendas","Cobertura de la demanda de viviendas","ratio",60,"viviendas_disponibles / viviendas_necesarias * 100",NULL,"porcentaje_2","viviendas",False,True,False,False
-"consumidores_vivienda","Consumidores de vivienda","Consumidores de vivienda","base_calculado",40,"poblacion + pte_v",NULL,"entero","personas",False,False,False,False
-"deficit_oferta_viviendas","Déficit teórico de viviendas","Déficit teórico de viviendas","ratio",125,"(viviendas_necesarias - viviendas_disponibles) / viviendas_disponibles * 100",NULL,"porcentaje_2","viviendas",True,True,True,False
-"deficit_oferta_viviendas_avg","Media para Ratio de déficit teórico de viviendas","Media para Ratio de déficit teórico de viviendas","media",475,"avg(deficit_oferta_viviendas)",NULL,"decimal_2",NULL,False,False,False,False
-"deficit_oferta_viviendas_max","Máximo para Ratio de déficit teórico de viviendas","Máximo para Ratio de déficit teórico de viviendas","maximo",300,"max(deficit_oferta_viviendas)",NULL,"decimal_2",NULL,False,False,False,False
-"deficit_viviendas","Déficit de viviendas","Déficit de viviendas","base_calculado",39,"viviendas_disponibles - viviendas_necesarias",NULL,"entero","viviendas",False,True,False,False
-"etiqueta","Etiqueta","Etiqueta","base",NULL,NULL,"canarias.nombre | islas.nombre | municipos.nombre | localidades.nombre","texto",NULL,False,True,True,True
-"etiqueta_ambito_superior","Etiqueta del ámbito superior","Etiqueta del ámbito superior","base",NULL,NULL,"canarias.nombre | islas.nombre | municipos.nombre | localidades.nombre","texto",NULL,False,True,True,True
-"fecha_calculo","Fecha de cálculo","Fecha de cálculo","base",NULL,NULL,"Determinado en el proceso","fecha",NULL,False,True,True,True
-"isla_id","Id de la isla","Id de la isla","base",NULL,NULL,"Determinado en el proceso",NULL,NULL,False,True,True,True
-"localidad_id","Id de la localidad","Id de la localidad","base",NULL,NULL,"Determinado en el proceso",NULL,NULL,False,True,True,True
-"municipio_id","Id del municipio","Id del municipio","base",NULL,NULL,"Determinado en el proceso",NULL,NULL,False,True,True,True
-"personas_por_hogar","Personas por hogar","Personas por hogar","base",NULL,NULL,"hogares.miembros","decimal_2","personas ",False,False,False,False
-"personas_por_hogar_year","Personas por hogar período","Personas por hogar período","base",NULL,NULL,"hogares.year","date_year",NULL,False,False,False,False
-"plazas_at_residenciales","Plazas regladas en zonas residenciales","Plazas regladas en zonas residenciales","base",NULL,NULL,"alojamientos","entero","plazas",False,True,False,True
-"plazas_at_residenciales_oferta_en_residencial","Peso de la oferta reglada en zonas residenciales","Peso de la oferta reglada en zonas residenciales","porcentaje",220,"plazas_at_residenciales / plazas_suelo_residencial * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_at_residenciales_oferta_en_residencial_avg","Media para Peso de la oferta reglada en zonas residenciales","Media para Peso de la oferta reglada en zonas residenciales","media",570,"avg(plazas_at_residenciales_oferta_en_residencial)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_at_residenciales_oferta_en_residencial_max","Máximo para Peso de la oferta reglada en zonas residenciales","Máximo para Peso de la oferta reglada en zonas residenciales","maximo",395,"max(plazas_at_residenciales_oferta_en_residencial) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_at_residenciales_porc","Porcentaje de plazas regladas en zonas residenciales","Porcentaje de plazas regladas en zonas residenciales","porcentaje",150,"plazas_at_residenciales / plazas_regladas * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_at_residenciales_porc_avg","Media para Porcentaje de plazas regladas en zonas residenciales","Media para Porcentaje de plazas regladas en zonas residenciales","media",500,"avg(plazas_at_residenciales_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_at_residenciales_porc_max","Máximo para Porcentaje de plazas regladas en zonas residenciales","Máximo para Porcentaje de plazas regladas en zonas residenciales","maximo",325,"max(plazas_at_residenciales_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_at_turisticas","Plazas regladas en zonas turísticas","Plazas regladas en zonas turísticas","base",NULL,NULL,"alojamientos","entero","plazas",False,True,False,True
-"plazas_at_turisticas_porc","Porcentaje de plazas regladas en zonas turísticas","Porcentaje de plazas regladas en zonas turísticas","porcentaje",155,"plazas_at_turisticas / plazas_regladas * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_at_turisticas_porc_avg","Media para Porcentaje de plazas regladas en zonas turísticas","Media para Porcentaje de plazas regladas en zonas turísticas","media",505,"avg(plazas_at_turisticas_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_at_turisticas_porc_max","Máximo para Porcentaje de plazas regladas en zonas turísticas","Máximo para Porcentaje de plazas regladas en zonas turísticas","maximo",330,"max(plazas_at_turisticas_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_regladas","Total de plazas regladas","Total de plazas regladas","base_calculado",20,"plazas_at_residenciales + plazas_at_turisticas",NULL,"entero","plazas",False,True,False,True
-"plazas_regladas_plazas_total_porc","Peso de la oferta reglada","Peso de la oferta reglada","porcentaje",205,"plazas_regladas / plazas_total *100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_regladas_plazas_total_porc_avg","Media para Peso de la oferta reglada","Media para Peso de la oferta reglada","media",555,"avg(plazas_regladas_plazas_total_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_regladas_plazas_total_porc_max","Máximo para Peso de la oferta reglada","Máximo para Peso de la oferta reglada","maximo",380,"max(plazas_regladas_plazas_total_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_suelo_residencial","Plazas en suelo residencial","Plazas en suelo residencial","base_calculado",30,"plazas_vv_residenciales +  plazas_at_residenciales",NULL,"entero","plazas",False,True,False,True
-"plazas_suelo_residencial_porc","Desplazamiento de la actividad turística a zonas residenciales","Desplazamiento de la actividad turística a zonas residenciales","porcentaje",230,"plazas_suelo_residencial / plazas_total * 100",NULL,"porcentaje_2","plazas",True,True,True,False
-"plazas_suelo_residencial_porc_avg","Media para Desplazamiento de la actividad turística a zonas residenciales","Media para Desplazamiento de la actividad turística a zonas residenciales","media",580,"avg(plazas_suelo_residencial_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_suelo_residencial_porc_max","Máximo para Desplazamiento de la actividad turística a zonas residenciales","Máximo para Desplazamiento de la actividad turística a zonas residenciales","maximo",405,"max(plazas_suelo_residencial_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_suelo_turistico","Plazas en suelo turístico","Plazas en suelo turístico","base_calculado",35,"plazas_vv_turisticas + plazas_at_turisticas",NULL,"entero","plazas",False,True,False,True
-"plazas_suelo_turistico_porc","Actividad turística en zonas turísticas","Actividad turística en zonas turísticas","porcentaje",235,"plazas_suelo_turistico / plazas_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_suelo_turistico_porc_avg","Media para Actividad turística en zonas turísticas","Media para Actividad turística en zonas turísticas","media",585,"avg(plazas_suelo_turistico_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_suelo_turistico_porc_max","Máximo para Actividad turística en zonas turísticas","Máximo para Actividad turística en zonas turísticas","maximo",410,"max(plazas_suelo_turistico_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_total","Total de plazas alojativas","Total de plazas alojativas","base_calculado",25,"plazas_vacacionales + plazas_regladas",NULL,"entero","plazas",False,True,False,True
-"plazas_vacacionales","Total de plazas vacacionales","Total de plazas vacacionales","base_calculado",15,"plazas_vv_residenciales +  plazas_vv_turisticas",NULL,"entero","plazas",False,True,False,True
-"plazas_vacacionales_plazas_total_porc","Peso de la oferta vacacional","Peso de la oferta vacacional","porcentaje",200,"plazas_vacacionales / plazas_total *100",NULL,"porcentaje_2","plazas",True,True,True,False
-"plazas_vacacionales_plazas_total_porc_avg","Media para Peso de la oferta vacacional","Media para Peso de la oferta vacacional","media",550,"avg(plazas_vacacionales_plazas_total_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vacacionales_plazas_total_porc_max","Máximo para Peso de la oferta vacacional","Máximo para Peso de la oferta vacacional","maximo",375,"max(plazas_vacacionales_plazas_total_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vv_residenciales","Plazas vacacionales en zonas residenciales","Plazas vacacionales en zonas residenciales","base",NULL,NULL,"alojamientos","entero","plazas",False,True,False,True
-"plazas_vv_residenciales_oferta_en_residencial","Peso de la oferta vacacional en zonas turísticas","Peso de la oferta vacacional en zonas turísticas","porcentaje",225,"plazas_vv_residenciales / plazas_suelo_residencial * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_vv_residenciales_oferta_en_residencial_avg","Media para Peso de la oferta vacacional en zonas turísticas","Media para Peso de la oferta vacacional en zonas turísticas","media",575,"avg(plazas_vv_residenciales_oferta_en_residencial)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vv_residenciales_oferta_en_residencial_max","Máximo para Peso de la oferta vacacional en zonas turísticas","Máximo para Peso de la oferta vacacional en zonas turísticas","maximo",400,"max(plazas_vv_residenciales_oferta_en_residencial) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vv_residenciales_porc","Porcentaje de plazas vacacionales en zonas residenciales","Porcentaje de plazas vacacionales en zonas residenciales","porcentaje",140,"plazas_vv_residenciales / plazas_vacacionales * 100",NULL,"porcentaje_2","plazas",False,True,False,False
-"plazas_vv_residenciales_porc_avg","Media para Porcentaje de plazas vacacionales en zonas residenciales","Media para Porcentaje de plazas vacacionales en zonas residenciales","media",490,"avg(plazas_vv_residenciales_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vv_residenciales_porc_max","Máximo para Porcentaje de plazas vacacionales en zonas residenciales","Máximo para Porcentaje de plazas vacacionales en zonas residenciales","maximo",315,"max(plazas_vv_residenciales_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vv_turisticas","Plazas vacacionales en zonas turísticas","Plazas vacacionales en zonas turísticas","base",NULL,NULL,"alojamientos","entero","plazas",False,True,False,True
-"plazas_vv_turisticas_porc","Porcentaje de plazas vacacionales en zonas turísticas","Porcentaje de plazas vacacionales en zonas turísticas","porcentaje",145,"plazas_vv_turisticas / plazas_vacacionales * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"plazas_vv_turisticas_porc_avg","Media para Porcentaje de plazas vacacionales en zonas turísticas","Media para Porcentaje de plazas vacacionales en zonas turísticas","media",495,"avg(plazas_vv_turisticas_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"plazas_vv_turisticas_porc_max","Máximo para Porcentaje de plazas vacacionales en zonas turísticas","Máximo para Porcentaje de plazas vacacionales en zonas turísticas","maximo",320,"max(plazas_vv_turisticas_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"poblacion","Población censada","Población censada","base",NULL,NULL,"poblacion.valor","entero","personas",False,False,False,False
-"poblacion_total","Población total","Población total","base_calculado",45,"poblacion + pte_total",NULL,"entero","personas",False,True,False,False
-"poblacion_total_poblacion_porc","Porcentaje de población censada sobre población total","Porcentaje de población censada sobre población total","porcentaje",180,"poblacion / (poblacion_total) * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"poblacion_total_poblacion_porc_avg","Media para Porcentaje de población censada sobre población total","Media para Porcentaje de población censada sobre población total","media",530,"avg(poblacion_total_poblacion_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"poblacion_total_poblacion_porc_max","Máximo para Porcentaje de población censada sobre población total","Máximo para Porcentaje de población censada sobre población total","maximo",355,"max(poblacion_total_poblacion_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"poblacion_year","Año del censo de población","Año del censo de población","base",NULL,NULL,"poblacion.year","entero",NULL,False,False,False,False
-"presion_humana_km2","Presión humana /km² ","Presión humana /km² ","ratio",100,"poblacion_total / superficie_km2",NULL,"decimal_2","personas/km² ",True,True,True,False
-"presion_humana_km2_avg","Media para Presión humana /km² ","Media para Presión humana /km² ","media",450,"avg(presion_humana_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"presion_humana_km2_max","Máximo para Presión humana /km² ","Máximo para Presión humana /km² ","maximo",275,"max(presion_humana_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"pte_r","Población turística equivalente reglada (PTEr)","Población turística equivalente reglada (PTEr)","base",NULL,NULL,"pte_reglada.pte_reglada","entero","personas",False,True,False,False
-"pte_r_porc","Porcentaje de población turística equivalente reglada sobre PTE","Porcentaje de población turística equivalente reglada sobre PTE","porcentaje",165,"pte_r / pte_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"pte_r_porc_avg","Media para Porcentaje de población turística equivalente reglada sobre PTE","Media para Porcentaje de población turística equivalente reglada sobre PTE","media",515,"avg(pte_r_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_r_porc_max","Máximo para Porcentaje de población turística equivalente reglada sobre PTE","Máximo para Porcentaje de población turística equivalente reglada sobre PTE","maximo",340,"max(pte_r_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_r_total_poblacion_porc","Porcentaje de población turística equivalente reglada sobre población total","Porcentaje de población turística equivalente reglada sobre población total","porcentaje",175,"pte_r / (pte_total + poblacion) * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"pte_r_total_poblacion_porc_avg","Media para Porcentaje de población turística equivalente reglada sobre población total","Media para Porcentaje de población turística equivalente reglada sobre población total","media",525,"avg(pte_r_total_poblacion_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_r_total_poblacion_porc_max","Máximo para Porcentaje de población turística equivalente reglada sobre población total","Máximo para Porcentaje de población turística equivalente reglada sobre población total","maximo",350,"max(pte_r_total_poblacion_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_r_year","Año de cálculo de la PTEr","Año de cálculo de la PTEr","base",NULL,NULL,"pte_reglada.year","date_year",NULL,False,False,False,False
-"pte_total","Población turística equivalente (PTE)","Población turística equivalente (PTE)","base_calculado",5,"pte_r + pte_v",NULL,"entero","personas",False,True,False,False
-"pte_v","Población turística equivalente vacacional (PTEv)","Población turística equivalente vacacional (PTEv)","base",NULL,NULL,"pte_vacacional.ptev","entero","personas",False,True,False,False
-"pte_v_periodo","Período de cálculo de la PTEv","Período de cálculo de la PTEv","base",NULL,NULL,"pte_vacacional.year + pte_vacacional.mes","date_year",NULL,False,False,False,False
-"pte_v_porc","Porcentaje de población turística equivalente vacacional sobre PTE","Porcentaje de población turística equivalente vacacional sobre PTE","porcentaje",160,"pte_v / pte_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"pte_v_porc_avg","Media para Porcentaje de población turística equivalente vacacional sobre PTE","Media para Porcentaje de población turística equivalente vacacional sobre PTE","media",510,"avg(pte_v_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_v_porc_max","Máximo para Porcentaje de población turística equivalente vacacional sobre PTE","Máximo para Porcentaje de población turística equivalente vacacional sobre PTE","maximo",335,"max(pte_v_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_v_total_poblacion_porc","Porcentaje de población turística equivalente vacacional sobre población total","Porcentaje de población turística equivalente vacacional sobre población total","porcentaje",170,"pte_v / (pte_total + poblacion) * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"pte_v_total_poblacion_porc_avg","Media para Porcentaje de población turística equivalente vacacional sobre población total","Media para Porcentaje de población turística equivalente vacacional sobre población total","media",520,"avg(pte_v_total_poblacion_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"pte_v_total_poblacion_porc_max","Máximo para Porcentaje de población turística equivalente vacacional sobre población total","Máximo para Porcentaje de población turística equivalente vacacional sobre población total","maximo",345,"max(pte_v_total_poblacion_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"residentes_km2","Residentes / km² ","Residentes / km² ","ratio",95,"poblacion / superficie_km2",NULL,"decimal_2","residentes/km² ",True,True,True,False
-"residentes_km2_avg","Media para Residentes / km² ","Media para Residentes / km² ","media",445,"avg(residentes_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"residentes_km2_max","Máximo para Residentes / km² ","Máximo para Residentes / km² ","maximo",270,"max(residentes_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"residentes_km2_presion_humana_km2","Peso de la población residente en la presión humana","Peso de la población residente en la presión humana","porcentaje",215,"residentes_km2 / presion_humana_km2 * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"residentes_km2_presion_humana_km2_avg","Media para Peso de la población residente en la presión humana","Media para Peso de la población residente en la presión humana","media",565,"avg(residentes_km2_presion_humana_km2)",NULL,"porcentaje_2",NULL,False,False,False,False
-"residentes_km2_presion_humana_km2_max","Máximo para Peso de la población residente en la presión humana","Máximo para Peso de la población residente en la presión humana","maximo",390,"max(residentes_km2_presion_humana_km2)",NULL,"porcentaje_2",NULL,False,False,False,False
-"rit","Ratio de Intensidad Turística","Ratio de Intensidad Turística","ratio",75,"pte_total / poblacion * 100",NULL,"decimal_2","Turistas/100 residentes",True,True,True,False
-"rit_avg","Media para Ratio de Intensidad Turística","Media para Ratio de Intensidad Turística","media",425,"avg(rit)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_km2","RIT / km²","RIT / km²","ratio",90,"pte_total / superficie_km2",NULL,"decimal_2","turistas/km² ",True,True,True,False
-"rit_km2_avg","Media para RIT / km²","Media para RIT / km²","media",440,"avg(rit_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_km2_max","Máximo para RIT / km²","Máximo para RIT / km²","maximo",265,"max(rit_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_km2_presion_humana_km2","Peso de la población turística equivalente en la presión humana","Peso de la población turística equivalente en la presión humana","porcentaje",210,"rit_km2 / presion_humana_km2 * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"rit_km2_presion_humana_km2_avg","Media para Peso de la población turística equivalente en la presión humana","Media para Peso de la población turística equivalente en la presión humana","media",560,"avg(rit_km2_presion_humana_km2)",NULL,"porcentaje_2",NULL,False,False,False,False
-"rit_km2_presion_humana_km2_max","Máximo para Peso de la población turística equivalente en la presión humana","Máximo para Peso de la población turística equivalente en la presión humana","maximo",385,"max(rit_km2_presion_humana_km2)",NULL,"porcentaje_2",NULL,False,False,False,False
-"rit_max","Máximo para Ratio de Intensidad Turística","Máximo para Ratio de Intensidad Turística","maximo",250,"max(rit)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_r","RIT reglada","RIT reglada","ratio",65,"pte_r / poblacion * 100",NULL,"decimal_2","Turistas/100 residentes",True,True,True,False
-"rit_r_avg","Media para RIT reglada","Media para RIT reglada","media",415,"avg(rit_r)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_r_km2","RIT reglada / km²","RIT reglada / km²","ratio",80,"pte_r / superficie_km2",NULL,"decimal_2","turistas/km² ",True,True,True,False
-"rit_r_km2_avg","Media para RIT reglada / km²","Media para RIT reglada / km²","media",430,"avg(rit_r_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_r_km2_max","Máximo para RIT reglada / km²","Máximo para RIT reglada / km²","maximo",255,"max(rit_r_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_r_max","Máximo para RIT reglada","Máximo para RIT reglada","maximo",240,"max(rit_r)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_r_porc","Porcentaje de presión reglada","Porcentaje de presión reglada","porcentaje",181,"rit_r / rit * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"rit_v","RIT vacacional","RIT vacacional","ratio",70,"pte_v / poblacion * 100",NULL,"decimal_2","Turistas/100 residentes",True,True,True,False
-"rit_v_avg","Media para RIT vacacional","Media para RIT vacacional","media",420,"avg(rit_v)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_v_km2","RIT vacacional / km²","RIT vacacional / km²","ratio",85,"pte_v / superficie_km2",NULL,"decimal_2","turistas/km² ",True,True,True,False
-"rit_v_km2_avg","Media para RIT vacacional / km²","Media para RIT vacacional / km²","media",435,"avg(rit_v_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_v_km2_max","Máximo para RIT vacacional / km²","Máximo para RIT vacacional / km²","maximo",260,"max(rit_v_km2)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_v_max","Máximo para RIT vacacional","Máximo para RIT vacacional","maximo",245,"max(rit_v)",NULL,"decimal_2",NULL,False,False,False,False
-"rit_v_porc","Porcentaje de presión vacacional","Porcentaje de presión vacacional","porcentaje",182,"rit_v / rit * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"superficie_km2","Superficie en km² ","Superficie en km² ","base",NULL,NULL,"superficies.superficie","decimal_2","km²",False,False,False,False
-"tipo_isla","Tipo de isla","Tipo de isla","base",NULL,NULL,"Clasificación geográfica: Centrales, Occidentales, Orientales","texto",NULL,False,True,True,True
-"tipo_municipio","Tipo de municipio","Tipo de municipio","base",NULL,NULL,"Clasificación propia basada en la inclusión de microdestinos y población","texto",NULL,False,True,True,True
-"uds_vv_habitantes","Vacacionales cada 100 habitantes","Vacacionales cada 100 habitantes","ratio",115,"uds_vv_total / poblacion * 100",NULL,"decimal_2","viviendas/100 habitantes",True,True,True,False
-"uds_vv_habitantes_avg","Media para Vacacionales cada 100 habitantes","Media para Vacacionales cada 100 habitantes","media",465,"avg(uds_vv_habitantes)",NULL,"decimal_2",NULL,False,False,False,False
-"uds_vv_habitantes_max","Máximo para Vacacionales cada 100 habitantes","Máximo para Vacacionales cada 100 habitantes","maximo",290,"max(uds_vv_habitantes)",NULL,"decimal_2",NULL,False,False,False,False
-"uds_vv_residenciales","Viviendas turísticas en zonas residenciales","Viviendas turísticas en zonas residenciales","base",NULL,NULL,"alojamientos","entero","viviendas",False,True,False,True
-"uds_vv_residenciales_habitantes","Vacacionales en zonas residenciales por cada 100 habitantes","Vacacionales en zonas residenciales por cada 100 habitantes","porcentaje",120,"uds_vv_residenciales / poblacion * 100",NULL,"porcentaje_2","viviendas/100 habitantes",False,True,False,False
-"uds_vv_residenciales_habitantes_avg","Media para Vacacionales en zonas residenciales por cada 100 habitantes","Media para Vacacionales en zonas residenciales por cada 100 habitantes","media",470,"avg(uds_vv_residenciales_habitantes)",NULL,"porcentaje_2",NULL,False,False,False,False
-"uds_vv_residenciales_habitantes_max","Máximo para Vacacionales en zonas residenciales por cada 100 habitantes","Máximo para Vacacionales en zonas residenciales por cada 100 habitantes","maximo",295,"max(uds_vv_residenciales_habitantes)",NULL,"porcentaje_2",NULL,False,False,False,False
-"uds_vv_residenciales_porc","Porcentaje de viviendas vacacionales en zonas residenciales","Porcentaje de viviendas vacacionales en zonas residenciales","porcentaje",130,"uds_vv_residenciales / uds_vv_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"uds_vv_residenciales_porc_avg","Media para Porcentaje de viviendas vacacionales en zonas residenciales","Media para Porcentaje de viviendas vacacionales en zonas residenciales","media",480,"avg(uds_vv_residenciales_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"uds_vv_residenciales_porc_max","Máximo para Porcentaje de viviendas vacacionales en zonas residenciales","Máximo para Porcentaje de viviendas vacacionales en zonas residenciales","maximo",305,"max(uds_vv_residenciales_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"uds_vv_total","Total de viviendas vacacionales","Total de viviendas vacacionales","base_calculado",10,"uds_vv_turisticas + uds_vv_residenciales",NULL,"entero","viviendas",False,True,False,True
-"uds_vv_turisticas","Viviendas turísticas en zonas turísticas","Viviendas turísticas en zonas turísticas","base",NULL,NULL,"alojamientos","entero","viviendas",False,True,False,True
-"uds_vv_turisticas_porc","Porcentaje de viviendas vacacionales en zonas turísticas","Porcentaje de viviendas vacacionales en zonas turísticas","porcentaje",135,"uds_vv_turisticas / uds_vv_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"uds_vv_turisticas_porc_avg","Media para Porcentaje de viviendas vacacionales en zonas turísticas","Media para Porcentaje de viviendas vacacionales en zonas turísticas","media",485,"avg(uds_vv_turisticas_porc)",NULL,"porcentaje_2",NULL,False,False,False,False
-"uds_vv_turisticas_porc_max","Máximo para Porcentaje de viviendas vacacionales en zonas turísticas","Máximo para Porcentaje de viviendas vacacionales en zonas turísticas","maximo",310,"max(uds_vv_turisticas_porc) | Excluyendo valores 100",NULL,"porcentaje_2",NULL,False,False,False,False
-"vacacional_por_viviendas_habituales","Presión de viviendas vacacionales sobre habituales","Presión de viviendas vacacionales sobre habituales","porcentaje",105,"uds_vv_residenciales / viviendas_habituales * 100",NULL,"porcentaje_2","viviendas",True,True,True,False
-"vacacional_por_viviendas_habituales_avg","Media para Presión de viviendas vacacionales sobre habituales","Media para Presión de viviendas vacacionales sobre habituales","media",455,"avg(vacacional_por_viviendas_habituales)",NULL,"porcentaje_2",NULL,False,False,False,False
-"vacacional_por_viviendas_habituales_max","Máximo para Presión de viviendas vacacionales sobre habituales","Máximo para Presión de viviendas vacacionales sobre habituales","maximo",280,"max(vacacional_por_viviendas_habituales)",NULL,"porcentaje_2",NULL,False,False,False,False
-"vacacional_por_viviendas_total","Presión de viviendas vacacionales sobre el total de viviendas","Presión de viviendas vacacionales sobre el total de viviendas","porcentaje",110,"uds_vv_total / viviendas_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"vacacional_por_viviendas_total_avg","Media para Presión de viviendas vacacionales sobre el total de viviendas","Media para Presión de viviendas vacacionales sobre el total de viviendas","media",460,"avg(vacacional_por_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"vacacional_por_viviendas_total_max","Máximo para Presión de viviendas vacacionales sobre el total de viviendas","Máximo para Presión de viviendas vacacionales sobre el total de viviendas","maximo",285,"max(vacacional_por_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"vhabituales_consumidores","Viviendas habituales por 100 consumidores","Viviendas habituales por 100 consumidores","ratio",55,"viviendas_habituales / consumidores_vivienda * 100",NULL,"decimal_2","viviendas/100 personas",False,True,False,False
-"vhabituales_habitantes","Viviendas habituales por 100 habitantes","Viviendas habituales por 100 habitantes","ratio",50,"viviendas_habituales / poblacion * 100",NULL,"decimal_2","viviendas/100 personas",False,True,False,False
-"viviendas_disponibles","Viviendas disponibles","Viviendas disponibles","base_calculado",36,"viviendas_habituales -  uds_vv_residenciales",NULL,"entero","viviendas",False,True,False,False
-"viviendas_disponibles_viviendas_habituales","Porcentaje de viviendas disponibles","Porcentaje de viviendas disponibles","base_calculado",38,"viviendas_disponibles / viviendas_habituales * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"viviendas_esporadicas","Viviendas de uso esporádico","Viviendas de uso esporádico","base",NULL,NULL,"parque_viviendas.esporadicas","entero","viviendas",False,False,False,False
-"viviendas_esporadicas_viviendas_total","Presión de la vivienda ocasional","Presión de la vivienda ocasional","porcentaje",190,"viviendas_esporadicas / viviendas_total*100",NULL,"porcentaje_2","viviendas",True,True,True,False
-"viviendas_esporadicas_viviendas_total_avg","Media para Presión de la vivienda ocasional","Media para Presión de la vivienda ocasional","media",540,"avg(viviendas_esporadicas_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"viviendas_esporadicas_viviendas_total_max","Máximo para Presión de la vivienda ocasional","Máximo para Presión de la vivienda ocasional","maximo",365,"max(viviendas_esporadicas_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"viviendas_habituales","Viviendas habituales","Viviendas habituales","base",NULL,NULL,"parque_viviendas.habituales","entero","viviendas",False,False,False,False
-"viviendas_habituales_viviendas_total","Disponibilidad de viviendas habituales","Disponibilidad de viviendas habituales","porcentaje",195,"viviendas_habituales / viviendas_total * 100",NULL,"porcentaje_2",NULL,False,True,False,False
-"viviendas_habituales_viviendas_total_avg","Media para Disponibilidad de viviendas habituales","Media para Disponibilidad de viviendas habituales","media",545,"avg(viviendas_habituales_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"viviendas_habituales_viviendas_total_max","Máximo para Disponibilidad de viviendas habituales","Máximo para Disponibilidad de viviendas habituales","maximo",370,"max(viviendas_habituales_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"viviendas_necesarias","Viviendas necesarias","Viviendas necesarias","base_calculado",37,"poblacion / personas_por_hogar",NULL,"entero","viviendas",False,True,False,False
-"viviendas_total","Total de viviendas","Total de viviendas","base",NULL,NULL,"parque_viviendas.total","entero","viviendas",False,False,False,False
-"viviendas_vacias","Viviendas vacías","Viviendas vacías","base",NULL,NULL,"parque_viviendas.vacias","entero","viviendas",False,False,False,False
-"viviendas_vacias_viviendas_total","Presión de la vivienda vacía","Presión de la vivienda vacía","porcentaje",185,"viviendas_vacias / viviendas_total * 100",NULL,"porcentaje_2","viviendas",True,True,True,False
-"viviendas_vacias_viviendas_total_avg","Media para Presión de la vivienda vacía","Media para Presión de la vivienda vacía","media",535,"avg(viviendas_vacias_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
-"viviendas_vacias_viviendas_total_max","Máximo para Presión de la vivienda vacía","Máximo para Presión de la vivienda vacía","maximo",360,"max(viviendas_vacias_viviendas_total)",NULL,"porcentaje_2",NULL,False,False,False,False
+id_campo,etiqueta,descripcion,tipo,orden_de_calculo,formula,origen,formato,unidades,visualizable,comparable,en_mv,en_localidades
+pte_total,Población turística equivalente (PTE),Población turística equivalente (PTE),base_calculado,5,pte_r + pte_v,,entero,personas,f,t,f,f
+uds_vv_total,Total de viviendas vacacionales,Total de viviendas vacacionales,base_calculado,10,uds_vv_turisticas + uds_vv_residenciales,,entero,viviendas,f,t,f,t
+plazas_vacacionales,Total de plazas vacacionales,Total de plazas vacacionales,base_calculado,15,plazas_vv_residenciales +  plazas_vv_turisticas,,entero,plazas,f,t,f,t
+plazas_regladas,Total de plazas regladas,Total de plazas regladas,base_calculado,20,plazas_at_residenciales + plazas_at_turisticas,,entero,plazas,f,t,f,t
+plazas_total,Total de plazas alojativas,Total de plazas alojativas,base_calculado,25,plazas_vacacionales + plazas_regladas,,entero,plazas,f,t,f,t
+plazas_suelo_residencial,Plazas en suelo residencial,Plazas en suelo residencial,base_calculado,30,plazas_vv_residenciales +  plazas_at_residenciales,,entero,plazas,f,t,f,t
+plazas_suelo_turistico,Plazas en suelo turístico,Plazas en suelo turístico,base_calculado,35,plazas_vv_turisticas + plazas_at_turisticas,,entero,plazas,f,t,f,t
+viviendas_disponibles,Viviendas disponibles,Viviendas disponibles,base_calculado,36,"ifelse(!is.na(viviendas_year) & as.Date(viviendas_year) < as.Date(""2026-01-01""), viviendas_habituales, viviendas_habituales - uds_vv_residenciales)",,entero,viviendas,f,t,f,f
+viviendas_necesarias,Viviendas necesarias,Viviendas necesarias,base_calculado,37,poblacion / personas_por_hogar,,entero,viviendas,f,t,f,f
+viviendas_disponibles_viviendas_habituales,Porcentaje de viviendas disponibles,Porcentaje de viviendas disponibles,base_calculado,38,viviendas_disponibles / viviendas_habituales * 100,,porcentaje_2,,f,t,f,f
+deficit_viviendas,Déficit de viviendas,Déficit de viviendas,base_calculado,39,viviendas_disponibles - viviendas_necesarias,,entero,viviendas,f,t,f,f
+consumidores_vivienda,Consumidores de vivienda,Consumidores de vivienda,base_calculado,40,poblacion + pte_v,,entero,personas,f,f,f,f
+poblacion_total,Población total,Población total,base_calculado,45,poblacion + pte_total,,entero,personas,f,t,f,f
+vhabituales_habitantes,Viviendas habituales por 100 habitantes,Viviendas habituales por 100 habitantes,ratio,50,viviendas_habituales / poblacion * 100,,decimal_2,viviendas/100 personas,f,t,f,f
+vhabituales_consumidores,Viviendas habituales por 100 consumidores,Viviendas habituales por 100 consumidores,ratio,55,viviendas_habituales / consumidores_vivienda * 100,,decimal_2,viviendas/100 personas,f,t,f,f
+cobertura_demanda_viviendas,Cobertura de la demanda de viviendas,Cobertura de la demanda de viviendas,ratio,60,viviendas_disponibles / viviendas_necesarias * 100,,porcentaje_2,viviendas,f,t,f,f
+rit_r,RIT reglada,RIT reglada,ratio,65,pte_r / poblacion * 100,,decimal_2,Turistas/100 residentes,t,t,t,f
+rit_v,RIT vacacional,RIT vacacional,ratio,70,pte_v / poblacion * 100,,decimal_2,Turistas/100 residentes,t,t,t,f
+rit,Ratio de Intensidad Turística,Ratio de Intensidad Turística,ratio,75,pte_total / poblacion * 100,,decimal_2,Turistas/100 residentes,t,t,t,f
+rit_r_km2,RIT reglada / km²,RIT reglada / km²,ratio,80,pte_r / superficie_km2,,decimal_2,turistas/km² ,t,t,t,f
+rit_v_km2,RIT vacacional / km²,RIT vacacional / km²,ratio,85,pte_v / superficie_km2,,decimal_2,turistas/km² ,t,t,t,f
+rit_km2,RIT / km²,RIT / km²,ratio,90,pte_total / superficie_km2,,decimal_2,turistas/km² ,t,t,t,f
+residentes_km2,Residentes / km² ,Residentes / km² ,ratio,95,poblacion / superficie_km2,,decimal_2,residentes/km² ,t,t,t,f
+presion_humana_km2,Presión humana /km² ,Presión humana /km² ,ratio,100,poblacion_total / superficie_km2,,decimal_2,personas/km² ,t,t,t,f
+vacacional_por_viviendas_habituales,Presión de viviendas vacacionales sobre habituales,Presión de viviendas vacacionales sobre habituales,porcentaje,105,uds_vv_residenciales / viviendas_habituales * 100,,porcentaje_2,viviendas,t,t,t,f
+vacacional_por_viviendas_total,Presión de viviendas vacacionales sobre el total de viviendas,Presión de viviendas vacacionales sobre el total de viviendas,porcentaje,110,uds_vv_total / viviendas_total * 100,,porcentaje_2,,f,t,f,f
+uds_vv_habitantes,Vacacionales cada 100 habitantes,Vacacionales cada 100 habitantes,ratio,115,uds_vv_total / poblacion * 100,,decimal_2,viviendas/100 habitantes,t,t,t,f
+uds_vv_residenciales_habitantes,Vacacionales en zonas residenciales por cada 100 habitantes,Vacacionales en zonas residenciales por cada 100 habitantes,porcentaje,120,uds_vv_residenciales / poblacion * 100,,porcentaje_2,viviendas/100 habitantes,f,t,f,f
+deficit_oferta_viviendas,Déficit teórico de viviendas,Déficit teórico de viviendas,ratio,125,(viviendas_necesarias - viviendas_disponibles) / viviendas_disponibles * 100,,porcentaje_2,viviendas,t,t,t,f
+uds_vv_residenciales_porc,Porcentaje de viviendas vacacionales en zonas residenciales,Porcentaje de viviendas vacacionales en zonas residenciales,porcentaje,130,uds_vv_residenciales / uds_vv_total * 100,,porcentaje_2,,f,t,f,f
+uds_vv_turisticas_porc,Porcentaje de viviendas vacacionales en zonas turísticas,Porcentaje de viviendas vacacionales en zonas turísticas,porcentaje,135,uds_vv_turisticas / uds_vv_total * 100,,porcentaje_2,,f,t,f,f
+plazas_vv_residenciales_porc,Porcentaje de plazas vacacionales en zonas residenciales,Porcentaje de plazas vacacionales en zonas residenciales,porcentaje,140,plazas_vv_residenciales / plazas_vacacionales * 100,,porcentaje_2,plazas,f,t,f,f
+plazas_vv_turisticas_porc,Porcentaje de plazas vacacionales en zonas turísticas,Porcentaje de plazas vacacionales en zonas turísticas,porcentaje,145,plazas_vv_turisticas / plazas_vacacionales * 100,,porcentaje_2,,f,t,f,f
+plazas_at_residenciales_porc,Porcentaje de plazas regladas en zonas residenciales,Porcentaje de plazas regladas en zonas residenciales,porcentaje,150,plazas_at_residenciales / plazas_regladas * 100,,porcentaje_2,,f,t,f,f
+plazas_at_turisticas_porc,Porcentaje de plazas regladas en zonas turísticas,Porcentaje de plazas regladas en zonas turísticas,porcentaje,155,plazas_at_turisticas / plazas_regladas * 100,,porcentaje_2,,f,t,f,f
+pte_v_porc,Porcentaje de población turística equivalente vacacional sobre PTE,Porcentaje de población turística equivalente vacacional sobre PTE,porcentaje,160,pte_v / pte_total * 100,,porcentaje_2,,f,t,f,f
+pte_r_porc,Porcentaje de población turística equivalente reglada sobre PTE,Porcentaje de población turística equivalente reglada sobre PTE,porcentaje,165,pte_r / pte_total * 100,,porcentaje_2,,f,t,f,f
+pte_v_total_poblacion_porc,Porcentaje de población turística equivalente vacacional sobre población total,Porcentaje de población turística equivalente vacacional sobre población total,porcentaje,170,pte_v / (pte_total + poblacion) * 100,,porcentaje_2,,f,t,f,f
+pte_r_total_poblacion_porc,Porcentaje de población turística equivalente reglada sobre población total,Porcentaje de población turística equivalente reglada sobre población total,porcentaje,175,pte_r / (pte_total + poblacion) * 100,,porcentaje_2,,f,t,f,f
+poblacion_total_poblacion_porc,Porcentaje de población censada sobre población total,Porcentaje de población censada sobre población total,porcentaje,180,poblacion / (poblacion_total) * 100,,porcentaje_2,,f,t,f,f
+rit_r_porc,Porcentaje de presión reglada,Porcentaje de presión reglada,porcentaje,181,rit_r / rit * 100,,porcentaje_2,,f,t,f,f
+rit_v_porc,Porcentaje de presión vacacional,Porcentaje de presión vacacional,porcentaje,182,rit_v / rit * 100,,porcentaje_2,,f,t,f,f
+viviendas_vacias_viviendas_total,Presión de la vivienda vacía,Presión de la vivienda vacía,porcentaje,185,viviendas_vacias / viviendas_total * 100,,porcentaje_2,viviendas,t,t,t,f
+viviendas_esporadicas_viviendas_total,Presión de la vivienda ocasional,Presión de la vivienda ocasional,porcentaje,190,viviendas_esporadicas / viviendas_total*100,,porcentaje_2,viviendas,t,t,t,f
+viviendas_habituales_viviendas_total,Disponibilidad de viviendas habituales,Disponibilidad de viviendas habituales,porcentaje,195,viviendas_habituales / viviendas_total * 100,,porcentaje_2,,f,t,f,f
+plazas_vacacionales_plazas_total_porc,Peso de la oferta vacacional,Peso de la oferta vacacional,porcentaje,200,plazas_vacacionales / plazas_total *100,,porcentaje_2,plazas,t,t,t,f
+plazas_regladas_plazas_total_porc,Peso de la oferta reglada,Peso de la oferta reglada,porcentaje,205,plazas_regladas / plazas_total *100,,porcentaje_2,,f,t,f,f
+rit_km2_presion_humana_km2,Peso de la población turística equivalente en la presión humana,Peso de la población turística equivalente en la presión humana,porcentaje,210,rit_km2 / presion_humana_km2 * 100,,porcentaje_2,,f,t,f,f
+residentes_km2_presion_humana_km2,Peso de la población residente en la presión humana,Peso de la población residente en la presión humana,porcentaje,215,residentes_km2 / presion_humana_km2 * 100,,porcentaje_2,,f,t,f,f
+plazas_at_residenciales_oferta_en_residencial,Peso de la oferta reglada en zonas residenciales,Peso de la oferta reglada en zonas residenciales,porcentaje,220,plazas_at_residenciales / plazas_suelo_residencial * 100,,porcentaje_2,,f,t,f,f
+plazas_vv_residenciales_oferta_en_residencial,Peso de la oferta vacacional en zonas turísticas,Peso de la oferta vacacional en zonas residenciales,porcentaje,225,plazas_vv_residenciales / plazas_suelo_residencial * 100,,porcentaje_2,,f,t,f,f
+plazas_at_turisticas_oferta_en_turistico,Peso de la oferta turística en zonas turísticas,Peso de la oferta turística en zonas turísticas,porcentaje,226,plazas_at_turisticas / plazas_suelo_turistico * 100,,porcentaje_2,,f,t,f,f
+plazas_vv_turisticas_oferta_en_turistico,Peso de la oferta vacacional en zonas turísticas,Peso de la oferta vacacional en zonas turísticas,porcentaje,227,plazas_vv_turisticas / plazas_suelo_turistico * 100,,porcentaje_2,,f,t,f,f
+plazas_suelo_residencial_porc,Desplazamiento de la actividad turística a zonas residenciales,Desplazamiento de la actividad turística a zonas residenciales,porcentaje,230,plazas_suelo_residencial / plazas_total * 100,,porcentaje_2,plazas,t,t,t,f
+plazas_suelo_turistico_porc,Actividad turística en zonas turísticas,Actividad turística en zonas turísticas,porcentaje,235,plazas_suelo_turistico / plazas_total * 100,,porcentaje_2,,f,t,f,f
+rit_r_max,Máximo para RIT reglada,Máximo para RIT reglada,maximo,240,max(rit_r),,decimal_2,,f,f,f,f
+rit_v_max,Máximo para RIT vacacional,Máximo para RIT vacacional,maximo,245,max(rit_v),,decimal_2,,f,f,f,f
+rit_max,Máximo para Ratio de Intensidad Turística,Máximo para Ratio de Intensidad Turística,maximo,250,max(rit),,decimal_2,,f,f,f,f
+rit_r_km2_max,Máximo para RIT reglada / km²,Máximo para RIT reglada / km²,maximo,255,max(rit_r_km2),,decimal_2,,f,f,f,f
+rit_v_km2_max,Máximo para RIT vacacional / km²,Máximo para RIT vacacional / km²,maximo,260,max(rit_v_km2),,decimal_2,,f,f,f,f
+rit_km2_max,Máximo para RIT / km²,Máximo para RIT / km²,maximo,265,max(rit_km2),,decimal_2,,f,f,f,f
+residentes_km2_max,Máximo para Residentes / km² ,Máximo para Residentes / km² ,maximo,270,max(residentes_km2),,decimal_2,,f,f,f,f
+presion_humana_km2_max,Máximo para Presión humana /km² ,Máximo para Presión humana /km² ,maximo,275,max(presion_humana_km2),,decimal_2,,f,f,f,f
+vacacional_por_viviendas_habituales_max,Máximo para Presión de viviendas vacacionales sobre habituales,Máximo para Presión de viviendas vacacionales sobre habituales,maximo,280,max(vacacional_por_viviendas_habituales),,porcentaje_2,,f,f,f,f
+vacacional_por_viviendas_total_max,Máximo para Presión de viviendas vacacionales sobre el total de viviendas,Máximo para Presión de viviendas vacacionales sobre el total de viviendas,maximo,285,max(vacacional_por_viviendas_total),,porcentaje_2,,f,f,f,f
+uds_vv_habitantes_max,Máximo para Vacacionales cada 100 habitantes,Máximo para Vacacionales cada 100 habitantes,maximo,290,max(uds_vv_habitantes),,decimal_2,,f,f,f,f
+uds_vv_residenciales_habitantes_max,Máximo para Vacacionales en zonas residenciales por cada 100 habitantes,Máximo para Vacacionales en zonas residenciales por cada 100 habitantes,maximo,295,max(uds_vv_residenciales_habitantes),,porcentaje_2,,f,f,f,f
+deficit_oferta_viviendas_max,Máximo para Ratio de déficit teórico de viviendas,Máximo para Ratio de déficit teórico de viviendas,maximo,300,max(deficit_oferta_viviendas),,decimal_2,,f,f,f,f
+uds_vv_residenciales_porc_max,Máximo para Porcentaje de viviendas vacacionales en zonas residenciales,Máximo para Porcentaje de viviendas vacacionales en zonas residenciales,maximo,305,max(uds_vv_residenciales_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+uds_vv_turisticas_porc_max,Máximo para Porcentaje de viviendas vacacionales en zonas turísticas,Máximo para Porcentaje de viviendas vacacionales en zonas turísticas,maximo,310,max(uds_vv_turisticas_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_vv_residenciales_porc_max,Máximo para Porcentaje de plazas vacacionales en zonas residenciales,Máximo para Porcentaje de plazas vacacionales en zonas residenciales,maximo,315,max(plazas_vv_residenciales_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_vv_turisticas_porc_max,Máximo para Porcentaje de plazas vacacionales en zonas turísticas,Máximo para Porcentaje de plazas vacacionales en zonas turísticas,maximo,320,max(plazas_vv_turisticas_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_at_residenciales_porc_max,Máximo para Porcentaje de plazas regladas en zonas residenciales,Máximo para Porcentaje de plazas regladas en zonas residenciales,maximo,325,max(plazas_at_residenciales_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_at_turisticas_porc_max,Máximo para Porcentaje de plazas regladas en zonas turísticas,Máximo para Porcentaje de plazas regladas en zonas turísticas,maximo,330,max(plazas_at_turisticas_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+pte_v_porc_max,Máximo para Porcentaje de población turística equivalente vacacional sobre PTE,Máximo para Porcentaje de población turística equivalente vacacional sobre PTE,maximo,335,max(pte_v_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+pte_r_porc_max,Máximo para Porcentaje de población turística equivalente reglada sobre PTE,Máximo para Porcentaje de población turística equivalente reglada sobre PTE,maximo,340,max(pte_r_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+pte_v_total_poblacion_porc_max,Máximo para Porcentaje de población turística equivalente vacacional sobre población total,Máximo para Porcentaje de población turística equivalente vacacional sobre población total,maximo,345,max(pte_v_total_poblacion_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+pte_r_total_poblacion_porc_max,Máximo para Porcentaje de población turística equivalente reglada sobre población total,Máximo para Porcentaje de población turística equivalente reglada sobre población total,maximo,350,max(pte_r_total_poblacion_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+poblacion_total_poblacion_porc_max,Máximo para Porcentaje de población censada sobre población total,Máximo para Porcentaje de población censada sobre población total,maximo,355,max(poblacion_total_poblacion_porc),,porcentaje_2,,f,f,f,f
+viviendas_vacias_viviendas_total_max,Máximo para Presión de la vivienda vacía,Máximo para Presión de la vivienda vacía,maximo,360,max(viviendas_vacias_viviendas_total),,porcentaje_2,,f,f,f,f
+viviendas_esporadicas_viviendas_total_max,Máximo para Presión de la vivienda ocasional,Máximo para Presión de la vivienda ocasional,maximo,365,max(viviendas_esporadicas_viviendas_total),,porcentaje_2,,f,f,f,f
+viviendas_habituales_viviendas_total_max,Máximo para Disponibilidad de viviendas habituales,Máximo para Disponibilidad de viviendas habituales,maximo,370,max(viviendas_habituales_viviendas_total),,porcentaje_2,,f,f,f,f
+plazas_vacacionales_plazas_total_porc_max,Máximo para Peso de la oferta vacacional,Máximo para Peso de la oferta vacacional,maximo,375,max(plazas_vacacionales_plazas_total_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_regladas_plazas_total_porc_max,Máximo para Peso de la oferta reglada,Máximo para Peso de la oferta reglada,maximo,380,max(plazas_regladas_plazas_total_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+rit_km2_presion_humana_km2_max,Máximo para Peso de la población turística equivalente en la presión humana,Máximo para Peso de la población turística equivalente en la presión humana,maximo,385,max(rit_km2_presion_humana_km2),,porcentaje_2,,f,f,f,f
+residentes_km2_presion_humana_km2_max,Máximo para Peso de la población residente en la presión humana,Máximo para Peso de la población residente en la presión humana,maximo,390,max(residentes_km2_presion_humana_km2),,porcentaje_2,,f,f,f,f
+plazas_at_residenciales_oferta_en_residencial_max,Máximo para Peso de la oferta reglada en zonas residenciales,Máximo para Peso de la oferta reglada en zonas residenciales,maximo,395,max(plazas_at_residenciales_oferta_en_residencial) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_vv_residenciales_oferta_en_residencial_max,Máximo para Peso de la oferta vacacional en zonas turísticas,Máximo para Peso de la oferta vacacional en zonas turísticas,maximo,400,max(plazas_vv_residenciales_oferta_en_residencial) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_suelo_residencial_porc_max,Máximo para Desplazamiento de la actividad turística a zonas residenciales,Máximo para Desplazamiento de la actividad turística a zonas residenciales,maximo,405,max(plazas_suelo_residencial_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+plazas_suelo_turistico_porc_max,Máximo para Actividad turística en zonas turísticas,Máximo para Actividad turística en zonas turísticas,maximo,410,max(plazas_suelo_turistico_porc) | Excluyendo valores 100,,porcentaje_2,,f,f,f,f
+rit_r_avg,Media para RIT reglada,Media para RIT reglada,media,415,avg(rit_r),,decimal_2,,f,f,f,f
+rit_v_avg,Media para RIT vacacional,Media para RIT vacacional,media,420,avg(rit_v),,decimal_2,,f,f,f,f
+rit_avg,Media para Ratio de Intensidad Turística,Media para Ratio de Intensidad Turística,media,425,avg(rit),,decimal_2,,f,f,f,f
+rit_r_km2_avg,Media para RIT reglada / km²,Media para RIT reglada / km²,media,430,avg(rit_r_km2),,decimal_2,,f,f,f,f
+rit_v_km2_avg,Media para RIT vacacional / km²,Media para RIT vacacional / km²,media,435,avg(rit_v_km2),,decimal_2,,f,f,f,f
+rit_km2_avg,Media para RIT / km²,Media para RIT / km²,media,440,avg(rit_km2),,decimal_2,,f,f,f,f
+residentes_km2_avg,Media para Residentes / km² ,Media para Residentes / km² ,media,445,avg(residentes_km2),,decimal_2,,f,f,f,f
+presion_humana_km2_avg,Media para Presión humana /km² ,Media para Presión humana /km² ,media,450,avg(presion_humana_km2),,decimal_2,,f,f,f,f
+vacacional_por_viviendas_habituales_avg,Media para Presión de viviendas vacacionales sobre habituales,Media para Presión de viviendas vacacionales sobre habituales,media,455,avg(vacacional_por_viviendas_habituales),,porcentaje_2,,f,f,f,f
+vacacional_por_viviendas_total_avg,Media para Presión de viviendas vacacionales sobre el total de viviendas,Media para Presión de viviendas vacacionales sobre el total de viviendas,media,460,avg(vacacional_por_viviendas_total),,porcentaje_2,,f,f,f,f
+uds_vv_habitantes_avg,Media para Vacacionales cada 100 habitantes,Media para Vacacionales cada 100 habitantes,media,465,avg(uds_vv_habitantes),,decimal_2,,f,f,f,f
+uds_vv_residenciales_habitantes_avg,Media para Vacacionales en zonas residenciales por cada 100 habitantes,Media para Vacacionales en zonas residenciales por cada 100 habitantes,media,470,avg(uds_vv_residenciales_habitantes),,porcentaje_2,,f,f,f,f
+deficit_oferta_viviendas_avg,Media para Ratio de déficit teórico de viviendas,Media para Ratio de déficit teórico de viviendas,media,475,avg(deficit_oferta_viviendas),,decimal_2,,f,f,f,f
+uds_vv_residenciales_porc_avg,Media para Porcentaje de viviendas vacacionales en zonas residenciales,Media para Porcentaje de viviendas vacacionales en zonas residenciales,media,480,avg(uds_vv_residenciales_porc),,porcentaje_2,,f,f,f,f
+uds_vv_turisticas_porc_avg,Media para Porcentaje de viviendas vacacionales en zonas turísticas,Media para Porcentaje de viviendas vacacionales en zonas turísticas,media,485,avg(uds_vv_turisticas_porc),,porcentaje_2,,f,f,f,f
+plazas_vv_residenciales_porc_avg,Media para Porcentaje de plazas vacacionales en zonas residenciales,Media para Porcentaje de plazas vacacionales en zonas residenciales,media,490,avg(plazas_vv_residenciales_porc),,porcentaje_2,,f,f,f,f
+plazas_vv_turisticas_porc_avg,Media para Porcentaje de plazas vacacionales en zonas turísticas,Media para Porcentaje de plazas vacacionales en zonas turísticas,media,495,avg(plazas_vv_turisticas_porc),,porcentaje_2,,f,f,f,f
+plazas_at_residenciales_porc_avg,Media para Porcentaje de plazas regladas en zonas residenciales,Media para Porcentaje de plazas regladas en zonas residenciales,media,500,avg(plazas_at_residenciales_porc),,porcentaje_2,,f,f,f,f
+plazas_at_turisticas_porc_avg,Media para Porcentaje de plazas regladas en zonas turísticas,Media para Porcentaje de plazas regladas en zonas turísticas,media,505,avg(plazas_at_turisticas_porc),,porcentaje_2,,f,f,f,f
+pte_v_porc_avg,Media para Porcentaje de población turística equivalente vacacional sobre PTE,Media para Porcentaje de población turística equivalente vacacional sobre PTE,media,510,avg(pte_v_porc),,porcentaje_2,,f,f,f,f
+pte_r_porc_avg,Media para Porcentaje de población turística equivalente reglada sobre PTE,Media para Porcentaje de población turística equivalente reglada sobre PTE,media,515,avg(pte_r_porc),,porcentaje_2,,f,f,f,f
+pte_v_total_poblacion_porc_avg,Media para Porcentaje de población turística equivalente vacacional sobre población total,Media para Porcentaje de población turística equivalente vacacional sobre población total,media,520,avg(pte_v_total_poblacion_porc),,porcentaje_2,,f,f,f,f
+pte_r_total_poblacion_porc_avg,Media para Porcentaje de población turística equivalente reglada sobre población total,Media para Porcentaje de población turística equivalente reglada sobre población total,media,525,avg(pte_r_total_poblacion_porc),,porcentaje_2,,f,f,f,f
+poblacion_total_poblacion_porc_avg,Media para Porcentaje de población censada sobre población total,Media para Porcentaje de población censada sobre población total,media,530,avg(poblacion_total_poblacion_porc),,porcentaje_2,,f,f,f,f
+viviendas_vacias_viviendas_total_avg,Media para Presión de la vivienda vacía,Media para Presión de la vivienda vacía,media,535,avg(viviendas_vacias_viviendas_total),,porcentaje_2,,f,f,f,f
+viviendas_esporadicas_viviendas_total_avg,Media para Presión de la vivienda ocasional,Media para Presión de la vivienda ocasional,media,540,avg(viviendas_esporadicas_viviendas_total),,porcentaje_2,,f,f,f,f
+viviendas_habituales_viviendas_total_avg,Media para Disponibilidad de viviendas habituales,Media para Disponibilidad de viviendas habituales,media,545,avg(viviendas_habituales_viviendas_total),,porcentaje_2,,f,f,f,f
+plazas_vacacionales_plazas_total_porc_avg,Media para Peso de la oferta vacacional,Media para Peso de la oferta vacacional,media,550,avg(plazas_vacacionales_plazas_total_porc),,porcentaje_2,,f,f,f,f
+plazas_regladas_plazas_total_porc_avg,Media para Peso de la oferta reglada,Media para Peso de la oferta reglada,media,555,avg(plazas_regladas_plazas_total_porc),,porcentaje_2,,f,f,f,f
+rit_km2_presion_humana_km2_avg,Media para Peso de la población turística equivalente en la presión humana,Media para Peso de la población turística equivalente en la presión humana,media,560,avg(rit_km2_presion_humana_km2),,porcentaje_2,,f,f,f,f
+residentes_km2_presion_humana_km2_avg,Media para Peso de la población residente en la presión humana,Media para Peso de la población residente en la presión humana,media,565,avg(residentes_km2_presion_humana_km2),,porcentaje_2,,f,f,f,f
+plazas_at_residenciales_oferta_en_residencial_avg,Media para Peso de la oferta reglada en zonas residenciales,Media para Peso de la oferta reglada en zonas residenciales,media,570,avg(plazas_at_residenciales_oferta_en_residencial),,porcentaje_2,,f,f,f,f
+plazas_vv_residenciales_oferta_en_residencial_avg,Media para Peso de la oferta vacacional en zonas turísticas,Media para Peso de la oferta vacacional en zonas turísticas,media,575,avg(plazas_vv_residenciales_oferta_en_residencial),,porcentaje_2,,f,f,f,f
+plazas_suelo_residencial_porc_avg,Media para Desplazamiento de la actividad turística a zonas residenciales,Media para Desplazamiento de la actividad turística a zonas residenciales,media,580,avg(plazas_suelo_residencial_porc),,porcentaje_2,,f,f,f,f
+plazas_suelo_turistico_porc_avg,Media para Actividad turística en zonas turísticas,Media para Actividad turística en zonas turísticas,media,585,avg(plazas_suelo_turistico_porc),,porcentaje_2,,f,f,f,f
+hogares_0_porc,% hogares sin núcleo,Porcentaje de hogares sin núcleo familiar sobre el total de hogares,porcentaje,590,hogares_0 / hogares_total * 100,,porcentaje_2,%,t,t,t,f
+hogares_1_porc,% hogares un núcleo,Porcentaje de hogares con un único núcleo familiar sobre el total de hogares,porcentaje,595,hogares_1 / hogares_total * 100,,porcentaje_2,%,t,t,t,f
+hogares_2_porc,% hogares dos núcleos,Porcentaje de hogares con dos núcleos familiares sobre el total de hogares,porcentaje,600,hogares_2 / hogares_total * 100,,porcentaje_2,%,t,t,t,f
+hogares_3_porc,% hogares tres o más núcleos,Porcentaje de hogares con tres o más núcleos familiares sobre el total de hogares,porcentaje,605,hogares_3 / hogares_total * 100,,porcentaje_2,%,t,t,t,f
+deficit_teorico_viviendas,Déficit teórico de viviendas (núcleos),"Estimación teórica mínima del déficit de viviendas derivado de hogares plurinucleares: hogares_2 + hogares_3 * 2. Teórico porque no toda plurinuclearidad implica necesidad de vivienda adicional (decisiones de vida, cuidado de mayores, etc.)",ratio,610,hogares_2 + hogares_3 * 2,,entero,viviendas,t,t,t,f
+deficit_teorico_viviendas_porc,% déficit teórico sobre hogares,Déficit teórico de viviendas expresado como porcentaje sobre el total de hogares del territorio,porcentaje,612,deficit_teorico_viviendas / hogares_total * 100,,porcentaje_2,%,t,t,t,f
+hogares_total_max,Máx. total hogares,Valor máximo de hogares_total en el grupo de referencia,maximo,615,max(hogares_total),,entero,hogares,f,f,f,f
+hogares_0_max,Máx. hogares sin núcleo,Valor máximo de hogares_0 en el grupo de referencia,maximo,620,max(hogares_0),,entero,hogares,f,f,f,f
+hogares_1_max,Máx. hogares un núcleo,Valor máximo de hogares_1 en el grupo de referencia,maximo,625,max(hogares_1),,entero,hogares,f,f,f,f
+hogares_2_max,Máx. hogares dos núcleos,Valor máximo de hogares_2 en el grupo de referencia,maximo,630,max(hogares_2),,entero,hogares,f,f,f,f
+hogares_3_max,Máx. hogares tres o más núcleos,Valor máximo de hogares_3 en el grupo de referencia,maximo,635,max(hogares_3),,entero,hogares,f,f,f,f
+hogares_0_porc_max,Máx. % hogares sin núcleo,Valor máximo de hogares_0_porc en el grupo de referencia,maximo,640,max(hogares_0_porc),,porcentaje_2,%,f,f,f,f
+hogares_1_porc_max,Máx. % hogares un núcleo,Valor máximo de hogares_1_porc en el grupo de referencia,maximo,645,max(hogares_1_porc),,porcentaje_2,%,f,f,f,f
+hogares_2_porc_max,Máx. % hogares dos núcleos,Valor máximo de hogares_2_porc en el grupo de referencia,maximo,650,max(hogares_2_porc),,porcentaje_2,%,f,f,f,f
+hogares_3_porc_max,Máx. % hogares tres o más,Valor máximo de hogares_3_porc en el grupo de referencia,maximo,655,max(hogares_3_porc),,porcentaje_2,%,f,f,f,f
+deficit_teorico_viviendas_max,Máx. déficit teórico viviendas,Valor máximo de deficit_teorico_viviendas en el grupo de referencia,maximo,660,max(deficit_teorico_viviendas),,entero,viviendas,f,f,f,f
+deficit_teorico_viviendas_porc_max,Máx. % déficit teórico sobre hogares,Valor máximo de deficit_teorico_viviendas_porc en el grupo de referencia,maximo,662,max(deficit_teorico_viviendas_porc),,porcentaje_2,%,f,f,f,f
+hogares_total_avg,Media total hogares,Valor medio de hogares_total en el grupo de referencia,media,665,avg(hogares_total),,entero,hogares,f,f,f,f
+hogares_0_avg,Media hogares sin núcleo,Valor medio de hogares_0 en el grupo de referencia,media,670,avg(hogares_0),,entero,hogares,f,f,f,f
+hogares_1_avg,Media hogares un núcleo,Valor medio de hogares_1 en el grupo de referencia,media,675,avg(hogares_1),,entero,hogares,f,f,f,f
+hogares_2_avg,Media hogares dos núcleos,Valor medio de hogares_2 en el grupo de referencia,media,680,avg(hogares_2),,entero,hogares,f,f,f,f
+hogares_3_avg,Media hogares tres o más núcleos,Valor medio de hogares_3 en el grupo de referencia,media,685,avg(hogares_3),,entero,hogares,f,f,f,f
+hogares_0_porc_avg,Media % hogares sin núcleo,Valor medio de hogares_0_porc en el grupo de referencia,media,690,avg(hogares_0_porc),,porcentaje_2,%,f,f,f,f
+hogares_1_porc_avg,Media % hogares un núcleo,Valor medio de hogares_1_porc en el grupo de referencia,media,695,avg(hogares_1_porc),,porcentaje_2,%,f,f,f,f
+hogares_2_porc_avg,Media % hogares dos núcleos,Valor medio de hogares_2_porc en el grupo de referencia,media,700,avg(hogares_2_porc),,porcentaje_2,%,f,f,f,f
+hogares_3_porc_avg,Media % hogares tres o más,Valor medio de hogares_3_porc en el grupo de referencia,media,705,avg(hogares_3_porc),,porcentaje_2,%,f,f,f,f
+deficit_teorico_viviendas_avg,Media déficit teórico viviendas,Valor medio de deficit_teorico_viviendas en el grupo de referencia,media,710,avg(deficit_teorico_viviendas),,entero,viviendas,f,f,f,f
+deficit_teorico_viviendas_porc_avg,Media % déficit teórico sobre hogares,Valor medio de deficit_teorico_viviendas_porc en el grupo de referencia,media,712,avg(deficit_teorico_viviendas_porc),,porcentaje_2,%,f,f,f,f
+tamanio_hogar_variacion_2021,Variación del tamaño medio de hogar desde 2021,Diferencia entre el tamaño medio de hogar actual y el valor censal de 2021. Valores positivos indican que los hogares se han comprimido: más personas por vivienda disponible que en 2021.,ratio,713,tamanio_hogar_actual - personas_por_hogar,PT02 (diccionario),decimal_2,pers./hogar,t,t,t,f
+tamanio_hogar_variacion_2021_max,Máximo variación tamaño hogar desde 2021,,maximo,714,max(tamanio_hogar_variacion_2021),,decimal_2,,f,f,f,f
+tamanio_hogar_actual_max,Máximo tamaño medio del hogar actual,,maximo,715,max(tamanio_hogar_actual),,decimal_2,,f,f,f,f
+tamanio_hogar_variacion_2021_avg,Media variación tamaño hogar desde 2021,,media,716,avg(tamanio_hogar_variacion_2021),,decimal_2,,f,f,f,f
+tamanio_hogar_actual_avg,Media tamaño medio del hogar actual,,media,717,avg(tamanio_hogar_actual),,decimal_2,,f,f,f,f
+alq_m2_media_avg,Precio medio del alquiler — media del grupo,Media del precio de alquiler €/m² entre los municipios del mismo tipo. Benchmark de referencia para comparar cada municipio con su grupo.,media,720,avg(alq_m2_media),serpavi_alquiler,decimal_2,€/m²,f,f,t,f
+alq_m2_media_max,Precio medio del alquiler — máximo del grupo,Máximo del precio de alquiler €/m² entre los municipios del mismo tipo.,maximo,725,max(alq_m2_media),serpavi_alquiler,decimal_2,€/m²,f,f,t,f
+alq_m2_variacion_10a_avg,Variación 10 años del alquiler — media del grupo,Media de la variación porcentual del alquiler en 10 años entre los municipios del mismo tipo.,media,730,avg(alq_m2_variacion_10a),serpavi_alquiler,porcentaje_1,%,f,f,t,f
+alq_m2_variacion_10a_max,Variación 10 años del alquiler — máximo del grupo,Máximo de la variación porcentual del alquiler en 10 años entre los municipios del mismo tipo.,maximo,735,max(alq_m2_variacion_10a),serpavi_alquiler,porcentaje_1,%,f,f,t,f
+alq_m2_media,Precio medio del alquiler (€/m²),"Precio medio del alquiler de vivienda habitual por m² (media ponderada por número de viviendas). Fuente: SERPAVI (MIVAU), explotación tributaria AEAT.",base,,,serpavi_alquiler,decimal_2,€/m²,t,t,t,f
+alq_m2_variacion_10a,Variación del precio de alquiler en 10 años (%),"Variación porcentual del precio medio del alquiler por m² respecto a 10 años atrás. Calculada como (precio_actual − precio_hace_10_años) / precio_hace_10_años × 100, usando medias ponderadas por número de viviendas.",base,,,serpavi_alquiler,porcentaje_1,%,t,t,t,f
+alq_m2_year,Año del dato de alquiler,Año del último dato disponible de precio de alquiler SERPAVI.,base,,,serpavi_alquiler,date_year,,f,f,f,f
+ambito,Ámbito,Ámbito,base,,,Determinado en el proceso,,,f,t,t,t
+etiqueta,Etiqueta,Etiqueta,base,,,canarias.nombre | islas.nombre | municipos.nombre | localidades.nombre,texto,,f,t,t,t
+etiqueta_ambito_superior,Etiqueta del ámbito superior,Etiqueta del ámbito superior,base,,,canarias.nombre | islas.nombre | municipos.nombre | localidades.nombre,texto,,f,t,t,t
+fecha_calculo,Fecha de cálculo,Fecha de cálculo,base,,,Determinado en el proceso,fecha,,f,t,t,t
+hogares_0,Hogares sin núcleo familiar,Hogares sin ningún núcleo familiar (personas solas o conviventes sin vínculos familiares de pareja o progenitor-hijo),base,,,,entero,hogares,f,f,t,f
+hogares_1,Hogares con un núcleo familiar,Hogares formados por un único núcleo familiar,base,,,,entero,hogares,f,f,t,f
+hogares_2,Hogares con dos núcleos familiares,Hogares que agrupan dos núcleos familiares distintos en una misma vivienda,base,,,,entero,hogares,f,f,t,f
+hogares_3,Hogares con tres o más núcleos familiares,Hogares que agrupan tres o más núcleos familiares distintos en una misma vivienda,base,,,,entero,hogares,f,f,t,f
+hogares_total,Total de hogares (Censo núcleos),"Total de hogares según el Censo de Población y Viviendas, obtenido por suma de las categorías de núcleos familiares",base,,,,entero,hogares,f,f,t,f
+isla_id,Id de la isla,Id de la isla,base,,,Determinado en el proceso,,,f,t,t,t
+localidad_id,Id de la localidad,Id de la localidad,base,,,Determinado en el proceso,,,f,t,t,t
+municipio_id,Id del municipio,Id del municipio,base,,,Determinado en el proceso,,,f,t,t,t
+personas_por_hogar,Personas por hogar,Personas por hogar,base,,,hogares.miembros,decimal_2,personas ,f,f,f,f
+personas_por_hogar_year,Personas por hogar período,Personas por hogar período,base,,,hogares.year,date_year,,f,f,f,f
+plazas_at_residenciales,Plazas regladas en zonas residenciales,Plazas regladas en zonas residenciales,base,,,alojamientos,entero,plazas,f,t,f,t
+plazas_at_turisticas,Plazas regladas en zonas turísticas,Plazas regladas en zonas turísticas,base,,,alojamientos,entero,plazas,f,t,f,t
+plazas_vv_residenciales,Plazas vacacionales en zonas residenciales,Plazas vacacionales en zonas residenciales,base,,,alojamientos,entero,plazas,f,t,f,t
+plazas_vv_turisticas,Plazas vacacionales en zonas turísticas,Plazas vacacionales en zonas turísticas,base,,,alojamientos,entero,plazas,f,t,f,t
+poblacion,Población censada,Población censada,base,,,poblacion.valor,entero,personas,f,f,f,f
+poblacion_year,Año del censo de población,Año del censo de población,base,,,poblacion.year,entero,,f,f,f,f
+pte_r,Población turística equivalente reglada (PTEr),Población turística equivalente reglada (PTEr),base,,,pte_reglada.pte_reglada,entero,personas,f,t,f,f
+pte_r_year,Año de cálculo de la PTEr,Año de cálculo de la PTEr,base,,,pte_reglada.year,date_year,,f,f,f,f
+pte_v,Población turística equivalente vacacional (PTEv),Población turística equivalente vacacional (PTEv),base,,,pte_vacacional.ptev,entero,personas,f,t,f,f
+pte_v_periodo,Período de cálculo de la PTEv,Período de cálculo de la PTEv,base,,,pte_vacacional.year + pte_vacacional.mes,date_year,,f,f,f,f
+superficie_km2,Superficie en km² ,Superficie en km² ,base,,,superficies.superficie,decimal_2,km²,f,f,f,f
+tamanio_hogar_actual,Tamaño medio del hogar actual,Personas por hogar calculado con la población actualizada y las viviendas habituales del Censo 2021 más viviendas terminadas post-censo (solo Canarias). Indicador de presión habitacional: su aumento respecto a 2021 señala contracción de la oferta frente al crecimiento demográfico.,base_calculado,,,PT01 (poblacion / viviendas_habituales_efectivas),decimal_2,pers./hogar,t,t,t,f
+tipo_isla,Tipo de isla,Tipo de isla,base,,,"Clasificación geográfica: Centrales, Occidentales, Orientales",texto,,f,t,t,t
+tipo_municipio,Tipo de municipio,Tipo de municipio,base,,,Clasificación propia basada en la inclusión de microdestinos y población,texto,,f,t,t,t
+uds_vv_residenciales,Viviendas turísticas en zonas residenciales,Viviendas turísticas en zonas residenciales,base,,,alojamientos,entero,viviendas,f,t,f,t
+uds_vv_turisticas,Viviendas turísticas en zonas turísticas,Viviendas turísticas en zonas turísticas,base,,,alojamientos,entero,viviendas,f,t,f,t
+viviendas_esporadicas,Viviendas de uso esporádico,Viviendas de uso esporádico,base,,,parque_viviendas.esporadicas,entero,viviendas,f,f,f,f
+viviendas_habituales,Viviendas habituales,Viviendas habituales,base,,,parque_viviendas.habituales,entero,viviendas,f,f,f,f
+viviendas_total,Total de viviendas,Total de viviendas,base,,,parque_viviendas.total,entero,viviendas,f,f,f,f
+viviendas_vacias,Viviendas vacías,Viviendas vacías,base,,,parque_viviendas.vacias,entero,viviendas,f,f,f,f
+viviendas_year,Año del Censo de viviendas,"Año de referencia del Censo del que proceden los datos de viviendas (habituales, vacías, esporádicas). Permite aplicar la corrección COVID: censos anteriores a 2026 usan viviendas_habituales directamente.",base,,,viviendas_municipios.year,date_year,,f,f,t,f
+year_nucleos_censales,Año del Censo de núcleos familiares,Año de referencia del Censo del que proceden los datos de núcleos familiares por hogar,base,,,,date_year,,f,f,t,f

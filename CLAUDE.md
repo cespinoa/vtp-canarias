@@ -50,6 +50,10 @@ Pipeline activo compuesto por tres scripts PT ejecutados en secuencia:
     - Hace TRUNCATE de base_snapshots y captura datos brutos para los cuatro ámbitos:
       canarias, isla, municipio, localidad
     - Incluye: oferta VV/AR, población, PTE, viviendas, superficie, hogares
+    - tamanio_hogar_actual = poblacion / viviendas_habituales_efectivas (campo base_calculado)
+      Para canarias: viviendas_habituales + sum(viviendas terminadas ES70, years > 2021 <= año_snapshot)
+      Para isla/municipio: viviendas_habituales del Censo 2021 (no hay desglose de obra nueva)
+      Indicador de presión habitacional: sube cuando la población crece más que el parque residencial
     - pte_v usa la media de los últimos 12 meses <= fecha del snapshot (no el dato puntual)
       → elimina la estacionalidad para análisis estructural
     - pte_v_periodo almacena el rango "YYYY-MM/YYYY-MM" de los meses promediados

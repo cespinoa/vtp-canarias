@@ -247,6 +247,10 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
   nuc   <- get_nucleos_censales(ambito, i_id, m_id)
   alq   <- get_serpavi(ambito, i_id, m_id, f_p)
 
+  viv_efectivas <- if (ambito == "canarias") ext$hab + terminadas_post2021 else ext$hab
+  tamanio_actual <- if (ambito != "localidad" && !is.na(viv_efectivas) && viv_efectivas > 0)
+    round(m_dat$pob / viv_efectivas, 2) else NA_real_
+
   data.frame(
     ambito        = ambito,
     isla_id       = as.integer(i_id),
@@ -282,9 +286,21 @@ capturar <- function(ambito, i_id, m_id, l_id, f_p, nom) {
     hogares_3              = nuc$n3,
     alq_m2_media           = alq$media,
     alq_m2_year            = alq$anyo,
-    alq_m2_variacion_10a   = alq$var10
+    alq_m2_variacion_10a   = alq$var10,
+    tamanio_hogar_actual   = tamanio_actual
   )
 }
+
+# --- VIVIENDAS TERMINADAS POST-CENSO (solo Canarias ES70) ---
+# Corrección sobre viviendas_habituales del Censo 2021 para el cálculo de tamanio_hogar_actual.
+# Isla y municipio no tienen desglose disponible; usan viviendas_habituales del censo directamente.
+terminadas_post2021 <- dbGetQuery(con, "
+  SELECT COALESCE(SUM(viviendas_terminadas), 0) AS total
+  FROM vivienda_iniciada_terminada_canarias
+  WHERE territorio_codigo = 'ES70' AND tipo_periodo = 'anual'
+    AND year > 2021 AND year <= $1",
+  params = list(as.integer(format(fecha_proceso, "%Y"))))$total
+cat(sprintf("Viviendas terminadas post-Censo 2021 (Canarias ES70): %d\n", as.integer(terminadas_post2021)))
 
 # --- FACTORES DE CORRECCIÓN PTEv (FRONTUR-based) ---
 # Para Canarias e islas: reemplaza pte_v por PTEv_real = PTEt(FRONTUR×EGT/365) - PTEr(reglado)
