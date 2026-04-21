@@ -378,6 +378,27 @@ Estrategia de carga: TRUNCATE + reload completo.
 Nota: los datos de los últimos años pueden diferir ligeramente del informe TIC
   (el ISTAC revisa retroactivamente).
 
+### Estadística de Hipotecas (hipotecas)
+Fuente: INE, tres tablas combinadas en un único script de descarga.
+Script de descarga: ine_hipotecas.py → tmp/hipotecas_YYYYMMDD.csv
+Script de importación: importar_hipotecas.R
+
+Territorios: Nacional y Canarias.
+Cobertura: mensual desde enero 2003 (plazo y tipo de interés desde enero 2009).
+Campos fuente:
+  n_hipotecas_viv, importe_miles_viv, importe_medio_viv  (tabla 13896, CCAA)
+  plazo_anios                                             (tabla 24458, nacional)
+  tipo_interes_total/fijo/variable (%)                    (tabla 24457, nacional)
+Campos calculados (amortización francesa C = P·r(1+r)^n/((1+r)^n−1)):
+  cuota_total, cuota_fija, cuota_variable  (€/mes)
+Nota: plazo y tipo son solo nacionales; para Canarias se aplican los parámetros
+  nacionales al importe medio de Canarias (aproximación territorial razonable).
+Estrategia de carga: TRUNCATE + reload completo (el INE revisa datos retroactivos).
+Registros: 554 (277 meses × 2 territorios).
+
+Canarias enero 2026: importe medio 139.965 €, cuota total estimada 654 €/mes
+  (tipo 2,87%, plazo 25 años). Máximo cuota estimado en pico 2022-2023 (subida tipos BCE).
+
 ### Índice de Precios de la Vivienda (ipv_vivienda)
 Fuente: INE, tabla 25171 "Índices por CCAA: general, vivienda nueva y de segunda mano".
 Script de descarga: ine_ipv.py → tmp/ipv_YYYYMMDD.csv

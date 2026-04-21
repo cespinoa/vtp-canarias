@@ -410,6 +410,21 @@ COMMENT ON MATERIALIZED VIEW mv_full_snapshots_dashboard IS
 @importacion: informes/PT03-Exportar_datos.R (REFRESH MATERIALIZED VIEW + REINDEX + CLUSTER)
 @actualizacion: En cada ciclo de PT03';
 
+COMMENT ON TABLE hipotecas IS
+'Estadistica de Hipotecas (INE). Numero, importe, plazo y tipo de interes
+para viviendas. Cuota mensual calculada con amortizacion francesa (C = P*r*(1+r)^n/((1+r)^n-1)).
+Territorios: nacional y canarias. Plazo y tipo de interes: solo a nivel nacional
+(aplicados a Canarias para el calculo de cuota).
+
+@fuente: INE
+@dataset: 24457 (tipo interes), 24458 (plazo), 13896 (num. e importe CCAA)
+@descarga: ine_hipotecas.py -> tmp/hipotecas_YYYYMMDD.csv
+@importacion: importar_hipotecas.R
+@cobertura_temporal: 2003-M01 hasta el mes mas reciente publicado
+@cobertura_geografica: Nacional y Canarias
+@actualizacion: Mensual (publicacion ~2 meses despues del mes de referencia)
+@notas: Importe en la tabla 13896 en miles EUR. Plazo en anios. Tipo en %.';
+
 COMMENT ON TABLE ipv_vivienda IS
 'Índice de Precios de la Vivienda (IPV) base 2015, por trimestre y tipo de vivienda.
 Nacional (00) y Canarias (05). Fuente: INE tabla 25171.
