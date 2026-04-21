@@ -397,7 +397,9 @@ Estrategia de carga: TRUNCATE + reload completo (el INE revisa datos retroactivo
 Registros: 554 (277 meses × 2 territorios).
 
 Canarias enero 2026: importe medio 139.965 €, cuota total estimada 654 €/mes
-  (tipo 2,87%, plazo 25 años). Máximo cuota estimado en pico 2022-2023 (subida tipos BCE).
+  (tipo 2,87%, plazo 25 años). Pico de cuota en 2025 por precios récord pese a tipos bajando.
+Decisión de diseño: NO se integra en el snapshot. Solo nivel CCAA, sin desglose insular ni municipal.
+Los datos se exponen directamente desde el visor (controller Drupal) como indicador de referencia contextual.
 
 ### Índice de Precios de la Vivienda (ipv_vivienda)
 Fuente: INE, tabla 25171 "Índices por CCAA: general, vivienda nueva y de segunda mano".
@@ -412,8 +414,8 @@ Estrategia de carga: TRUNCATE + reload completo (el INE revisa datos retroactivo
 Registros: 456 (76 trimestres × 2 territorios × 3 tipos).
 
 Canarias Q4 2025: general=178,5 (+11,0% anual), nueva=201,0 (+9,6%), segunda_mano=176,5 (+11,1%).
-Nota: el IPV no tiene desglose insular ni municipal; solo es indicador de tendencia a nivel CCAA.
-Pendiente de decisión: integrar en snapshot (posiblemente como dato de referencia externa de Canarias).
+Decisión de diseño: NO se integra en el snapshot. Solo nivel CCAA, sin desglose insular ni municipal.
+Los datos se exponen directamente desde el visor (controller Drupal) como indicador de referencia contextual.
 
 ### Precio de Referencia del Alquiler (serpavi_alquiler)
 Fuente: MIVAU, Sistema Estatal de Referencia del Precio del Alquiler de Vivienda (SERPAVI).
@@ -498,6 +500,14 @@ Nota: la serie histórica completa (2011–2024) queda disponible directamente e
                                            Tipos: general, nueva, segunda_mano. Q4 2007–presente.
                                            Campos: indice, variacion_anual, variacion_trimestral.
                                            ine_ipv.py + importar_ipv.R
+                                           Solo indicador analítico y de referencia para el visor —
+                                           NO integrada en snapshot (solo nivel CCAA, sin desglose insular).
+    hipotecas                              Estadística de Hipotecas mensual. Nacional y Canarias.
+                                           Importe medio, plazo, tipo de interés (fijo/variable) y
+                                           cuota mensual calculada (amortización francesa).
+                                           ine_hipotecas.py + importar_hipotecas.R. 2003–presente.
+                                           Solo indicador de referencia para el visor —
+                                           NO integrada en snapshot (solo nivel CCAA).
     ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.
