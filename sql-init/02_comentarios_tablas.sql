@@ -410,6 +410,18 @@ COMMENT ON MATERIALIZED VIEW mv_full_snapshots_dashboard IS
 @importacion: informes/PT03-Exportar_datos.R (REFRESH MATERIALIZED VIEW + REINDEX + CLUSTER)
 @actualizacion: En cada ciclo de PT03';
 
+COMMENT ON TABLE ipv_vivienda IS
+'Índice de Precios de la Vivienda (IPV) base 2015, por trimestre y tipo de vivienda.
+Nacional (00) y Canarias (05). Fuente: INE tabla 25171.
+
+@fuente: INE
+@dataset: 25171 — Índices por CCAA: general, vivienda nueva y de segunda mano
+@descarga: ine_ipv.py → tmp/ipv_YYYYMMDD.csv
+@importacion: importar_ipv.R
+@cobertura_temporal: Q4 2007 – trimestre más reciente publicado (trimestral)
+@cobertura_geografica: Nacional (00) y Canarias (05)
+@actualizacion: Trimestral (publicación ~mes siguiente al cierre del trimestre)';
+
 COMMENT ON MATERIALIZED VIEW v_mapa_etiquetas IS
 'Vista materializada de etiquetas para el visor cartográfico. Una fila por ámbito (canarias, isla, municipio) con el texto de la etiqueta y un punto representativo calculado con ST_PointOnSurface. Alimenta la capa de etiquetas del mapa.
 

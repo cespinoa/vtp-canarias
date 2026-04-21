@@ -378,6 +378,22 @@ Estrategia de carga: TRUNCATE + reload completo.
 Nota: los datos de los últimos años pueden diferir ligeramente del informe TIC
   (el ISTAC revisa retroactivamente).
 
+### Índice de Precios de la Vivienda (ipv_vivienda)
+Fuente: INE, tabla 25171 "Índices por CCAA: general, vivienda nueva y de segunda mano".
+Script de descarga: ine_ipv.py → tmp/ipv_YYYYMMDD.csv
+Script de importación: importar_ipv.R
+
+Territorios: Nacional (código 00) y Canarias (código 05).
+Tipos de vivienda: general, nueva, segunda_mano.
+Cobertura: Q4 2007 – trimestre más reciente publicado.
+Campos: indice (base 2015=100), variacion_anual (%), variacion_trimestral (%).
+Estrategia de carga: TRUNCATE + reload completo (el INE revisa datos retroactivos).
+Registros: 456 (76 trimestres × 2 territorios × 3 tipos).
+
+Canarias Q4 2025: general=178,5 (+11,0% anual), nueva=201,0 (+9,6%), segunda_mano=176,5 (+11,1%).
+Nota: el IPV no tiene desglose insular ni municipal; solo es indicador de tendencia a nivel CCAA.
+Pendiente de decisión: integrar en snapshot (posiblemente como dato de referencia externa de Canarias).
+
 ### Precio de Referencia del Alquiler (serpavi_alquiler)
 Fuente: MIVAU, Sistema Estatal de Referencia del Precio del Alquiler de Vivienda (SERPAVI).
 Explotación de fuentes tributarias (AEAT, Modelo 100) sobre contratos de arrendamiento
@@ -456,6 +472,11 @@ Nota: la serie histórica completa (2011–2024) queda disponible directamente e
                                            alq_m2_p75, alq_anual_media, superficie_media.
                                            Integrada en snapshot: alq_m2_media + alq_m2_variacion_10a.
                                            Serie histórica consultable directamente (no en series.json).
+    ipv_vivienda                           Índice de Precios de la Vivienda (IPV) base 2015.
+                                           Fuente: INE tabla 25171. Nacional (00) y Canarias (05).
+                                           Tipos: general, nueva, segunda_mano. Q4 2007–presente.
+                                           Campos: indice, variacion_anual, variacion_trimestral.
+                                           ine_ipv.py + importar_ipv.R
     ech_tamano_hogar_ccaa                  Tamaño medio del hogar por CCAA y trimestre, Q1 2021–
     nucleos_censales                       Hogares por nº de núcleos familiares, 88 municipios, Censo 2021
                                            Formato ancho: hogares_0..3 + year. Solo nivel municipio.
