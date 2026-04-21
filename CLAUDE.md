@@ -184,7 +184,7 @@ Fuente dual: ISTAC (niveles canarias/isla y municipios pre-1996) + INE (municipi
 Un solo origen de verdad por año/ámbito; el campo fuente registra la procedencia.
 
 Estado actual de la tabla:
-  - canarias + isla: ISTAC C00025A_000002, años 1986–2024
+  - canarias + isla: ISTAC C00025A_000002, años 1986–2024; 2025 agregado desde INE
   - municipio 1986–1995: ISTAC C00025A_000002 (~783 registros)
   - municipio 1996–2025: INE t=29005 (2.541 registros, incluyendo año 2025)
 
@@ -222,9 +222,16 @@ Estrategia de carga: UPSERT (ON CONFLICT DO UPDATE) vía tabla temporal.
 Sobreescribe los registros ISTAC de municipios para 1996+. Los años 1986–1995 y
 los niveles canarias/isla (solo ISTAC) permanecen intactos.
 
+Agregación isla/canarias: al final del script, si el INE tiene años más recientes
+que el ISTAC para los niveles canarias/isla, se calculan por suma de municipios y
+se insertan con fuente "INE t=29005 (agregado municipal)". Estrategia DELETE+INSERT
+(ON CONFLICT no funciona con NULLs en isla_id/municipio_id). Cuando el ISTAC
+publique el dato oficial, importar_poblacion.R (TRUNCATE+reload) lo sobreescribirá
+automáticamente sin intervención manual.
+
 Secuencia de importación:
   1. Rscript descarga_datos/importar_poblacion.R      # ISTAC: todos los niveles
-  2. Rscript descarga_datos/importar_poblacion_ine.R  # INE: municipios 1996+
+  2. Rscript descarga_datos/importar_poblacion_ine.R  # INE: municipios 1996+ + agregado isla/canarias
 
 ### Hogares y Tamaño Medio (hogares)
 Fuente: ISTAC, dataset C00025A_000001 "Población, hogares y tamaño medio según censos. Municipios".

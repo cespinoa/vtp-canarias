@@ -15,9 +15,14 @@
 # campo fuente. Esta carga hace UPSERT solo sobre los registros municipales
 # de fuente INE, sin tocar los de ISTAC.
 #
-# Estrategia: tabla temporal + INSERT ON CONFLICT DO UPDATE.
+# Estrategia municipio: tabla temporal + INSERT ON CONFLICT DO UPDATE.
 # La clave única (ambito, isla_id, municipio_id, year) funciona aquí porque
 # todos los registros municipales tienen municipio_id NOT NULL.
+#
+# Agregación isla/canarias: si el INE tiene años más recientes que el ISTAC
+# para isla/canarias, se calculan por suma de municipios y se cargan con
+# fuente "INE t=29005 (agregado municipal)". El ISTAC los sobreescribirá
+# cuando publique el dato oficial (importar_poblacion.R usa TRUNCATE+reload).
 # ==============================================================================
 
 library(tidyverse)
@@ -104,9 +109,79 @@ tryCatch({
   stop("Error en la carga: ", conditionMessage(e))
 })
 
-# --- 7. RESUMEN FINAL ---
-totales <- dbGetQuery(con, "SELECT fuente, count(*) n FROM poblacion WHERE ambito='municipio' GROUP BY fuente")
-cat("\nRegistros municipio en BD por fuente:\n")
+# --- 7. AGREGACIÓN ISLA/CANARIAS PARA AÑOS SIN DATO ISTAC ---
+# Solo para años más recientes que el máximo en ISTAC para esos ámbitos.
+# ON CONFLICT no funciona con NULLs en la clave única → DELETE + INSERT.
+cat("\nAgregando isla/canarias para años sin dato ISTAC...\n")
+
+max_istac <- dbGetQuery(con, "
+  SELECT MAX(year) AS max_year
+  FROM poblacion
+  WHERE ambito IN ('canarias', 'isla')
+    AND fuente LIKE 'ISTAC%'
+")$max_year
+
+anyos_nuevos <- sort(unique(tabla_final$year[tabla_final$year > max_istac]))
+
+if (length(anyos_nuevos) == 0) {
+  cat("Sin años nuevos que agregar (ISTAC ya tiene hasta", max_istac, ").\n")
+} else {
+  cat("Años a agregar:", paste(anyos_nuevos, collapse = " "), "\n")
+
+  datos_nuevos <- tabla_final %>% filter(year %in% anyos_nuevos)
+
+  agg_isla <- datos_nuevos %>%
+    group_by(isla_id, year) %>%
+    summarise(valor = sum(valor), .groups = "drop") %>%
+    mutate(ambito = "isla", municipio_id = NA_integer_, fuente = "INE t=29005 (agregado municipal)")
+
+  agg_canarias <- datos_nuevos %>%
+    group_by(year) %>%
+    summarise(valor = sum(valor), .groups = "drop") %>%
+    mutate(ambito = "canarias", isla_id = NA_integer_, municipio_id = NA_integer_, fuente = "INE t=29005 (agregado municipal)")
+
+  agg_total <- bind_rows(agg_isla, agg_canarias)
+  cat("Registros agregados a insertar:", nrow(agg_total), "\n")
+
+  dbBegin(con)
+  tryCatch({
+    for (yr in anyos_nuevos) {
+      dbExecute(con, sprintf("
+        DELETE FROM poblacion
+        WHERE ambito IN ('canarias', 'isla')
+          AND municipio_id IS NULL
+          AND year = %d
+          AND fuente = 'INE t=29005 (agregado municipal)'
+      ", yr))
+    }
+
+    dbWriteTable(con, "pob_agg_tmp", agg_total, temporary = TRUE,
+                 overwrite = TRUE, row.names = FALSE)
+
+    n_agg <- dbExecute(con, "
+      INSERT INTO poblacion (ambito, isla_id, municipio_id, year, valor, fuente)
+      SELECT ambito, isla_id, municipio_id, year, valor, fuente
+      FROM pob_agg_tmp
+    ")
+
+    dbCommit(con)
+    cat("Insertados:", n_agg, "registros agregados.\n")
+  }, error = function(e) {
+    dbRollback(con)
+    stop("Error en la carga agregada: ", conditionMessage(e))
+  })
+
+  cat("\nResumen de población agregada (año más reciente):\n")
+  resumen_agg <- agg_canarias %>%
+    bind_rows(agg_isla %>% arrange(isla_id)) %>%
+    arrange(ambito, isla_id) %>%
+    select(ambito, isla_id, year, valor, fuente)
+  print(resumen_agg)
+}
+
+# --- 8. RESUMEN FINAL ---
+totales <- dbGetQuery(con, "SELECT ambito, fuente, count(*) n FROM poblacion GROUP BY ambito, fuente ORDER BY ambito, fuente")
+cat("\nRegistros en BD por ámbito y fuente:\n")
 print(totales)
 
 dbDisconnect(con)
